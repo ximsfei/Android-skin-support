@@ -36,7 +36,6 @@ public class MainActivity extends SkinCompatActivity {
                     @Override
                     public void onSuccess() {
                         SkinLog.d("onSuccess");
-                        clearWindowStatusBarColor();
                     }
 
                     @Override
@@ -51,7 +50,6 @@ public class MainActivity extends SkinCompatActivity {
             @Override
             public void onClick(View view) {
                 SkinCompatManager.getInstance().restoreDefaultTheme();
-                setWindowStatusBarColor();
             }
         });
         AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.auto);
