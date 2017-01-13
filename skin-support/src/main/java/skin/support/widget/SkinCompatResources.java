@@ -81,45 +81,16 @@ public class SkinCompatResources {
     }
 
     public ColorStateList getColorStateList(int resId) {
-        boolean isExternalSkin = true;
-        if (mResources == null || isDefaultSkin) {
-            isExternalSkin = false;
+        ColorStateList colorStateList = ContextCompat.getColorStateList(mAppContext, resId);
+        if (isDefaultSkin) {
+            return colorStateList;
         }
 
         String resName = mAppContext.getResources().getResourceEntryName(resId);
-        if (isExternalSkin) {
-            int trueResId = mResources.getIdentifier(resName, "color", mSkinPkgName);
-            ColorStateList trueColorList;
-            if (trueResId == 0) { // 如果皮肤包没有复写该资源，但是需要判断是否是ColorStateList
-                try {
-                    ColorStateList originColorList = mAppContext.getResources().getColorStateList(resId);
-                    return originColorList;
-                } catch (Resources.NotFoundException e) {
-                    e.printStackTrace();
-                    SkinLog.e("resName = " + resName + " NotFoundException : " + e.getMessage());
-                }
-            } else {
-                try {
-                    trueColorList = mResources.getColorStateList(trueResId);
-                    return trueColorList;
-                } catch (Resources.NotFoundException e) {
-                    e.printStackTrace();
-                    SkinLog.e("resName = " + resName + " NotFoundException :" + e.getMessage());
-                }
-            }
-        } else {
-            try {
-                ColorStateList originColorList = mAppContext.getResources().getColorStateList(resId);
-                return originColorList;
-            } catch (Resources.NotFoundException e) {
-                e.printStackTrace();
-                SkinLog.e("resName = " + resName + " NotFoundException :" + e.getMessage());
-            }
 
-        }
+        int targetResId = mResources.getIdentifier(resName, "color", mSkinPkgName);
 
-        int[][] states = new int[1][1];
-        return new ColorStateList(states, new int[]{mAppContext.getResources().getColor(resId)});
+        return targetResId == 0 ? colorStateList : mResources.getColorStateList(targetResId);
     }
 
     public int getStatusBarColor() {
