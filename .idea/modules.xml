@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Android-skin-support.iml" filepath="$PROJECT_DIR$/Android-skin-support.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Skin.iml" filepath="$PROJECT_DIR$/Skin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/skin.iml" filepath="$PROJECT_DIR$/skin.iml" />
       <module fileurl="file://$PROJECT_DIR$/skin-app/skin-app.iml" filepath="$PROJECT_DIR$/skin-app/skin-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/skin-night/skin-night.iml" filepath="$PROJECT_DIR$/skin-night/skin-night.iml" />
       <module fileurl="file://$PROJECT_DIR$/skin-support/skin-support.iml" filepath="$PROJECT_DIR$/skin-support/skin-support.iml" />
-      <module fileurl="file://$PROJECT_DIR$/skinsample/skinsample.iml" filepath="$PROJECT_DIR$/skinsample/skinsample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/skin-support-design/skin-support-design.iml" filepath="$PROJECT_DIR$/skin-support-design/skin-support-design.iml" />
     </modules>
   </component>
 </project>
