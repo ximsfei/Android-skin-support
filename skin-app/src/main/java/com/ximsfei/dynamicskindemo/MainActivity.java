@@ -8,6 +8,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.MultiAutoCompleteTextView;
+import android.widget.Toast;
 
 import skin.support.SkinCompatManager;
 import skin.support.app.SkinCompatActivity;
@@ -52,10 +54,18 @@ public class MainActivity extends SkinCompatActivity {
                 SkinCompatManager.getInstance().restoreDefaultTheme();
             }
         });
-        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.auto);
+        findViewById(R.id.image_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Image Button", Toast.LENGTH_SHORT).show();
+            }
+        });
+        MultiAutoCompleteTextView autoCompleteTextView = (MultiAutoCompleteTextView) findViewById(R.id.auto);
         String[] arr = {"aa", "aab", "aac"};
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);
         autoCompleteTextView.setAdapter(arrayAdapter);
+        autoCompleteTextView.setThreshold(1);
+        autoCompleteTextView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
     }
 
     private void initToolbar() {

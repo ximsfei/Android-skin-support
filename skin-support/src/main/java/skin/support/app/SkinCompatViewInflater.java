@@ -10,11 +10,8 @@ import android.support.v4.util.ArrayMap;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.ContextThemeWrapper;
-import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatCheckedTextView;
-import android.support.v7.widget.AppCompatImageButton;
-import android.support.v7.widget.AppCompatMultiAutoCompleteTextView;
 import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.AppCompatSeekBar;
@@ -35,8 +32,10 @@ import skin.support.widget.SkinCompatAutoCompleteTextView;
 import skin.support.widget.SkinCompatButton;
 import skin.support.widget.SkinCompatEditText;
 import skin.support.widget.SkinCompatFrameLayout;
+import skin.support.widget.SkinCompatImageButton;
 import skin.support.widget.SkinCompatImageView;
 import skin.support.widget.SkinCompatLinearLayout;
+import skin.support.widget.SkinCompatMultiAutoCompleteTextView;
 import skin.support.widget.SkinCompatRelativeLayout;
 import skin.support.widget.SkinCompatTextView;
 import skin.support.widget.SkinCompatToolbar;
@@ -114,7 +113,7 @@ public class SkinCompatViewInflater {
                 view = new AppCompatSpinner(context, attrs);
                 break;
             case "ImageButton":
-                view = new AppCompatImageButton(context, attrs);
+                view = new SkinCompatImageButton(context, attrs);
                 break;
             case "CheckBox":
                 view = new AppCompatCheckBox(context, attrs);
@@ -129,7 +128,7 @@ public class SkinCompatViewInflater {
                 view = new SkinCompatAutoCompleteTextView(context, attrs);
                 break;
             case "MultiAutoCompleteTextView":
-                view = new AppCompatMultiAutoCompleteTextView(context, attrs);
+                view = new SkinCompatMultiAutoCompleteTextView(context, attrs);
                 break;
             case "RatingBar":
                 view = new AppCompatRatingBar(context, attrs);

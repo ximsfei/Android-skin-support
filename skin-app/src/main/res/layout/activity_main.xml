@@ -21,7 +21,8 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/image_button"
         android:layout_width="match_parent"
         android:layout_height="112dp"
         android:background="@drawable/picture"
@@ -46,7 +47,7 @@
         android:text="恢复默认 style=@style/TextStyle"
         android:textSize="18sp" />
 
-    <AutoCompleteTextView
+    <MultiAutoCompleteTextView
         android:id="@+id/auto"
         style="@style/TextStyle"
         android:popupBackground="@color/colorAccent"
@@ -105,4 +106,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary" />
+
+    <CheckedTextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
 </LinearLayout>
