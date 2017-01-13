@@ -1,8 +1,10 @@
 package com.ximsfei.dynamicskindemo;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 
 import skin.support.SkinCompatManager;
@@ -32,6 +34,7 @@ public class MainActivity extends SkinCompatActivity {
                     @Override
                     public void onSuccess() {
                         SkinLog.d("onSuccess");
+                        clearWindowStatusBarColor();
                     }
 
                     @Override
@@ -46,6 +49,7 @@ public class MainActivity extends SkinCompatActivity {
             @Override
             public void onClick(View view) {
                 SkinCompatManager.getInstance().restoreDefaultTheme();
+                setWindowStatusBarColor();
             }
         });
     }
@@ -55,4 +59,28 @@ public class MainActivity extends SkinCompatActivity {
         setSupportActionBar(toolbar);
     }
 
+    public void setWindowStatusBarColor() {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(getResources().getColor(android.R.color.darker_gray));
+                //window.setNavigationBarColor(color);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void clearWindowStatusBarColor() {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Window window = getWindow();
+                window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
