@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 import skin.support.R;
+import skin.support.content.res.SkinCompatResources;
 import skin.support.utils.SkinLog;
 
 /**

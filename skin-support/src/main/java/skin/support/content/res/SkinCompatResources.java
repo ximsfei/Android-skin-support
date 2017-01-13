@@ -1,13 +1,10 @@
-package skin.support.widget;
+package skin.support.content.res;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
-
-import skin.support.utils.SkinLog;
 
 /**
  * Created by ximsfei on 2017/1/11.

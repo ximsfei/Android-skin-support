@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import skin.support.R;
+import skin.support.content.res.SkinCompatResources;
 
 /**
  * Created by ximsfei on 2017/1/10.

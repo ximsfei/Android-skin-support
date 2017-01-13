@@ -10,6 +10,7 @@ import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 
 import skin.support.R;
+import skin.support.content.res.SkinCompatResources;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 

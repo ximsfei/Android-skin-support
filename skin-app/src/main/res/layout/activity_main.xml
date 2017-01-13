@@ -21,93 +21,116 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-    <ImageButton
-        android:id="@+id/image_button"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="112dp"
-        android:background="@drawable/picture"
-        android:scaleType="fitXY" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:gravity="center_vertical"
-        android:text="切换皮肤 background=?attr/colorPrimary"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text1"
-        style="@style/TextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:gravity="center_vertical"
-        android:text="恢复默认 style=@style/TextStyle"
-        android:textSize="18sp" />
+            <ImageButton
+                android:id="@+id/image_button"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:background="@drawable/picture"
+                android:scaleType="fitXY" />
 
-    <MultiAutoCompleteTextView
-        android:id="@+id/auto"
-        style="@style/TextStyle"
-        android:popupBackground="@color/colorAccent"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" />
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:gravity="center_vertical"
+                android:text="切换皮肤 background=?attr/colorPrimary"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:clickable="true"
-        android:gravity="center_vertical"
-        android:text="点击可变文本颜色 @color/color_selector"
-        android:textColor="@color/color_selector"
-        android:textSize="18sp" />
+            <TextView
+                android:id="@+id/text1"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:text="恢复默认 style=@style/TextStyle"
+                android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <MultiAutoCompleteTextView
+                android:id="@+id/auto"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:popupBackground="@color/colorAccent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorPrimaryDark"
-            android:gravity="center_vertical"
-            android:text="ImageView\nsrc=@color/" />
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:text="点击可变文本颜色 @color/color_selector"
+                android:textColor="@color/color_selector"
+                android:textSize="18sp" />
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_weight="1"
-            android:src="@color/colorPrimary" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <Button
-        style="@style/TextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:gravity="center_vertical"
-        android:text="Button @style/TextStyle"
-        android:textAllCaps="false"
-        android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center_vertical"
+                    android:text="ImageView\nsrc=@color/"
+                    android:textColor="@color/colorAccent" />
 
-    <EditText
-        style="@style/TextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:focusable="false"
-        android:gravity="center_vertical"
-        android:text="EditText focusable=false @color/"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_weight="1"
+                    android:src="@color/colorPrimary" />
+            </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary" />
+            <Button
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:text="Button @style/TextStyle"
+                android:textAllCaps="false"
+                android:textSize="18sp" />
 
-    <CheckedTextView
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" />
+            <EditText
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:text="EditText focusable=false @color/"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize" />
+            <CheckedTextView
+                android:id="@+id/checked_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:checkMark="@drawable/button_checked"
+                android:filterTouchesWhenObscured="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:text="CheckedTextView"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -23,7 +23,7 @@ import skin.support.utils.SkinConstants;
 import skin.support.utils.SkinFileUtils;
 import skin.support.utils.SkinLog;
 import skin.support.utils.SkinPreference;
-import skin.support.widget.SkinCompatResources;
+import skin.support.content.res.SkinCompatResources;
 
 /**
  * Created by ximsfei on 17-1-10.

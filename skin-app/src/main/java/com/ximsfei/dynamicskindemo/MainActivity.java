@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckedTextView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
@@ -58,6 +59,15 @@ public class MainActivity extends SkinCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Image Button", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.checked_text_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                CheckedTextView checkedTextView = (CheckedTextView) v;
+                checkedTextView.toggle();
+//                checkedMap.put(position, checkedTextView.isChecked());
             }
         });
         MultiAutoCompleteTextView autoCompleteTextView = (MultiAutoCompleteTextView) findViewById(R.id.auto);
