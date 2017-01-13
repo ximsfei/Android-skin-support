@@ -23,7 +23,7 @@ public class MainActivity extends SkinCompatActivity {
         findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SkinCompatManager.getInstance().loadSkin("new.skin", new SkinCompatManager.SkinLoaderListener() {
+                SkinCompatManager.getInstance().loadSkin("red.skin", new SkinCompatManager.SkinLoaderListener() {
                     @Override
                     public void onStart() {
                         SkinLog.d("onStart");

@@ -62,14 +62,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:gravity="center_vertical"
-            android:text="ImageView\nbackground\nsrc=@drawable/" />
+            android:text="ImageView\nsrc=@color/" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:layout_weight="1"
-            android:src="@drawable/colorPrimary1" />
+            android:src="@color/colorPrimary" />
     </LinearLayout>
 
     <Button
@@ -88,6 +89,6 @@
         android:focusable="false"
         android:gravity="center_vertical"
         android:text="EditText focusable=false @color/"
-        android:textColor="@color/black"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp" />
 </LinearLayout>

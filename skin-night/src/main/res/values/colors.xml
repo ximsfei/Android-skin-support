@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#9F51B5</color>
-    <color name="colorPrimaryDark">#903F9F</color>
-    <color name="colorAccent">#004081</color>
-    <color name="black">#ffffaeed</color>
-    <drawable name="colorPrimary1">#9F51B5</drawable>
-    <drawable name="colorAccent1">#004081</drawable>
-
-    <color name="holo_red_dark">#ff669900</color>
-    <drawable name="black3">#ff0220</drawable>
+    <color name="colorPrimary">#ffce3d3a</color>
+    <color name="colorPrimaryDark">#ffce3d3a</color>
+    <color name="colorAccent">#ffffffff</color>
 </resources>

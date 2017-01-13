@@ -3,12 +3,4 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="black">#ff000000</color>
-
-    <drawable name="colorPrimary1">#3F51B5</drawable>
-    <drawable name="colorAccent1">#FF4081</drawable>
-
-    <color name="holo_red_dark">#ffcc0000</color>
-
-    <drawable name="black3">#FF4081</drawable>
 </resources>
