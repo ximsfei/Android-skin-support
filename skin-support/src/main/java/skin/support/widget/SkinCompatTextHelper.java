@@ -2,11 +2,11 @@ package skin.support.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.v7.appcompat.R;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import skin.support.R;
 import skin.support.utils.SkinLog;
 
 /**
@@ -30,35 +30,35 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
 
         // First read the TextAppearance style id
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
-                R.styleable.AppCompatTextHelper, defStyleAttr, 0);
-        final int ap = a.getResourceId(R.styleable.AppCompatTextHelper_android_textAppearance, INVALID_ID);
+                R.styleable.SkinCompatTextHelper, defStyleAttr, 0);
+        final int ap = a.getResourceId(R.styleable.SkinCompatTextHelper_android_textAppearance, INVALID_ID);
         SkinLog.d(TAG, "ap = " + ap);
         a.recycle();
 
         if (ap != INVALID_ID) {
-            a = TintTypedArray.obtainStyledAttributes(context, ap, R.styleable.TextAppearance);
-            if (a.hasValue(R.styleable.TextAppearance_android_textColor)) {
-                mTextColorResId = a.getResourceId(R.styleable.TextAppearance_android_textColor, INVALID_ID);
+            a = TintTypedArray.obtainStyledAttributes(context, ap, R.styleable.SkinTextAppearance);
+            if (a.hasValue(R.styleable.SkinTextAppearance_android_textColor)) {
+                mTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
                 SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
             }
-            if (a.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
+            if (a.hasValue(R.styleable.SkinTextAppearance_android_textColorHint)) {
                 mTextColorHintResId = a.getResourceId(
-                        R.styleable.TextAppearance_android_textColorHint, INVALID_ID);
+                        R.styleable.SkinTextAppearance_android_textColorHint, INVALID_ID);
                 SkinLog.d(TAG, "mTextColorHintResId = " + mTextColorHintResId);
             }
             a.recycle();
         }
 
         // Now read the style's values
-        a = TintTypedArray.obtainStyledAttributes(context, attrs, R.styleable.TextAppearance,
+        a = TintTypedArray.obtainStyledAttributes(context, attrs, R.styleable.SkinTextAppearance,
                 defStyleAttr, 0);
-        if (a.hasValue(R.styleable.TextAppearance_android_textColor)) {
-            mTextColorResId = a.getResourceId(R.styleable.TextAppearance_android_textColor, INVALID_ID);
+        if (a.hasValue(R.styleable.SkinTextAppearance_android_textColor)) {
+            mTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
             SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
         }
-        if (a.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
+        if (a.hasValue(R.styleable.SkinTextAppearance_android_textColorHint)) {
             mTextColorHintResId = a.getResourceId(
-                    R.styleable.TextAppearance_android_textColorHint, INVALID_ID);
+                    R.styleable.SkinTextAppearance_android_textColorHint, INVALID_ID);
             SkinLog.d(TAG, "mTextColorHintResId = " + mTextColorHintResId);
         }
         a.recycle();
@@ -67,13 +67,13 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
 
     public void onSetTextAppearance(Context context, int resId) {
         final TintTypedArray a = TintTypedArray.obtainStyledAttributes(context,
-                resId, R.styleable.TextAppearance);
-        if (a.hasValue(R.styleable.TextAppearance_android_textColor)) {
-            mTextColorResId = a.getResourceId(R.styleable.TextAppearance_android_textColor, INVALID_ID);
+                resId, R.styleable.SkinTextAppearance);
+        if (a.hasValue(R.styleable.SkinTextAppearance_android_textColor)) {
+            mTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
             SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
         }
-        if (a.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
-            mTextColorHintResId = a.getResourceId(R.styleable.TextAppearance_android_textColorHint, INVALID_ID);
+        if (a.hasValue(R.styleable.SkinTextAppearance_android_textColorHint)) {
+            mTextColorHintResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColorHint, INVALID_ID);
             SkinLog.d(TAG, "mTextColorHintResId = " + mTextColorHintResId);
         }
         a.recycle();

@@ -3,4 +3,25 @@
     <declare-styleable name="SkinBackgroundHelper">
         <attr name="android:background" />
     </declare-styleable>
+
+    <declare-styleable name="SkinCompatImageView">
+        <attr name="android:src" />
+    </declare-styleable>
+
+    <declare-styleable name="SkinCompatTextHelper">
+        <attr name="android:textAppearance" />
+    </declare-styleable>
+
+    <declare-styleable name="SkinTextAppearance">
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="android:textColorHint" />
+        <attr name="android:textStyle" />
+        <attr name="android:typeface" />
+        <attr name="textAllCaps" />
+        <attr name="android:shadowColor" />
+        <attr name="android:shadowDy" />
+        <attr name="android:shadowDx" />
+        <attr name="android:shadowRadius" />
+    </declare-styleable>
 </resources>

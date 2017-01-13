@@ -3,11 +3,11 @@ package skin.support.widget;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.appcompat.R;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import skin.support.R;
 import skin.support.utils.SkinLog;
 
 /**
@@ -26,9 +26,9 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
         TintTypedArray a = null;
         try {
             a = TintTypedArray.obtainStyledAttributes(mView.getContext(), attrs,
-                    R.styleable.AppCompatImageView, defStyleAttr, 0);
+                    R.styleable.SkinCompatImageView, defStyleAttr, 0);
 
-            mSrcResId = a.getResourceId(R.styleable.AppCompatImageView_android_src, -1);
+            mSrcResId = a.getResourceId(R.styleable.SkinCompatImageView_android_src, -1);
         } finally {
             if (a != null) {
                 a.recycle();
