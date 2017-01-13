@@ -22,7 +22,6 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         LayoutInflaterCompat.setFactory(getLayoutInflater(), getSkinDelegate());
         super.onCreate(savedInstanceState);
-        SkinCompatStatusBar.setWindowStatusBarColor(this);
     }
 
     @NonNull
@@ -48,6 +47,5 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
     @Override
     public void updateSkin(SkinObservable observable, Object o) {
         getSkinDelegate().applySkin();
-        SkinCompatStatusBar.setWindowStatusBarColor(this);
     }
 }

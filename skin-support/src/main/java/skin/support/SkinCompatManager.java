@@ -65,11 +65,6 @@ public class SkinCompatManager extends SkinObservable {
         notifyUpdateSkin();
     }
 
-    public SkinCompatManager setStatusBarColor(String colorName) {
-        SkinCompatResources.getInstance().setStatusBarColor(colorName);
-        return this;
-    }
-
     public void loadSkin() {
         String skin = SkinPreference.getInstance().getSkinPath();
         if (TextUtils.isEmpty(skin)) {

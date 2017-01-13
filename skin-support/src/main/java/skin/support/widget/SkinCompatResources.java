@@ -14,9 +14,7 @@ import skin.support.utils.SkinLog;
  */
 
 public class SkinCompatResources {
-    private static final String DEFAULT_STATUS_BAR_COLOR_NAME = "colorPrimaryDark";
     private static volatile SkinCompatResources sInstance;
-    private static String mStatusBarColor = DEFAULT_STATUS_BAR_COLOR_NAME;
     private final Context mAppContext;
     private Resources mResources;
     private String mSkinPkgName;
@@ -39,13 +37,6 @@ public class SkinCompatResources {
 
     public static SkinCompatResources getInstance() {
         return sInstance;
-    }
-
-    public void setStatusBarColor(String colorName) {
-        if (TextUtils.isEmpty(colorName)) {
-            return;
-        }
-        mStatusBarColor = colorName;
     }
 
     public void setSkinResource(Resources resources, String pkgName) {
@@ -91,14 +82,5 @@ public class SkinCompatResources {
         int targetResId = mResources.getIdentifier(resName, "color", mSkinPkgName);
 
         return targetResId == 0 ? colorStateList : mResources.getColorStateList(targetResId);
-    }
-
-    public int getStatusBarColor() {
-        int resId = mResources.getIdentifier(mStatusBarColor, "color", mSkinPkgName);
-        if (resId == 0) {
-            resId = mResources.getIdentifier(DEFAULT_STATUS_BAR_COLOR_NAME, "color", mSkinPkgName);
-        }
-        SkinLog.d(resId + " resId");
-        return resId > 0 ? mResources.getColor(resId) : 0;
     }
 }
