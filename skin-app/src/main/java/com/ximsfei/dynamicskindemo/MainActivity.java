@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 
 import skin.support.SkinCompatManager;
 import skin.support.app.SkinCompatActivity;
@@ -52,6 +54,10 @@ public class MainActivity extends SkinCompatActivity {
                 setWindowStatusBarColor();
             }
         });
+        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.auto);
+        String[] arr = {"aa", "aab", "aac"};
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);
+        autoCompleteTextView.setAdapter(arrayAdapter);
     }
 
     private void initToolbar() {

@@ -31,6 +31,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 import skin.support.SkinCompatManager;
+import skin.support.widget.SkinCompatAutoCompleteTextView;
 import skin.support.widget.SkinCompatButton;
 import skin.support.widget.SkinCompatEditText;
 import skin.support.widget.SkinCompatFrameLayout;
@@ -125,7 +126,7 @@ public class SkinCompatViewInflater {
                 view = new AppCompatCheckedTextView(context, attrs);
                 break;
             case "AutoCompleteTextView":
-                view = new AppCompatAutoCompleteTextView(context, attrs);
+                view = new SkinCompatAutoCompleteTextView(context, attrs);
                 break;
             case "MultiAutoCompleteTextView":
                 view = new AppCompatMultiAutoCompleteTextView(context, attrs);

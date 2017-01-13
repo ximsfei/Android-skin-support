@@ -11,9 +11,9 @@ public abstract class SkinCompatHelper {
     protected static final String SYSTEM_ID_PREFIX = "1";
     protected static final int INVALID_ID = -1;
 
-    final protected int checkResourceId(int resId) {
+    final static public int checkResourceId(int resId) {
         String hexResId = Integer.toHexString(resId);
-        SkinLog.d(TAG, "this = " + this + ", hexResId = " + hexResId);
+        SkinLog.d(TAG, "hexResId = " + hexResId);
         return hexResId.startsWith(SYSTEM_ID_PREFIX) ? INVALID_ID : resId;
     }
 

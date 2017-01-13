@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@color/colorPrimaryDark"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -45,6 +45,13 @@
         android:gravity="center_vertical"
         android:text="恢复默认 style=@style/TextStyle"
         android:textSize="18sp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/auto"
+        style="@style/TextStyle"
+        android:popupBackground="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
 
     <TextView
         android:id="@+id/text2"
@@ -92,8 +99,9 @@
         android:text="EditText focusable=false @color/"
         android:textColor="@color/colorAccent"
         android:textSize="18sp" />
+
     <View
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary" />
 </LinearLayout>
