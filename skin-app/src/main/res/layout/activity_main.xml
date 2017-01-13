@@ -111,10 +111,32 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
 
-            <CheckBox
-                android:layout_width="?attr/actionBarSize"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:button="@drawable/button_checked" />
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:button="@drawable/button_checked" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:button="@drawable/button_radio"
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize" />
+
+                    <RadioButton
+                        android:button="@drawable/button_radio"
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize" />
+                </RadioGroup>
+            </LinearLayout>
 
             <CheckedTextView
                 android:id="@+id/checked_text_view"
