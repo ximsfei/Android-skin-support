@@ -36,6 +36,7 @@ import skin.support.widget.SkinCompatEditText;
 import skin.support.widget.SkinCompatImageView;
 import skin.support.widget.SkinCompatTextView;
 import skin.support.widget.SkinCompatToolbar;
+import skin.support.widget.SkinCompatView;
 
 /**
  * Created by ximsfei on 17-1-9.
@@ -81,8 +82,8 @@ public class SkinCompatViewInflater {
 
         // We need to 'inject' our tint aware Views in place of the standard framework versions
         switch (name) {
-            case "android.support.v7.widget.Toolbar":
-                view = new SkinCompatToolbar(context, attrs);
+            case "View":
+                view = new SkinCompatView(context, attrs);
                 break;
             case "TextView":
                 view = new SkinCompatTextView(context, attrs);
@@ -137,13 +138,27 @@ public class SkinCompatViewInflater {
         }
 
         if (view == null) {
+            view = createViewFromV7(context, name, attrs);
+        }
+
+        if (view == null) {
             for (SkinLayoutInflater inflater : SkinCompatManager.getInstance().getInflaters()) {
-                view = inflater.createView(name, context, attrs);
+                view = inflater.createView(context, name, attrs);
                 if (view == null)
                     continue;
             }
         }
 
+        return view;
+    }
+
+    private View createViewFromV7(Context context, String name, AttributeSet attrs) {
+        View view = null;
+        switch (name) {
+            case "android.support.v7.widget.Toolbar":
+                view = new SkinCompatToolbar(context, attrs);
+                break;
+        }
         return view;
     }
 

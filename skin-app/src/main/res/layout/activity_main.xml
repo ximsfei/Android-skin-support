@@ -91,4 +91,8 @@
         android:text="EditText focusable=false @color/"
         android:textColor="@color/colorAccent"
         android:textSize="18sp" />
+    <View
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
 </LinearLayout>

@@ -13,7 +13,7 @@ import skin.support.design.widget.SkinCompatAppBarLayout;
  */
 public class SkinMaterialViewInflater implements SkinLayoutInflater {
     @Override
-    public View createView(final String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+    public View createView(@NonNull Context context, final String name, @NonNull AttributeSet attrs) {
         View view = null;
         switch (name) {
             case "android.support.design.widget.AppBarLayout":

@@ -10,5 +10,5 @@ import android.view.View;
  */
 
 public interface SkinLayoutInflater {
-    View createView(final String name, @NonNull Context context, @NonNull AttributeSet attrs);
+    View createView(@NonNull Context context, final String name, @NonNull AttributeSet attrs);
 }

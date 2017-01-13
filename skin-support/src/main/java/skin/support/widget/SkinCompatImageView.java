@@ -46,7 +46,11 @@ public class SkinCompatImageView extends AppCompatImageView implements SkinCompa
 
     @Override
     public void applySkin() {
-        mBackgroundTintHelper.applySkin();
-        mImageHelper.applySkin();
+        if (mBackgroundTintHelper != null) {
+            mBackgroundTintHelper.applySkin();
+        }
+        if (mImageHelper != null) {
+            mImageHelper.applySkin();
+        }
     }
 }

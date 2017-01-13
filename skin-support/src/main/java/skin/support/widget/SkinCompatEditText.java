@@ -48,8 +48,12 @@ public class SkinCompatEditText extends AppCompatEditText implements SkinCompatS
 
     @Override
     public void applySkin() {
-        mBackgroundTintHelper.applySkin();
-        mTextHelper.applySkin();
+        if (mBackgroundTintHelper != null) {
+            mBackgroundTintHelper.applySkin();
+        }
+        if (mTextHelper != null) {
+            mTextHelper.applySkin();
+        }
     }
 
 }
