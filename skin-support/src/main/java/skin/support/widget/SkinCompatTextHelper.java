@@ -13,39 +13,38 @@ import skin.support.utils.SkinLog;
  * Created by ximsfei on 2017/1/10.
  */
 
-public class SkinCompatTextHelper {
+public class SkinCompatTextHelper extends SkinCompatHelper {
     private static final String TAG = SkinCompatTextHelper.class.getSimpleName();
 
     private final TextView mView;
 
-    int mTextColorResId = -1;
-    int mTextColorHintResId = -1;
+    private int mTextColorResId = INVALID_ID;
+    private int mTextColorHintResId = INVALID_ID;
 
-    SkinCompatTextHelper(TextView view) {
+    public SkinCompatTextHelper(TextView view) {
         mView = view;
     }
 
-    void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
         final Context context = mView.getContext();
 
         // First read the TextAppearance style id
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
                 R.styleable.AppCompatTextHelper, defStyleAttr, 0);
-        final int ap = a.getResourceId(R.styleable.AppCompatTextHelper_android_textAppearance, -1);
+        final int ap = a.getResourceId(R.styleable.AppCompatTextHelper_android_textAppearance, INVALID_ID);
         SkinLog.d(TAG, "ap = " + ap);
         a.recycle();
 
-        if (ap != -1) {
+        if (ap != INVALID_ID) {
             a = TintTypedArray.obtainStyledAttributes(context, ap, R.styleable.TextAppearance);
-                if (a.hasValue(R.styleable.TextAppearance_android_textColor)) {
-                    mTextColorResId = a.getResourceId(R.styleable.TextAppearance_android_textColor, -1);
-                    SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
-                    SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
-                }
-                if (a.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
-                    mTextColorHintResId = a.getResourceId(
-                            R.styleable.TextAppearance_android_textColorHint, -1);
-                    SkinLog.d(TAG, "mTextColorHintResId = " + mTextColorHintResId);
+            if (a.hasValue(R.styleable.TextAppearance_android_textColor)) {
+                mTextColorResId = a.getResourceId(R.styleable.TextAppearance_android_textColor, INVALID_ID);
+                SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
+            }
+            if (a.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
+                mTextColorHintResId = a.getResourceId(
+                        R.styleable.TextAppearance_android_textColorHint, INVALID_ID);
+                SkinLog.d(TAG, "mTextColorHintResId = " + mTextColorHintResId);
             }
             a.recycle();
         }
@@ -53,28 +52,28 @@ public class SkinCompatTextHelper {
         // Now read the style's values
         a = TintTypedArray.obtainStyledAttributes(context, attrs, R.styleable.TextAppearance,
                 defStyleAttr, 0);
-            if (a.hasValue(R.styleable.TextAppearance_android_textColor)) {
-                mTextColorResId = a.getResourceId(R.styleable.TextAppearance_android_textColor, -1);
-                SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
-            }
-            if (a.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
-                mTextColorHintResId = a.getResourceId(
-                        R.styleable.TextAppearance_android_textColorHint, -1);
-                SkinLog.d(TAG, "mTextColorHintResId = " + mTextColorHintResId);
-            }
+        if (a.hasValue(R.styleable.TextAppearance_android_textColor)) {
+            mTextColorResId = a.getResourceId(R.styleable.TextAppearance_android_textColor, INVALID_ID);
+            SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
+        }
+        if (a.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
+            mTextColorHintResId = a.getResourceId(
+                    R.styleable.TextAppearance_android_textColorHint, INVALID_ID);
+            SkinLog.d(TAG, "mTextColorHintResId = " + mTextColorHintResId);
+        }
         a.recycle();
         applySkin();
     }
 
-    void onSetTextAppearance(Context context, int resId) {
+    public void onSetTextAppearance(Context context, int resId) {
         final TintTypedArray a = TintTypedArray.obtainStyledAttributes(context,
                 resId, R.styleable.TextAppearance);
         if (a.hasValue(R.styleable.TextAppearance_android_textColor)) {
-            mTextColorResId = a.getResourceId(R.styleable.TextAppearance_android_textColor, -1);
+            mTextColorResId = a.getResourceId(R.styleable.TextAppearance_android_textColor, INVALID_ID);
             SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
         }
         if (a.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
-            mTextColorHintResId = a.getResourceId(R.styleable.TextAppearance_android_textColorHint, -1);
+            mTextColorHintResId = a.getResourceId(R.styleable.TextAppearance_android_textColorHint, INVALID_ID);
             SkinLog.d(TAG, "mTextColorHintResId = " + mTextColorHintResId);
         }
         a.recycle();
@@ -82,17 +81,15 @@ public class SkinCompatTextHelper {
     }
 
     public void applySkin() {
-        SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
-        SkinLog.d(TAG, "mTextColorHintResId = " + mTextColorHintResId);
-        if (mTextColorResId != -1) {
+        mTextColorResId = checkResourceId(mTextColorResId);
+        if (mTextColorResId != INVALID_ID) {
             ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mTextColorResId);
             mView.setTextColor(color);
-            return;
         }
-        if (mTextColorHintResId != -1) {
+        mTextColorHintResId = checkResourceId(mTextColorHintResId);
+        if (mTextColorHintResId != INVALID_ID) {
             ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mTextColorHintResId);
             mView.setHintTextColor(color);
-            return;
         }
     }
 }

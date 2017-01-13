@@ -11,7 +11,7 @@ import android.util.AttributeSet;
  * Created by ximsfei on 17-1-12.
  */
 
-public class SkinCompatToolbar extends Toolbar implements SkinCompatHelper {
+public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable {
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
     public SkinCompatToolbar(Context context) {

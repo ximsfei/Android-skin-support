@@ -8,14 +8,14 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimaryDark">
 
     </android.support.v7.widget.Toolbar>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="112dp"
         android:background="@drawable/picture"
         android:scaleType="fitXY" />
 
@@ -69,8 +69,8 @@
         style="@style/TextStyle"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical"
+        android:textAllCaps="false"
         android:text="Button @style/TextStyle"
         android:textSize="18sp" />
 

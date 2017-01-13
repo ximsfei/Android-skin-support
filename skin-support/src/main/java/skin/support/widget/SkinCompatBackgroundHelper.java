@@ -3,35 +3,32 @@ package skin.support.widget;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.appcompat.R;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 
-import skin.support.utils.SkinLog;
+import skin.support.R;
 
 /**
  * Created by ximsfei on 2017/1/10.
  */
 
-public class SkinCompatBackgroundHelper {
-    private static final String TAG = SkinCompatBackgroundHelper.class.getSimpleName();
+public class SkinCompatBackgroundHelper extends SkinCompatHelper {
     private final View mView;
 
-    private int mBackgroundResId = -1;
+    private int mBackgroundResId = INVALID_ID;
 
-    SkinCompatBackgroundHelper(View view) {
+    public SkinCompatBackgroundHelper(View view) {
         mView = view;
     }
 
-    void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(mView.getContext(), attrs,
-                R.styleable.ViewBackgroundHelper, defStyleAttr, 0);
+                R.styleable.SkinBackgroundHelper, defStyleAttr, 0);
         try {
-            if (a.hasValue(R.styleable.ViewBackgroundHelper_android_background)) {
+            if (a.hasValue(R.styleable.SkinBackgroundHelper_android_background)) {
                 mBackgroundResId = a.getResourceId(
-                        R.styleable.ViewBackgroundHelper_android_background, -1);
-                SkinLog.d(TAG, "mBackgroundResId = " + mBackgroundResId);
+                        R.styleable.SkinBackgroundHelper_android_background, INVALID_ID);
             }
         } finally {
             a.recycle();
@@ -39,16 +36,15 @@ public class SkinCompatBackgroundHelper {
         applySkin();
     }
 
-    void onSetBackgroundResource(int resId) {
-        SkinLog.d(TAG, "onSetBackgroundResource res " + resId);
+    public void onSetBackgroundResource(int resId) {
         mBackgroundResId = resId;
         // Update the default background tint
         applySkin();
     }
 
     public void applySkin() {
-        SkinLog.d(TAG, "mBackgroundResId = " + mBackgroundResId);
-        if (mBackgroundResId == -1) {
+        mBackgroundResId = checkResourceId(mBackgroundResId);
+        if (mBackgroundResId == INVALID_ID) {
             return;
         }
         String typeName = mView.getResources().getResourceTypeName(mBackgroundResId);

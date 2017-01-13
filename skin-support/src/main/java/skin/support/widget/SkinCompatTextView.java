@@ -1,20 +1,15 @@
 package skin.support.widget;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-
-import skin.support.utils.SkinLog;
 
 /**
  * Created by ximsfei on 2017/1/10.
  */
 
-public class SkinCompatTextView extends AppCompatTextView implements SkinCompatHelper {
+public class SkinCompatTextView extends AppCompatTextView implements SkinCompatSupportable {
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 

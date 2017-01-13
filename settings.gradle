@@ -1,1 +1,1 @@
-include ':skin-support', ':app', ':skinsample'
+include ':skin-support', ':skin-app', ':skin-night'

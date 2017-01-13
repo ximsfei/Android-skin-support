@@ -10,7 +10,7 @@ import android.util.AttributeSet;
  * Created by ximsfei on 2017/1/10.
  */
 
-public class SkinCompatEditText extends AppCompatEditText implements SkinCompatHelper {
+public class SkinCompatEditText extends AppCompatEditText implements SkinCompatSupportable {
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 

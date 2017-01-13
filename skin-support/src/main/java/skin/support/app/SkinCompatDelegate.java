@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import skin.support.utils.SkinLog;
-import skin.support.widget.SkinCompatHelper;
+import skin.support.widget.SkinCompatSupportable;
 
 /**
  * Created by ximsfei on 2017/1/9.
@@ -24,7 +24,7 @@ import skin.support.widget.SkinCompatHelper;
 public class SkinCompatDelegate implements LayoutInflaterFactory {
     private final AppCompatActivity mAppCompatActivity;
     private SkinCompatViewInflater mSkinCompatViewInflater;
-    private List<SkinCompatHelper> mSkinHelpers = new ArrayList<>();
+    private List<SkinCompatSupportable> mSkinHelpers = new ArrayList<>();
 
     private SkinCompatDelegate(AppCompatActivity appCompatActivity) {
         mAppCompatActivity = appCompatActivity;
@@ -37,8 +37,8 @@ public class SkinCompatDelegate implements LayoutInflaterFactory {
         if (view == null) {
             return null;
         }
-        if (view instanceof SkinCompatHelper) {
-            mSkinHelpers.add((SkinCompatHelper) view);
+        if (view instanceof SkinCompatSupportable) {
+            mSkinHelpers.add((SkinCompatSupportable) view);
         }
 
         return view;
@@ -94,7 +94,7 @@ public class SkinCompatDelegate implements LayoutInflaterFactory {
     public void applySkin() {
         if (mSkinHelpers != null || !mSkinHelpers.isEmpty()) {
             SkinLog.d("size - " + mSkinHelpers.size());
-            for (SkinCompatHelper helper : mSkinHelpers) {
+            for (SkinCompatSupportable helper : mSkinHelpers) {
                 helper.applySkin();
             }
         }

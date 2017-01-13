@@ -13,10 +13,10 @@ import skin.support.utils.SkinLog;
 /**
  * Created by ximsfei on 2017/1/12.
  */
-public class SkinCompatImageHelper {
+public class SkinCompatImageHelper extends SkinCompatHelper {
     private static final String TAG = SkinCompatImageHelper.class.getSimpleName();
     private final ImageView mView;
-    private int mSrcResId = -1;
+    private int mSrcResId = INVALID_ID;
 
     public SkinCompatImageHelper(ImageView imageView) {
         mView = imageView;
@@ -43,8 +43,9 @@ public class SkinCompatImageHelper {
     }
 
     public void applySkin() {
+        mSrcResId = checkResourceId(mSrcResId);
         SkinLog.d(TAG, "mSrcResId = " + mSrcResId);
-        if (mSrcResId == -1) {
+        if (mSrcResId == INVALID_ID) {
             return;
         }
         String typeName = mView.getResources().getResourceTypeName(mSrcResId);

@@ -5,13 +5,11 @@ import android.support.annotation.DrawableRes;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
-import skin.support.utils.SkinLog;
-
 /**
  * Created by ximsfei on 2017/1/10.
  */
 
-public class SkinCompatImageView extends AppCompatImageView implements SkinCompatHelper {
+public class SkinCompatImageView extends AppCompatImageView implements SkinCompatSupportable {
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
     private SkinCompatImageHelper mImageHelper;
 
