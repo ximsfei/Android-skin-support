@@ -41,7 +41,9 @@ public class SkinCompatImageView extends AppCompatImageView implements SkinCompa
     @Override
     public void setImageResource(@DrawableRes int resId) {
         // Intercept this call and instead retrieve the Drawable via the image helper
-        mImageHelper.setImageResource(resId);
+        if (mImageHelper != null) {
+            mImageHelper.setImageResource(resId);
+        }
     }
 
     @Override

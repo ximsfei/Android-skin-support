@@ -30,6 +30,7 @@ import java.util.Map;
 import skin.support.SkinCompatManager;
 import skin.support.widget.SkinCompatAutoCompleteTextView;
 import skin.support.widget.SkinCompatButton;
+import skin.support.widget.SkinCompatCheckBox;
 import skin.support.widget.SkinCompatCheckedTextView;
 import skin.support.widget.SkinCompatEditText;
 import skin.support.widget.SkinCompatFrameLayout;
@@ -117,7 +118,7 @@ public class SkinCompatViewInflater {
                 view = new SkinCompatImageButton(context, attrs);
                 break;
             case "CheckBox":
-                view = new AppCompatCheckBox(context, attrs);
+                view = new SkinCompatCheckBox(context, attrs);
                 break;
             case "RadioButton":
                 view = new AppCompatRadioButton(context, attrs);

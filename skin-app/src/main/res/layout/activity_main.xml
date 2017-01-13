@@ -113,7 +113,9 @@
 
             <CheckBox
                 android:layout_width="?attr/actionBarSize"
-                android:layout_height="?attr/actionBarSize" />
+                android:layout_height="?attr/actionBarSize"
+                android:button="@drawable/button_checked" />
+
             <CheckedTextView
                 android:id="@+id/checked_text_view"
                 android:layout_width="match_parent"

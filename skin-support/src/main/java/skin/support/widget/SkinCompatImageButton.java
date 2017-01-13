@@ -42,7 +42,9 @@ public class SkinCompatImageButton extends AppCompatImageButton implements SkinC
     @Override
     public void setImageResource(@DrawableRes int resId) {
         // Intercept this call and instead retrieve the Drawable via the image helper
-        mImageHelper.setImageResource(resId);
+        if (mImageHelper != null) {
+            mImageHelper.setImageResource(resId);
+        }
     }
 
     @Override
