@@ -33,7 +33,10 @@ import java.util.Map;
 import skin.support.SkinCompatManager;
 import skin.support.widget.SkinCompatButton;
 import skin.support.widget.SkinCompatEditText;
+import skin.support.widget.SkinCompatFrameLayout;
 import skin.support.widget.SkinCompatImageView;
+import skin.support.widget.SkinCompatLinearLayout;
+import skin.support.widget.SkinCompatRelativeLayout;
 import skin.support.widget.SkinCompatTextView;
 import skin.support.widget.SkinCompatToolbar;
 import skin.support.widget.SkinCompatView;
@@ -84,6 +87,15 @@ public class SkinCompatViewInflater {
         switch (name) {
             case "View":
                 view = new SkinCompatView(context, attrs);
+                break;
+            case "LinearLayout":
+                view = new SkinCompatLinearLayout(context, attrs);
+                break;
+            case "RelativeLayout":
+                view = new SkinCompatRelativeLayout(context, attrs);
+                break;
+            case "FrameLayout":
+                view = new SkinCompatFrameLayout(context, attrs);
                 break;
             case "TextView":
                 view = new SkinCompatTextView(context, attrs);
