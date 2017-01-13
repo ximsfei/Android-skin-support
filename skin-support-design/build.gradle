@@ -16,11 +16,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    publishNonDefault true
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
-    compile project(':skin-support');
+    releaseCompile project(path: ':skin-support', configuration: 'release')
+    debugCompile project(path: ':skin-support', configuration: 'debug')
 }

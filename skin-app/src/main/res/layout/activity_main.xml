@@ -5,13 +5,20 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimaryDark">
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryDark"
+        android:paddingTop="@dimen/status_bar_height">
 
-    </android.support.v7.widget.Toolbar>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimaryDark">
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
 
     <ImageView
         android:layout_width="match_parent"
@@ -70,17 +77,17 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:gravity="center_vertical"
-        android:textAllCaps="false"
         android:text="Button @style/TextStyle"
+        android:textAllCaps="false"
         android:textSize="18sp" />
 
     <EditText
         style="@style/TextStyle"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:focusable="false"
         android:gravity="center_vertical"
         android:text="EditText focusable=false @color/"
         android:textColor="@color/black"
-        android:focusable="false"
         android:textSize="18sp" />
 </LinearLayout>

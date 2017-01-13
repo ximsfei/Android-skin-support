@@ -3,7 +3,7 @@ package skin.support.widget;
 import skin.support.utils.SkinLog;
 
 /**
- * Created by pengfengwang on 2017/1/13.
+ * Created by ximsfei on 2017/1/13.
  */
 
 public abstract class SkinCompatHelper {

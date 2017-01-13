@@ -3,6 +3,7 @@ package com.ximsfei.dynamicskindemo;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
 
 import skin.support.SkinCompatManager;
 import skin.support.app.SkinCompatActivity;
@@ -15,6 +16,7 @@ import skin.support.utils.SkinLog;
 public class MainActivity extends SkinCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initToolbar();

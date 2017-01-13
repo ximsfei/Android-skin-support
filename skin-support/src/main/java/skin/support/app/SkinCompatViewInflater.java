@@ -30,6 +30,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import skin.support.SkinCompatManager;
 import skin.support.widget.SkinCompatButton;
 import skin.support.widget.SkinCompatEditText;
 import skin.support.widget.SkinCompatImageView;
@@ -133,6 +134,14 @@ public class SkinCompatViewInflater {
         if (view != null) {
             // If we have created a view, check it's android:onClick
             checkOnClickListener(view, attrs);
+        }
+
+        if (view == null) {
+            for (SkinLayoutInflater inflater : SkinCompatManager.getInstance().getInflaters()) {
+                view = inflater.createView(name, context, attrs);
+                if (view == null)
+                    continue;
+            }
         }
 
         return view;

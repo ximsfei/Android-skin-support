@@ -14,7 +14,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
+import skin.support.app.SkinLayoutInflater;
 import skin.support.observe.SkinObservable;
 import skin.support.utils.SkinConstants;
 import skin.support.utils.SkinFileUtils;
@@ -29,6 +32,7 @@ import skin.support.widget.SkinCompatResources;
 public class SkinCompatManager extends SkinObservable {
     private static volatile SkinCompatManager sInstance;
     private final Context mAppContext;
+    private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
 
     public interface SkinLoaderListener {
         void onStart();
@@ -57,6 +61,14 @@ public class SkinCompatManager extends SkinObservable {
         mAppContext = context.getApplicationContext();
         SkinPreference.init(mAppContext);
         SkinCompatResources.init(mAppContext);
+    }
+
+    public void addInflater(SkinLayoutInflater inflater) {
+        mInflaters.add(inflater);
+    }
+
+    public List<SkinLayoutInflater> getInflaters() {
+        return mInflaters;
     }
 
     public void restoreDefaultTheme() {
