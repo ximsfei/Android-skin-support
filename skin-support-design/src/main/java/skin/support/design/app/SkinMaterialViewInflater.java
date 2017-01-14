@@ -7,6 +7,7 @@ import android.view.View;
 
 import skin.support.app.SkinLayoutInflater;
 import skin.support.design.widget.SkinCompatAppBarLayout;
+import skin.support.design.widget.SkinCompatTabLayout;
 
 /**
  * Created by ximsfei on 2017/1/13.
@@ -18,6 +19,9 @@ public class SkinMaterialViewInflater implements SkinLayoutInflater {
         switch (name) {
             case "android.support.design.widget.AppBarLayout":
                 view = new SkinCompatAppBarLayout(context, attrs);
+                break;
+            case "android.support.design.widget.TabLayout":
+                view = new SkinCompatTabLayout(context, attrs);
                 break;
         }
         return view;
