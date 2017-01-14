@@ -41,13 +41,13 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
 
         mTabIndicatorColorResId = a.getResourceId(R.styleable.TabLayout_tabIndicatorColor, INVALID_ID);
 
-        int tabTextAppearance = a.getResourceId(R.styleable.TabLayout_tabTextAppearance, INVALID_ID);
+        int tabTextAppearance = a.getResourceId(R.styleable.TabLayout_tabTextAppearance, R.style.TextAppearance_Design_Tab);
 
         // Text colors/sizes come from the text appearance first
         final TypedArray ta = context.obtainStyledAttributes(tabTextAppearance, R.styleable.SkinTextAppearance);
         try {
             mTabTextColorsResId = ta.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
-            mTabTextColors = a.getColorStateList(R.styleable.TabLayout_tabTextColor);
+            mTabTextColors = ta.getColorStateList(R.styleable.TabLayout_tabTextColor);
         } finally {
             ta.recycle();
         }
