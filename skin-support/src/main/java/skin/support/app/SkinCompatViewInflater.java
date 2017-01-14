@@ -141,17 +141,6 @@ public class SkinCompatViewInflater {
                 break;
         }
 
-        if (view == null && originalContext != context) {
-            // If the original context does not equal our themed context, then we need to manually
-            // inflate it using the name so that android:theme takes effect.
-            view = createViewFromTag(context, name, attrs);
-        }
-
-        if (view != null) {
-            // If we have created a view, check it's android:onClick
-            checkOnClickListener(view, attrs);
-        }
-
         if (view == null) {
             view = createViewFromV7(context, name, attrs);
         }
@@ -162,6 +151,17 @@ public class SkinCompatViewInflater {
                 if (view == null)
                     continue;
             }
+        }
+
+        if (view == null && originalContext != context) {
+            // If the original context does not equal our themed context, then we need to manually
+            // inflate it using the name so that android:theme takes effect.
+            view = createViewFromTag(context, name, attrs);
+        }
+
+        if (view != null) {
+            // If we have created a view, check it's android:onClick
+            checkOnClickListener(view, attrs);
         }
 
         return view;

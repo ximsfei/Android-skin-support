@@ -38,6 +38,8 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
 
     @Override
     public void applySkin() {
-        mBackgroundTintHelper.applySkin();
+        if (mBackgroundTintHelper != null) {
+            mBackgroundTintHelper.applySkin();
+        }
     }
 }
