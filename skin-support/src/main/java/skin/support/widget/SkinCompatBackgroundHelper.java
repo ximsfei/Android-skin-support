@@ -3,6 +3,7 @@ package skin.support.widget;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.view.View;
@@ -53,12 +54,14 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
             ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mBackgroundResId);
             Drawable drawable = mView.getBackground();
             DrawableCompat.setTintList(drawable, colorStateList);
-            mView.setBackgroundDrawable(drawable);
+//            mView.setBackgroundDrawable(drawable);
+            ViewCompat.setBackground(mView, drawable);
 //            int color = SkinResLoader.getInstance().getColor(mBackgroundResId);
 //            mView.setBackgroundColor(color);
         } else if ("drawable".equals(typeName)) {
             Drawable drawable = SkinCompatResources.getInstance().getDrawable(mBackgroundResId);
-            mView.setBackgroundDrawable(drawable);
+            ViewCompat.setBackground(mView, drawable);
+//            mView.setBackgroundDrawable(drawable);
         }
     }
 }

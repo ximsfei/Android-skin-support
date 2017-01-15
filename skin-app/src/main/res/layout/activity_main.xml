@@ -1,186 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimaryDark"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="?attr/colorPrimaryDark"
-        android:paddingTop="@dimen/status_bar_height">
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimaryDark"
+            android:paddingTop="@dimen/status_bar_height">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimaryDark">
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimaryDark">
+            app:tabIndicatorColor="?attr/colorAccent"
+            app:tabSelectedTextColor="@color/tabSelected"
+            app:tabTextColor="@color/color_selector" />
 
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:tabIndicatorColor="?attr/colorAccent"
-        app:tabTextColor="@color/color_selector"
-        app:tabSelectedTextColor="@color/tabSelected"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true" />
-    </RelativeLayout>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-    <!--<ScrollView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:orientation="vertical">-->
+        <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-    <!--<ImageButton-->
-    <!--android:id="@+id/image_button"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="112dp"-->
-    <!--android:background="@drawable/picture"-->
-    <!--android:scaleType="fitXY" />-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
 
-    <!--<TextView-->
-    <!--android:id="@+id/text"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:background="?attr/colorPrimary"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:text="切换皮肤 background=?attr/colorPrimary"-->
-    <!--android:textColor="@color/colorAccent"-->
-    <!--android:textSize="18sp" />-->
+        <!--<ImageButton-->
+        <!--android:id="@+id/image_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="112dp"-->
+        <!--android:background="@drawable/picture"-->
+        <!--android:scaleType="fitXY" />-->
 
-    <!--<TextView-->
-    <!--android:id="@+id/text1"-->
-    <!--style="@style/TextStyle"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:text="恢复默认 style=@style/TextStyle"-->
-    <!--android:textSize="18sp" />-->
+        <!--<TextView-->
+        <!--android:id="@+id/text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:background="?attr/colorPrimary"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="切换皮肤 background=?attr/colorPrimary"-->
+        <!--android:textColor="@color/colorAccent"-->
+        <!--android:textSize="18sp" />-->
 
-    <!--<MultiAutoCompleteTextView-->
-    <!--android:id="@+id/auto"-->
-    <!--style="@style/TextStyle"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:popupBackground="@color/colorAccent" />-->
+        <!--<TextView-->
+        <!--android:id="@+id/text1"-->
+        <!--style="@style/TextStyle"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="恢复默认 style=@style/TextStyle"-->
+        <!--android:textSize="18sp" />-->
 
-    <!--<TextView-->
-    <!--android:id="@+id/text2"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:clickable="true"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:text="点击可变文本颜色 @color/color_selector"-->
-    <!--android:textColor="@color/color_selector"-->
-    <!--android:textSize="18sp" />-->
+        <!--<MultiAutoCompleteTextView-->
+        <!--android:id="@+id/auto"-->
+        <!--style="@style/TextStyle"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:popupBackground="@color/colorAccent" />-->
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content">-->
+        <!--<TextView-->
+        <!--android:id="@+id/text2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:clickable="true"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="点击可变文本颜色 @color/color_selector"-->
+        <!--android:textColor="@color/color_selector"-->
+        <!--android:textSize="18sp" />-->
 
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:background="@color/colorPrimary"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:text="ImageView\nsrc=@color/"-->
-    <!--android:textColor="@color/colorAccent" />-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
 
-    <!--<ImageView-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:layout_weight="1"-->
-    <!--android:src="@color/colorPrimary" />-->
-    <!--</LinearLayout>-->
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="ImageView\nsrc=@color/"-->
+        <!--android:textColor="@color/colorAccent" />-->
 
-    <!--<Button-->
-    <!--style="@style/TextStyle"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:text="Button @style/TextStyle"-->
-    <!--android:textAllCaps="false"-->
-    <!--android:textSize="18sp" />-->
+        <!--<ImageView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:layout_weight="1"-->
+        <!--android:src="@color/colorPrimary" />-->
+        <!--</LinearLayout>-->
 
-    <!--<EditText-->
-    <!--style="@style/TextStyle"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:focusable="false"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:text="EditText focusable=false @color/"-->
-    <!--android:textColor="@color/colorAccent"-->
-    <!--android:textSize="18sp" />-->
+        <!--<Button-->
+        <!--style="@style/TextStyle"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="Button @style/TextStyle"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:textSize="18sp" />-->
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:orientation="horizontal">-->
+        <!--<EditText-->
+        <!--style="@style/TextStyle"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:focusable="false"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="EditText focusable=false @color/"-->
+        <!--android:textColor="@color/colorAccent"-->
+        <!--android:textSize="18sp" />-->
 
-    <!--<CheckBox-->
-    <!--android:layout_width="?attr/actionBarSize"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:button="@drawable/button_checked" />-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:orientation="horizontal">-->
 
-    <!--<RadioGroup-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:orientation="horizontal">-->
+        <!--<CheckBox-->
+        <!--android:layout_width="?attr/actionBarSize"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:button="@drawable/button_checked" />-->
 
-    <!--<RadioButton-->
-    <!--android:layout_width="?attr/actionBarSize"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:button="@drawable/button_radio" />-->
+        <!--<RadioGroup-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="horizontal">-->
 
-    <!--<RadioButton-->
-    <!--android:layout_width="?attr/actionBarSize"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:button="@drawable/button_radio" />-->
-    <!--</RadioGroup>-->
-    <!--</LinearLayout>-->
+        <!--<RadioButton-->
+        <!--android:layout_width="?attr/actionBarSize"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:button="@drawable/button_radio" />-->
 
-    <!--<CheckedTextView-->
-    <!--android:id="@+id/checked_text_view"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:background="?attr/colorPrimary"-->
-    <!--android:checkMark="@drawable/button_checked"-->
-    <!--android:filterTouchesWhenObscured="true"-->
-    <!--android:focusableInTouchMode="true"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:text="CheckedTextView"-->
-    <!--android:textColor="@color/colorAccent"-->
-    <!--android:textSize="18sp" />-->
+        <!--<RadioButton-->
+        <!--android:layout_width="?attr/actionBarSize"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:button="@drawable/button_radio" />-->
+        <!--</RadioGroup>-->
+        <!--</LinearLayout>-->
 
-    <!--<View-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:background="@color/colorPrimary" />-->
-    <!--</LinearLayout>-->
-    <!--</ScrollView>-->
-</LinearLayout>
+        <!--<CheckedTextView-->
+        <!--android:id="@+id/checked_text_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:background="?attr/colorPrimary"-->
+        <!--android:checkMark="@drawable/button_checked"-->
+        <!--android:filterTouchesWhenObscured="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="CheckedTextView"-->
+        <!--android:textColor="@color/colorAccent"-->
+        <!--android:textSize="18sp" />-->
+
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:background="@color/colorPrimary" />-->
+        <!--</LinearLayout>-->
+        <!--</ScrollView>-->
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true" />
+</android.support.v4.widget.DrawerLayout>
