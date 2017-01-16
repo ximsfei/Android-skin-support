@@ -48,7 +48,7 @@ public class MainActivity extends SkinCompatActivity {
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinPath())) {
+                if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
                     SkinCompatManager.getInstance().loadSkin("red.skin", null);
                 } else {
                     SkinCompatManager.getInstance().restoreDefaultTheme();

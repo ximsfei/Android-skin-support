@@ -71,22 +71,33 @@ public class SkinCompatManager extends SkinObservable {
         return mInflaters;
     }
 
+    public String getCurSkinName() {
+        return SkinPreference.getInstance().getSkinName();
+    }
+
     public void restoreDefaultTheme() {
-        SkinPreference.getInstance().setSkinPath("").commitEditor();
+        SkinPreference.getInstance().setSkinName("").commitEditor();
         SkinCompatResources.getInstance().setSkinResource(mAppContext.getResources(), mAppContext.getPackageName());
         notifyUpdateSkin();
     }
 
     public void loadSkin() {
-        String skin = SkinPreference.getInstance().getSkinPath();
+        String skin = SkinPreference.getInstance().getSkinName();
         if (TextUtils.isEmpty(skin)) {
             return;
         }
         loadSkin(skin, null);
     }
 
+    public void loadSkin(String skinName) {
+        if (TextUtils.isEmpty(skinName)) {
+            return;
+        }
+        loadSkin(skinName, null);
+    }
+
     public void loadSkin(SkinLoaderListener listener) {
-        String skin = SkinPreference.getInstance().getSkinPath();
+        String skin = SkinPreference.getInstance().getSkinName();
         if (TextUtils.isEmpty(skin)) {
             return;
         }
@@ -119,10 +130,10 @@ public class SkinCompatManager extends SkinObservable {
                     String skinPkgPath = SkinFileUtils.getSkinDir(mAppContext) + File.separator + params[0];
                     // ToDo 方便调试, 每次点击都从assets中读取
 //                    if (!isSkinExists(params[0])) {
-                        copySkinFromAssets(params[0]);
-                        if (!isSkinExists(params[0])) {
-                            return false;
-                        }
+                    copySkinFromAssets(params[0]);
+                    if (!isSkinExists(params[0])) {
+                        return false;
+                    }
 //                    }
 
                     PackageManager mPm = mAppContext.getPackageManager();
@@ -139,7 +150,7 @@ public class SkinCompatManager extends SkinObservable {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    SkinPreference.getInstance().setSkinPath(params[0]).commitEditor();
+                    SkinPreference.getInstance().setSkinName(params[0]).commitEditor();
 
                     if (resources != null) {
                         SkinCompatResources.getInstance().setSkinResource(resources, pkgName);

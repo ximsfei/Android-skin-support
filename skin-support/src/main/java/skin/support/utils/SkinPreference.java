@@ -10,7 +10,7 @@ import android.content.SharedPreferences;
 public class SkinPreference {
     private static final String FILE_NAME = "meta-data";
 
-    public static final String KEY_SKIN_PATH = "skin-path";
+    public static final String KEY_SKIN_NAME = "skin-name";
     private static SkinPreference sInstance;
     private final Context mApp;
     private final SharedPreferences mPref;
@@ -36,13 +36,13 @@ public class SkinPreference {
         mEditor = mPref.edit();
     }
 
-    public SkinPreference setSkinPath(String skinPath) {
-        mEditor.putString(KEY_SKIN_PATH, skinPath);
+    public SkinPreference setSkinName(String skinName) {
+        mEditor.putString(KEY_SKIN_NAME, skinName);
         return this;
     }
 
-    public String getSkinPath() {
-        return mPref.getString(KEY_SKIN_PATH, "");
+    public String getSkinName() {
+        return mPref.getString(KEY_SKIN_NAME, "");
     }
 
     public void commitEditor() {
