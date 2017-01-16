@@ -90,9 +90,6 @@ public class SkinCompatManager extends SkinObservable {
     }
 
     public void loadSkin(String skinName) {
-        if (TextUtils.isEmpty(skinName)) {
-            return;
-        }
         loadSkin(skinName, null);
     }
 
@@ -105,6 +102,10 @@ public class SkinCompatManager extends SkinObservable {
     }
 
     public void loadSkin(String skinName, final SkinLoaderListener listener) {
+        if (TextUtils.isEmpty(skinName)) {
+            restoreDefaultTheme();
+            return;
+        }
         new SkinLoadTask(listener).execute(skinName);
     }
 
