@@ -16,7 +16,7 @@ public class BaseActivity extends SkinCompatActivity {}
 * [演示](#演示)
 * [支持](#支持)
 * [用法](#用法)
-* [合作开发&交流](#合作开发&交流)
+* [交流合作](#交流合作)
 * [最佳实践](#最佳实践)
 * [致谢](#致谢)
 * [License-MIT](#License MIT)
@@ -117,10 +117,10 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 #### 打包生成apk, 即为皮肤包
 
-## 合作开发&交流:
+## 合作交流:
 
-![QQ群二维码](https://github.com/ximsfei/Res/blob/master/Android%26%2332%3B%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%E4%BA%8C%E7%BB%B4%E7%A0%81.png))
+![QQ群二维码](https://github.com/ximsfei/Res/blob/master/Android%26%2332%3B%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%E4%BA%8C%E7%BB%B4%E7%A0%81.png)
 
 ## 最佳实践:
 
-## [License (MIT)](LICENSE)
+## [License MIT](LICENSE)
