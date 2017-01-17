@@ -25,18 +25,18 @@ public class BaseActivity extends SkinCompatActivity {}
 
 下载[demo](demo/app-debug.apk) 或者下载源码打包apk, 安装到手机上即可查看效果, 在demo apk的assets中已经包含插件皮肤库.
 
-![demo-preview](https://github.com/ximsfei/Res/blob/master/skin/skin-default-preview.gif)
+![demo-preview](https://github.com/ximsfei/Res/blob/master/skin/preview/skin-default-preview.gif)
 
 ## 支持
 
 ### 目前支持:
 
-* TextView
-* Button
-* EditText
-* ImageView
-* Toolbar
-* 未完待续...
+1. TextView
+2. Button
+3. EditText
+4. ImageView
+5. Toolbar
+6. 未完待续...
 
 ### 将要支持:
 
@@ -118,6 +118,8 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 #### 打包生成apk, 即为皮肤包
 
 ## 合作开发&交流:
+
+![QQ群二维码](https://github.com/ximsfei/Res/blob/master/Android%26%2332%3B%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%E4%BA%8C%E7%BB%B4%E7%A0%81.png))
 
 ## 最佳实践:
 
