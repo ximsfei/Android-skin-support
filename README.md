@@ -1,19 +1,35 @@
 # Android-skin-support
-Android-skin-support: 深入Android源码, 新思路实现Android换肤框架, 极低的学习成本, 极好的用户体验. You can try it.
+Android-skin-support: 深入Android源码, 新思路实现Android换肤框架, 极低的学习成本, 极好的用户体验. 只需要两行代码, 就可以实现换肤, 你值得拥有!!!
+
+第一行: 在Application的onCreate中初始化
+
+```java
+SkinCompatManager.init(this).loadSkin();
+```
+
+第二行: 继承自SkinCompatActivity
+
+```java
+public class BaseActivity extends SkinCompatActivity {}
+```
 
 * [演示](#演示)
 * [支持](#支持)
 * [用法](#用法)
+* [合作开发&交流](#合作开发&交流)
+* [最佳实践](#最佳实践)
+* [致谢](#致谢)
+* [License-MIT](#License MIT)
 
 ## 演示
 
-下载[demo](demo/app-debug.apk), 安装到手机上即可查看效果, 在demo apk的assets中已经包含插件皮肤库.
+下载[demo](demo/app-debug.apk) 或者下载源码打包apk, 安装到手机上即可查看效果, 在demo apk的assets中已经包含插件皮肤库.
 
-[演示视频](demo/device-2017-01-12-220140.mp4)
+![demo-preview](https://github.com/ximsfei/Res/blob/master/skin/skin-default-preview.gif)
 
 ## 支持
 
-支持以插件的形式加载皮肤包, 无缝支持下列控件:
+### 目前支持:
 
 * TextView
 * Button
@@ -21,6 +37,8 @@ Android-skin-support: 深入Android源码, 新思路实现Android换肤框架, �
 * ImageView
 * Toolbar
 * 未完待续...
+
+### 将要支持:
 
 ## 用法
 
@@ -98,6 +116,8 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 #### 将需要换肤的资源放到res目录下(同名资源)
 
 #### 打包生成apk, 即为皮肤包
+
+## 合作开发&交流:
 
 ## 最佳实践:
 
