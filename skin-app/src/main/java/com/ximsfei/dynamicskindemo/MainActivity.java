@@ -55,55 +55,6 @@ public class MainActivity extends SkinCompatActivity {
                 }
             }
         });
-//        findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                SkinCompatManager.getInstance().loadSkin("red.skin", new SkinCompatManager.SkinLoaderListener() {
-//                    @Override
-//                    public void onStart() {
-//                        SkinLog.d("onStart");
-//                    }
-//
-//                    @Override
-//                    public void onSuccess() {
-//                        SkinLog.d("onSuccess");
-//                    }
-//
-//                    @Override
-//                    public void onFailed(String errMsg) {
-//                        SkinLog.d("onFailed");
-//                    }
-//                });
-//            }
-//        });
-//
-//        findViewById(R.id.text1).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                SkinCompatManager.getInstance().restoreDefaultTheme();
-//            }
-//        });
-//        findViewById(R.id.image_button).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "Image Button", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        findViewById(R.id.checked_text_view).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//                CheckedTextView checkedTextView = (CheckedTextView) v;
-//                checkedTextView.toggle();
-////                checkedMap.put(position, checkedTextView.isChecked());
-//            }
-//        });
-//        MultiAutoCompleteTextView autoCompleteTextView = (MultiAutoCompleteTextView) findViewById(R.id.auto);
-//        String[] arr = {"aa", "aab", "aac"};
-//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);
-//        autoCompleteTextView.setAdapter(arrayAdapter);
-//        autoCompleteTextView.setThreshold(1);
-//        autoCompleteTextView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
     }
 
     private void configFragments() {
