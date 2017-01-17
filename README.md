@@ -19,11 +19,10 @@ public class BaseActivity extends SkinCompatActivity {}
 * [交流合作](#交流合作)
 * [最佳实践](#最佳实践)
 * [致谢](#致谢)
-* [License-MIT](#License MIT)
 
 ## 演示
 
-下载[demo](demo/app-debug.apk) 或者下载源码打包apk, 安装到手机上即可查看效果, 在demo apk的assets中已经包含插件皮肤库.
+下载[demo](https://github.com/ximsfei/Res/blob/master/skin/demo/skin-app-debug.apk) 或者下载源码打包apk, 安装到手机上即可查看效果, 在demo apk的assets中已经包含插件皮肤库.
 
 ![demo-preview](https://github.com/ximsfei/Res/blob/master/skin/preview/skin-default-preview.gif)
 
@@ -31,14 +30,42 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ### 目前支持:
 
-1. TextView
-2. Button
-3. EditText
-4. ImageView
-5. Toolbar
-6. 未完待续...
+* 支持Android 4.x, 5.x, 6.x, 7.x
+
+* 支持自定义View换肤[点此跳转](#自定义View换肤)
+
+* skin-support: appcompat-v7 支持
+
+  * View
+  * Button
+  * CheckBox
+  * EditText
+  * TextView
+  * ImageView
+  * ImageButton
+  * RadioButton
+  * FrameLayout
+  * LinearLayout
+  * RelativeLayout
+  * CheckedTextView
+  * AutoCompleteTextView
+  * MultiAutoCompleteTextView
+
+  * android.support.v7.widget.Toolbar
+
+* skin-support-design: material design 支持
+
+  * TabLayout
+  * AppBarLayout
+  * NavigationView
 
 ### 将要支持:
+
+  * Spinner
+  * RatingBar
+  * SeekBar
+  * ProgressBar
+  * ...
 
 ## 用法
 
@@ -48,13 +75,13 @@ public class BaseActivity extends SkinCompatActivity {}
 git clone https://github.com/ximsfei/Android-skin-support.git
 ```
 
-作为module依赖：
+选择需要的module依赖：
 
 ```xml
-// 可以打开调试日志
+// aar
 dependencies {
-    releaseCompile project(path: ':skin-support', configuration: 'release')
-    debugCompile project(path: ':skin-support', configuration: 'debug')
+    compile(name: 'skin-support-release', ext: 'aar') // Android 基础控件, 及V7包中的一些控件
+    compile(name: 'skin-support-design-release', ext: 'aar') // Android support design包中的一些控件
 }
 ```
 
@@ -63,6 +90,19 @@ dependencies {
 ```xml
 dependencies {
     compile project(':skin-support')
+    compile project(':skin-support-design')
+}
+```
+
+或者
+
+```xml
+// 可以打开调试日志
+dependencies {
+    releaseCompile project(path: ':skin-support', configuration: 'release')
+    debugCompile project(path: ':skin-support', configuration: 'debug')
+    releaseCompile project(path: ':skin-support-design', configuration: 'release')
+    debugCompile project(path: ':skin-support-design', configuration: 'debug')
 }
 ```
 
@@ -74,9 +114,7 @@ dependencies {
 @Override
     public void onCreate() {
         super.onCreate();
-        SkinCompatManager.init(this)
-                .setStatusBarColor("colorPrimaryDark") // 可选, 默认为colorPrimaryDark, 设置状态栏颜色@color/colorPrimaryDark
-                .loadSkin();                           // 应用启动加载当前(保存在SharedPreferences中)皮肤库
+        SkinCompatManager.init(this).loadSkin(); // 应用启动加载当前(保存在SharedPreferences中)皮肤库
     }
 ```
 
@@ -109,6 +147,31 @@ SkinCompatManager.getInstance().loadSkin("new.skin", new SkinCompatManager.SkinL
 SkinCompatManager.getInstance().restoreDefaultTheme();
 ```
 
+#### 自定义View换肤
+
+要点:
+1. 实现SkinCompatSupportable接口
+2. 在构造方法中解析出需要换肤的resId
+3. 在applySkin方法中实现换肤
+
+* 自定义View可以直接继承自SkinCompatView, SkinCompatLinearLayout等已有控件
+
+  eg: [CustomTextView](skin-app/src/main/java/com/ximsfei/dynamicskindemo/widget/CustomTextView.java)
+
+* 不想继承自已有控件
+
+  eg: [CustomTextView2](skin-app/src/main/java/com/ximsfei/dynamicskindemo/widget/CustomTextView2.java)
+
+* 需要换肤自定义属性
+
+  // 需要换肤AutoCompleteTextView的R.attr.popupBackground属性
+  eg: [SkinCompatAutoCompleteTextView](skin-support/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
+
+* 需要使用第三方库控件怎么办
+
+  // 需要使用https://github.com/hdodenhof/CircleImageView控件, 并且要支持换肤
+  eg: [CustomCircleImageView](skin-app/src/main/java/com/ximsfei/dynamicskindemo/widget/CustomCircleImageView.java)
+
 ### 制作皮肤插件:
 
 #### 新建Android application工程
@@ -117,10 +180,19 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 #### 打包生成apk, 即为皮肤包
 
-## 合作交流:
+## 交流合作
 
-![QQ群二维码](https://github.com/ximsfei/Res/blob/master/Android%26%2332%3B%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4%E4%BA%8C%E7%BB%B4%E7%A0%81.png)
+![QQ群二维码](https://github.com/ximsfei/Res/blob/master/android_group.png)
+![微信二维码](https://github.com/ximsfei/Res/blob/master/wechat_qr.jpg)
 
-## 最佳实践:
+## 最佳实践
+
+[仿网易云音乐皮肤切换](https://github.com/ximsfei/Skin-Demo)
+
+## 致谢
+
+* [Android-Skin-Loader](https://github.com/fengjundev/Android-Skin-Loader)
+
+* android com.android.support:appcompat-v7源码
 
 ## [License MIT](LICENSE)
