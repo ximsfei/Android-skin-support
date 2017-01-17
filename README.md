@@ -1,7 +1,6 @@
 # Android-skin-support
 
 * [介绍](#介绍)
-* [演示](#演示)
 * [最佳实践](#最佳实践)
 * [支持](#支持)
 * [用法](#用法)
@@ -36,15 +35,11 @@ public class BaseActivity extends SkinCompatActivity {}
 
 [skin-support-design](skin-support-design)  // 换肤框架, Material Design 支持
 
-## 演示
-
-下载[demo](https://github.com/ximsfei/Res/blob/master/skin/demo/skin-app-debug.apk) 或者下载源码打包apk, 安装到手机上即可查看效果, 在demo apk的assets中已经包含插件皮肤库.
-
-![demo-preview](https://github.com/ximsfei/Res/blob/master/skin/preview/skin-default-preview.gif)
-
 ## 最佳实践
 
 [仿网易云音乐皮肤切换](https://github.com/ximsfei/Skin-Demo)
+
+下载[demo](https://github.com/ximsfei/Res/blob/master/skin-demo/app-debug.apk)
 
 ![red 1](https://github.com/ximsfei/Res/blob/master/skin-demo/red_1.png)
 ![red 2](https://github.com/ximsfei/Res/blob/master/skin-demo/red_2.png)
