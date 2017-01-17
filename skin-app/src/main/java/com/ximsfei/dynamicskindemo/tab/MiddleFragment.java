@@ -17,7 +17,7 @@ public class MiddleFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment, null);
+        View view = inflater.inflate(R.layout.fragment_middle, null);
         return view;
     }
 }

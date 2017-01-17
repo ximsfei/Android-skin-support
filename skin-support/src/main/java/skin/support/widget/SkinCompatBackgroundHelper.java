@@ -2,6 +2,7 @@ package skin.support.widget;
 
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.TintTypedArray;
@@ -51,17 +52,18 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
         }
         String typeName = mView.getResources().getResourceTypeName(mBackgroundResId);
         if ("color".equals(typeName)) {
-            ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mBackgroundResId);
-            Drawable drawable = mView.getBackground();
-            DrawableCompat.setTintList(drawable, colorStateList);
-//            mView.setBackgroundDrawable(drawable);
-            ViewCompat.setBackground(mView, drawable);
-//            int color = SkinResLoader.getInstance().getColor(mBackgroundResId);
-//            mView.setBackgroundColor(color);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                int color = SkinCompatResources.getInstance().getColor(mBackgroundResId);
+                mView.setBackgroundColor(color);
+            } else {
+                ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mBackgroundResId);
+                Drawable drawable = mView.getBackground();
+                DrawableCompat.setTintList(drawable, colorStateList);
+                ViewCompat.setBackground(mView, drawable);
+            }
         } else if ("drawable".equals(typeName)) {
             Drawable drawable = SkinCompatResources.getInstance().getDrawable(mBackgroundResId);
             ViewCompat.setBackground(mView, drawable);
-//            mView.setBackgroundDrawable(drawable);
         }
     }
 }

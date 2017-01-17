@@ -1,7 +1,9 @@
 package skin.support.widget;
 
 import android.content.res.ColorStateList;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
@@ -51,10 +53,20 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
         }
         String typeName = mView.getResources().getResourceTypeName(mSrcResId);
         if ("color".equals(typeName)) {
-            ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mSrcResId);
-            Drawable drawable = mView.getDrawable();
-            DrawableCompat.setTintList(drawable, colorStateList);
-            mView.setImageDrawable(drawable);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                int color = SkinCompatResources.getInstance().getColor(mSrcResId);
+                Drawable drawable = mView.getDrawable();
+                if (drawable instanceof ColorDrawable) {
+                    ((ColorDrawable) drawable.mutate()).setColor(color);
+                } else {
+                    mView.setImageDrawable(new ColorDrawable(color));
+                }
+            } else {
+                ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mSrcResId);
+                Drawable drawable = mView.getDrawable();
+                DrawableCompat.setTintList(drawable, colorStateList);
+                mView.setImageDrawable(drawable);
+            }
         } else if ("drawable".equals(typeName)) {
             Drawable drawable = SkinCompatResources.getInstance().getDrawable(mSrcResId);
             mView.setImageDrawable(drawable);

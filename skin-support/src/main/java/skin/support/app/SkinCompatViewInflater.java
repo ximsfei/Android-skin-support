@@ -10,9 +10,6 @@ import android.support.v4.util.ArrayMap;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.ContextThemeWrapper;
-import android.support.v7.widget.AppCompatCheckBox;
-import android.support.v7.widget.AppCompatCheckedTextView;
-import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.support.v7.widget.AppCompatSpinner;
@@ -153,9 +150,7 @@ public class SkinCompatViewInflater {
             }
         }
 
-        if (view == null && originalContext != context) {
-            // If the original context does not equal our themed context, then we need to manually
-            // inflate it using the name so that android:theme takes effect.
+        if (view == null) {
             view = createViewFromTag(context, name, attrs);
         }
 
