@@ -207,7 +207,6 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 深入研究发现Android换肤原理其实不难, 难在要实现一个完善的换肤框架所带来的工作量, 所以在没有特殊原因的前提下, 希望大家多多使用, 多多交流, 为本项目贡献自己的力量, 为所有Android开发者带来福音, 减少没必要的工作量
 
 ![QQ群二维码](https://github.com/ximsfei/Res/blob/master/android_group.png)
-![微信二维码](https://github.com/ximsfei/Res/blob/master/wechat_qr.jpg)
 
 ## 致谢
 
