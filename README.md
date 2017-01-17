@@ -2,15 +2,17 @@
 
 * [介绍](#介绍)
 * [演示](#演示)
+* [最佳实践](#最佳实践)
 * [支持](#支持)
 * [用法](#用法)
 * [交流合作](#交流合作)
-* [最佳实践](#最佳实践)
 * [致谢](#致谢)
 
 ## 介绍
 
-Android-skin-support: 一款用心去做的Android 换肤框架, 极低的学习成本, 极好的用户体验. 只需要两行代码, 就可以实现换肤, 你值得拥有!!!
+Android-skin-support: 一款用心去做的Android 换肤框架, 极低的学习成本, 极好的用户体验.
+
+只需要两行代码, 就可以实现换肤, 你值得拥有!!!
 
 第一行: 在Application的onCreate中初始化
 
@@ -24,7 +26,7 @@ SkinCompatManager.init(this).loadSkin();
 public class BaseActivity extends SkinCompatActivity {}
 ```
 
-就这么简单, 你的APK已经拥有了强大的换肤功能
+就这么简单, 你的APK已经拥有了强大的换肤功能.
 
 [skin-app](skin-app)                        // 换肤demo app
 
@@ -40,13 +42,29 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ![demo-preview](https://github.com/ximsfei/Res/blob/master/skin/preview/skin-default-preview.gif)
 
+## 最佳实践
+
+[仿网易云音乐皮肤切换](https://github.com/ximsfei/Skin-Demo)
+
+![red 1](https://github.com/ximsfei/Res/blob/master/skin-demo/red_1.png)
+![red 2](https://github.com/ximsfei/Res/blob/master/skin-demo/red_2.png)
+![red 3](https://github.com/ximsfei/Res/blob/master/skin-demo/red_3.png)
+
+![white 1](https://github.com/ximsfei/Res/blob/master/skin-demo/white_1.png)
+![white 2](https://github.com/ximsfei/Res/blob/master/skin-demo/white_2.png)
+![white 3](https://github.com/ximsfei/Res/blob/master/skin-demo/white_3.png)
+
+![night 1](https://github.com/ximsfei/Res/blob/master/skin-demo/night_1.png)
+![night 2](https://github.com/ximsfei/Res/blob/master/skin-demo/night_2.png)
+![night 3](https://github.com/ximsfei/Res/blob/master/skin-demo/night_3.png)
+
 ## 支持
 
 ### 目前支持:
 
 * 支持Android 4.x, 5.x, 6.x, 7.x
 
-* 支持自定义View换肤[点此跳转](#自定义view换肤)
+* 支持自定义View换肤 [点此跳转](#自定义view换肤)
 
 * skin-support: appcompat-v7 支持
 
@@ -142,22 +160,7 @@ public void onCreate() {
 
 ```java
 // 指定皮肤插件, 并且监听加载状态
-SkinCompatManager.getInstance().loadSkin("new.skin", new SkinCompatManager.SkinLoaderListener() {
-    @Override
-    public void onStart() {
-        SkinLog.d("onStart");
-    }
-
-    @Override
-    public void onSuccess() {
-        SkinLog.d("onSuccess");
-    }
-
-    @Override
-    public void onFailed(String errMsg) {
-        SkinLog.d("onFailed");
-    }
-});
+SkinCompatManager.getInstance().loadSkin("new.skin");
 
 // 恢复应用默认皮肤
 SkinCompatManager.getInstance().restoreDefaultTheme();
@@ -166,6 +169,7 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 #### 自定义View换肤
 
 要点:
+
 1. 实现SkinCompatSupportable接口
 2. 在构造方法中解析出需要换肤的resId
 3. 在applySkin方法中实现换肤
@@ -204,10 +208,6 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 ![QQ群二维码](https://github.com/ximsfei/Res/blob/master/android_group.png)
 ![微信二维码](https://github.com/ximsfei/Res/blob/master/wechat_qr.jpg)
-
-## 最佳实践
-
-[仿网易云音乐皮肤切换](https://github.com/ximsfei/Skin-Demo)
 
 ## 致谢
 
