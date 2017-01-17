@@ -13,6 +13,8 @@ SkinCompatManager.init(this).loadSkin();
 public class BaseActivity extends SkinCompatActivity {}
 ```
 
+就这么简单, 你的APK已经拥有了强大的换肤功能
+
 * [演示](#演示)
 * [支持](#支持)
 * [用法](#用法)
@@ -32,7 +34,7 @@ public class BaseActivity extends SkinCompatActivity {}
 
 * 支持Android 4.x, 5.x, 6.x, 7.x
 
-* 支持自定义View换肤[点此跳转](#自定义View换肤)
+* 支持自定义View换肤[点此跳转](#自定义view换肤)
 
 * skin-support: appcompat-v7 支持
 
@@ -65,6 +67,8 @@ public class BaseActivity extends SkinCompatActivity {}
   * RatingBar
   * SeekBar
   * ProgressBar
+  * Menu
+  * 状态栏换肤
   * ...
 
 ## 用法
@@ -112,10 +116,10 @@ dependencies {
     
 ```java
 @Override
-    public void onCreate() {
-        super.onCreate();
-        SkinCompatManager.init(this).loadSkin(); // 应用启动加载当前(保存在SharedPreferences中)皮肤库
-    }
+public void onCreate() {
+    super.onCreate();
+    SkinCompatManager.init(this).loadSkin(); // 应用启动加载当前(保存在SharedPreferences中)皮肤库
+}
 ```
 
 #### 继承SkinCompatActivity
@@ -165,11 +169,13 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 * 需要换肤自定义属性
 
   // 需要换肤AutoCompleteTextView的R.attr.popupBackground属性
+
   eg: [SkinCompatAutoCompleteTextView](skin-support/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
 
 * 需要使用第三方库控件怎么办
 
-  // 需要使用https://github.com/hdodenhof/CircleImageView控件, 并且要支持换肤
+  // 需要使用https://github.com/hdodenhof/CircleImageView 控件, 并且要支持换肤
+
   eg: [CustomCircleImageView](skin-app/src/main/java/com/ximsfei/dynamicskindemo/widget/CustomCircleImageView.java)
 
 ### 制作皮肤插件:
