@@ -151,6 +151,10 @@ public void onCreate() {
 
 让所有需要换肤的Activity继承自`skin.support.app.SkinCompatActivity`.
 
+```java
+public class BaseActivity extends SkinCompatActivity {}
+```
+
 #### 加载插件皮肤库
 
 ```java
