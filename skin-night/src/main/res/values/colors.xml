@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#ffce3d3a</color>
     <color name="colorAccent">#aaa</color>
     <color name="tabSelected">#00ffff</color>
+    <color name="circle_border_color">#ffffff</color>
 </resources>

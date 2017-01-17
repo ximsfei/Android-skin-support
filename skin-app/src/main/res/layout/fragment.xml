@@ -2,10 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="fragment" />
+    <com.ximsfei.dynamicskindemo.widget.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/picture"
+        app:civ_border_color="@color/circle_border_color"
+        app:civ_border_width="10dp" />
+
+    <com.ximsfei.dynamicskindemo.widget.CustomCircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image_custom"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/picture"
+        app:civ_border_color="@color/circle_border_color"
+        app:civ_border_width="10dp" />
 </LinearLayout>

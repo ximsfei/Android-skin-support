@@ -66,9 +66,9 @@ public class MainActivity extends SkinCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(new TabFragmentPagerAdapter(getSupportFragmentManager(), list));
         List<String> listTitle = new ArrayList<>();
-        listTitle.add("个性推荐");
-        listTitle.add("歌单");
-        listTitle.add("电台");
+        listTitle.add("系统组件");
+        listTitle.add("自定义View");
+        listTitle.add("第三方库控件");
         mTabFragmentPagerAdapter = new TabFragmentPagerAdapter(getSupportFragmentManager(), list, listTitle);
         viewPager.setAdapter(mTabFragmentPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
