@@ -39,7 +39,7 @@ public class BaseActivity extends SkinCompatActivity {}
 
 [仿网易云音乐皮肤切换](https://github.com/ximsfei/Skin-Demo)
 
-下载[demo](https://github.com/ximsfei/Res/blob/master/skin-demo/app-debug.apk)
+[下载](https://github.com/ximsfei/Res/blob/master/skin-demo/app-debug.apk)
 
 ![red 1](https://github.com/ximsfei/Res/blob/master/skin-demo/red_1.png)
 ![red 2](https://github.com/ximsfei/Res/blob/master/skin-demo/red_2.png)
@@ -59,7 +59,7 @@ public class BaseActivity extends SkinCompatActivity {}
 
 * 支持Android 4.x, 5.x, 6.x, 7.x
 
-* 支持自定义View换肤 [点此跳转](#自定义view换肤)
+* [支持自定义View换肤](#自定义view换肤)
 
 * skin-support: appcompat-v7 支持
 
