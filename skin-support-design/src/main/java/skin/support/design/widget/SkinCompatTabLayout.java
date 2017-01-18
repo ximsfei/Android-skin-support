@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
@@ -47,7 +48,9 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
         final TypedArray ta = context.obtainStyledAttributes(tabTextAppearance, R.styleable.SkinTextAppearance);
         try {
             mTabTextColorsResId = ta.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
-            mTabTextColors = ta.getColorStateList(R.styleable.TabLayout_tabTextColor);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mTabTextColors = ta.getColorStateList(R.styleable.TabLayout_tabTextColor);
+            }
         } finally {
             ta.recycle();
         }
@@ -55,7 +58,9 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
         if (a.hasValue(R.styleable.TabLayout_tabTextColor)) {
             // If we have an explicit text color set, use it instead
             mTabTextColorsResId = a.getResourceId(R.styleable.TabLayout_tabTextColor, INVALID_ID);
-            mTabTextColors = a.getColorStateList(R.styleable.TabLayout_tabTextColor);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mTabTextColors = a.getColorStateList(R.styleable.TabLayout_tabTextColor);
+            }
         }
 
         if (a.hasValue(R.styleable.TabLayout_tabSelectedTextColor)) {
@@ -93,8 +98,13 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
         }
         mTabTextColorsResId = SkinCompatHelper.checkResourceId(mTabTextColorsResId);
         if (mTabTextColorsResId != INVALID_ID) {
-            mTabTextColors = SkinCompatResources.getInstance().getColorStateList(mTabTextColorsResId);
-            setTabTextColors(mTabTextColors);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mTabTextColors = SkinCompatResources.getInstance().getColorStateList(mTabTextColorsResId);
+                setTabTextColors(mTabTextColors);
+            } else {
+                int color = SkinCompatResources.getInstance().getColor(mTabTextColorsResId);
+                setTabTextColors(color, color);
+            }
         }
         mTabSelectedTextColorResId = SkinCompatHelper.checkResourceId(mTabSelectedTextColorResId);
         if (mTabSelectedTextColorResId != INVALID_ID) {
@@ -103,8 +113,7 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
                 mTabTextColors = createColorStateList(mTabTextColors.getDefaultColor(), selected);
                 setTabTextColors(mTabTextColors);
             } else {
-                mTabTextColors = createColorStateList(selected, selected);
-                setTabTextColors(mTabTextColors);
+                setTabTextColors(selected, selected);
                 mTabTextColors = null;
             }
         }
