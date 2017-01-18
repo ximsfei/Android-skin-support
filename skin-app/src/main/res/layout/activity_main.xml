@@ -25,7 +25,9 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimaryDark">
+                android:background="?attr/colorPrimaryDark"
+                app:subtitleTextColor="@color/circle_border_color"
+                app:titleTextColor="@color/circle_border_color">
 
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
@@ -60,7 +62,7 @@
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent"
         android:layout_gravity="start"
+        android:background="@color/colorAccent"
         android:fitsSystemWindows="true" />
 </android.support.v4.widget.DrawerLayout>

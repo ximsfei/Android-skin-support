@@ -17,6 +17,8 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  */
 
 public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable {
+    private int mTitleTextColorResId = INVALID_ID;
+    private int mSubtitleTextColorResId = INVALID_ID;
     private int mNavigationIconResId = INVALID_ID;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
@@ -33,11 +35,49 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
 
-        final TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
+        TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
                 R.styleable.Toolbar, defStyleAttr, 0);
         mNavigationIconResId = a.getResourceId(R.styleable.Toolbar_navigationIcon, INVALID_ID);
+
+        int titleAp = a.getResourceId(R.styleable.Toolbar_titleTextAppearance, INVALID_ID);
+        int subtitleAp = a.getResourceId(R.styleable.Toolbar_subtitleTextAppearance, INVALID_ID);
         a.recycle();
+        if (titleAp != INVALID_ID) {
+            a = TintTypedArray.obtainStyledAttributes(context, titleAp, R.styleable.SkinTextAppearance);
+            mTitleTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
+            a.recycle();
+        }
+        if (subtitleAp != INVALID_ID) {
+            a = TintTypedArray.obtainStyledAttributes(context, subtitleAp, R.styleable.SkinTextAppearance);
+            mSubtitleTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
+            a.recycle();
+        }
+        a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
+                R.styleable.Toolbar, defStyleAttr, 0);
+        if (a.hasValue(R.styleable.Toolbar_titleTextColor)) {
+            mTitleTextColorResId = a.getResourceId(R.styleable.Toolbar_titleTextColor, INVALID_ID);
+        }
+        if (a.hasValue(R.styleable.Toolbar_subtitleTextColor)) {
+            mSubtitleTextColorResId = a.getResourceId(R.styleable.Toolbar_subtitleTextColor, INVALID_ID);
+        }
+        a.recycle();
+        applyTitleTextColor();
+        applySubtitleTextColor();
         applyNavigationIcon();
+    }
+
+    private void applyTitleTextColor() {
+        mTitleTextColorResId = SkinCompatHelper.checkResourceId(mTitleTextColorResId);
+        if (mTitleTextColorResId != INVALID_ID) {
+            setTitleTextColor(SkinCompatResources.getInstance().getColor(mTitleTextColorResId));
+        }
+    }
+
+    private void applySubtitleTextColor() {
+        mSubtitleTextColorResId = SkinCompatHelper.checkResourceId(mSubtitleTextColorResId);
+        if (mSubtitleTextColorResId != INVALID_ID) {
+            setTitleTextColor(SkinCompatResources.getInstance().getColor(mSubtitleTextColorResId));
+        }
     }
 
     private void applyNavigationIcon() {
@@ -67,6 +107,8 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();
         }
+        applyTitleTextColor();
+        applySubtitleTextColor();
         applyNavigationIcon();
     }
 }

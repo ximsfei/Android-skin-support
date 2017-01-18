@@ -77,6 +77,8 @@ public class MainActivity extends SkinCompatActivity {
     private void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Title");
+        toolbar.setSubtitle("Subtitle");
         toolbar.setNavigationIcon(R.drawable.actionbar_discover_normal);
     }
 
