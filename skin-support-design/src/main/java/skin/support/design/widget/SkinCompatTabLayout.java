@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
@@ -21,7 +22,6 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  */
 
 public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupportable {
-    private ColorStateList mTabTextColors;
     private int mTabIndicatorColorResId = INVALID_ID;
     private int mTabTextColorsResId = INVALID_ID;
     private int mTabSelectedTextColorResId = INVALID_ID;
@@ -47,7 +47,6 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
         final TypedArray ta = context.obtainStyledAttributes(tabTextAppearance, R.styleable.SkinTextAppearance);
         try {
             mTabTextColorsResId = ta.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
-            mTabTextColors = ta.getColorStateList(R.styleable.TabLayout_tabTextColor);
         } finally {
             ta.recycle();
         }
@@ -55,7 +54,6 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
         if (a.hasValue(R.styleable.TabLayout_tabTextColor)) {
             // If we have an explicit text color set, use it instead
             mTabTextColorsResId = a.getResourceId(R.styleable.TabLayout_tabTextColor, INVALID_ID);
-            mTabTextColors = a.getColorStateList(R.styleable.TabLayout_tabTextColor);
         }
 
         if (a.hasValue(R.styleable.TabLayout_tabSelectedTextColor)) {
@@ -68,45 +66,31 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
         applySkin();
     }
 
-    private static ColorStateList createColorStateList(int defaultColor, int selectedColor) {
-        final int[][] states = new int[2][];
-        final int[] colors = new int[2];
-        int i = 0;
-
-        states[i] = SELECTED_STATE_SET;
-        colors[i] = selectedColor;
-        i++;
-
-        // Default enabled state
-        states[i] = EMPTY_STATE_SET;
-        colors[i] = defaultColor;
-        i++;
-
-        return new ColorStateList(states, colors);
-    }
-
     @Override
     public void applySkin() {
+        int tabTextColor = INVALID_ID;
         mTabIndicatorColorResId = SkinCompatHelper.checkResourceId(mTabIndicatorColorResId);
         if (mTabIndicatorColorResId != INVALID_ID) {
             setSelectedTabIndicatorColor(SkinCompatResources.getInstance().getColor(mTabIndicatorColorResId));
         }
         mTabTextColorsResId = SkinCompatHelper.checkResourceId(mTabTextColorsResId);
         if (mTabTextColorsResId != INVALID_ID) {
-            mTabTextColors = SkinCompatResources.getInstance().getColorStateList(mTabTextColorsResId);
-            setTabTextColors(mTabTextColors);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                setTabTextColors(SkinCompatResources.getInstance().getColorStateList(mTabTextColorsResId));
+            } else {
+                tabTextColor = SkinCompatResources.getInstance().getColor(mTabTextColorsResId);
+            }
         }
         mTabSelectedTextColorResId = SkinCompatHelper.checkResourceId(mTabSelectedTextColorResId);
         if (mTabSelectedTextColorResId != INVALID_ID) {
             int selected = SkinCompatResources.getInstance().getColor(mTabSelectedTextColorResId);
-            if (mTabTextColors != null) {
-                mTabTextColors = createColorStateList(mTabTextColors.getDefaultColor(), selected);
-                setTabTextColors(mTabTextColors);
+            if (getTabTextColors() != null) {
+                setTabTextColors(getTabTextColors().getDefaultColor(), selected);
             } else {
-                mTabTextColors = createColorStateList(selected, selected);
-                setTabTextColors(mTabTextColors);
-                mTabTextColors = null;
+                setTabTextColors(tabTextColor, selected);
             }
+        } else if (tabTextColor != INVALID_ID) {
+            setTabTextColors(tabTextColor, tabTextColor);
         }
     }
 }

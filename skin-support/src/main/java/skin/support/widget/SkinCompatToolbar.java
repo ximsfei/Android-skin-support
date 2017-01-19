@@ -76,7 +76,7 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
     private void applySubtitleTextColor() {
         mSubtitleTextColorResId = SkinCompatHelper.checkResourceId(mSubtitleTextColorResId);
         if (mSubtitleTextColorResId != INVALID_ID) {
-            setTitleTextColor(SkinCompatResources.getInstance().getColor(mSubtitleTextColorResId));
+            setSubtitleTextColor(SkinCompatResources.getInstance().getColor(mSubtitleTextColorResId));
         }
     }
 
