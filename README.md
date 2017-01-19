@@ -53,6 +53,9 @@ public class BaseActivity extends SkinCompatActivity {}
 ![night 2](https://github.com/ximsfei/Res/blob/master/skin-demo/night_2.png)
 ![night 3](https://github.com/ximsfei/Res/blob/master/skin-demo/night_3.png)
 
+Testin 测试结果:
+![Testin](https://github.com/ximsfei/Res/blob/master/skin-demo/testin_1.png)
+
 ## 支持
 
 ### 目前支持:
