@@ -35,6 +35,7 @@ import skin.support.widget.SkinCompatImageButton;
 import skin.support.widget.SkinCompatImageView;
 import skin.support.widget.SkinCompatLinearLayout;
 import skin.support.widget.SkinCompatMultiAutoCompleteTextView;
+import skin.support.widget.SkinCompatProgressBar;
 import skin.support.widget.SkinCompatRadioButton;
 import skin.support.widget.SkinCompatRelativeLayout;
 import skin.support.widget.SkinCompatTextView;
@@ -135,6 +136,9 @@ public class SkinCompatViewInflater {
                 break;
             case "SeekBar":
                 view = new AppCompatSeekBar(context, attrs);
+                break;
+            case "ProgressBar":
+                view = new SkinCompatProgressBar(context, attrs);
                 break;
         }
 

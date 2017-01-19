@@ -16,4 +16,8 @@
         android:text="custom text view 2"
         android:background="@color/colorAccent"
         android:textColor="@color/color_selector" />
+    <ProgressBar
+        android:indeterminateDrawable="@drawable/progress_bar"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize" />
 </LinearLayout>

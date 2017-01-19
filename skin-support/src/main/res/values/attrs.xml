@@ -24,4 +24,7 @@
         <attr name="android:shadowDx" />
         <attr name="android:shadowRadius" />
     </declare-styleable>
+    <declare-styleable name="SkinCompatProgressBar">
+        <attr name="android:indeterminateDrawable" />
+    </declare-styleable>
 </resources>
