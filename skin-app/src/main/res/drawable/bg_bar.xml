@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景图 -->
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/bar_dn" />
+    <!-- 第二进度图 -->
+    <item
+        android:id="@android:id/secondaryProgress"
+        android:drawable="@drawable/bar_dn" />
+    <!-- 进度度 -->
+    <item
+        android:id="@android:id/progress"
+        android:drawable="@drawable/bar_up" />
+</layer-list>
