@@ -46,7 +46,9 @@
                 style="@style/TextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:popupBackground="@color/colorAccent" />
+                android:focusable="false"
+                android:popupBackground="@color/colorAccent"
+                android:text="MultiAutoCompleteTextView" />
 
             <TextView
                 android:id="@+id/text2"
