@@ -45,17 +45,7 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
                 TINT_ATTRS, defStyleAttr, 0);
 
         mIndeterminateDrawableResId = a.getResourceId(0, INVALID_ID);
-        mProgressDrawableResId = a.getResourceId(0, INVALID_ID);
-
-        Drawable drawable = a.getDrawableIfKnown(0);
-        if (drawable != null) {
-            mView.setIndeterminateDrawable(tileifyIndeterminate(drawable));
-        }
-
-        drawable = a.getDrawableIfKnown(1);
-        if (drawable != null) {
-            mView.setProgressDrawable(tileify(drawable, false));
-        }
+        mProgressDrawableResId = a.getResourceId(1, INVALID_ID);
 
         a.recycle();
     }
