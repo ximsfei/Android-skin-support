@@ -48,6 +48,7 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
         mProgressDrawableResId = a.getResourceId(1, INVALID_ID);
 
         a.recycle();
+        applySkin();
     }
 
     /**
