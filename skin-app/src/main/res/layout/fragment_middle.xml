@@ -41,24 +41,6 @@
         android:layout_height="?attr/actionBarSize"
         android:progress="15" />
 
-    <!--
-        max=100,代表它的取值范围是0-100,共101个值;
-        progress=10,代表默认值是10
-
-    -->
-    <SeekBar
-        android:id="@+id/seekbar_def"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:max="100"
-        android:progress="10" />
-
-    <!--
-        max=100,代表它的取值范围是0-100,共101个值;
-        progress=20,代表默认值是20
-        progressDrawable,表示SeekBar的背景图片
-        thumbe,表示SeekBar的滑块图片
-    -->
     <SeekBar
         android:id="@+id/seekbar_self"
         android:layout_width="match_parent"

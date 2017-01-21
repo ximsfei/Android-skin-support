@@ -11,7 +11,6 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.AppCompatRatingBar;
-import android.support.v7.widget.AppCompatSeekBar;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.TintContextWrapper;
 import android.util.AttributeSet;
@@ -38,6 +37,7 @@ import skin.support.widget.SkinCompatMultiAutoCompleteTextView;
 import skin.support.widget.SkinCompatProgressBar;
 import skin.support.widget.SkinCompatRadioButton;
 import skin.support.widget.SkinCompatRelativeLayout;
+import skin.support.widget.SkinCompatSeekBar;
 import skin.support.widget.SkinCompatTextView;
 import skin.support.widget.SkinCompatToolbar;
 import skin.support.widget.SkinCompatView;
@@ -135,7 +135,7 @@ public class SkinCompatViewInflater {
                 view = new AppCompatRatingBar(context, attrs);
                 break;
             case "SeekBar":
-                view = new AppCompatSeekBar(context, attrs);
+                view = new SkinCompatSeekBar(context, attrs);
                 break;
             case "ProgressBar":
                 view = new SkinCompatProgressBar(context, attrs);
