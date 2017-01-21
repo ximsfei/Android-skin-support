@@ -68,10 +68,13 @@ Testin 测试结果:
 
   * View
   * Button
+  * SeekBar
   * CheckBox
   * EditText
   * TextView
+  * RatingBar
   * ImageView
+  * ProgressBar
   * ImageButton
   * RadioButton
   * FrameLayout
@@ -92,9 +95,6 @@ Testin 测试结果:
 ### 将要支持:
 
   * Spinner
-  * RatingBar
-  * SeekBar
-  * ProgressBar
   * Menu
   * 状态栏换肤
   * ...
