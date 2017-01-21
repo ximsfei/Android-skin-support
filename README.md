@@ -64,7 +64,7 @@ Testin 测试结果:
 
 * [支持自定义View换肤](#自定义view换肤)
 
-* skin-support: appcompat-v7 支持
+* skin-support: 基础控件 支持
 
   * View
   * Button
