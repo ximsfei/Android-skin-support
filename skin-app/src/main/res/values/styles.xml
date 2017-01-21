@@ -7,8 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="AppTheme" parent="BaseAppTheme">
-    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme"></style>
 
     <style name="TextStyle">
         <item name="android:textColor">@color/colorAccent</item>
@@ -17,5 +17,11 @@
 
     <style name="progress_horizontal_style" parent="Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal</item>
+    </style>
+
+    <style name="RatingBarStyle" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">48dp</item>
     </style>
 </resources>

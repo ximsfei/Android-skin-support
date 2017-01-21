@@ -49,4 +49,19 @@
         android:progress="20"
         android:progressDrawable="@drawable/bg_bar"
         android:thumb="@drawable/thumb_bar" />
+
+    <RatingBar
+        style="@style/RatingBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="3"
+        android:stepSize="0.5" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="3"
+        android:stepSize="0.5" />
 </LinearLayout>

@@ -17,7 +17,9 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.ProgressBar;
 
+import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.utils.SkinLog;
 
 /**
  * Created by ximsfei on 2017/1/20.
@@ -135,10 +137,18 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
             drawable.setBounds(mView.getIndeterminateDrawable().getBounds());
             mView.setIndeterminateDrawable(tileifyIndeterminate(drawable));
         }
-        mProgressDrawableResId = checkResourceId(mProgressDrawableResId);
+
+        mProgressDrawableResId = checkProgressDrawableResId(mProgressDrawableResId);
         if (mProgressDrawableResId != INVALID_ID) {
             Drawable drawable = SkinCompatResources.getInstance().getDrawable(mProgressDrawableResId);
-            mView.setProgressDrawable(drawable);
+            mView.setProgressDrawable(tileify(drawable, false));
         }
+    }
+
+    private int checkProgressDrawableResId(int mProgressDrawableResId) {
+        if (mProgressDrawableResId == R.drawable.abc_ratingbar_material) {
+            return INVALID_ID;
+        }
+        return checkResourceId(mProgressDrawableResId);
     }
 }

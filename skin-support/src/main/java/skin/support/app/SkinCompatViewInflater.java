@@ -36,6 +36,7 @@ import skin.support.widget.SkinCompatLinearLayout;
 import skin.support.widget.SkinCompatMultiAutoCompleteTextView;
 import skin.support.widget.SkinCompatProgressBar;
 import skin.support.widget.SkinCompatRadioButton;
+import skin.support.widget.SkinCompatRatingBar;
 import skin.support.widget.SkinCompatRelativeLayout;
 import skin.support.widget.SkinCompatSeekBar;
 import skin.support.widget.SkinCompatTextView;
@@ -132,7 +133,7 @@ public class SkinCompatViewInflater {
                 view = new SkinCompatMultiAutoCompleteTextView(context, attrs);
                 break;
             case "RatingBar":
-                view = new AppCompatRatingBar(context, attrs);
+                view = new SkinCompatRatingBar(context, attrs);
                 break;
             case "SeekBar":
                 view = new SkinCompatSeekBar(context, attrs);
