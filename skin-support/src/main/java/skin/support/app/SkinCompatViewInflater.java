@@ -10,8 +10,6 @@ import android.support.v4.util.ArrayMap;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.ContextThemeWrapper;
-import android.support.v7.widget.AppCompatRatingBar;
-import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.TintContextWrapper;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -39,6 +37,7 @@ import skin.support.widget.SkinCompatRadioButton;
 import skin.support.widget.SkinCompatRatingBar;
 import skin.support.widget.SkinCompatRelativeLayout;
 import skin.support.widget.SkinCompatSeekBar;
+import skin.support.widget.SkinCompatSpinner;
 import skin.support.widget.SkinCompatTextView;
 import skin.support.widget.SkinCompatToolbar;
 import skin.support.widget.SkinCompatView;
@@ -112,7 +111,7 @@ public class SkinCompatViewInflater {
                 view = new SkinCompatEditText(context, attrs);
                 break;
             case "Spinner":
-                view = new AppCompatSpinner(context, attrs);
+                view = new SkinCompatSpinner(context, attrs);
                 break;
             case "ImageButton":
                 view = new SkinCompatImageButton(context, attrs);

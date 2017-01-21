@@ -19,7 +19,6 @@ import android.widget.ProgressBar;
 
 import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
-import skin.support.utils.SkinLog;
 
 /**
  * Created by ximsfei on 2017/1/20.

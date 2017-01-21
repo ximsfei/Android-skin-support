@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages">
+        <item>Android</item>
+        <item>Java</item>
+        <item>H5</item>
+        <item>PHP</item>
+        <item>XML</item>
+    </string-array>
+</resources>

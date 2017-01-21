@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="tabSelected">#ff00ff</color>
     <color name="circle_border_color">#000000</color>
+    <color name="text_color">#ff000000</color>
 </resources>

@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent"
+        android:popupBackground="@color/colorPrimary" />
+
     <com.ximsfei.dynamicskindemo.widget.CustomTextView
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

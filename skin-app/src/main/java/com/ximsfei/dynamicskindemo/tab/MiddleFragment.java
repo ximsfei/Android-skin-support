@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 
 import com.ximsfei.dynamicskindemo.R;
 
@@ -18,6 +20,7 @@ import com.ximsfei.dynamicskindemo.R;
 public class MiddleFragment extends Fragment {
     private ProgressBar mHorizontalBar;
     private Button mAdd;
+    private Spinner mSpinner;
 
     @Nullable
     @Override
@@ -31,6 +34,13 @@ public class MiddleFragment extends Fragment {
                 mHorizontalBar.setProgress(mHorizontalBar.getProgress() + 2);
             }
         });
+        mSpinner = (Spinner) view.findViewById(R.id.spinner);
+        final CharSequence[] entries = getResources().getStringArray(R.array.languages);
+        if (entries != null) {
+            final ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getActivity(), R.layout.simple_spinner_item, entries);
+            adapter.setDropDownViewResource(R.layout.simple_spinner_item);
+            mSpinner.setAdapter(adapter);
+        }
         return view;
     }
 }
