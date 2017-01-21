@@ -68,6 +68,7 @@ Testin 测试结果:
 
   * View
   * Button
+  * Spinner
   * SeekBar
   * CheckBox
   * EditText
@@ -94,7 +95,6 @@ Testin 测试结果:
 
 ### 将要支持:
 
-  * Spinner
   * Menu
   * 状态栏换肤
   * ...
