@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="languages">
-        <item>Android</item>
-        <item>Java</item>
-        <item>H5</item>
-        <item>PHP</item>
-        <item>XML</item>
+        <item>Android Spinner popup mode</item>
+        <item>Java Spinner popup mode</item>
+        <item>H5 Spinner popup mode</item>
+        <item>PHP Spinner popup mode</item>
+        <item>XML Spinner popup mode</item>
     </string-array>
 </resources>
