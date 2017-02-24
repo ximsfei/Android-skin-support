@@ -68,6 +68,19 @@ public class SkinCompatResources {
         return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
     }
 
+    public Drawable getMipmap(int resId) {
+        Drawable originDrawable = ContextCompat.getDrawable(mAppContext, resId);
+        if (isDefaultSkin) {
+            return originDrawable;
+        }
+
+        String resName = mAppContext.getResources().getResourceEntryName(resId);
+
+        int targetResId = mResources.getIdentifier(resName, "mipmap", mSkinPkgName);
+
+        return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
+    }
+
     public ColorStateList getColorStateList(int resId) {
         ColorStateList colorStateList = ContextCompat.getColorStateList(mAppContext, resId);
         if (isDefaultSkin) {

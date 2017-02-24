@@ -20,4 +20,9 @@
         android:src="@drawable/picture"
         app:civ_border_color="@color/circle_border_color"
         app:civ_border_width="10dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:src="@mipmap/ic_launcher"/>
 </LinearLayout>

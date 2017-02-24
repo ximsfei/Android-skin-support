@@ -75,6 +75,9 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
             } else if ("drawable".equals(typeName)) {
                 Drawable drawable = SkinCompatResources.getInstance().getDrawable(mDropDownBackgroundResId);
                 setDropDownBackgroundDrawable(drawable);
+            } else if ("mipmap".equals(typeName)) {
+                Drawable drawable = SkinCompatResources.getInstance().getMipmap(mDropDownBackgroundResId);
+                setDropDownBackgroundDrawable(drawable);
             }
         }
     }

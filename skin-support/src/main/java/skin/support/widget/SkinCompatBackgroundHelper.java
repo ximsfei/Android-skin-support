@@ -64,6 +64,9 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
         } else if ("drawable".equals(typeName)) {
             Drawable drawable = SkinCompatResources.getInstance().getDrawable(mBackgroundResId);
             ViewCompat.setBackground(mView, drawable);
+        } else if ("mipmap".equals(typeName)) {
+            Drawable drawable = SkinCompatResources.getInstance().getMipmap(mBackgroundResId);
+            ViewCompat.setBackground(mView, drawable);
         }
     }
 }

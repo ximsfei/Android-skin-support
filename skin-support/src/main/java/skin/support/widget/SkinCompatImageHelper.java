@@ -70,6 +70,9 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
         } else if ("drawable".equals(typeName)) {
             Drawable drawable = SkinCompatResources.getInstance().getDrawable(mSrcResId);
             mView.setImageDrawable(drawable);
+        } else if ("mipmap".equals(typeName)) {
+            Drawable drawable = SkinCompatResources.getInstance().getMipmap(mSrcResId);
+            mView.setImageDrawable(drawable);
         }
     }
 
