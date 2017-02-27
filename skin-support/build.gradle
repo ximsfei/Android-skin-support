@@ -69,7 +69,7 @@ install {
                 developers {
                     developer {
                         id 'ximsfei'
-                        name 'Pengfeng wang'
+                        name 'Pengfeng Wang'
                         email 'ximsfei@gmail.com'
                     }
                 }
