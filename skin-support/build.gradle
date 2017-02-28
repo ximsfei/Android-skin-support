@@ -15,13 +15,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    publishNonDefault true
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
 }
 
 apply plugin: 'com.github.dcendents.android-maven'
@@ -77,15 +75,10 @@ install {
                     connection 'https://github.com/ximsfei/Android-skin-support.git'
                     developerConnection 'https://github.com/ximsfei/Android-skin-support.git'
                     url siteUrl
-
                 }
             }
         }
     }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 task sourcesJar(type: Jar) {

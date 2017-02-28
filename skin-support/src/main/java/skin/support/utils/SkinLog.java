@@ -2,14 +2,12 @@ package skin.support.utils;
 
 import android.util.Log;
 
-import skin.support.BuildConfig;
-
 /**
  * Created by ximsfei on 17-1-9.
  */
 
 public class SkinLog {
-    private static boolean DEBUG = BuildConfig.DEBUG;
+    private static boolean DEBUG = true;//BuildConfig.DEBUG;
     private static final String TAG = "Skin-support";
 
     public static void v(String msg) {
