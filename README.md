@@ -1,7 +1,7 @@
 # Android-skin-support
 
-![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)
-![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)
+[![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)](#skin-support-基础控件-支持)
+[![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](#skin-support-design-material-design-支持)
 
 * [介绍](#介绍)
 * [更新日志](#更新日志)
