@@ -1,7 +1,7 @@
 # Android-skin-support
 
-[![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)](#skin-support-基础控件-支持)
-[![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](#skin-support-design-material-design-支持)
+[![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.1/)
+[![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/)
 
 * [介绍](#介绍)
 * [更新日志](#更新日志)
@@ -60,7 +60,7 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ### skin-support: 基础控件 支持
 
-* ![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg) 支持所有基础控件换肤
+* [![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.1/) 支持所有基础控件换肤
   * View
   * Button
   * Spinner
@@ -83,7 +83,7 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ### skin-support-design: material design 支持
 
-* ![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg) 支持以下三个控件换肤
+* [![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/) 支持以下三个控件换肤
   * TabLayout
   * AppBarLayout
   * NavigationView
