@@ -3,7 +3,6 @@
 * [介绍](#介绍)
 * [更新日志](#更新日志)
 * [最佳实践](#最佳实践)
-* [支持](#支持)
 * [用法](#用法)
 * [交流合作](#交流合作)
 * [致谢](#致谢)
@@ -38,8 +37,35 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ## 更新日志
 
-* skin-support
-* skin-support-design
+### skin-support: 基础控件 支持
+
+* v1.0.1 支持所有基础控件换肤
+  * View
+  * Button
+  * Spinner
+  * SeekBar
+  * CheckBox
+  * EditText
+  * TextView
+  * RatingBar
+  * ImageView
+  * ProgressBar
+  * ImageButton
+  * RadioButton
+  * FrameLayout
+  * LinearLayout
+  * RelativeLayout
+  * CheckedTextView
+  * AutoCompleteTextView
+  * MultiAutoCompleteTextView
+  * android.support.v7.widget.Toolbar
+
+### skin-support-design: material design 支持
+
+* v0.0.2 支持以下三个控件换肤
+  * TabLayout
+  * AppBarLayout
+  * NavigationView
 
 ## 最佳实践
 
@@ -62,49 +88,6 @@ public class BaseActivity extends SkinCompatActivity {}
 Testin 测试结果:
 ![Testin](https://github.com/ximsfei/Res/blob/master/skin-demo/testin_1.png)
 
-## 支持
-
-### 目前支持:
-
-* 支持Android 4.x, 5.x, 6.x, 7.x
-
-* [支持自定义View换肤](#自定义view换肤)
-
-* skin-support: 基础控件 支持
-
-  * View
-  * Button
-  * Spinner
-  * SeekBar
-  * CheckBox
-  * EditText
-  * TextView
-  * RatingBar
-  * ImageView
-  * ProgressBar
-  * ImageButton
-  * RadioButton
-  * FrameLayout
-  * LinearLayout
-  * RelativeLayout
-  * CheckedTextView
-  * AutoCompleteTextView
-  * MultiAutoCompleteTextView
-
-  * android.support.v7.widget.Toolbar
-
-* skin-support-design: material design 支持
-
-  * TabLayout
-  * AppBarLayout
-  * NavigationView
-
-### 将要支持:
-
-  * Menu
-  * 状态栏换肤
-  * ...
-
 ## 用法
 
 ### 导入:
@@ -112,10 +95,10 @@ Testin 测试结果:
 ```xml
 git clone https://github.com/ximsfei/Android-skin-support.git
 ```
-也可以直接添加依赖
+也可以直接添加依赖, [最新版本选择, 请查看更新日志](#更新日志)
 ```xml
-compile 'skin.support:skin-support:1.0.1'        // skin-support 基础控件支持[最新版本](skin-support-update-log.md)
-compile 'skin.support:skin-support-design:0.0.2' // skin-support-design material design 控件支持[最新版本](skin-support-design-update-log.md)
+compile 'skin.support:skin-support:1.0.1'        // skin-support 基础控件支持
+compile 'skin.support:skin-support-design:0.0.2' // skin-support-design material design 控件支持
 ```
 
 ### 初始化:
