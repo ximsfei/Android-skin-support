@@ -1,6 +1,7 @@
 # Android-skin-support
 
 * [介绍](#介绍)
+* [更新日志](#更新日志)
 * [最佳实践](#最佳实践)
 * [支持](#支持)
 * [用法](#用法)
@@ -34,6 +35,11 @@ public class BaseActivity extends SkinCompatActivity {}
 [skin-support](skin-support)                // 换肤框架, 基础控件支持
 
 [skin-support-design](skin-support-design)  // 换肤框架, Material Design 支持
+
+## 更新日志
+
+* skin-support
+* skin-support-design
 
 ## 最佳实践
 
@@ -102,40 +108,14 @@ Testin 测试结果:
 ## 用法
 
 ### 导入:
-
+可以直接下载源码, 选择需要的module依赖：
 ```xml
 git clone https://github.com/ximsfei/Android-skin-support.git
 ```
-
-选择需要的module依赖：
-
+也可以直接添加依赖
 ```xml
-// aar
-dependencies {
-    compile(name: 'skin-support-release', ext: 'aar') // Android 基础控件, 及V7包中的一些控件
-    compile(name: 'skin-support-design-release', ext: 'aar') // Android support design包中的一些控件
-}
-```
-
-或者
-
-```xml
-dependencies {
-    compile project(':skin-support')
-    compile project(':skin-support-design')
-}
-```
-
-或者
-
-```xml
-// 可以打开调试日志
-dependencies {
-    releaseCompile project(path: ':skin-support', configuration: 'release')
-    debugCompile project(path: ':skin-support', configuration: 'debug')
-    releaseCompile project(path: ':skin-support-design', configuration: 'release')
-    debugCompile project(path: ':skin-support-design', configuration: 'debug')
-}
+compile 'skin.support:skin-support:1.0.1'        // skin-support 基础控件支持[最新版本](skin-support-update-log.md)
+compile 'skin.support:skin-support-design:0.0.2' // skin-support-design material design 控件支持[最新版本](skin-support-design-update-log.md)
 ```
 
 ### 初始化:
@@ -146,7 +126,7 @@ dependencies {
 @Override
 public void onCreate() {
     super.onCreate();
-    SkinCompatManager.init(this).loadSkin(); // 应用启动加载当前(保存在SharedPreferences中)皮肤库
+    SkinCompatManager.init(this).loadSkin(); // 应用启动时初始化换肤框架并且加载当前(保存在SharedPreferences中)皮肤库
 }
 ```
 
@@ -161,8 +141,8 @@ public class BaseActivity extends SkinCompatActivity {}
 #### 加载插件皮肤库
 
 ```java
-// 指定皮肤插件, 并且监听加载状态
-SkinCompatManager.getInstance().loadSkin("new.skin");
+// 指定皮肤插件
+SkinCompatManager.getInstance().loadSkin("new.skin"[, SkinLoaderListener]);
 
 // 恢复应用默认皮肤
 SkinCompatManager.getInstance().restoreDefaultTheme();
@@ -202,7 +182,22 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 #### 将需要换肤的资源放到res目录下(同名资源)
 
+例如 APK中窗口背景颜色为
+
+colors.xml
+```xml
+<color name="background">#ffffff</color>
+```
+那么夜间模式你可以在skin-night工程中设置
+
+colors.xml
+```xml
+<color name="background">#000000</color>
+```
+
 #### 打包生成apk, 即为皮肤包
+
+将打包生成的apk文件, 重命名为'xxx.skin', 防止apk结尾的文件造成混淆.
 
 ## 交流合作
 
