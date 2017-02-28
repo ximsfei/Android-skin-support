@@ -13,7 +13,7 @@
   * [导入](#导入)
   * [使用](#使用)
     * [初始化](#在application的oncreate中初始化)
-    * [继承skincompatactivity](#继承skincompatactivity)
+    * [继承SkinCompatActivity](#继承skincompatactivity)
     * [加载插件皮肤库](#加载插件皮肤库)
     * [自定义view换肤](#自定义view换肤)
   * [制作皮肤插件](#制作皮肤插件)
