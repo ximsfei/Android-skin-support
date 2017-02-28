@@ -2,10 +2,22 @@
 
 * [介绍](#介绍)
 * [更新日志](#更新日志)
+  * [skin-support 更新日志](#skin-support-基础控件-支持)
+  * [skin-support-design 更新日志](#skin-support-design-material-design-支持)
 * [最佳实践](#最佳实践)
-* [用法](#用法)
+  * [网易云音乐换肤实践](#仿网易云音乐)
+* [框架用法](#用法)
   * [导入](#导入)
-* [交流合作](#交流合作)
+  * [使用](#使用)
+    * [初始化](#在application的oncreate中初始化)
+    * [继承skincompatactivity](#继承skincompatactivity)
+    * [加载插件皮肤库](#加载插件皮肤库)
+    * [自定义view换肤](#自定义view换肤)
+  * [制作皮肤插件](#制作皮肤插件)
+    * [新建皮肤工程](#新建android-application工程)
+    * [添加皮肤资源](#将需要换肤的资源放到res目录下同名资源)
+    * [生成皮肤插件](#打包生成apk-即为皮肤包)
+* [交流](#交流)
 * [致谢](#致谢)
 
 ## 介绍
@@ -70,9 +82,10 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ## 最佳实践
 
+### 仿网易云音乐
 [仿网易云音乐皮肤切换](https://github.com/ximsfei/Skin-Demo)
 
-[下载](https://github.com/ximsfei/Res/blob/master/skin-demo/app-debug.apk)
+[仿网易云音乐应用下载](https://github.com/ximsfei/Res/blob/master/skin-demo/app-debug.apk)
 
 ![red 1](https://github.com/ximsfei/Res/blob/master/skin-demo/red_1.png)
 ![red 2](https://github.com/ximsfei/Res/blob/master/skin-demo/red_2.png)
@@ -102,7 +115,7 @@ compile 'skin.support:skin-support:1.0.1'        // skin-support 基础控件
 compile 'skin.support:skin-support-design:0.0.2' // skin-support-design material design 控件支持
 ```
 
-### 初始化:
+### 使用:
 
 #### 在Application的onCreate中初始化
     
@@ -183,7 +196,7 @@ colors.xml
 
 将打包生成的apk文件, 重命名为'xxx.skin', 防止apk结尾的文件造成混淆.
 
-## 交流合作
+## 交流
 
 深入研究发现Android换肤原理其实不难, 难在要实现一个完善的换肤框架所带来的工作量, 所以在没有特殊原因的前提下, 希望大家多多使用, 多多交流, 为本项目贡献自己的力量, 为所有Android开发者带来福音, 减少没必要的工作量
 
