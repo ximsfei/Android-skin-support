@@ -28,7 +28,7 @@ import skin.support.utils.SkinPreference;
  * Created by ximsfei on 2017/1/9.
  */
 
-public class MainActivity extends SkinCompatActivity {
+public class MainActivity extends BaseActivity {
 //public class MainActivity extends AppCompatActivity {
     private TabFragmentPagerAdapter mTabFragmentPagerAdapter;
 
@@ -66,14 +66,6 @@ public class MainActivity extends SkinCompatActivity {
         mTabFragmentPagerAdapter = new TabFragmentPagerAdapter(getSupportFragmentManager(), list, listTitle);
         viewPager.setAdapter(mTabFragmentPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
-    }
-
-    private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle("Title");
-        toolbar.setSubtitle("Subtitle");
-        toolbar.setNavigationIcon(R.drawable.actionbar_discover_normal);
     }
 
     public void setWindowStatusBarColor() {
