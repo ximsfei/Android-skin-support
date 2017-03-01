@@ -56,6 +56,12 @@
                 android:src="@drawable/refresh"
                 app:backgroundTint="@color/colorPrimary"
                 app:rippleColor="@color/colorAccent"/>
+            
+            <android.support.design.widget.BottomNavigationView
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:menu="@menu/bottom_navigation_view_menu"/>
         </RelativeLayout>
     </LinearLayout>
 
