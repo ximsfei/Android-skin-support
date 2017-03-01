@@ -62,6 +62,8 @@ public class SkinCompatFloatingActionButton extends FloatingActionButton impleme
 
     @Override
     public void applySkin() {
+        applyBackgroundTintResource();
+        applyRippleColorResource();
         if (mImageHelper != null) {
             mImageHelper.applySkin();
         }
