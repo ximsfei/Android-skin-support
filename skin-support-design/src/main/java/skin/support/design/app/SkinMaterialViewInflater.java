@@ -7,6 +7,7 @@ import android.view.View;
 
 import skin.support.app.SkinLayoutInflater;
 import skin.support.design.widget.SkinCompatAppBarLayout;
+import skin.support.design.widget.SkinCompatBottomNavigationView;
 import skin.support.design.widget.SkinCompatFloatingActionButton;
 import skin.support.design.widget.SkinCompatNavigationView;
 import skin.support.design.widget.SkinCompatTabLayout;
@@ -30,6 +31,9 @@ public class SkinMaterialViewInflater implements SkinLayoutInflater {
                 break;
             case "android.support.design.widget.FloatingActionButton":
                 view = new SkinCompatFloatingActionButton(context, attrs);
+                break;
+            case "android.support.design.widget.BottomNavigationView":
+                view = new SkinCompatBottomNavigationView(context, attrs);
                 break;
         }
         return view;
