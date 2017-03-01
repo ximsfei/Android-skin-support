@@ -1,0 +1,69 @@
+package skin.support.design.widget;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.support.design.widget.FloatingActionButton;
+import android.util.AttributeSet;
+
+import skin.support.content.res.SkinCompatResources;
+import skin.support.design.R;
+import skin.support.widget.SkinCompatHelper;
+import skin.support.widget.SkinCompatImageHelper;
+import skin.support.widget.SkinCompatSupportable;
+
+import static skin.support.widget.SkinCompatHelper.INVALID_ID;
+
+/**
+ * Created by pengfengwang on 2017/3/1.
+ */
+
+public class SkinCompatFloatingActionButton extends FloatingActionButton implements SkinCompatSupportable {
+    private int mRippleColorResId = INVALID_ID;
+    private int mBackgroundTintResId = INVALID_ID;
+
+    private SkinCompatImageHelper mImageHelper;
+
+    public SkinCompatFloatingActionButton(Context context) {
+        this(context, null);
+    }
+
+    public SkinCompatFloatingActionButton(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public SkinCompatFloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.FloatingActionButton, defStyleAttr,
+                R.style.Widget_Design_FloatingActionButton);
+        mBackgroundTintResId = a.getResourceId(R.styleable.FloatingActionButton_backgroundTint, INVALID_ID);
+        mRippleColorResId = a.getResourceId(R.styleable.FloatingActionButton_rippleColor, INVALID_ID);
+        a.recycle();
+        applyBackgroundTintResource();
+        applyRippleColorResource();
+
+        mImageHelper = new SkinCompatImageHelper(this);
+        mImageHelper.loadFromAttributes(attrs, defStyleAttr);
+    }
+
+    private void applyBackgroundTintResource() {
+        mBackgroundTintResId = SkinCompatHelper.checkResourceId(mBackgroundTintResId);
+        if (mBackgroundTintResId != INVALID_ID) {
+            setBackgroundTintList(SkinCompatResources.getInstance().getColorStateList(mBackgroundTintResId));
+        }
+    }
+
+    private void applyRippleColorResource() {
+        mRippleColorResId = SkinCompatHelper.checkResourceId(mRippleColorResId);
+        if (mRippleColorResId != INVALID_ID) {
+            setRippleColor(SkinCompatResources.getInstance().getColor(mRippleColorResId));
+        }
+    }
+
+    @Override
+    public void applySkin() {
+        if (mImageHelper != null) {
+            mImageHelper.applySkin();
+        }
+    }
+}

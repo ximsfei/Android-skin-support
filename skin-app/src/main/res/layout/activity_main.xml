@@ -54,7 +54,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/refresh" />
+                android:src="@drawable/refresh"
+                app:backgroundTint="@color/colorPrimary"
+                app:rippleColor="@color/colorAccent"/>
         </RelativeLayout>
     </LinearLayout>
 
