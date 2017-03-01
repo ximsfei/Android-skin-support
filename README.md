@@ -220,11 +220,11 @@ colors.xml
 
 #### 支付宝扫码打赏
 
-![支付宝](https://github.com/ximsfei/Res/blob/master/ds/zfb.jpg)
+![支付宝](https://github.com/ximsfei/Res/blob/master/ds/zfb_small.png)
 
 #### 微信扫码打赏
 
-![微信](https://github.com/ximsfei/Res/blob/master/ds/wx.jpg)
+![微信](https://github.com/ximsfei/Res/blob/master/ds/wx_small.png)
 
 ## 致谢
 
