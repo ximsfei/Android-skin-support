@@ -7,6 +7,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <Button
+            android:id="@+id/CollapsingToolbarLayout"
+            android:text="CollapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
     </ScrollView>
 
 </LinearLayout>

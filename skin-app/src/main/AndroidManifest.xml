@@ -17,6 +17,9 @@
             <!--</intent-filter>-->
         </activity>
 
+        <activity android:name=".CollapsingToolbarLayoutActivity"
+            android:label="CollapsingToolbarLayoutActivity" />
+
         <activity android:name=".MaterialDesignActivity"
             android:label="Material Design">
             <intent-filter>
