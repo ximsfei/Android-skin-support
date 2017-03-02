@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <Button
-            android:id="@+id/CollapsingToolbarLayout"
-            android:text="CollapsingToolbarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/CollapsingToolbarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:text="CollapsingToolbarLayout" />
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/textInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:counterEnabled="true"
                 android:background="?attr/colorPrimaryDark"
-                android:padding="10dp">
+                android:padding="10dp"
+                app:counterEnabled="true">
 
                 <EditText
                     android:id="@+id/editText"
