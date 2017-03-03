@@ -22,7 +22,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
-    compile 'skin.support:skin-support:1.0.1'
+    compile project(':skin-support')
 }
 
 apply plugin: 'com.github.dcendents.android-maven'

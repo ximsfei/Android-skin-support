@@ -24,4 +24,10 @@
         <item name="android:minHeight">48dp</item>
         <item name="android:maxHeight">48dp</item>
     </style>
+    <style name="designErrorTextAppearance" parent="TextAppearance.Design.Error">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+    <style name="counterTextAppearance" parent="TextAppearance.Design.Counter">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
 </resources>
