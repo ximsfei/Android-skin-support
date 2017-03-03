@@ -185,6 +185,14 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 #### 新建Android application工程
 
+皮肤工程包名不能和宿主应用包名相同.
+
+例如:
+```xml
+宿主包名: com.ximsfei.skindemo
+夜间模式: com.ximsfei.skindemo.night
+```
+
 #### 将需要换肤的资源放到res目录下(同名资源)
 
 例如 APK中窗口背景颜色为
