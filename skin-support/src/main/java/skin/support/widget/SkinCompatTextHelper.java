@@ -81,6 +81,10 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         applySkin();
     }
 
+    public int getTextColorResId() {
+        return mTextColorResId;
+    }
+
     public void applySkin() {
         mTextColorResId = checkResourceId(mTextColorResId);
         if (mTextColorResId != INVALID_ID) {

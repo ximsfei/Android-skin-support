@@ -11,6 +11,7 @@ import skin.support.design.widget.SkinCompatBottomNavigationView;
 import skin.support.design.widget.SkinCompatFloatingActionButton;
 import skin.support.design.widget.SkinCompatNavigationView;
 import skin.support.design.widget.SkinCompatTabLayout;
+import skin.support.design.widget.SkinCompatTextInputEditText;
 import skin.support.design.widget.SkinCompatTextInputLayout;
 
 /**
@@ -29,6 +30,9 @@ public class SkinMaterialViewInflater implements SkinLayoutInflater {
                 break;
             case "android.support.design.widget.TextInputLayout":
                 view = new SkinCompatTextInputLayout(context, attrs);
+                break;
+            case "android.support.design.widget.TextInputEditText":
+                view = new SkinCompatTextInputEditText(context, attrs);
                 break;
             case "android.support.design.widget.NavigationView":
                 view = new SkinCompatNavigationView(context, attrs);

@@ -15,6 +15,7 @@ import skin.support.content.res.SkinCompatResources;
 import skin.support.design.R;
 import skin.support.utils.SkinLog;
 import skin.support.widget.SkinCompatBackgroundHelper;
+import skin.support.widget.SkinCompatEditText;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatSupportable;
 
@@ -182,6 +183,18 @@ public class SkinCompatTextInputLayout extends TextInputLayout implements SkinCo
         mFocusedTextColorResId = SkinCompatHelper.checkResourceId(mFocusedTextColorResId);
         if (mFocusedTextColorResId != INVALID_ID && mFocusedTextColorResId != R.color.abc_hint_foreground_material_light) {
             setFocusedTextColor(SkinCompatResources.getInstance().getColorStateList(mFocusedTextColorResId));
+        } else if (getEditText() != null) {
+            int textColorResId = INVALID_ID;
+            if (getEditText() instanceof SkinCompatEditText) {
+                textColorResId = ((SkinCompatEditText) getEditText()).getTextColorResId();
+            } else if (getEditText() instanceof SkinCompatTextInputEditText) {
+                textColorResId = ((SkinCompatTextInputEditText) getEditText()).getTextColorResId();
+            }
+            textColorResId = SkinCompatHelper.checkResourceId(textColorResId);
+            if (textColorResId != INVALID_ID) {
+                ColorStateList colors = SkinCompatResources.getInstance().getColorStateList(textColorResId);
+                setFocusedTextColor(colors);
+            }
         }
     }
 

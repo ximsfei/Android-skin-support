@@ -1,10 +1,14 @@
-package skin.support.widget;
+package skin.support.design.widget;
 
 import android.content.Context;
 import android.support.annotation.DrawableRes;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.appcompat.R;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
+
+import skin.support.widget.SkinCompatBackgroundHelper;
+import skin.support.widget.SkinCompatSupportable;
+import skin.support.widget.SkinCompatTextHelper;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -12,19 +16,19 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  * Created by ximsfei on 2017/1/10.
  */
 
-public class SkinCompatEditText extends AppCompatEditText implements SkinCompatSupportable {
+public class SkinCompatTextInputEditText extends TextInputEditText implements SkinCompatSupportable {
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
-    public SkinCompatEditText(Context context) {
+    public SkinCompatTextInputEditText(Context context) {
         this(context, null);
     }
 
-    public SkinCompatEditText(Context context, AttributeSet attrs) {
+    public SkinCompatTextInputEditText(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.editTextStyle);
     }
 
-    public SkinCompatEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinCompatTextInputEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
