@@ -17,21 +17,21 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  * Created by pengfengwang on 2017/3/1.
  */
 
-public class SkinCompatFloatingActionButton extends FloatingActionButton implements SkinCompatSupportable {
+public class SkinMaterialFloatingActionButton extends FloatingActionButton implements SkinCompatSupportable {
     private int mRippleColorResId = INVALID_ID;
     private int mBackgroundTintResId = INVALID_ID;
 
     private SkinCompatImageHelper mImageHelper;
 
-    public SkinCompatFloatingActionButton(Context context) {
+    public SkinMaterialFloatingActionButton(Context context) {
         this(context, null);
     }
 
-    public SkinCompatFloatingActionButton(Context context, AttributeSet attrs) {
+    public SkinMaterialFloatingActionButton(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SkinCompatFloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinMaterialFloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.FloatingActionButton, defStyleAttr,

@@ -1,33 +1,27 @@
 package skin.support.design.widget;
 
 import android.content.Context;
-import android.support.design.widget.NavigationView;
+import android.support.design.widget.AppBarLayout;
 import android.util.AttributeSet;
 
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatSupportable;
 
 /**
- * Created by pengfengwang on 2017/1/15.
+ * Created by ximsfei on 2017/1/13.
  */
 
-public class SkinCompatNavigationView extends NavigationView implements SkinCompatSupportable {
+public class SkinMaterialAppBarLayout extends AppBarLayout implements SkinCompatSupportable {
     private final SkinCompatBackgroundHelper mBackgroundTintHelper;
-//    private int mBackgroundResId = INVALID_ID;
 
-    public SkinCompatNavigationView(Context context) {
+    public SkinMaterialAppBarLayout(Context context) {
         this(context, null);
     }
 
-    public SkinCompatNavigationView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public SkinCompatNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+    public SkinMaterialAppBarLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, 0);
-        applySkin();
     }
 
     @Override

@@ -16,19 +16,19 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  * Created by ximsfei on 2017/1/10.
  */
 
-public class SkinCompatTextInputEditText extends TextInputEditText implements SkinCompatSupportable {
+public class SkinMaterialTextInputEditText extends TextInputEditText implements SkinCompatSupportable {
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
-    public SkinCompatTextInputEditText(Context context) {
+    public SkinMaterialTextInputEditText(Context context) {
         this(context, null);
     }
 
-    public SkinCompatTextInputEditText(Context context, AttributeSet attrs) {
+    public SkinMaterialTextInputEditText(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.editTextStyle);
     }
 
-    public SkinCompatTextInputEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinMaterialTextInputEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);

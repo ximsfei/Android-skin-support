@@ -20,7 +20,7 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  * Created by ximsfei on 17-3-1.
  */
 
-public class SkinCompatBottomNavigationView extends BottomNavigationView implements SkinCompatSupportable {
+public class SkinMaterialBottomNavigationView extends BottomNavigationView implements SkinCompatSupportable {
 
     private static final int[] CHECKED_STATE_SET = {android.R.attr.state_checked};
     private static final int[] DISABLED_STATE_SET = {-android.R.attr.state_enabled};
@@ -29,15 +29,15 @@ public class SkinCompatBottomNavigationView extends BottomNavigationView impleme
     private int mIconTintResId = INVALID_ID;
     private int mDefaultTintResId = INVALID_ID;
 
-    public SkinCompatBottomNavigationView(@NonNull Context context) {
+    public SkinMaterialBottomNavigationView(@NonNull Context context) {
         this(context, null);
     }
 
-    public SkinCompatBottomNavigationView(@NonNull Context context, AttributeSet attrs) {
+    public SkinMaterialBottomNavigationView(@NonNull Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SkinCompatBottomNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinMaterialBottomNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
                 R.styleable.BottomNavigationView, defStyleAttr,

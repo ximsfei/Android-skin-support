@@ -25,8 +25,8 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  * Created by ximsfei on 17-3-2.
  */
 
-public class SkinCompatTextInputLayout extends TextInputLayout implements SkinCompatSupportable {
-    private static final String TAG = SkinCompatTextInputLayout.class.getSimpleName();
+public class SkinMaterialTextInputLayout extends TextInputLayout implements SkinCompatSupportable {
+    private static final String TAG = SkinMaterialTextInputLayout.class.getSimpleName();
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
     private int mPasswordToggleResId = INVALID_ID;
     private int mCounterTextColorResId = INVALID_ID;
@@ -34,15 +34,15 @@ public class SkinCompatTextInputLayout extends TextInputLayout implements SkinCo
     private int mFocusedTextColorResId = INVALID_ID;
     private int mDefaultTextColorResId = INVALID_ID;
 
-    public SkinCompatTextInputLayout(Context context) {
+    public SkinMaterialTextInputLayout(Context context) {
         this(context, null);
     }
 
-    public SkinCompatTextInputLayout(Context context, AttributeSet attrs) {
+    public SkinMaterialTextInputLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SkinCompatTextInputLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinMaterialTextInputLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
@@ -187,8 +187,8 @@ public class SkinCompatTextInputLayout extends TextInputLayout implements SkinCo
             int textColorResId = INVALID_ID;
             if (getEditText() instanceof SkinCompatEditText) {
                 textColorResId = ((SkinCompatEditText) getEditText()).getTextColorResId();
-            } else if (getEditText() instanceof SkinCompatTextInputEditText) {
-                textColorResId = ((SkinCompatTextInputEditText) getEditText()).getTextColorResId();
+            } else if (getEditText() instanceof SkinMaterialTextInputEditText) {
+                textColorResId = ((SkinMaterialTextInputEditText) getEditText()).getTextColorResId();
             }
             textColorResId = SkinCompatHelper.checkResourceId(textColorResId);
             if (textColorResId != INVALID_ID) {
