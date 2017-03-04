@@ -64,7 +64,8 @@ public class BaseActivity extends SkinCompatActivity {}
 * [![v1.0.2](https://img.shields.io/badge/skin--support-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.2/) bugfix
 
   * 解决RecyclerView中item无法回收导致的OutOfMemory问题
-  * 关闭Debug Log
+
+  * 关闭Debug Log
 
 * [![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.1/) 支持所有基础控件换肤
   * View
