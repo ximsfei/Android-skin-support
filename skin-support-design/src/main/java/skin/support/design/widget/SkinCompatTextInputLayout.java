@@ -1,15 +1,21 @@
 package skin.support.design.widget;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import skin.support.content.res.SkinCompatResources;
 import skin.support.design.R;
@@ -88,6 +94,7 @@ public class SkinCompatTextInputLayout extends TextInputLayout implements SkinCo
             if (counterView != null) {
 //                SkinLog.e(TAG, "mCounterTextColor = " +Integer.toHexString(SkinCompatResources.getInstance().getColor(mCounterTextColorResId)));
                 counterView.setTextColor(SkinCompatResources.getInstance().getColor(mCounterTextColorResId));
+                updateEditTextBackground();
             }
         }
     }
@@ -136,6 +143,7 @@ public class SkinCompatTextInputLayout extends TextInputLayout implements SkinCo
             TextView errorView = getErrorView();
             if (errorView != null) {
                 errorView.setTextColor(SkinCompatResources.getInstance().getColor(mErrorTextColorResId));
+                updateEditTextBackground();
             }
         }
     }
@@ -149,6 +157,16 @@ public class SkinCompatTextInputLayout extends TextInputLayout implements SkinCo
             e.printStackTrace();
         }
         return null;
+    }
+
+    private void updateEditTextBackground() {
+        try {
+            Method updateEditTextBackground = TextInputLayout.class.getDeclaredMethod("updateEditTextBackground");
+            updateEditTextBackground.setAccessible(true);
+            updateEditTextBackground.invoke(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
