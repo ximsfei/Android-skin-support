@@ -27,6 +27,7 @@
                 android:background="?attr/colorPrimaryDark"
                 app:errorTextAppearance="@style/designErrorTextAppearance"
                 app:counterTextAppearance="@style/counterTextAppearance"
+                android:textColorHint="@color/text_input_layout_hint_text_color"
                 android:padding="10dp"
                 app:counterEnabled="true">
 

@@ -1,17 +1,11 @@
 package skin.support.design.widget;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import android.content.res.ColorStateList;
 import android.support.annotation.StyleRes;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.lang.reflect.Field;
@@ -57,6 +51,10 @@ public class SkinCompatTextInputLayout extends TextInputLayout implements SkinCo
         if (a.hasValue(R.styleable.TextInputLayout_android_textColorHint)) {
             mDefaultTextColorResId = mFocusedTextColorResId =
                     a.getResourceId(R.styleable.TextInputLayout_android_textColorHint, INVALID_ID);
+            SkinLog.e(TAG, "mDefaultTextColorResId = " + mDefaultTextColorResId
+                    + ", hex = " + Integer.toHexString(getResources().getColor(mDefaultTextColorResId))
+                    + ", res name = " + getResources().getResourceName(mDefaultTextColorResId));
+            applyFocusedTextColorResource();
         }
 
         int errorTextAppearance = a.getResourceId(R.styleable.TextInputLayout_errorTextAppearance, INVALID_ID);
@@ -169,10 +167,50 @@ public class SkinCompatTextInputLayout extends TextInputLayout implements SkinCo
         }
     }
 
+    private void setDefaultTextColor(ColorStateList colors) {
+        try {
+            Field defaultTextColor = TextInputLayout.class.getDeclaredField("mDefaultTextColor");
+            defaultTextColor.setAccessible(true);
+            defaultTextColor.set(this, colors);
+            updateLabelState();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void applyFocusedTextColorResource() {
+        mFocusedTextColorResId = SkinCompatHelper.checkResourceId(mFocusedTextColorResId);
+        if (mFocusedTextColorResId != INVALID_ID && mFocusedTextColorResId != R.color.abc_hint_foreground_material_light) {
+            setFocusedTextColor(SkinCompatResources.getInstance().getColorStateList(mFocusedTextColorResId));
+        }
+    }
+
+    private void setFocusedTextColor(ColorStateList colors) {
+        try {
+            Field focusedTextcolor = TextInputLayout.class.getDeclaredField("mFocusedTextColor");
+            focusedTextcolor.setAccessible(true);
+            focusedTextcolor.set(this, colors);
+            updateLabelState();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateLabelState() {
+        try {
+            Method updateLabelState = TextInputLayout.class.getDeclaredMethod("updateLabelState", boolean.class);
+            updateLabelState.setAccessible(true);
+            updateLabelState.invoke(this, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void applySkin() {
         applyErrorTextColorResource();
         applyCounterTextColorResource();
+        applyFocusedTextColorResource();
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();
         }
