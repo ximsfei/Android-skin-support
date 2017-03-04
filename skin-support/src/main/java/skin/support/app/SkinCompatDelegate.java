@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewParent;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ import skin.support.widget.SkinCompatSupportable;
 public class SkinCompatDelegate implements LayoutInflaterFactory {
     private final AppCompatActivity mAppCompatActivity;
     private SkinCompatViewInflater mSkinCompatViewInflater;
-    private List<SkinCompatSupportable> mSkinHelpers = new ArrayList<>();
+    private List<WeakReference<SkinCompatSupportable>> mSkinHelpers = new ArrayList<>();
 
     private SkinCompatDelegate(AppCompatActivity appCompatActivity) {
         mAppCompatActivity = appCompatActivity;
@@ -38,7 +39,7 @@ public class SkinCompatDelegate implements LayoutInflaterFactory {
             return null;
         }
         if (view instanceof SkinCompatSupportable) {
-            mSkinHelpers.add((SkinCompatSupportable) view);
+            mSkinHelpers.add(new WeakReference<SkinCompatSupportable>((SkinCompatSupportable) view));
         }
 
         return view;
@@ -94,8 +95,10 @@ public class SkinCompatDelegate implements LayoutInflaterFactory {
     public void applySkin() {
         if (mSkinHelpers != null || !mSkinHelpers.isEmpty()) {
             SkinLog.d("size - " + mSkinHelpers.size());
-            for (SkinCompatSupportable helper : mSkinHelpers) {
-                helper.applySkin();
+            for (WeakReference ref : mSkinHelpers) {
+                if (ref != null && ref.get() != null) {
+                    ((SkinCompatSupportable) ref.get()).applySkin();
+                }
             }
         }
     }
