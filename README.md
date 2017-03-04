@@ -1,6 +1,6 @@
 # Android-skin-support
 
-[![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.1/)
+[![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.2/)
 [![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/)
 
 * [介绍](#介绍)
@@ -60,6 +60,11 @@ public class BaseActivity extends SkinCompatActivity {}
 ## 更新日志
 
 ### skin-support: 基础控件 支持
+
+* [![v1.0.2](https://img.shields.io/badge/skin--support-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.2/) bugfix
+
+  * 解决RecyclerView中item无法回收导致的OutOfMemory问题
+  * 关闭Debug Log
 
 * [![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.1/) 支持所有基础控件换肤
   * View
