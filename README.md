@@ -126,7 +126,7 @@ git clone https://github.com/ximsfei/Android-skin-support.git
 ```
 也可以直接添加依赖, [最新版本选择, 请查看更新日志](#更新日志)
 ```xml
-compile 'skin.support:skin-support:1.0.1'        // skin-support 基础控件支持
+compile 'skin.support:skin-support:1.0.2'        // skin-support 基础控件支持
 compile 'skin.support:skin-support-design:0.0.2' // skin-support-design material design 控件支持
 ```
 
