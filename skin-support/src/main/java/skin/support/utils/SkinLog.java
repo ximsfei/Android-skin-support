@@ -1,5 +1,6 @@
 package skin.support.utils;
 
+import android.support.compat.BuildConfig;
 import android.util.Log;
 
 /**
@@ -7,7 +8,7 @@ import android.util.Log;
  */
 
 public class SkinLog {
-    private static boolean DEBUG = true;//BuildConfig.DEBUG;
+    private static boolean DEBUG = BuildConfig.DEBUG;
     private static final String TAG = "Skin-support";
 
     public static void v(String msg) {
