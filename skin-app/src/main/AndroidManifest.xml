@@ -11,16 +11,18 @@
 
         <activity android:name=".MainActivity">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
 
-        <activity android:name=".CollapsingToolbarLayoutActivity"
+        <activity
+            android:name=".CollapsingToolbarLayoutActivity"
             android:label="CollapsingToolbarLayoutActivity" />
 
-        <activity android:name=".MaterialDesignActivity"
+        <activity
+            android:name=".MaterialDesignActivity"
             android:label="Material Design">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
