@@ -14,6 +14,7 @@
   * [使用](#使用)
     * [初始化](#在application的oncreate中初始化)
     * [继承SkinCompatActivity](#继承skincompatactivity)
+    * [皮肤开关](#皮肤开关)
     * [加载插件皮肤库](#加载插件皮肤库)
     * [自定义view换肤](#自定义view换肤)
   * [制作皮肤插件](#制作皮肤插件)
