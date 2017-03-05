@@ -4,6 +4,8 @@
 [![v1.0.0](https://img.shields.io/badge/skin--support--design-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.0.0/)
 [![v1.0.0](https://img.shields.io/badge/skin--support--cardview-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.0.0/)
 
+[![v2.1.0](https://img.shields.io/badge/circleimageview-v2.1.0-green.svg)](http://jcenter.bintray.com/skin/support/circleimageview/2.1.0/)
+
 * [介绍](#介绍)
 * [更新日志](ChangeLog.md)
   * [skin-support 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-基础控件-支持)
@@ -24,7 +26,7 @@
     * [添加皮肤资源](#将需要换肤的资源放到res目录下同名资源)
     * [生成皮肤插件](#打包生成apk-即为皮肤包)
 * [第三方控件适配库](ThirdPartSupport.md)
-  * [hdodenhof/CircleImageView](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md)
+  * [hdodenhof/CircleImageView](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#hdodenhofcircleimageview)
 * [交流&打赏](#交流支持)
   * [加群交流](#加群交流)
   * [打赏支持](#打赏支持)
