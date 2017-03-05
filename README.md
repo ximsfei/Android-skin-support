@@ -1,12 +1,14 @@
 # Android-skin-support
 
-[![v1.1.0](https://img.shields.io/badge/skin--support-v1.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.0/)
-[![v0.1.0](https://img.shields.io/badge/skin--support--design-v0.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.1.0/)
+[![v1.1.1](https://img.shields.io/badge/skin--support-v1.1.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.1/)
+[![v1.0.0](https://img.shields.io/badge/skin--support--design-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.0.0/)
+[![v1.0.0](https://img.shields.io/badge/skin--support--cardview-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.0.0/)
 
 * [介绍](#介绍)
 * [更新日志](#更新日志)
   * [skin-support 更新日志](#skin-support-基础控件-支持)
   * [skin-support-design 更新日志](#skin-support-design-material-design-支持)
+  * [skin-support-cardview 更新日志](#skin-support-design-CardView-支持)
 * [最佳实践](#最佳实践)
   * [网易云音乐换肤实践](#仿网易云音乐)
 * [框架用法](#用法)
@@ -63,6 +65,10 @@ public class BaseActivity extends SkinCompatActivity {}
 ### skin-support: 基础控件 支持
 
 
+* [![v1.1.1](https://img.shields.io/badge/skin--support-v1.1.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.1/) 优化
+
+  * 优化module初始化方式
+
 * [![v1.1.0](https://img.shields.io/badge/skin--support-v1.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.0/) 新功能开发
 
   * 支持开发者标记不换肤控件
@@ -97,14 +103,28 @@ public class BaseActivity extends SkinCompatActivity {}
 ### skin-support-design: material design 支持
 
 
-* [![v0.1.0](https://img.shields.io/badge/skin--support--design-v0.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.1.0/) 新功能开发 依赖skin-support v1.1.0
+* [![v1.0.0](https://img.shields.io/badge/skin--support--design-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.0.0/) 新功能开发 依赖![v1.1.1](https://img.shields.io/badge/skin--support-v1.1.1-green.svg)
+  * BottomNavigationView
+  * CollapsingToolbarLayout
+  * CoordinatorLayout
+  * FloatingActionButton
+  * TextInputEditText
+  * TextInputLayout
+
+* [![v0.1.0](https://img.shields.io/badge/skin--support--design-v0.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.1.0/) 新功能开发 依赖![v1.1.0](https://img.shields.io/badge/skin--support-v1.1.0-green.svg)
 
   * 支持开发者标记不换肤控件
 
-* [![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/) 支持以下三个控件换肤 依赖skin-support v1.0.2
+* [![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/) 支持以下三个控件换肤 依赖![v1.0.2](https://img.shields.io/badge/skin--support-v1.0.2-green.svg)
   * TabLayout
   * AppBarLayout
   * NavigationView
+
+### skin-support-cardview: CardView 支持
+
+
+* [![v1.0.0](https://img.shields.io/badge/skin--support--cardview-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.0.0/) CardView 支持 依赖![v1.1.1](https://img.shields.io/badge/skin--support-v1.1.1-green.svg)
+  * CardView
 
 ## 最佳实践
 
@@ -137,8 +157,9 @@ git clone https://github.com/ximsfei/Android-skin-support.git
 ```
 也可以直接添加依赖, [最新版本选择, 请查看更新日志](#更新日志)
 ```xml
-compile 'skin.support:skin-support:1.1.0'        // skin-support 基础控件支持
-compile 'skin.support:skin-support-design:0.1.0' // skin-support-design material design 控件支持
+compile 'skin.support:skin-support:1.1.1'          // skin-support 基础控件支持
+compile 'skin.support:skin-support-design:1.0.0'   // skin-support-design material design 控件支持[可选]
+compile 'skin.support:skin-support-cardview:1.0.0' // skin-support-cardview CardView 控件支持[可选]
 ```
 
 ### 使用:
