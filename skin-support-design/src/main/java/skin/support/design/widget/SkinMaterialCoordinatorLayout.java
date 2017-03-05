@@ -1,7 +1,7 @@
 package skin.support.design.widget;
 
 import android.content.Context;
-import android.support.design.widget.NavigationView;
+import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
 
 import skin.support.widget.SkinCompatBackgroundHelper;
@@ -9,23 +9,23 @@ import skin.support.widget.SkinCompatSupportable;
 import skin.support.widget.SkinCompatUtils;
 
 /**
- * Created by pengfengwang on 2017/1/15.
+ * Created by ximsf on 2017/3/5.
  */
 
-public class SkinMaterialNavigationView extends NavigationView implements SkinCompatSupportable {
+public class SkinMaterialCoordinatorLayout extends CoordinatorLayout implements SkinCompatSupportable {
+
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
     private boolean mSkinSupport = true;
-//    private int mBackgroundResId = INVALID_ID;
 
-    public SkinMaterialNavigationView(Context context) {
+    public SkinMaterialCoordinatorLayout(Context context) {
         this(context, null);
     }
 
-    public SkinMaterialNavigationView(Context context, AttributeSet attrs) {
+    public SkinMaterialCoordinatorLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SkinMaterialNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinMaterialCoordinatorLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
         if (!mSkinSupport) {

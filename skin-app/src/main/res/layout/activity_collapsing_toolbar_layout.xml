@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryDark"
     android:fitsSystemWindows="false">
 
     <android.support.design.widget.AppBarLayout
@@ -117,6 +118,7 @@
     </android.support.v7.widget.Toolbar>
 
     <com.ximsfei.dynamicskindemo.widget.CustomCircleImageView
+        android:id="@+id/small_photo"
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_width"
         android:layout_gravity="center"
