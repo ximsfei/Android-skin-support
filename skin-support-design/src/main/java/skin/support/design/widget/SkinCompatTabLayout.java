@@ -1,19 +1,16 @@
 package skin.support.design.widget;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 
 import skin.support.content.res.SkinCompatResources;
 import skin.support.design.R;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatSupportable;
+import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -25,6 +22,7 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
     private int mTabIndicatorColorResId = INVALID_ID;
     private int mTabTextColorsResId = INVALID_ID;
     private int mTabSelectedTextColorResId = INVALID_ID;
+    private boolean mSkinSupport = true;
 
     public SkinCompatTabLayout(Context context) {
         this(context, null);
@@ -36,6 +34,10 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
 
     public SkinCompatTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TabLayout,
                 defStyleAttr, 0);
 
@@ -92,5 +94,10 @@ public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupporta
         } else if (tabTextColor != INVALID_ID) {
             setTabTextColors(tabTextColor, tabTextColor);
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

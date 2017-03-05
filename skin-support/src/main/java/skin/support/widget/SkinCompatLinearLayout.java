@@ -9,7 +9,8 @@ import android.widget.LinearLayout;
  */
 
 public class SkinCompatLinearLayout extends LinearLayout implements SkinCompatSupportable {
-    private final SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private boolean mSkinSupport = true;
 
     public SkinCompatLinearLayout(Context context) {
         this(context, null);
@@ -21,6 +22,10 @@ public class SkinCompatLinearLayout extends LinearLayout implements SkinCompatSu
 
     public SkinCompatLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
     }
@@ -38,5 +43,10 @@ public class SkinCompatLinearLayout extends LinearLayout implements SkinCompatSu
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

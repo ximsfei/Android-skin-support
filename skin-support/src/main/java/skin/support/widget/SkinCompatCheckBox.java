@@ -12,7 +12,8 @@ import skin.support.R;
  */
 
 public class SkinCompatCheckBox extends AppCompatCheckBox implements SkinCompatSupportable {
-    private final SkinCompatCompoundButtonHelper mCompoundButtonHelper;
+    protected boolean mSkinSupport = true;
+    private SkinCompatCompoundButtonHelper mCompoundButtonHelper;
 
     public SkinCompatCheckBox(Context context) {
         this(context, null);
@@ -24,6 +25,10 @@ public class SkinCompatCheckBox extends AppCompatCheckBox implements SkinCompatS
 
     public SkinCompatCheckBox(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mCompoundButtonHelper = new SkinCompatCompoundButtonHelper(this);
         mCompoundButtonHelper.loadFromAttributes(attrs, defStyleAttr);
     }
@@ -41,5 +46,10 @@ public class SkinCompatCheckBox extends AppCompatCheckBox implements SkinCompatS
         if (mCompoundButtonHelper != null) {
             mCompoundButtonHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

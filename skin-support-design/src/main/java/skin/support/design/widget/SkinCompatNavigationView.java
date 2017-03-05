@@ -6,13 +6,15 @@ import android.util.AttributeSet;
 
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatSupportable;
+import skin.support.widget.SkinCompatUtils;
 
 /**
  * Created by pengfengwang on 2017/1/15.
  */
 
 public class SkinCompatNavigationView extends NavigationView implements SkinCompatSupportable {
-    private final SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private boolean mSkinSupport = true;
 //    private int mBackgroundResId = INVALID_ID;
 
     public SkinCompatNavigationView(Context context) {
@@ -25,6 +27,10 @@ public class SkinCompatNavigationView extends NavigationView implements SkinComp
 
     public SkinCompatNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, 0);
         applySkin();
@@ -35,5 +41,10 @@ public class SkinCompatNavigationView extends NavigationView implements SkinComp
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }
