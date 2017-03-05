@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.AsyncTask;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -31,7 +32,9 @@ import skin.support.content.res.SkinCompatResources;
 
 public class SkinCompatManager extends SkinObservable {
     private static volatile SkinCompatManager sInstance;
+    private final Object mLock = new Object();
     private final Context mAppContext;
+    private boolean mLoading = false;
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
 
     public interface SkinLoaderListener {
@@ -77,41 +80,34 @@ public class SkinCompatManager extends SkinObservable {
     }
 
     public void restoreDefaultTheme() {
-        SkinPreference.getInstance().setSkinName("").commitEditor();
-        SkinCompatResources.getInstance().setSkinResource(mAppContext.getResources(), mAppContext.getPackageName());
-        notifyUpdateSkin();
+        loadSkin("");
     }
 
-    public void loadSkin() {
+    public AsyncTask loadSkin() {
         String skin = SkinPreference.getInstance().getSkinName();
         if (TextUtils.isEmpty(skin)) {
-            return;
+            return null;
         }
-        loadSkin(skin, null);
+        return loadSkin(skin, null);
     }
 
-    public void loadSkin(String skinName) {
-        loadSkin(skinName, null);
-    }
-
-    public void loadSkin(SkinLoaderListener listener) {
+    public AsyncTask loadSkin(SkinLoaderListener listener) {
         String skin = SkinPreference.getInstance().getSkinName();
         if (TextUtils.isEmpty(skin)) {
-            return;
+            return null;
         }
-        loadSkin(skin, listener);
+        return loadSkin(skin, listener);
     }
 
-    public void loadSkin(String skinName, final SkinLoaderListener listener) {
-        if (TextUtils.isEmpty(skinName)) {
-            restoreDefaultTheme();
-            return;
-        }
-        new SkinLoadTask(listener).execute(skinName);
+    public AsyncTask loadSkin(String skinName) {
+        return loadSkin(skinName, null);
     }
 
-    private class SkinLoadTask extends AsyncTask<String, Void, Boolean> {
+    public AsyncTask loadSkin(String skinName, final SkinLoaderListener listener) {
+        return new SkinLoadTask(listener).execute(skinName);
+    }
 
+    private class SkinLoadTask extends AsyncTask<String, Void, String> {
         private final SkinLoaderListener mListener;
 
         public SkinLoadTask(SkinLoaderListener listener) {
@@ -125,59 +121,84 @@ public class SkinCompatManager extends SkinObservable {
         }
 
         @Override
-        protected Boolean doInBackground(String... params) {
+        protected String doInBackground(String... params) {
+            synchronized (mLock) {
+                while (mLoading) {
+                    try {
+                        mLock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                mLoading = true;
+            }
             try {
                 if (params.length == 1) {
+                    if (TextUtils.isEmpty(params[0])) {
+                        SkinCompatResources.getInstance().setSkinResource(
+                                mAppContext.getResources(), mAppContext.getPackageName());
+                        return params[0];
+                    }
                     SkinLog.d("skinPkgPath", params[0]);
                     String skinPkgPath = SkinFileUtils.getSkinDir(mAppContext) + File.separator + params[0];
                     // ToDo 方便调试, 每次点击都从assets中读取
 //                    if (!isSkinExists(params[0])) {
                     copySkinFromAssets(params[0]);
                     if (!isSkinExists(params[0])) {
-                        return false;
+                        return null;
                     }
 //                    }
-
-                    PackageManager mPm = mAppContext.getPackageManager();
-                    PackageInfo mInfo = mPm.getPackageArchiveInfo(skinPkgPath, PackageManager.GET_ACTIVITIES);
-                    String pkgName = mInfo.packageName;
-                    AssetManager assetManager = AssetManager.class.newInstance();
-                    Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
-                    addAssetPath.invoke(assetManager, skinPkgPath);
-
-                    Resources superRes = mAppContext.getResources();
-                    Resources resources = null;
-                    try {
-                        resources = new Resources(assetManager, superRes.getDisplayMetrics(), superRes.getConfiguration());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    SkinPreference.getInstance().setSkinName(params[0]).commitEditor();
-
-                    if (resources != null) {
+                    String pkgName = initSkinPackageName(skinPkgPath);
+                    Resources resources = initSkinResources(skinPkgPath);
+                    if (resources != null && !TextUtils.isEmpty(pkgName)) {
                         SkinCompatResources.getInstance().setSkinResource(resources, pkgName);
-                        return true;
+                        return params[0];
                     }
-                    SkinCompatResources.getInstance().setSkinResource(
-                            mAppContext.getResources(), mAppContext.getPackageName());
-                    return false;
                 }
-                return null;
             } catch (Exception e) {
                 e.printStackTrace();
-                return null;
             }
+            SkinCompatResources.getInstance().setSkinResource(
+                    mAppContext.getResources(), mAppContext.getPackageName());
+            return null;
         }
 
-        protected void onPostExecute(Boolean result) {
-            SkinLog.e("result = " + result);
-            if (result != null && result) {
-                if (mListener != null) mListener.onSuccess();
-                notifyUpdateSkin();
-            } else {
-                if (mListener != null) mListener.onFailed("皮肤资源获取失败");
+        protected void onPostExecute(String skinName) {
+            SkinLog.e("skinName = " + skinName);
+            synchronized (mLock) {
+                if (skinName != null) {
+                    notifyUpdateSkin();
+                    SkinPreference.getInstance().setSkinName(skinName).commitEditor();
+                    if (mListener != null) mListener.onSuccess();
+                } else {
+                    SkinPreference.getInstance().setSkinName("").commitEditor();
+                    if (mListener != null) mListener.onFailed("皮肤资源获取失败");
+                }
+                mLoading = false;
+                mLock.notifyAll();
             }
         }
+    }
+
+    private String initSkinPackageName(String skinPkgPath) {
+        PackageManager mPm = mAppContext.getPackageManager();
+        PackageInfo info = mPm.getPackageArchiveInfo(skinPkgPath, PackageManager.GET_ACTIVITIES);
+        return info.packageName;
+    }
+
+    @Nullable
+    private Resources initSkinResources(String skinPkgPath) {
+        try {
+            AssetManager assetManager = AssetManager.class.newInstance();
+            Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
+            addAssetPath.invoke(assetManager, skinPkgPath);
+
+            Resources superRes = mAppContext.getResources();
+            return new Resources(assetManager, superRes.getDisplayMetrics(), superRes.getConfiguration());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private String copySkinFromAssets(String name) {
