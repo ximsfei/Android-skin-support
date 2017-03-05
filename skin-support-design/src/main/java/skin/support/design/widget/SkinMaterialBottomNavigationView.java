@@ -13,6 +13,7 @@ import skin.support.content.res.SkinCompatResources;
 import skin.support.design.R;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatSupportable;
+import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -28,6 +29,7 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
     private int mTextColorResId = INVALID_ID;
     private int mIconTintResId = INVALID_ID;
     private int mDefaultTintResId = INVALID_ID;
+    private boolean mSkinSupport = true;
 
     public SkinMaterialBottomNavigationView(@NonNull Context context) {
         this(context, null);
@@ -39,6 +41,10 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
 
     public SkinMaterialBottomNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
                 R.styleable.BottomNavigationView, defStyleAttr,
                 R.style.Widget_Design_BottomNavigationView);
@@ -115,5 +121,10 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
     public void applySkin() {
         applyItemIconTintResource();
         applyItemTextColorResource();
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

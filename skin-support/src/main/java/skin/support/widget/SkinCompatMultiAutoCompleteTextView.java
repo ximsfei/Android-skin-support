@@ -26,6 +26,7 @@ public class SkinCompatMultiAutoCompleteTextView extends AppCompatMultiAutoCompl
     private int mDropDownBackgroundResId = INVALID_ID;
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private boolean mSkinSupport = true;
 
     public SkinCompatMultiAutoCompleteTextView(Context context) {
         this(context, null);
@@ -37,6 +38,10 @@ public class SkinCompatMultiAutoCompleteTextView extends AppCompatMultiAutoCompl
 
     public SkinCompatMultiAutoCompleteTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
                 TINT_ATTRS, defStyleAttr, 0);
         if (a.hasValue(0)) {
@@ -107,5 +112,10 @@ public class SkinCompatMultiAutoCompleteTextView extends AppCompatMultiAutoCompl
             mTextHelper.applySkin();
         }
         applyDropDownBackgroundResource();
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

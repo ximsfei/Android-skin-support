@@ -18,6 +18,7 @@ import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatEditText;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatSupportable;
+import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -33,6 +34,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
     private int mErrorTextColorResId = INVALID_ID;
     private int mFocusedTextColorResId = INVALID_ID;
     private int mDefaultTextColorResId = INVALID_ID;
+    private boolean mSkinSupport = true;
 
     public SkinMaterialTextInputLayout(Context context) {
         this(context, null);
@@ -44,6 +46,10 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
 
     public SkinMaterialTextInputLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
 
@@ -227,5 +233,10 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

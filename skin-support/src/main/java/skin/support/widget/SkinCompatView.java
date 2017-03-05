@@ -1,8 +1,6 @@
 package skin.support.widget;
 
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -11,7 +9,8 @@ import android.view.View;
  */
 
 public class SkinCompatView extends View implements SkinCompatSupportable {
-    private final SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private boolean mSkinSupport = true;
 
     public SkinCompatView(Context context) {
         this(context, null);
@@ -23,6 +22,10 @@ public class SkinCompatView extends View implements SkinCompatSupportable {
 
     public SkinCompatView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
 
@@ -41,5 +44,10 @@ public class SkinCompatView extends View implements SkinCompatSupportable {
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

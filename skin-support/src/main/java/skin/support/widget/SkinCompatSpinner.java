@@ -29,8 +29,9 @@ public class SkinCompatSpinner extends AppCompatSpinner implements SkinCompatSup
     private static final int MODE_DROPDOWN = 1;
     private static final int MODE_THEME = -1;
 
-    private final SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private SkinCompatBackgroundHelper mBackgroundTintHelper;
     private int mPopupBackgroundResId = INVALID_ID;
+    private boolean mSkinSupport = true;
 
     public SkinCompatSpinner(Context context) {
         this(context, null);
@@ -54,6 +55,10 @@ public class SkinCompatSpinner extends AppCompatSpinner implements SkinCompatSup
 
     public SkinCompatSpinner(Context context, AttributeSet attrs, int defStyleAttr, int mode, Resources.Theme popupTheme) {
         super(context, attrs, defStyleAttr, mode, popupTheme);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
                 R.styleable.Spinner, defStyleAttr, 0);
 
@@ -114,5 +119,10 @@ public class SkinCompatSpinner extends AppCompatSpinner implements SkinCompatSup
             mBackgroundTintHelper.applySkin();
         }
         applyPopupBackground();
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

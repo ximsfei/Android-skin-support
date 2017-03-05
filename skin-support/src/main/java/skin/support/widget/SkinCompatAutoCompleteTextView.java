@@ -23,6 +23,7 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
     private static final int[] TINT_ATTRS = {
             android.R.attr.popupBackground
     };
+    private boolean mSkinSupport = true;
     private int mDropDownBackgroundResId = INVALID_ID;
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
@@ -37,6 +38,10 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
 
     public SkinCompatAutoCompleteTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
                 TINT_ATTRS, defStyleAttr, 0);
         if (a.hasValue(0)) {
@@ -107,5 +112,10 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
             mTextHelper.applySkin();
         }
         applyDropDownBackgroundResource();
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

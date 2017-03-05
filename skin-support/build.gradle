@@ -28,7 +28,7 @@ apply plugin: 'com.jfrog.bintray'
 def siteUrl = 'https://github.com/ximsfei/Android-skin-support'
 def gitUrl = 'https://github.com/ximsfei/Android-skin-support.git'
 group = "skin.support"
-version = "1.0.1"
+version = "1.1.0"
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())

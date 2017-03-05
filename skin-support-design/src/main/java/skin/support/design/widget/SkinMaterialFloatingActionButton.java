@@ -10,6 +10,7 @@ import skin.support.design.R;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatImageHelper;
 import skin.support.widget.SkinCompatSupportable;
+import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -22,6 +23,7 @@ public class SkinMaterialFloatingActionButton extends FloatingActionButton imple
     private int mBackgroundTintResId = INVALID_ID;
 
     private SkinCompatImageHelper mImageHelper;
+    private boolean mSkinSupport = true;
 
     public SkinMaterialFloatingActionButton(Context context) {
         this(context, null);
@@ -33,6 +35,10 @@ public class SkinMaterialFloatingActionButton extends FloatingActionButton imple
 
     public SkinMaterialFloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.FloatingActionButton, defStyleAttr,
                 R.style.Widget_Design_FloatingActionButton);
@@ -67,5 +73,10 @@ public class SkinMaterialFloatingActionButton extends FloatingActionButton imple
         if (mImageHelper != null) {
             mImageHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

@@ -11,7 +11,8 @@ import skin.support.R;
  */
 
 public class SkinCompatRatingBar extends AppCompatRatingBar implements SkinCompatSupportable {
-    private final SkinCompatProgressBarHelper mSkinCompatProgressBarHelper;
+    private SkinCompatProgressBarHelper mSkinCompatProgressBarHelper;
+    private boolean mSkinSupport;
 
     public SkinCompatRatingBar(Context context) {
         this(context, null);
@@ -23,7 +24,10 @@ public class SkinCompatRatingBar extends AppCompatRatingBar implements SkinCompa
 
     public SkinCompatRatingBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mSkinCompatProgressBarHelper = new SkinCompatProgressBarHelper(this);
         mSkinCompatProgressBarHelper.loadFromAttributes(attrs, defStyleAttr);
     }
@@ -33,5 +37,10 @@ public class SkinCompatRatingBar extends AppCompatRatingBar implements SkinCompa
         if (mSkinCompatProgressBarHelper != null) {
             mSkinCompatProgressBarHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

@@ -10,6 +10,7 @@ import skin.support.content.res.SkinCompatResources;
 import skin.support.design.R;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatSupportable;
+import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -21,6 +22,7 @@ public class SkinMaterialTabLayout extends TabLayout implements SkinCompatSuppor
     private int mTabIndicatorColorResId = INVALID_ID;
     private int mTabTextColorsResId = INVALID_ID;
     private int mTabSelectedTextColorResId = INVALID_ID;
+    private boolean mSkinSupport = true;
 
     public SkinMaterialTabLayout(Context context) {
         this(context, null);
@@ -32,6 +34,10 @@ public class SkinMaterialTabLayout extends TabLayout implements SkinCompatSuppor
 
     public SkinMaterialTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TabLayout,
                 defStyleAttr, 0);
 
@@ -88,5 +94,10 @@ public class SkinMaterialTabLayout extends TabLayout implements SkinCompatSuppor
         } else if (tabTextColor != INVALID_ID) {
             setTabTextColors(tabTextColor, tabTextColor);
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

@@ -1,7 +1,7 @@
 # Android-skin-support
 
-[![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.1/)
-[![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/)
+[![v1.1.0](https://img.shields.io/badge/skin--support-v1.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.0/)
+[![v0.1.0](https://img.shields.io/badge/skin--support--design-v0.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.1.0/)
 
 * [介绍](#介绍)
 * [更新日志](#更新日志)
@@ -14,6 +14,7 @@
   * [使用](#使用)
     * [初始化](#在application的oncreate中初始化)
     * [继承SkinCompatActivity](#继承skincompatactivity)
+    * [皮肤开关](#皮肤开关)
     * [加载插件皮肤库](#加载插件皮肤库)
     * [自定义view换肤](#自定义view换肤)
   * [制作皮肤插件](#制作皮肤插件)
@@ -25,6 +26,7 @@
   * [打赏支持](#打赏支持)
     * [支付宝](#支付宝扫码打赏)
     * [微信](#微信扫码打赏)
+    * [感谢支持我的人](#感谢支持我的人)
 * [致谢](#致谢)
 * [LICENSE](#license-mit)
 
@@ -60,6 +62,17 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ### skin-support: 基础控件 支持
 
+
+* [![v1.1.0](https://img.shields.io/badge/skin--support-v1.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.0/) 新功能开发
+
+  * 支持开发者标记不换肤控件
+
+* [![v1.0.2](https://img.shields.io/badge/skin--support-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.2/) bugfix
+
+  * 解决RecyclerView中item无法回收导致的OutOfMemory问题
+
+  * 关闭Debug Log
+
 * [![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.1/) 支持所有基础控件换肤
   * View
   * Button
@@ -83,7 +96,12 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ### skin-support-design: material design 支持
 
-* [![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/) 支持以下三个控件换肤
+
+* [![v0.1.0](https://img.shields.io/badge/skin--support--design-v0.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.1.0/) 新功能开发 依赖skin-support v1.1.0
+
+  * 支持开发者标记不换肤控件
+
+* [![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/) 支持以下三个控件换肤 依赖skin-support v1.0.2
   * TabLayout
   * AppBarLayout
   * NavigationView
@@ -119,8 +137,8 @@ git clone https://github.com/ximsfei/Android-skin-support.git
 ```
 也可以直接添加依赖, [最新版本选择, 请查看更新日志](#更新日志)
 ```xml
-compile 'skin.support:skin-support:1.0.1'        // skin-support 基础控件支持
-compile 'skin.support:skin-support-design:0.0.2' // skin-support-design material design 控件支持
+compile 'skin.support:skin-support:1.1.0'        // skin-support 基础控件支持
+compile 'skin.support:skin-support-design:0.1.0' // skin-support-design material design 控件支持
 ```
 
 ### 使用:
@@ -143,6 +161,16 @@ public void onCreate() {
 public class BaseActivity extends SkinCompatActivity {}
 ```
 
+#### 皮肤开关
+
+如果项目中有特殊需求, 例如, 股票控件: 控件颜色始终为红色或绿色, 不需要随着模式切换而换肤, 可以在布局文件中对应的控件上添加skinSupport属性.
+```xml
+xmlns:skin="http://schemas.android.com/apk/res-auto"
+
+skin:skinSupport="false"
+```
+*默认不填, 该值为true.*
+
 #### 加载插件皮肤库
 
 ```java
@@ -158,8 +186,12 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 要点:
 
 1. 实现SkinCompatSupportable接口
+
+  1. applySkin方法中实现换肤操作
+
+  2. getSkinSupport方法返回true, 控件支持换肤; 返回false, 不进行换肤.
+
 2. 在构造方法中解析出需要换肤的resId
-3. 在applySkin方法中实现换肤
 
 * 自定义View可以直接继承自SkinCompatView, SkinCompatLinearLayout等已有控件
 
@@ -184,6 +216,14 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 ### 制作皮肤插件:
 
 #### 新建Android application工程
+
+皮肤工程包名不能和宿主应用包名相同.
+
+例如:
+```xml
+宿主包名: com.ximsfei.skindemo
+夜间模式: com.ximsfei.skindemo.night
+```
 
 #### 将需要换肤的资源放到res目录下(同名资源)
 
@@ -220,11 +260,21 @@ colors.xml
 
 #### 支付宝扫码打赏
 
-![支付宝](https://github.com/ximsfei/Res/blob/master/ds/zfb_small.png)
+![支付宝](https://github.com/ximsfei/Res/blob/master/ds/zfb_s.png)
 
 #### 微信扫码打赏
 
-![微信](https://github.com/ximsfei/Res/blob/master/ds/wx_small.png)
+![微信](https://github.com/ximsfei/Res/blob/master/ds/wx_s.png)
+
+#### 感谢支持我的人
+
+| 昵称          | 支付方式 | 付款时间             | 金额    | 留言         |
+| ------------- |:-------:| ------------------- | ------- | --------------|
+| 匿名          | 微信     | 2017-02-28 23:38:46 | 1 元    | 无            |
+| 匿名          | 支付宝   | 2017-02-28 23:42:13 | 1 元    | 无            |
+| 匿名          | 微信     | 2017-03-01 09:39:09 | 5 元    | 感谢你的开源库 |
+| 匿名          | 微信     | 2017-03-03 15:28:45 | 1 元    | 无            |
+| 匿名          | 微信     | 2017-03-04 22:05:55 | 3 元    | 加油          |
 
 ## 致谢
 

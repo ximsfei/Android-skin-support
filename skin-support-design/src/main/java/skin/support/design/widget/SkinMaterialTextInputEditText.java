@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatSupportable;
 import skin.support.widget.SkinCompatTextHelper;
+import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -19,6 +20,7 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 public class SkinMaterialTextInputEditText extends TextInputEditText implements SkinCompatSupportable {
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private boolean mSkinSupport = true;
 
     public SkinMaterialTextInputEditText(Context context) {
         this(context, null);
@@ -30,6 +32,10 @@ public class SkinMaterialTextInputEditText extends TextInputEditText implements 
 
     public SkinMaterialTextInputEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = new SkinCompatTextHelper(this);
@@ -64,6 +70,11 @@ public class SkinMaterialTextInputEditText extends TextInputEditText implements 
         if (mTextHelper != null) {
             mTextHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 
 }
