@@ -6,9 +6,9 @@
 
 * [介绍](#介绍)
 * [更新日志](ChangeLog.md)
-  * [skin-support 更新日志](ChangeLog.md#skin-support-基础控件-支持)
-  * [skin-support-design 更新日志](ChangeLog.md#skin-support-design-material-design-支持)
-  * [skin-support-cardview 更新日志](ChangeLog.md#skin-support-cardview-cardview-支持)
+  * [skin-support 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-基础控件-支持)
+  * [skin-support-design 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-design-material-design-支持)
+  * [skin-support-cardview 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-cardview-cardview-支持)
 * [最佳实践](#最佳实践)
   * [网易云音乐换肤实践](#仿网易云音乐)
 * [框架用法](#用法)
