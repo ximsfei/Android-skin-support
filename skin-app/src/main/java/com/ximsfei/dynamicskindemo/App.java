@@ -5,6 +5,8 @@ import android.app.Application;
 import skin.support.SkinCardViewManager;
 import skin.support.SkinCompatManager;
 import skin.support.app.SkinCardViewInflater;
+import skin.support.circleimageview.SkinCircleImageViewManager;
+import skin.support.circleimageview.app.SkinCircleImageViewInflater;
 import skin.support.design.SkinMaterialManager;
 import skin.support.design.app.SkinMaterialViewInflater;
 
@@ -16,9 +18,14 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+//        SkinCircleImageViewManager.init(this);
+//        SkinMaterialManager.init(this);
+//        SkinCardViewManager.init(this);
+//        SkinCompatManager.init(this).loadSkin();
         SkinCompatManager.init(this)
-                .addInflater(new SkinMaterialViewInflater())
-                .addInflater(new SkinCardViewInflater())
+                .addInflater(new SkinMaterialViewInflater())    // material design
+                .addInflater(new SkinCardViewInflater())        // CardView v7
+                .addInflater(new SkinCircleImageViewInflater()) // hdodenhof/CircleImageView
                 .loadSkin();
     }
 }

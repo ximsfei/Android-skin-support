@@ -5,7 +5,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <com.ximsfei.dynamicskindemo.widget.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -13,7 +13,7 @@
         app:civ_border_color="@color/circle_border_color"
         app:civ_border_width="10dp" />
 
-    <com.ximsfei.dynamicskindemo.widget.CustomCircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image_custom"
         android:layout_width="96dp"
         android:layout_height="96dp"
