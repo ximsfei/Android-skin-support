@@ -18,21 +18,21 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  * Created by ximsfei on 17-1-14.
  */
 
-public class SkinCompatTabLayout extends TabLayout implements SkinCompatSupportable {
+public class SkinMaterialTabLayout extends TabLayout implements SkinCompatSupportable {
     private int mTabIndicatorColorResId = INVALID_ID;
     private int mTabTextColorsResId = INVALID_ID;
     private int mTabSelectedTextColorResId = INVALID_ID;
     private boolean mSkinSupport = true;
 
-    public SkinCompatTabLayout(Context context) {
+    public SkinMaterialTabLayout(Context context) {
         this(context, null);
     }
 
-    public SkinCompatTabLayout(Context context, AttributeSet attrs) {
+    public SkinMaterialTabLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SkinCompatTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinMaterialTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
         if (!mSkinSupport) {

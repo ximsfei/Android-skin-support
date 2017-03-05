@@ -12,20 +12,20 @@ import skin.support.widget.SkinCompatUtils;
  * Created by pengfengwang on 2017/1/15.
  */
 
-public class SkinCompatNavigationView extends NavigationView implements SkinCompatSupportable {
+public class SkinMaterialNavigationView extends NavigationView implements SkinCompatSupportable {
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
     private boolean mSkinSupport = true;
 //    private int mBackgroundResId = INVALID_ID;
 
-    public SkinCompatNavigationView(Context context) {
+    public SkinMaterialNavigationView(Context context) {
         this(context, null);
     }
 
-    public SkinCompatNavigationView(Context context, AttributeSet attrs) {
+    public SkinMaterialNavigationView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SkinCompatNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinMaterialNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
         if (!mSkinSupport) {
@@ -33,7 +33,6 @@ public class SkinCompatNavigationView extends NavigationView implements SkinComp
         }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, 0);
-        applySkin();
     }
 
     @Override

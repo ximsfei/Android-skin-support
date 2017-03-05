@@ -22,93 +22,13 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
-    compile 'skin.support:skin-support:1.0.1'
+    compile project(':skin-support')
 }
 
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
-
-def siteUrl = 'https://github.com/ximsfei/Android-skin-support'
-def gitUrl = 'https://github.com/ximsfei/Android-skin-support.git'
-group = "skin.support"
-version = "0.1.0"
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives'] //When uploading configuration files
-    pkg {
-        repo = 'skin-support'
-        name = 'skin-support-design'
-        desc = '基于material design控件换肤'
-        websiteUrl = siteUrl
-        issueTrackerUrl = 'https://github.com/bintray/bintray-examples/issues'
-        vcsUrl = gitUrl
-        licenses = ['MIT']
-        labels = ['skin', 'support', 'theme', 'android']
-        publicDownloadNumbers = true
-    }
+ext {
+    publishVersion="1.0.0"
+    moduleName = 'skin-support-design'
+    descContent = 'material design控件换肤支持包'
 }
 
-install {
-    repositories.mavenInstaller {
-        pom {
-            project {
-                packaging 'aar'
-                name 'skin-support-design'
-                url siteUrl
-                licenses {
-                    license {
-                        name 'MIT'
-                        url 'https://github.com/ximsfei/Android-skin-support/blob/master/LICENSE'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'ximsfei'
-                        name 'Pengfeng Wang'
-                        email 'ximsfei@gmail.com'
-                    }
-                }
-                scm {
-                    connection 'https://github.com/ximsfei/Android-skin-support.git'
-                    developerConnection 'https://github.com/ximsfei/Android-skin-support.git'
-                    url siteUrl
-
-                }
-            }
-        }
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-task findConventions << {
-    println project.getConvention()
-}
+apply from: '../publishing_maven.gradle'

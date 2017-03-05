@@ -63,8 +63,9 @@ public class SkinCompatManager extends SkinObservable {
         SkinCompatResources.init(mAppContext);
     }
 
-    public void addInflater(SkinLayoutInflater inflater) {
+    public SkinCompatManager addInflater(SkinLayoutInflater inflater) {
         mInflaters.add(inflater);
+        return this;
     }
 
     public List<SkinLayoutInflater> getInflaters() {

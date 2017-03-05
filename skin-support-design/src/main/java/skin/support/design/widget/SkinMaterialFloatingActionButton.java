@@ -10,6 +10,7 @@ import skin.support.design.R;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatImageHelper;
 import skin.support.widget.SkinCompatSupportable;
+import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -17,22 +18,27 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  * Created by pengfengwang on 2017/3/1.
  */
 
-public class SkinCompatFloatingActionButton extends FloatingActionButton implements SkinCompatSupportable {
+public class SkinMaterialFloatingActionButton extends FloatingActionButton implements SkinCompatSupportable {
     private int mRippleColorResId = INVALID_ID;
     private int mBackgroundTintResId = INVALID_ID;
 
     private SkinCompatImageHelper mImageHelper;
+    private boolean mSkinSupport = true;
 
-    public SkinCompatFloatingActionButton(Context context) {
+    public SkinMaterialFloatingActionButton(Context context) {
         this(context, null);
     }
 
-    public SkinCompatFloatingActionButton(Context context, AttributeSet attrs) {
+    public SkinMaterialFloatingActionButton(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SkinCompatFloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinMaterialFloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.FloatingActionButton, defStyleAttr,
                 R.style.Widget_Design_FloatingActionButton);
@@ -67,5 +73,10 @@ public class SkinCompatFloatingActionButton extends FloatingActionButton impleme
         if (mImageHelper != null) {
             mImageHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }
