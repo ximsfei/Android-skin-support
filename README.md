@@ -191,7 +191,6 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
   2. getSkinSupport方法返回true, 控件支持换肤; 返回false, 不进行换肤.
 
 2. 在构造方法中解析出需要换肤的resId
-3. 在applySkin方法中实现换肤
 
 * 自定义View可以直接继承自SkinCompatView, SkinCompatLinearLayout等已有控件
 
