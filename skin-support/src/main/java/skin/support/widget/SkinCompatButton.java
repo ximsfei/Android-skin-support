@@ -10,7 +10,7 @@ import android.util.AttributeSet;
  * Created by ximsfei on 17-1-11.
  */
 public class SkinCompatButton extends AppCompatButton implements SkinCompatSupportable {
-    protected boolean mSkinSupport = true;
+    private boolean mSkinSupport = true;
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 

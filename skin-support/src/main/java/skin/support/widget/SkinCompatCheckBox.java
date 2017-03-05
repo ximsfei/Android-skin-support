@@ -12,7 +12,7 @@ import skin.support.R;
  */
 
 public class SkinCompatCheckBox extends AppCompatCheckBox implements SkinCompatSupportable {
-    protected boolean mSkinSupport = true;
+    private boolean mSkinSupport = true;
     private SkinCompatCompoundButtonHelper mCompoundButtonHelper;
 
     public SkinCompatCheckBox(Context context) {

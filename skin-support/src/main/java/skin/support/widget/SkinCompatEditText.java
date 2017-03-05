@@ -11,7 +11,7 @@ import android.util.AttributeSet;
  */
 
 public class SkinCompatEditText extends AppCompatEditText implements SkinCompatSupportable {
-    protected boolean mSkinSupport = true;
+    private boolean mSkinSupport = true;
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 

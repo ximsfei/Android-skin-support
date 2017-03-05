@@ -23,7 +23,7 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
     private static final int[] TINT_ATTRS = {
             android.R.attr.popupBackground
     };
-    protected boolean mSkinSupport = true;
+    private boolean mSkinSupport = true;
     private int mDropDownBackgroundResId = INVALID_ID;
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;

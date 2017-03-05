@@ -19,7 +19,7 @@ public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implemen
     private static final int[] TINT_ATTRS = {
             android.R.attr.checkMark
     };
-    protected boolean mSkinSupport = true;
+    private boolean mSkinSupport = true;
     private int mCheckMarkResId = INVALID_ID;
 
     private SkinCompatTextHelper mTextHelper;
