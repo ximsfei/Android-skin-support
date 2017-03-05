@@ -3,8 +3,9 @@
 ## skin-support: 基础控件 支持
 
 
-* [![v1.1.1](https://img.shields.io/badge/skin--support-v1.1.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.1/) 优化 依赖 appcompat-v7:25.1.0
+* [![v1.1.2](https://img.shields.io/badge/skin--support-v1.1.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.2/) 优化 依赖 appcompat-v7:25.1.0
 
+  * bugfix 连续切换皮肤导致的崩溃问题
   * 优化module初始化方式
 
 * [![v1.1.0](https://img.shields.io/badge/skin--support-v1.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.0/) 新功能开发 依赖 appcompat-v7:25.1.0
@@ -41,7 +42,7 @@
 ## skin-support-design: material design 支持
 
 
-* [![v1.0.0](https://img.shields.io/badge/skin--support--design-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.0.0/) 新功能开发 依赖skin-support:1.1.1 design:25.1.0
+* [![v1.0.0](https://img.shields.io/badge/skin--support--design-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.0.0/) 新功能开发 依赖skin-support:1.1.2 design:25.1.0
   * BottomNavigationView
   * CollapsingToolbarLayout
   * CoordinatorLayout
@@ -61,5 +62,5 @@
 ## skin-support-cardview: CardView 支持
 
 
-* [![v1.0.0](https://img.shields.io/badge/skin--support--cardview-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.0.0/) CardView 支持 依赖skin-support:1.1.1 cardview-v7:25.1.0
+* [![v1.0.0](https://img.shields.io/badge/skin--support--cardview-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.0.0/) CardView 支持 依赖skin-support:1.1.2 cardview-v7:25.1.0
   * CardView
