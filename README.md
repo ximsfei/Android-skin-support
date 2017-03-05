@@ -182,7 +182,7 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
   // 需要使用https://github.com/hdodenhof/CircleImageView 控件, 并且要支持换肤
 
-  eg: [CustomCircleImageView](skin-app/src/main/java/com/ximsfei/dynamicskindemo/widget/CustomCircleImageView.java)
+  eg: [SkinCompatCircleImageView](third-part-support/circleimageview)
 
 ### 制作皮肤插件:
 
