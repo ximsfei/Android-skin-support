@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/skin-app" />
             <option value="$PROJECT_DIR$/skin-night" />
             <option value="$PROJECT_DIR$/skin-support" />
+            <option value="$PROJECT_DIR$/skin-support-cardview" />
             <option value="$PROJECT_DIR$/skin-support-design" />
           </set>
         </option>

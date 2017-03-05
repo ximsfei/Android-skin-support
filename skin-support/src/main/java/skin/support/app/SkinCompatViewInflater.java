@@ -149,8 +149,11 @@ public class SkinCompatViewInflater {
         if (view == null) {
             for (SkinLayoutInflater inflater : SkinCompatManager.getInstance().getInflaters()) {
                 view = inflater.createView(context, name, attrs);
-                if (view == null)
+                if (view == null) {
                     continue;
+                } else {
+                    break;
+                }
             }
         }
 
