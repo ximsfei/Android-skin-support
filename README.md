@@ -170,7 +170,22 @@ compile 'skin.support:skin-support-cardview:1.0.0' // skin-support-cardview Card
 @Override
 public void onCreate() {
     super.onCreate();
-    SkinCompatManager.init(this).loadSkin(); // 应用启动时初始化换肤框架并且加载当前(保存在SharedPreferences中)皮肤库
+    SkinCompatManager.init(this)                          // 基础控件换肤初始化
+            .addInflater(new SkinMaterialViewInflater())  // material design 控件换肤初始化[可选]
+            .addInflater(new SkinCardViewInflater())      // CardView 控件换肤初始化[可选]
+            .loadSkin();                                  // 加载当前皮肤库(保存在SharedPreferences中)
+}
+```
+
+或者
+
+```java
+@Override
+public void onCreate() {
+    super.onCreate();
+    SkinMaterialManager.init(this);          // material design 控件换肤初始化[可选]
+    SkinCardViewManager.init(this);          // CardView 控件换肤初始化[可选]
+    SkinCompatManager.init(this).loadSkin(); // 基础控件换肤初始化并加载当前皮肤库(保存在SharedPreferences中)
 }
 ```
 
