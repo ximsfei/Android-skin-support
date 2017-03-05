@@ -9,7 +9,8 @@ import android.widget.FrameLayout;
  */
 
 public class SkinCompatFrameLayout extends FrameLayout implements SkinCompatSupportable {
-    private final SkinCompatBackgroundHelper mBackgroundTintHelper;
+    private boolean mSkinSupport = true;
+    private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
     public SkinCompatFrameLayout(Context context) {
         this(context, null);
@@ -21,6 +22,10 @@ public class SkinCompatFrameLayout extends FrameLayout implements SkinCompatSupp
 
     public SkinCompatFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
     }
@@ -38,5 +43,10 @@ public class SkinCompatFrameLayout extends FrameLayout implements SkinCompatSupp
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

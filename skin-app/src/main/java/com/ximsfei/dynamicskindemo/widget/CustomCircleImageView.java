@@ -12,6 +12,7 @@ import skin.support.content.res.SkinCompatResources;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatImageHelper;
 import skin.support.widget.SkinCompatSupportable;
+import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -20,9 +21,10 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  */
 
 public class CustomCircleImageView extends CircleImageView implements SkinCompatSupportable {
-    private final SkinCompatImageHelper mImageHelper;
+    private SkinCompatImageHelper mImageHelper;
     private int mFillColorResId = INVALID_ID;
     private int mBorderColorResId = INVALID_ID;
+    private boolean mSkinSupport = true;
 
     public CustomCircleImageView(Context context) {
         this(context, null);
@@ -34,6 +36,10 @@ public class CustomCircleImageView extends CircleImageView implements SkinCompat
 
     public CustomCircleImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mImageHelper = new SkinCompatImageHelper(this);
         mImageHelper.loadFromAttributes(attrs, defStyle);
 
@@ -84,5 +90,10 @@ public class CustomCircleImageView extends CircleImageView implements SkinCompat
             int color = SkinCompatResources.getInstance().getColor(mFillColorResId);
             setFillColor(color);
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }

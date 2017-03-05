@@ -12,6 +12,7 @@ import android.util.AttributeSet;
 public class SkinCompatImageView extends AppCompatImageView implements SkinCompatSupportable {
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
     private SkinCompatImageHelper mImageHelper;
+    private boolean mSkinSupport = true;
 
     public SkinCompatImageView(Context context) {
         this(context, null);
@@ -23,6 +24,10 @@ public class SkinCompatImageView extends AppCompatImageView implements SkinCompa
 
     public SkinCompatImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
+        if (!mSkinSupport) {
+            return;
+        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
 
@@ -54,5 +59,10 @@ public class SkinCompatImageView extends AppCompatImageView implements SkinCompa
         if (mImageHelper != null) {
             mImageHelper.applySkin();
         }
+    }
+
+    @Override
+    public boolean getSkinSupport() {
+        return mSkinSupport;
     }
 }
