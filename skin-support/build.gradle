@@ -23,7 +23,7 @@ dependencies {
 }
 
 ext {
-        publishVersion = '1.1.1'
+        publishVersion = '1.1.2'
         moduleName = 'skin-support'
         descContent = 'skin-support 基础控件换肤支持包'
 }
