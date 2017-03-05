@@ -8,7 +8,7 @@
 * [更新日志](#更新日志)
   * [skin-support 更新日志](#skin-support-基础控件-支持)
   * [skin-support-design 更新日志](#skin-support-design-material-design-支持)
-  * [skin-support-cardview 更新日志](#skin-support-design-CardView-支持)
+  * [skin-support-cardview 更新日志](#skin-support-cardview-cardview-支持)
 * [最佳实践](#最佳实践)
   * [网易云音乐换肤实践](#仿网易云音乐)
 * [框架用法](#用法)
