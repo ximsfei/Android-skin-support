@@ -46,7 +46,7 @@
                         android:layout_marginTop="@dimen/title_margin"
                         android:gravity="bottom|center"
                         android:text="@string/person_name"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/text_color"
                         android:textSize="30sp" />
 
                     <TextView
@@ -55,7 +55,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="4dp"
                         android:text="@string/person_title"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@color/text_color" />
                 </LinearLayout>
             </FrameLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -79,6 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="8dp"
+                android:textColor="@color/text_color"
                 android:text="@string/person_intro" />
         </android.support.v7.widget.CardView>
     </android.support.v4.widget.NestedScrollView>
@@ -107,7 +108,7 @@
                 android:layout_marginLeft="8dp"
                 android:gravity="center_vertical"
                 android:text="@string/person_name"
-                android:textColor="@android:color/white"
+                android:textColor="@color/text_color"
                 android:textSize="20sp"
                 android:visibility="invisible" />
 
@@ -115,12 +116,12 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <com.ximsfei.dynamicskindemo.widget.CircleImageView
+    <com.ximsfei.dynamicskindemo.widget.CustomCircleImageView
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_width"
         android:layout_gravity="center"
         android:src="@drawable/small"
-        app:civ_border_color="@android:color/white"
+        app:civ_border_color="@color/colorAccent"
         app:civ_border_width="2dp"
         app:layout_behavior="com.ximsfei.dynamicskindemo.coordinator.AvatarImageBehavior" />
 
