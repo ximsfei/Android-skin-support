@@ -8,6 +8,8 @@ import android.view.View;
 import skin.support.app.SkinLayoutInflater;
 import skin.support.design.widget.SkinMaterialAppBarLayout;
 import skin.support.design.widget.SkinMaterialBottomNavigationView;
+import skin.support.design.widget.SkinMaterialCollapsingToolbarLayout;
+import skin.support.design.widget.SkinMaterialCoordinatorLayout;
 import skin.support.design.widget.SkinMaterialFloatingActionButton;
 import skin.support.design.widget.SkinMaterialNavigationView;
 import skin.support.design.widget.SkinMaterialTabLayout;
@@ -42,6 +44,12 @@ public class SkinMaterialViewInflater implements SkinLayoutInflater {
                 break;
             case "android.support.design.widget.BottomNavigationView":
                 view = new SkinMaterialBottomNavigationView(context, attrs);
+                break;
+            case "android.support.design.widget.CoordinatorLayout":
+                view = new SkinMaterialCoordinatorLayout(context, attrs);
+                break;
+            case "android.support.design.widget.CollapsingToolbarLayout":
+                view = new SkinMaterialCollapsingToolbarLayout(context, attrs);
                 break;
         }
         return view;
