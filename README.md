@@ -1,7 +1,7 @@
 # Android-skin-support
 
-[![v1.0.1](https://img.shields.io/badge/skin--support-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.2/)
-[![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/)
+[![v1.1.0](https://img.shields.io/badge/skin--support-v1.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.0/)
+[![v0.1.0](https://img.shields.io/badge/skin--support--design-v0.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.1.0/)
 
 * [介绍](#介绍)
 * [更新日志](#更新日志)
@@ -61,6 +61,11 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ### skin-support: 基础控件 支持
 
+
+* [![v1.1.0](https://img.shields.io/badge/skin--support-v1.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.0/) 新功能开发
+
+  * 支持开发者标记不换肤控件
+
 * [![v1.0.2](https://img.shields.io/badge/skin--support-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.0.2/) bugfix
 
   * 解决RecyclerView中item无法回收导致的OutOfMemory问题
@@ -90,7 +95,12 @@ public class BaseActivity extends SkinCompatActivity {}
 
 ### skin-support-design: material design 支持
 
-* [![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/) 支持以下三个控件换肤
+
+* [![v0.1.0](https://img.shields.io/badge/skin--support--design-v0.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.1.0/) 新功能开发 依赖skin-support v1.1.0
+
+  * 支持开发者标记不换肤控件
+
+* [![v0.0.2](https://img.shields.io/badge/skin--support--design-v0.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/0.0.2/) 支持以下三个控件换肤 依赖skin-support v1.0.2
   * TabLayout
   * AppBarLayout
   * NavigationView
@@ -126,8 +136,8 @@ git clone https://github.com/ximsfei/Android-skin-support.git
 ```
 也可以直接添加依赖, [最新版本选择, 请查看更新日志](#更新日志)
 ```xml
-compile 'skin.support:skin-support:1.0.2'        // skin-support 基础控件支持
-compile 'skin.support:skin-support-design:0.0.2' // skin-support-design material design 控件支持
+compile 'skin.support:skin-support:1.1.0'        // skin-support 基础控件支持
+compile 'skin.support:skin-support-design:0.1.0' // skin-support-design material design 控件支持
 ```
 
 ### 使用:
@@ -150,6 +160,16 @@ public void onCreate() {
 public class BaseActivity extends SkinCompatActivity {}
 ```
 
+#### 皮肤开关
+
+如果项目中有特殊需求, 例如, 股票控件: 控件颜色始终为红色或绿色, 不需要随着模式切换而换肤, 可以在布局文件中对应的控件上添加skinSupport属性.
+```xml
+xmlns:skin="http://schemas.android.com/apk/res-auto"
+
+skin:skinSupport="false"
+```
+*默认不填, 该值为true.*
+
 #### 加载插件皮肤库
 
 ```java
@@ -165,6 +185,11 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 要点:
 
 1. 实现SkinCompatSupportable接口
+
+  1. applySkin方法中实现换肤操作
+
+  2. getSkinSupport方法返回true, 控件支持换肤; 返回false, 不进行换肤.
+
 2. 在构造方法中解析出需要换肤的resId
 3. 在applySkin方法中实现换肤
 
