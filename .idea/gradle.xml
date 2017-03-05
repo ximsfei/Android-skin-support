@@ -13,6 +13,8 @@
             <option value="$PROJECT_DIR$/skin-support" />
             <option value="$PROJECT_DIR$/skin-support-cardview" />
             <option value="$PROJECT_DIR$/skin-support-design" />
+            <option value="$PROJECT_DIR$/third-part-support" />
+            <option value="$PROJECT_DIR$/third-part-support/circleimageview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

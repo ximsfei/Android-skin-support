@@ -1,1 +1,1 @@
-include ':skin-support', ':skin-app', ':skin-night', ':skin-support-design', ':skin-support-cardview'
+include ':skin-support', ':skin-app', ':skin-night', ':skin-support-design', ':skin-support-cardview', ':third-part-support:circleimageview'

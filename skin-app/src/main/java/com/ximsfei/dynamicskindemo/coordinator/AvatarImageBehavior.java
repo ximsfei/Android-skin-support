@@ -7,7 +7,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.ximsfei.dynamicskindemo.R;
-import com.ximsfei.dynamicskindemo.widget.CircleImageView;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by ximsfei on 17-3-2.
