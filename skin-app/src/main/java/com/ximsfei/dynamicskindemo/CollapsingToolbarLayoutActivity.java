@@ -69,7 +69,7 @@ public class CollapsingToolbarLayoutActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
-                    SkinCompatManager.getInstance().loadSkin("red.skin", null);
+                    SkinCompatManager.getInstance().loadSkin("night.skin", null);
                 } else {
                     SkinCompatManager.getInstance().restoreDefaultTheme();
                 }

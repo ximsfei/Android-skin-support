@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorPrimaryDark"
+        android:background="@color/background"
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
@@ -24,9 +24,9 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimaryDark"
-                app:subtitleTextColor="@color/circle_border_color"
-                app:titleTextColor="@color/circle_border_color">
+                android:background="?attr/colorPrimary"
+                app:subtitleTextColor="@color/subtitle_text_color"
+                app:titleTextColor="@color/title_text_color">
 
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
@@ -37,7 +37,7 @@
             android:layout_height="?attr/actionBarSize"
             app:tabIndicatorColor="?attr/colorAccent"
             app:tabSelectedTextColor="@color/tabSelected"
-            app:tabTextColor="@color/color_selector" />
+            app:tabTextColor="@color/text_color" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/refresh"
                 app:backgroundTint="@color/colorPrimary"
-                app:rippleColor="@color/colorAccent"/>
+                app:rippleColor="@color/ripple_color"/>
             
             <android.support.design.widget.BottomNavigationView
                 android:layout_alignParentBottom="true"
@@ -71,6 +71,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/colorAccent"
+        android:background="@color/background"
         android:fitsSystemWindows="true" />
 </android.support.v4.widget.DrawerLayout>

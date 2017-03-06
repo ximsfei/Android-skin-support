@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#aaa</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="tabSelected">#ff00ff</color>
-    <color name="circle_border_color">#000000</color>
-    <color name="text_color">#ff000000</color>
+    <color name="colorPrimary">#ce3d3a</color>
+    <color name="colorPrimaryDark">#ce3d3a</color>
+    <color name="colorAccent">#ce3d3a</color>
+    <color name="tabSelected">#ce3d3a</color>
+    <color name="circle_border_color">#477aac</color>
+    <color name="title_text_color">#ddffffff</color>
+    <color name="subtitle_text_color">#aaffffff</color>
+    <color name="text_color_tip">#ce3d3a</color>
+    <color name="text_color">#ff333333</color>
+    <color name="text_color_hint">#ffb2b2b2</color>
+    <color name="text_background">#ffffffff</color>
+    <color name="background">#f2f4f5</color>
+    <color name="divider">#44000000</color>
+    <color name="ripple_color">#44000000</color>
 </resources>

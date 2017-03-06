@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimaryDark"
+    android:background="@color/background"
     android:fitsSystemWindows="false">
 
     <android.support.design.widget.AppBarLayout
@@ -15,8 +15,8 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="450dp"
-            android:background="?attr/colorPrimaryDark"
-            app:contentScrim="@color/colorAccent"
+            android:background="@color/background"
+            app:contentScrim="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <ImageView
@@ -49,7 +49,7 @@
                         android:layout_marginTop="@dimen/title_margin"
                         android:gravity="bottom|center"
                         android:text="@string/person_name"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/title_text_color"
                         android:textSize="30sp" />
 
                     <TextView
@@ -58,7 +58,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="4dp"
                         android:text="@string/person_title"
-                        android:textColor="@color/text_color" />
+                        android:textColor="@color/subtitle_text_color" />
                 </LinearLayout>
             </FrameLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="?attr/colorPrimaryDark"
+            app:cardBackgroundColor="@color/text_background"
             app:cardElevation="8dp"
             app:contentPadding="16dp">
 
@@ -112,7 +112,7 @@
                 android:layout_marginLeft="8dp"
                 android:gravity="center_vertical"
                 android:text="@string/person_name"
-                android:textColor="@color/text_color"
+                android:textColor="@color/title_text_color"
                 android:textSize="20sp"
                 android:visibility="invisible" />
 
@@ -126,7 +126,7 @@
         android:layout_height="@dimen/image_width"
         android:layout_gravity="center"
         android:src="@drawable/small"
-        app:civ_border_color="@color/colorAccent"
+        app:civ_border_color="@color/circle_border_color"
         app:civ_border_width="2dp"
         app:layout_behavior="com.ximsfei.dynamicskindemo.coordinator.AvatarImageBehavior" />
 

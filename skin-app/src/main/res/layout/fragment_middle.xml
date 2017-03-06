@@ -8,19 +8,19 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorAccent"
-        android:popupBackground="@color/colorPrimary" />
+        android:background="@color/background"
+        android:popupBackground="@color/text_background" />
 
     <com.ximsfei.dynamicskindemo.widget.CustomTextView
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorAccent"
+        android:background="@color/text_background"
         android:text="custom text view" />
 
     <com.ximsfei.dynamicskindemo.widget.CustomTextView2
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorAccent"
+        android:background="@color/text_background"
         android:text="custom text view 2"
         android:textColor="@color/color_selector" />
 

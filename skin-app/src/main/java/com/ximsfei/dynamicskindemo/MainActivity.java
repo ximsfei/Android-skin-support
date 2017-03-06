@@ -31,7 +31,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initToolbar();
@@ -40,7 +39,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
-                    SkinCompatManager.getInstance().loadSkin("red.skin", null);
+                    SkinCompatManager.getInstance().loadSkin("night.skin", null);
                 } else {
                     SkinCompatManager.getInstance().restoreDefaultTheme();
                 }

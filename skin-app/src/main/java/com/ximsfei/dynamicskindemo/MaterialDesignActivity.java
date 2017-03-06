@@ -34,7 +34,7 @@ public class MaterialDesignActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
-                    SkinCompatManager.getInstance().loadSkin("red.skin", null);
+                    SkinCompatManager.getInstance().loadSkin("night.skin", null);
                 } else {
                     SkinCompatManager.getInstance().restoreDefaultTheme();
                 }

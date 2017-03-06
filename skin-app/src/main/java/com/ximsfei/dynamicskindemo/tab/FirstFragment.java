@@ -13,9 +13,6 @@ import android.widget.Toast;
 
 import com.ximsfei.dynamicskindemo.R;
 
-import skin.support.SkinCompatManager;
-import skin.support.utils.SkinLog;
-
 /**
  * Created by ximsfei on 17-1-14.
  */
@@ -25,34 +22,6 @@ public class FirstFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, null);
-        view.findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SkinCompatManager.getInstance().loadSkin("red.skin", new SkinCompatManager.SkinLoaderListener() {
-                    @Override
-                    public void onStart() {
-                        SkinLog.d("onStart");
-                    }
-
-                    @Override
-                    public void onSuccess() {
-                        SkinLog.d("onSuccess");
-                    }
-
-                    @Override
-                    public void onFailed(String errMsg) {
-                        SkinLog.d("onFailed");
-                    }
-                });
-            }
-        });
-
-        view.findViewById(R.id.text1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SkinCompatManager.getInstance().restoreDefaultTheme();
-            }
-        });
         view.findViewById(R.id.image_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -23,22 +23,20 @@
                 android:scaleType="fitXY" />
 
             <TextView
-                android:id="@+id/text"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="@color/text_background"
                 android:gravity="center_vertical"
-                android:text="切换皮肤 background=?attr/colorPrimary"
-                android:textColor="@color/colorAccent"
+                android:text="textView"
+                android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/text1"
                 style="@style/TextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:gravity="center_vertical"
-                android:text="恢复默认 style=@style/TextStyle"
+                android:text="style=@style/TextStyle"
                 android:textSize="18sp" />
 
             <MultiAutoCompleteTextView
@@ -47,11 +45,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:focusable="false"
-                android:popupBackground="@color/colorAccent"
+                android:popupBackground="@color/background"
                 android:text="MultiAutoCompleteTextView" />
 
             <TextView
-                android:id="@+id/text2"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:clickable="true"
@@ -60,24 +57,10 @@
                 android:textColor="@color/color_selector"
                 android:textSize="18sp" />
 
-            <LinearLayout
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
-                    android:gravity="center_vertical"
-                    android:text="ImageView\nsrc=@color/"
-                    android:textColor="@color/colorAccent" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="?attr/actionBarSize"
-                    android:layout_weight="1"
-                    android:src="@color/colorPrimary" />
-            </LinearLayout>
+                android:layout_height="?attr/actionBarSize"
+                android:src="@color/colorPrimary" />
 
             <Button
                 style="@style/TextStyle"
@@ -95,7 +78,7 @@
                 android:focusable="false"
                 android:gravity="center_vertical"
                 android:text="EditText focusable=false @color/"
-                android:textColor="@color/colorAccent"
+                android:hint="@color/text_color_hint"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -129,19 +112,19 @@
                 android:id="@+id/checked_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="@color/text_background"
                 android:checkMark="@drawable/button_checked"
                 android:filterTouchesWhenObscured="true"
                 android:focusableInTouchMode="true"
                 android:gravity="center_vertical"
                 android:text="CheckedTextView"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary" />
+                android:background="@color/divider" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

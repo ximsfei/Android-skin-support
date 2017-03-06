@@ -11,8 +11,8 @@
     <style name="AppTheme" parent="BaseAppTheme"></style>
 
     <style name="TextStyle">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:background">@color/text_background</item>
     </style>
 
     <style name="progress_horizontal_style" parent="Widget.AppCompat.ProgressBar.Horizontal">
@@ -25,9 +25,9 @@
         <item name="android:maxHeight">48dp</item>
     </style>
     <style name="designErrorTextAppearance" parent="TextAppearance.Design.Error">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/text_color_tip</item>
     </style>
     <style name="counterTextAppearance" parent="TextAppearance.Design.Counter">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/text_color_tip</item>
     </style>
 </resources>
