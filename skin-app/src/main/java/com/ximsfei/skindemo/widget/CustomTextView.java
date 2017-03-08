@@ -1,4 +1,4 @@
-package com.ximsfei.dynamicskindemo.widget;
+package com.ximsfei.skindemo.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

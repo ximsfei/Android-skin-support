@@ -1,13 +1,10 @@
-package com.ximsfei.dynamicskindemo;
+package com.ximsfei.skindemo;
 
 import android.app.Application;
 
-import skin.support.SkinCardViewManager;
 import skin.support.SkinCompatManager;
 import skin.support.app.SkinCardViewInflater;
-import skin.support.circleimageview.SkinCircleImageViewManager;
 import skin.support.circleimageview.app.SkinCircleImageViewInflater;
-import skin.support.design.SkinMaterialManager;
 import skin.support.design.app.SkinMaterialViewInflater;
 
 /**

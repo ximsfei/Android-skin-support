@@ -1,4 +1,4 @@
-package com.ximsfei.dynamicskindemo;
+package com.ximsfei.skindemo;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -10,10 +10,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.ximsfei.dynamicskindemo.tab.FirstFragment;
-import com.ximsfei.dynamicskindemo.tab.LastFragment;
-import com.ximsfei.dynamicskindemo.tab.MiddleFragment;
-import com.ximsfei.dynamicskindemo.tab.TabFragmentPagerAdapter;
+import com.ximsfei.skindemo.tab.FirstFragment;
+import com.ximsfei.skindemo.tab.LastFragment;
+import com.ximsfei.skindemo.tab.MiddleFragment;
+import com.ximsfei.skindemo.tab.TabFragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

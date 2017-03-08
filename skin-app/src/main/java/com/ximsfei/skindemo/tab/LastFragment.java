@@ -1,4 +1,4 @@
-package com.ximsfei.dynamicskindemo.tab;
+package com.ximsfei.skindemo.tab;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ximsfei.dynamicskindemo.R;
+import com.ximsfei.skindemo.R;
 
 /**
  * Created by ximsfei on 17-1-14.

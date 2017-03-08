@@ -1,4 +1,4 @@
-package com.ximsfei.dynamicskindemo;
+package com.ximsfei.skindemo;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;

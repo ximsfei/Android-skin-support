@@ -1,4 +1,4 @@
-package com.ximsfei.dynamicskindemo.tab;
+package com.ximsfei.skindemo.tab;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +11,7 @@ import android.widget.CheckedTextView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
-import com.ximsfei.dynamicskindemo.R;
+import com.ximsfei.skindemo.R;
 
 /**
  * Created by ximsfei on 17-1-14.

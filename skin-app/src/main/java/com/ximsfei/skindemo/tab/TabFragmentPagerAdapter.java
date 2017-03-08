@@ -1,4 +1,4 @@
-package com.ximsfei.dynamicskindemo.tab;
+package com.ximsfei.skindemo.tab;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -11,13 +11,13 @@
         android:background="@color/background"
         android:popupBackground="@color/text_background" />
 
-    <com.ximsfei.dynamicskindemo.widget.CustomTextView
+    <com.ximsfei.skindemo.widget.CustomTextView
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/text_background"
         android:text="custom text view" />
 
-    <com.ximsfei.dynamicskindemo.widget.CustomTextView2
+    <com.ximsfei.skindemo.widget.CustomTextView2
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/text_background"

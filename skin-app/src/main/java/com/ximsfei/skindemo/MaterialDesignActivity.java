@@ -1,4 +1,4 @@
-package com.ximsfei.dynamicskindemo;
+package com.ximsfei.skindemo;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,8 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.ximsfei.dynamicskindemo.mdtab.MDFirstFragment;
-import com.ximsfei.dynamicskindemo.tab.TabFragmentPagerAdapter;
+import com.ximsfei.skindemo.mdtab.MDFirstFragment;
+import com.ximsfei.skindemo.tab.TabFragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

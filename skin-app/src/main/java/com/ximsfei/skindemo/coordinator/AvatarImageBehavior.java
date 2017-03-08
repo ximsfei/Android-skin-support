@@ -1,4 +1,4 @@
-package com.ximsfei.dynamicskindemo.coordinator;
+package com.ximsfei.skindemo.coordinator;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.ximsfei.dynamicskindemo.R;
+import com.ximsfei.skindemo.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

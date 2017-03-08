@@ -1,4 +1,4 @@
-package com.ximsfei.dynamicskindemo.mdtab;
+package com.ximsfei.skindemo.mdtab;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.ximsfei.dynamicskindemo.CollapsingToolbarLayoutActivity;
-import com.ximsfei.dynamicskindemo.R;
+import com.ximsfei.skindemo.CollapsingToolbarLayoutActivity;
+import com.ximsfei.skindemo.R;
 
 /**
  * Created by ximsfei on 17-3-2.
