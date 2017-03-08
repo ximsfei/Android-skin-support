@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/skin-support-design" />
             <option value="$PROJECT_DIR$/third-part-support" />
             <option value="$PROJECT_DIR$/third-part-support/circleimageview" />
+            <option value="$PROJECT_DIR$/third-part-support/flycotablayout" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

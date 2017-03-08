@@ -1,1 +1,3 @@
-include ':skin-support', ':skin-app', ':skin-night', ':skin-support-design', ':skin-support-cardview', ':third-part-support:circleimageview'
+include ':skin-app', ':skin-night',
+        ':skin-support', ':skin-support-design', ':skin-support-cardview',
+        ':third-part-support:circleimageview', ':third-part-support:flycotablayout'
