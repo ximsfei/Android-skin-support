@@ -9,6 +9,7 @@
     <color name="subtitle_text_color">#aaffffff</color>
     <color name="text_color_tip">#ce3d3a</color>
     <color name="text_color">#ff333333</color>
+    <color name="textColorPrimary">#ff333333</color>
     <color name="text_color_hint">#ffb2b2b2</color>
     <color name="text_background">#ffffffff</color>
     <color name="background">#f2f4f5</color>
