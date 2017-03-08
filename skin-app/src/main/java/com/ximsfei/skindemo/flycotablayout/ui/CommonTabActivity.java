@@ -65,21 +65,21 @@ public class CommonTabActivity extends AppCompatActivity {
         mViewPager = ViewFindUtils.find(mDecorView, R.id.vp_2);
         mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
         /** with nothing */
-        mTabLayout_1 = ViewFindUtils.find(mDecorView, R.id.tl_1);
+        mTabLayout_1 = ViewFindUtils.find(mDecorView, R.id.t2_1);
         /** with ViewPager */
-        mTabLayout_2 = ViewFindUtils.find(mDecorView, R.id.tl_2);
+        mTabLayout_2 = ViewFindUtils.find(mDecorView, R.id.t2_2);
         /** with Fragments */
-        mTabLayout_3 = ViewFindUtils.find(mDecorView, R.id.tl_3);
+        mTabLayout_3 = ViewFindUtils.find(mDecorView, R.id.t2_3);
         /** indicator固定宽度 */
-        mTabLayout_4 = ViewFindUtils.find(mDecorView, R.id.tl_4);
+        mTabLayout_4 = ViewFindUtils.find(mDecorView, R.id.t2_4);
         /** indicator固定宽度 */
-        mTabLayout_5 = ViewFindUtils.find(mDecorView, R.id.tl_5);
+        mTabLayout_5 = ViewFindUtils.find(mDecorView, R.id.t2_5);
         /** indicator矩形圆角 */
-        mTabLayout_6 = ViewFindUtils.find(mDecorView, R.id.tl_6);
+        mTabLayout_6 = ViewFindUtils.find(mDecorView, R.id.t2_6);
         /** indicator三角形 */
-        mTabLayout_7 = ViewFindUtils.find(mDecorView, R.id.tl_7);
+        mTabLayout_7 = ViewFindUtils.find(mDecorView, R.id.t2_7);
         /** indicator圆角色块 */
-        mTabLayout_8 = ViewFindUtils.find(mDecorView, R.id.tl_8);
+        mTabLayout_8 = ViewFindUtils.find(mDecorView, R.id.t2_8);
 
         mTabLayout_1.setTabData(mTabEntities);
         tl_2();
