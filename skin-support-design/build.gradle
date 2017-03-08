@@ -26,7 +26,7 @@ dependencies {
 }
 
 ext {
-    publishVersion="1.0.0"
+    publishVersion="1.2.0"
     moduleName = 'skin-support-design'
     descContent = 'material design控件换肤支持包'
 }
