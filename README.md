@@ -1,10 +1,10 @@
 # Android-skin-support
 
-[![v1.1.2](https://img.shields.io/badge/skin--support-v1.1.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.1.2/)
-[![v1.0.0](https://img.shields.io/badge/skin--support--design-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.0.0/)
-[![v1.0.0](https://img.shields.io/badge/skin--support--cardview-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.0.0/)
+[![skin-support-v1.2.0](https://img.shields.io/badge/skin--support-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.0/)
+[![design-v1.2.0](https://img.shields.io/badge/skin--support--design-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.0/)
+[![cardview-v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/)
 
-[![v2.1.0](https://img.shields.io/badge/circleimageview-v2.1.0-green.svg)](http://jcenter.bintray.com/skin/support/circleimageview/2.1.0/)
+[![circleimageview-v2.2.0.1](https://img.shields.io/badge/circleimageview-v2.1.0.1-green.svg)](http://jcenter.bintray.com/skin/support/circleimageview/2.1.0.1/)
 
 * [介绍](#介绍)
 * [更新日志](ChangeLog.md)
@@ -92,9 +92,9 @@ git clone https://github.com/ximsfei/Android-skin-support.git
 ```
 也可以直接添加依赖, [最新版本选择, 请查看更新日志](ChangeLog.md)
 ```xml
-compile 'skin.support:skin-support:1.1.2'          // skin-support 基础控件支持
-compile 'skin.support:skin-support-design:1.0.0'   // skin-support-design material design 控件支持[可选]
-compile 'skin.support:skin-support-cardview:1.0.0' // skin-support-cardview CardView 控件支持[可选]
+compile 'skin.support:skin-support:1.2.0'          // skin-support 基础控件支持
+compile 'skin.support:skin-support-design:1.2.0'   // skin-support-design material design 控件支持[可选]
+compile 'skin.support:skin-support-cardview:1.2.0' // skin-support-cardview CardView 控件支持[可选]
 ```
 
 ### 使用:
@@ -134,13 +134,18 @@ public class BaseActivity extends SkinCompatActivity {}
 
 #### 皮肤开关
 
-如果项目中有特殊需求, 例如, 股票控件: 控件颜色始终为红色或绿色, 不需要随着模式切换而换肤, 可以在布局文件中对应的控件上添加skinSupport属性.
-```xml
-xmlns:skin="http://schemas.android.com/apk/res-auto"
+如果项目中有特殊需求。例如, 股票控件: 控件颜色始终为红色或绿色, 不需要随着模式切换而换肤
 
-skin:skinSupport="false"
+那么可以使用类似的方法, 直接设置color值
+```xml
+setTextColor(0xce3d3a) // 不支持换肤
+textColor="#ce3d3a"
 ```
-*默认不填, 该值为true.*
+而不是使用R.color.red
+```xml
+setTextColor(R.color.red)
+textColor="@color/red"
+```
 
 #### 加载插件皮肤库
 
@@ -159,8 +164,6 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 1. 实现SkinCompatSupportable接口
 
   1. applySkin方法中实现换肤操作
-
-  2. getSkinSupport方法返回true, 控件支持换肤; 返回false, 不进行换肤.
 
 2. 在构造方法中解析出需要换肤的resId
 

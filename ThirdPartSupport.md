@@ -4,11 +4,11 @@
 
 [项目原地址](https://github.com/hdodenhof/CircleImageView)
 
-![v2.1.0](https://img.shields.io/badge/circleimageview-v2.1.0-green.svg)
+![v2.1.0.1](https://img.shields.io/badge/circleimageview-v2.1.0.1-green.svg)
 
 ```xml
 compile 'de.hdodenhof:circleimageview:2.1.0'
-compile 'skin.support:circleimageview:2.1.0'
+compile 'skin.support:circleimageview:2.1.0.1'
 ```
 
 ### 使用方法一
