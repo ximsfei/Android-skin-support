@@ -35,7 +35,7 @@ public class CustomTextView2 extends TextView implements SkinCompatSupportable {
         }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
-        mTextHelper = new SkinCompatTextHelper(this);
+        mTextHelper = SkinCompatTextHelper.create(this);
         mTextHelper.loadFromAttributes(attrs, defStyleAttr);
     }
 

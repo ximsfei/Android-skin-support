@@ -51,7 +51,7 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
         applyDropDownBackgroundResource();
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
-        mTextHelper = new SkinCompatTextHelper(this);
+        mTextHelper = SkinCompatTextHelper.create(this);
         mTextHelper.loadFromAttributes(attrs, defStyleAttr);
     }
 
@@ -93,6 +93,11 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.onSetBackgroundResource(resId);
         }
+    }
+
+    @Override
+    public void setTextAppearance(int resId) {
+        setTextAppearance(getContext(), resId);
     }
 
     @Override

@@ -7,8 +7,8 @@
     <color name="circle_border_color">#477aac</color>
     <color name="title_text_color">#ddffffff</color>
     <color name="subtitle_text_color">#aaffffff</color>
-    <color name="text_color_tip">#dfffffff</color>
-    <color name="text_color">#88ffffff</color>
+    <color name="text_color_tip">#ffffff</color>
+    <color name="text_color">#ffffff</color>
     <color name="text_color_hint">#ffb2b2b2</color>
     <color name="text_background">#ff2e2e2e</color>
     <color name="background">#ff202020</color>

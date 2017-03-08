@@ -3,7 +3,7 @@
     <item android:state_enabled="true"
         android:state_focused="true"
         android:alpha="@dimen/hint_pressed_alpha_material_light"
-        android:color="@color/colorPrimary" />
+        android:color="@color/text_color_tip" />
     <item android:alpha="@dimen/hint_alpha_material_light"
         android:color="@color/text_color" />
 </selector>

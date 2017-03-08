@@ -38,7 +38,7 @@ public class SkinMaterialTextInputEditText extends TextInputEditText implements 
         }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
-        mTextHelper = new SkinCompatTextHelper(this);
+        mTextHelper = SkinCompatTextHelper.create(this);
         mTextHelper.loadFromAttributes(attrs, defStyleAttr);
     }
 
@@ -48,6 +48,11 @@ public class SkinMaterialTextInputEditText extends TextInputEditText implements 
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.onSetBackgroundResource(resId);
         }
+    }
+
+    @Override
+    public void setTextAppearance(int resId) {
+        setTextAppearance(getContext(), resId);
     }
 
     @Override
