@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="skinSupport" format="boolean" />
-
     <declare-styleable name="SkinBackgroundHelper">
         <attr name="android:background" />
     </declare-styleable>

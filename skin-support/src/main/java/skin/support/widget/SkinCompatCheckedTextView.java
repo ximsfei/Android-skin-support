@@ -19,7 +19,6 @@ public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implemen
     private static final int[] TINT_ATTRS = {
             android.R.attr.checkMark
     };
-    private boolean mSkinSupport = true;
     private int mCheckMarkResId = INVALID_ID;
 
     private SkinCompatTextHelper mTextHelper;
@@ -35,10 +34,6 @@ public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implemen
 
     public SkinCompatCheckedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);
@@ -87,11 +82,6 @@ public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implemen
             mTextHelper.applySkin();
         }
         applyCheckMark();
-    }
-
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
     }
 
     private void applyCheckMark() {

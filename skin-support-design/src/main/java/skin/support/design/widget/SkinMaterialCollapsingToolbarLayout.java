@@ -14,7 +14,6 @@ import skin.support.design.R;
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatSupportable;
-import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -26,7 +25,6 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
     private int mContentScrimResId = INVALID_ID;
     private int mStatusBarScrimResId = INVALID_ID;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
-    private boolean mSkinSupport = true;
 
     public SkinMaterialCollapsingToolbarLayout(Context context) {
         this(context, null);
@@ -38,10 +36,6 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
 
     public SkinMaterialCollapsingToolbarLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
 
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.CollapsingToolbarLayout, defStyleAttr,
@@ -112,8 +106,4 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

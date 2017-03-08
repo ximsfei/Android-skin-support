@@ -14,7 +14,6 @@ import skin.support.R;
 public class SkinCompatRadioButton extends AppCompatRadioButton implements SkinCompatSupportable {
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatCompoundButtonHelper mCompoundButtonHelper;
-    private boolean mSkinSupport = true;
 
     public SkinCompatRadioButton(Context context) {
         this(context, null);
@@ -26,10 +25,6 @@ public class SkinCompatRadioButton extends AppCompatRadioButton implements SkinC
 
     public SkinCompatRadioButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mCompoundButtonHelper = new SkinCompatCompoundButtonHelper(this);
         mCompoundButtonHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);
@@ -67,8 +62,4 @@ public class SkinCompatRadioButton extends AppCompatRadioButton implements SkinC
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

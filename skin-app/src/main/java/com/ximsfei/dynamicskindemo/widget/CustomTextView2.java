@@ -8,7 +8,6 @@ import android.widget.TextView;
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatSupportable;
 import skin.support.widget.SkinCompatTextHelper;
-import skin.support.widget.SkinCompatUtils;
 
 /**
  * Created by ximsfei on 2017/1/17.
@@ -17,7 +16,6 @@ import skin.support.widget.SkinCompatUtils;
 public class CustomTextView2 extends TextView implements SkinCompatSupportable {
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
-    private boolean mSkinSupport = true;
 
     public CustomTextView2(Context context) {
         this(context, null);
@@ -29,10 +27,6 @@ public class CustomTextView2 extends TextView implements SkinCompatSupportable {
 
     public CustomTextView2(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);
@@ -45,6 +39,11 @@ public class CustomTextView2 extends TextView implements SkinCompatSupportable {
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.onSetBackgroundResource(resId);
         }
+    }
+
+    @Override
+    public void setTextAppearance(int resId) {
+        setTextAppearance(getContext(), resId);
     }
 
     @Override
@@ -65,8 +64,4 @@ public class CustomTextView2 extends TextView implements SkinCompatSupportable {
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

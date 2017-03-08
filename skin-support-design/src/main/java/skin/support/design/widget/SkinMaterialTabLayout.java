@@ -10,7 +10,6 @@ import skin.support.content.res.SkinCompatResources;
 import skin.support.design.R;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatSupportable;
-import skin.support.widget.SkinCompatUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -34,10 +33,6 @@ public class SkinMaterialTabLayout extends TabLayout implements SkinCompatSuppor
 
     public SkinMaterialTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TabLayout,
                 defStyleAttr, 0);
 
@@ -96,8 +91,4 @@ public class SkinMaterialTabLayout extends TabLayout implements SkinCompatSuppor
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

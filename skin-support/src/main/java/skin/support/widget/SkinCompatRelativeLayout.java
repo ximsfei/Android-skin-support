@@ -10,7 +10,6 @@ import android.widget.RelativeLayout;
 
 public class SkinCompatRelativeLayout extends RelativeLayout implements SkinCompatSupportable {
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
-    private boolean mSkinSupport = true;
 
     public SkinCompatRelativeLayout(Context context) {
         this(context, null);
@@ -22,10 +21,6 @@ public class SkinCompatRelativeLayout extends RelativeLayout implements SkinComp
 
     public SkinCompatRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
     }
@@ -45,8 +40,4 @@ public class SkinCompatRelativeLayout extends RelativeLayout implements SkinComp
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

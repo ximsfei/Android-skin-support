@@ -12,7 +12,6 @@ import skin.support.R;
 
 public class SkinCompatSeekBar extends AppCompatSeekBar implements SkinCompatSupportable {
     private SkinCompatSeekBarHelper mSkinCompatSeekBarHelper;
-    private boolean mSkinSupport = true;
 
     public SkinCompatSeekBar(Context context) {
         this(context, null);
@@ -24,10 +23,6 @@ public class SkinCompatSeekBar extends AppCompatSeekBar implements SkinCompatSup
 
     public SkinCompatSeekBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mSkinCompatSeekBarHelper = new SkinCompatSeekBarHelper(this);
         mSkinCompatSeekBarHelper.loadFromAttributes(attrs, defStyleAttr);
     }
@@ -40,8 +35,4 @@ public class SkinCompatSeekBar extends AppCompatSeekBar implements SkinCompatSup
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

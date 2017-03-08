@@ -10,7 +10,6 @@ import android.view.View;
 
 public class SkinCompatView extends View implements SkinCompatSupportable {
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
-    private boolean mSkinSupport = true;
 
     public SkinCompatView(Context context) {
         this(context, null);
@@ -22,10 +21,6 @@ public class SkinCompatView extends View implements SkinCompatSupportable {
 
     public SkinCompatView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
 
@@ -46,8 +41,4 @@ public class SkinCompatView extends View implements SkinCompatSupportable {
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

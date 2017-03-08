@@ -10,7 +10,6 @@ import android.util.AttributeSet;
  * Created by ximsfei on 17-1-11.
  */
 public class SkinCompatButton extends AppCompatButton implements SkinCompatSupportable {
-    private boolean mSkinSupport = true;
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
@@ -24,10 +23,6 @@ public class SkinCompatButton extends AppCompatButton implements SkinCompatSuppo
 
     public SkinCompatButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);
@@ -65,8 +60,4 @@ public class SkinCompatButton extends AppCompatButton implements SkinCompatSuppo
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

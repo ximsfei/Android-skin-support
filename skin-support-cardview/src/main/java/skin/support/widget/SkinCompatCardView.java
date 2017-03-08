@@ -21,7 +21,6 @@ public class SkinCompatCardView extends CardView implements SkinCompatSupportabl
     private static final int[] COLOR_BACKGROUND_ATTR = {android.R.attr.colorBackground};
     private int mThemeColorBackgroundResId = INVALID_ID;
     private int mBackgroundColorResId = INVALID_ID;
-    private boolean mSkinSupport = true;
 
     public SkinCompatCardView(Context context) {
         this(context, null);
@@ -33,10 +32,6 @@ public class SkinCompatCardView extends CardView implements SkinCompatSupportabl
 
     public SkinCompatCardView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CardView, defStyleAttr,
                 R.style.CardView);
         if (a.hasValue(R.styleable.CardView_cardBackgroundColor)) {
@@ -76,8 +71,4 @@ public class SkinCompatCardView extends CardView implements SkinCompatSupportabl
         applyBackgroundColorResource();
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

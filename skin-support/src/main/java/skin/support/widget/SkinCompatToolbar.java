@@ -21,7 +21,6 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
     private int mSubtitleTextColorResId = INVALID_ID;
     private int mNavigationIconResId = INVALID_ID;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
-    private boolean mSkinSupport = true;
 
     public SkinCompatToolbar(Context context) {
         this(context, null);
@@ -33,10 +32,6 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
 
     public SkinCompatToolbar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
 
@@ -117,8 +112,4 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
         applyNavigationIcon();
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

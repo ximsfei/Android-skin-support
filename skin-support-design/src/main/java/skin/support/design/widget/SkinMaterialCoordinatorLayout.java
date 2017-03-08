@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatSupportable;
-import skin.support.widget.SkinCompatUtils;
 
 /**
  * Created by ximsf on 2017/3/5.
@@ -15,7 +14,6 @@ import skin.support.widget.SkinCompatUtils;
 public class SkinMaterialCoordinatorLayout extends CoordinatorLayout implements SkinCompatSupportable {
 
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
-    private boolean mSkinSupport = true;
 
     public SkinMaterialCoordinatorLayout(Context context) {
         this(context, null);
@@ -27,10 +25,6 @@ public class SkinMaterialCoordinatorLayout extends CoordinatorLayout implements 
 
     public SkinMaterialCoordinatorLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, 0);
     }
@@ -42,8 +36,4 @@ public class SkinMaterialCoordinatorLayout extends CoordinatorLayout implements 
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

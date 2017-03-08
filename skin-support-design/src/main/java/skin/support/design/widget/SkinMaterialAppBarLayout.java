@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatSupportable;
-import skin.support.widget.SkinCompatUtils;
 
 /**
  * Created by ximsfei on 2017/1/13.
@@ -14,7 +13,6 @@ import skin.support.widget.SkinCompatUtils;
 
 public class SkinMaterialAppBarLayout extends AppBarLayout implements SkinCompatSupportable {
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
-    private boolean mSkinSupport = true;
 
     public SkinMaterialAppBarLayout(Context context) {
         this(context, null);
@@ -22,10 +20,6 @@ public class SkinMaterialAppBarLayout extends AppBarLayout implements SkinCompat
 
     public SkinMaterialAppBarLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, 0);
     }
@@ -37,8 +31,4 @@ public class SkinMaterialAppBarLayout extends AppBarLayout implements SkinCompat
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }

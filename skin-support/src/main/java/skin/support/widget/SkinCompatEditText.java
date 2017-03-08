@@ -13,7 +13,6 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  */
 
 public class SkinCompatEditText extends AppCompatEditText implements SkinCompatSupportable {
-    private boolean mSkinSupport = true;
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
@@ -27,10 +26,6 @@ public class SkinCompatEditText extends AppCompatEditText implements SkinCompatS
 
     public SkinCompatEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);
@@ -70,11 +65,6 @@ public class SkinCompatEditText extends AppCompatEditText implements SkinCompatS
         if (mTextHelper != null) {
             mTextHelper.applySkin();
         }
-    }
-
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
     }
 
 }

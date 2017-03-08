@@ -10,7 +10,6 @@ import android.widget.ProgressBar;
 
 public class SkinCompatProgressBar extends ProgressBar implements SkinCompatSupportable {
     private SkinCompatProgressBarHelper mSkinCompatProgressBarHelper;
-    private boolean mSkinSupport = true;
 
     public SkinCompatProgressBar(Context context) {
         this(context, null);
@@ -22,10 +21,6 @@ public class SkinCompatProgressBar extends ProgressBar implements SkinCompatSupp
 
     public SkinCompatProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSkinSupport = SkinCompatUtils.getSkinSupport(context, attrs);
-        if (!mSkinSupport) {
-            return;
-        }
         mSkinCompatProgressBarHelper = new SkinCompatProgressBarHelper(this);
         mSkinCompatProgressBarHelper.loadFromAttributes(attrs, defStyleAttr);
     }
@@ -37,8 +32,4 @@ public class SkinCompatProgressBar extends ProgressBar implements SkinCompatSupp
         }
     }
 
-    @Override
-    public boolean getSkinSupport() {
-        return mSkinSupport;
-    }
 }
