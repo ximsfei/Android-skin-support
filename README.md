@@ -33,7 +33,6 @@
     * [支付宝](#支付宝扫码打赏)
     * [微信](#微信扫码打赏)
     * [感谢支持我的人](#感谢支持我的人)
-* [致谢](#致谢)
 * [LICENSE](#license-mit)
 
 ## 介绍
@@ -251,11 +250,5 @@ colors.xml
 | 匿名          | 微信     | 2017-03-04 22:05:55 | 3 元    | 加油          |
 | 匿名          | 微信     | 2017-03-06 15:23:11 | 50 元   | 感谢作者       |
 | 匿名          | 微信     | 2017-03-07 16:02:33 | 8.88 元 | 无            |
-
-## 致谢
-
-* [Android-Skin-Loader](https://github.com/fengjundev/Android-Skin-Loader)
-
-* android com.android.support:appcompat-v7源码
 
 ## [License MIT](LICENSE)
