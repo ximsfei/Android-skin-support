@@ -14,4 +14,28 @@
     <color name="background">#ff202020</color>
     <color name="divider">#44ffffff</color>
     <color name="ripple_color">#44ffffff</color>
+
+    <!-- flyco tab layout -->
+    <color name="textColorPrimary">#ff333333</color>
+
+    <color name="t1_1_background">#aaaaaa</color>
+    <color name="t1_1_tl_underline_color">#1affffff</color>
+
+    <color name="t1_2_background">#222222</color>
+    <color name="t1_2_tl_divider_color">#1Affffff</color>
+    <color name="t1_2_tl_indicator_color">#ffffff</color>
+    <color name="t1_2_tl_textSelectColor">#000000</color>
+    <color name="t1_2_tl_textUnselectColor">#66000000</color>
+    <color name="t1_2_tl_underline_color">#1A000000</color>
+
+    <color name="t1_3_background">#3F9FE0</color>
+    <color name="t1_4_background">#009688</color>
+    <color name="t1_5_background">#F6CE59</color>
+    <color name="t1_6_background">#EC7263</color>
+    <color name="t1_7_background">#57385C</color>
+    <color name="t1_8_background">#E45171</color>
+    <color name="t1_8_tl_indicator_color">#eeeeee</color>
+    <color name="t1_9_background">#6D8FB0</color>
+    <color name="t1_10_background">#222831</color>
+    <color name="t1_10_tl_indicator_color">#393E46</color>
 </resources>

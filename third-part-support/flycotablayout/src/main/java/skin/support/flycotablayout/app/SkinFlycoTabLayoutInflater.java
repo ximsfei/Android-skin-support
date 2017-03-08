@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import skin.support.app.SkinLayoutInflater;
+import skin.support.flycotablayout.widget.SkinSlidingTabLayout;
 
 /**
  * Created by ximsf on 2017/3/8.
@@ -16,9 +17,9 @@ public class SkinFlycoTabLayoutInflater implements SkinLayoutInflater {
     public View createView(@NonNull Context context, String name, @NonNull AttributeSet attrs) {
         View view = null;
         switch (name) {
-//            case "de.hdodenhof.circleimageview.CircleImageView":
-//                view = new SkinCompatCircleImageView(context, attrs);
-//                break;
+            case "com.flyco.tablayout.SlidingTabLayout":
+                view = new SkinSlidingTabLayout(context, attrs);
+                break;
         }
         return view;
     }

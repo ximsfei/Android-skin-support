@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,7 +19,11 @@ import com.ximsfei.skindemo.flycotablayout.utils.ViewFindUtils;
 
 import java.util.ArrayList;
 
-public class SlidingTabActivity extends AppCompatActivity implements OnTabSelectListener {
+import skin.support.SkinCompatManager;
+import skin.support.app.SkinCompatActivity;
+import skin.support.utils.SkinPreference;
+
+public class SlidingTabActivity extends SkinCompatActivity implements OnTabSelectListener {
     private Context mContext = this;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private final String[] mTitles = {
@@ -32,6 +36,16 @@ public class SlidingTabActivity extends AppCompatActivity implements OnTabSelect
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliding_tab);
+        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
+                    SkinCompatManager.getInstance().loadSkin("night.skin", null);
+                } else {
+                    SkinCompatManager.getInstance().restoreDefaultTheme();
+                }
+            }
+        });
 
         for (String title : mTitles) {
             mFragments.add(SimpleCardFragment.getInstance(title));
