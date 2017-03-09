@@ -25,3 +25,11 @@ dependencies {
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     compile 'skin.support:skin-support:1.2.0'
 }
+
+ext {
+    publishVersion = '2.1.2'
+    moduleName = 'flycotablayout'
+    descContent = 'H07000223/FlycoTabLayout 控件换肤支持包'
+}
+
+apply from: '../../publishing_maven.gradle'

@@ -6,6 +6,9 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import skin.support.app.SkinLayoutInflater;
+import skin.support.flycotablayout.widget.SkinCommonTabLayout;
+import skin.support.flycotablayout.widget.SkinMsgView;
+import skin.support.flycotablayout.widget.SkinSegmentTabLayout;
 import skin.support.flycotablayout.widget.SkinSlidingTabLayout;
 
 /**
@@ -19,6 +22,15 @@ public class SkinFlycoTabLayoutInflater implements SkinLayoutInflater {
         switch (name) {
             case "com.flyco.tablayout.SlidingTabLayout":
                 view = new SkinSlidingTabLayout(context, attrs);
+                break;
+            case "com.flyco.tablayout.CommonTabLayout":
+                view = new SkinCommonTabLayout(context, attrs);
+                break;
+            case "com.flyco.tablayout.SegmentTabLayout":
+                view = new SkinSegmentTabLayout(context, attrs);
+                break;
+            case "com.flyco.tablayout.widget.MsgView":
+                view = new SkinMsgView(context, attrs);
                 break;
         }
         return view;

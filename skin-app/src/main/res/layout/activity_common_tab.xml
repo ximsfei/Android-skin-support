@@ -10,6 +10,12 @@
         android:background="@color/background"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:text="点击换肤" />
+
         <com.flyco.tablayout.CommonTabLayout
             android:id="@+id/t2_1"
             android:layout_width="match_parent"

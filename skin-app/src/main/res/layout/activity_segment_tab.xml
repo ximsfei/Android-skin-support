@@ -8,7 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/background"
+        android:paddingBottom="16dp"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:text="点击换肤" />
 
         <com.flyco.tablayout.SegmentTabLayout
             android:id="@+id/t3_1"
@@ -83,6 +90,9 @@
             android:layout_gravity="center_horizontal"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
+            tl:tl_textSelectColor="@color/t3_5_tl_textSelectColor"
+            tl:tl_textUnselectColor="@color/t3_5_tl_textUnselectColor"
+            tl:tl_bar_stroke_color="@color/t3_5_tl_textUnselectColor"
             tl:tl_indicator_anim_enable="true"
             tl:tl_indicator_bounce_enable="false"
             tl:tl_indicator_margin_bottom="2dp"

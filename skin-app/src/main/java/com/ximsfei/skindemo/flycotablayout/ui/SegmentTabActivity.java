@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.flyco.tablayout.SegmentTabLayout;
@@ -17,7 +16,9 @@ import com.ximsfei.skindemo.flycotablayout.utils.ViewFindUtils;
 
 import java.util.ArrayList;
 
-public class SegmentTabActivity extends AppCompatActivity {
+import skin.support.flycotablayout.widget.SkinMsgView;
+
+public class SegmentTabActivity extends FlycoActivity {
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private ArrayList<Fragment> mFragments2 = new ArrayList<>();
 
@@ -56,15 +57,38 @@ public class SegmentTabActivity extends AppCompatActivity {
 
         //显示未读红点
         tabLayout_1.showDot(2);
+        MsgView rtv_1_2 = tabLayout_1.getMsgView(2);
+        if (rtv_1_2 != null) {
+            if (rtv_1_2 instanceof SkinMsgView) {
+                ((SkinMsgView) rtv_1_2).setBackgroundColorResource(R.color.msg_background_color);
+            }
+        }
         tabLayout_2.showDot(2);
+        MsgView rtv_2_2 = tabLayout_2.getMsgView(2);
+        if (rtv_2_2 != null) {
+            if (rtv_2_2 instanceof SkinMsgView) {
+                ((SkinMsgView) rtv_2_2).setBackgroundColorResource(R.color.msg_background_color);
+            }
+        }
         mTabLayout_3.showDot(1);
         tabLayout_4.showDot(1);
+        MsgView rtv_4_1 = tabLayout_4.getMsgView(1);
+        if (rtv_4_1 != null) {
+            if (rtv_4_1 instanceof SkinMsgView) {
+                ((SkinMsgView) rtv_4_1).setBackgroundColorResource(R.color.msg_background_color);
+            }
+        }
 
         //设置未读消息红点
         mTabLayout_3.showDot(2);
         MsgView rtv_3_2 = mTabLayout_3.getMsgView(2);
         if (rtv_3_2 != null) {
-            rtv_3_2.setBackgroundColor(Color.parseColor("#6D8FB0"));
+            if (rtv_3_2 instanceof SkinMsgView) {
+                ((SkinMsgView) rtv_3_2).setBackgroundColorResource(R.color.msg_background_color);
+                ((SkinMsgView) rtv_3_2).setStrokeColorResource(R.color.msg_stroke_color);
+            } else {
+                rtv_3_2.setBackgroundColor(Color.parseColor("#6D8FB0"));
+            }
         }
     }
 

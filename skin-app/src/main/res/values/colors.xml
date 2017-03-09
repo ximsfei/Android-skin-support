@@ -70,4 +70,9 @@
     <color name="t3_3_tl_indicator_color">#F6CE59</color>
     <color name="t3_4_tl_bar_color">#ffffff</color>
     <color name="t3_4_tl_indicator_color">#EC7263</color>
+    <color name="t3_5_tl_textSelectColor">#ffffff</color>
+    <color name="t3_5_tl_textUnselectColor">#000000</color>
+
+    <color name="msg_background_color">#cd3d3a</color>
+    <color name="msg_stroke_color">#f6ce59</color>
 </resources>
