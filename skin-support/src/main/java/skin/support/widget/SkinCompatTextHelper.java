@@ -110,6 +110,9 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
 
     private void applyTextColorHintResource() {
         mTextColorHintResId = checkResourceId(mTextColorHintResId);
+        if (mTextColorHintResId == R.color.abc_hint_foreground_material_light) {
+            return;
+        }
         if (mTextColorHintResId != INVALID_ID) {
             ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mTextColorHintResId);
             mView.setHintTextColor(color);
@@ -118,6 +121,10 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
 
     private void applyTextColorResource() {
         mTextColorResId = checkResourceId(mTextColorResId);
+        if (mTextColorResId == R.color.abc_primary_text_disable_only_material_light
+                || mTextColorResId == R.color.abc_secondary_text_material_light) {
+            return;
+        }
         if (mTextColorResId != INVALID_ID) {
             ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mTextColorResId);
             mView.setTextColor(color);
