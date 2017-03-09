@@ -26,7 +26,7 @@ import com.ximsfei.skindemo.flycotablayout.ui.SimpleHomeActivity;
 public class SplashActivity extends BaseActivity {
     private ListView mListView;
     private Context mContext = this;
-    private final String[] mItems = {"基础空间", "Material Design", "FlycoTabLayout"};
+    private final String[] mItems = {"基础控件", "Material Design", "FlycoTabLayout"};
     private final Class<?>[] mClasses = {MainActivity.class, MaterialDesignActivity.class,
             SimpleHomeActivity.class};
 
