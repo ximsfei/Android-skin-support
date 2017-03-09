@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme"></style>
@@ -13,6 +14,10 @@
     <style name="TextStyle">
         <item name="android:textColor">@color/text_color</item>
         <item name="android:background">@color/text_background</item>
+    </style>
+
+    <style name="SkinCompatTextAppearance" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/text_color</item>
     </style>
 
     <style name="progress_horizontal_style" parent="Widget.AppCompat.ProgressBar.Horizontal">

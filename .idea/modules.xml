@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Android-skin-support.iml" filepath="$PROJECT_DIR$/Android-skin-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/third-part-support/circleimageview/circleimageview.iml" filepath="$PROJECT_DIR$/third-part-support/circleimageview/circleimageview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/third-part-support/flycotablayout/flycotablayout.iml" filepath="$PROJECT_DIR$/third-part-support/flycotablayout/flycotablayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/third-part-support/flycotablayout/flycotablayout.iml" filepath="$PROJECT_DIR$/third-part-support/flycotablayout/flycotablayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/skin-app/skin-app.iml" filepath="$PROJECT_DIR$/skin-app/skin-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/skin-night/skin-night.iml" filepath="$PROJECT_DIR$/skin-night/skin-night.iml" />
       <module fileurl="file://$PROJECT_DIR$/skin-support/skin-support.iml" filepath="$PROJECT_DIR$/skin-support/skin-support.iml" />
