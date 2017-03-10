@@ -4,8 +4,7 @@
 
 
 * [![v1.2.1](https://img.shields.io/badge/skin--support-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.1/) bugfix 依赖 appcompat-v7:25.1.0
-
-  * bugfix 5.0以下TabLayout换肤失败
+  * bugfix 5.0以下TabLayout换肤失败
 
 * [![v1.2.0](https://img.shields.io/badge/skin--support-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.0/) 新功能开发 依赖 appcompat-v7:25.1.0
   * TextHelper 支持drawableLeft, drawableTop, drawableRight, drawableBottom 换肤
