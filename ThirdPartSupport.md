@@ -1,7 +1,7 @@
 # 第三方控件库
 
 * [hdodenhof/CircleImageView](#hdodenhofcircleimageview)
-* [H07000223/FlycoTabLayout](#h07000223/flycotablayout)
+* [H07000223/FlycoTabLayout](#h07000223flycotablayout)
 
 ## hdodenhof/CircleImageView
 
