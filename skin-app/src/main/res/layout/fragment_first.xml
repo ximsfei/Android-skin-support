@@ -60,7 +60,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:src="@color/colorPrimary" />
+                android:background="@drawable/image_background" />
 
             <Button
                 style="@style/TextStyle"
