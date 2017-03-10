@@ -1,5 +1,8 @@
 # 第三方控件库
 
+* [hdodenhof/CircleImageView](#hdodenhofcircleimageview)
+* [H07000223/FlycoTabLayout](#h07000223/flycotablayout)
+
 ## hdodenhof/CircleImageView
 
 [项目原地址](https://github.com/hdodenhof/CircleImageView)
@@ -15,13 +18,13 @@ compile 'skin.support:circleimageview:2.1.0.1'
 
 * application onCreate中初始化
 
-```xml
+```java
 SkinCompatManager.init(this)
         .addInflater(new SkinCircleImageViewInflater()) // hdodenhof/CircleImageView
         .loadSkin();
 ```
 或者
-```xml
+```java
 SkinCircleImageViewManager.init(this);
 ```
 
@@ -49,4 +52,29 @@ SkinCircleImageViewManager.init(this);
     android:src="@drawable/profile"
     app:civ_border_width="2dp"
     app:civ_border_color="@color/border_color"/>
+```
+
+## H07000223/FlycoTabLayout
+
+[项目原地址](https://github.com/H07000223/FlycoTabLayout)
+
+![v2.1.2](https://img.shields.io/badge/flycotablayout-v2.1.2-green.svg)
+
+```xml
+compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+compile 'skin.support:flycotablayout:2.1.2'
+```
+
+### 使用方法
+
+* application onCreate中初始化
+
+```java
+SkinCompatManager.init(this)
+        .addInflater(new SkinFlycoTabLayoutInflater()) // H07000223/FlycoTabLayout
+        .loadSkin();
+```
+或者
+```java
+SkinFlycoTabLayoutManager.init(this);
 ```
