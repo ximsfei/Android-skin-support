@@ -1,7 +1,7 @@
 # Android-skin-support
 
-[![skin-support-v1.2.0](https://img.shields.io/badge/skin--support-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.0/)
-[![design-v1.2.0](https://img.shields.io/badge/skin--support--design-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.0/)
+[![skin-support-v1.2.1](https://img.shields.io/badge/skin--support-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.1/)
+[![design-v1.2.1](https://img.shields.io/badge/skin--support--design-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.1/)
 [![cardview-v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/)
 
 [![circleimageview-v2.2.0.1](https://img.shields.io/badge/circleimageview-v2.1.0.1-green.svg)](http://jcenter.bintray.com/skin/support/circleimageview/2.1.0.1/)
@@ -27,6 +27,7 @@
     * [生成皮肤插件](#打包生成apk-即为皮肤包)
 * [第三方控件适配库](ThirdPartSupport.md)
   * [hdodenhof/CircleImageView](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#hdodenhofcircleimageview)
+  * [H07000223/FlycoTabLayout](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#h07000223/flycotablayout)
 * [交流&打赏](#交流支持)
   * [加群交流](#加群交流)
   * [打赏支持](#打赏支持)
@@ -91,8 +92,8 @@ git clone https://github.com/ximsfei/Android-skin-support.git
 ```
 也可以直接添加依赖, [最新版本选择, 请查看更新日志](ChangeLog.md)
 ```xml
-compile 'skin.support:skin-support:1.2.0'          // skin-support 基础控件支持
-compile 'skin.support:skin-support-design:1.2.0'   // skin-support-design material design 控件支持[可选]
+compile 'skin.support:skin-support:1.2.1'          // skin-support 基础控件支持
+compile 'skin.support:skin-support-design:1.2.1'   // skin-support-design material design 控件支持[可选]
 compile 'skin.support:skin-support-cardview:1.2.0' // skin-support-cardview CardView 控件支持[可选]
 ```
 
