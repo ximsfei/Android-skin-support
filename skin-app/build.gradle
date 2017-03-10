@@ -24,7 +24,7 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:25.1.0'
 //    compile project(':skin-support')
-    compile 'skin.support:skin-support:1.2.0'
+    compile 'skin.support:skin-support:1.2.1'
 
     compile 'com.android.support:design:25.1.0'
 //    compile project(':skin-support-design')
