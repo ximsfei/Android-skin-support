@@ -108,6 +108,10 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
     }
 
     private void applyTextColorHintResource() {
+        SkinLog.e("mView = " + mView + ", mTextColorHintResId = " + Integer.toHexString(mTextColorHintResId));
+        if (mTextColorHintResId != INVALID_ID) {
+            SkinLog.e("mView = " + mView + ", mTextColorHintResId name = " + mView.getResources().getResourceName(mTextColorHintResId));
+        }
         mTextColorHintResId = checkResourceId(mTextColorHintResId);
         if (mTextColorHintResId == R.color.abc_hint_foreground_material_light) {
             return;
@@ -119,6 +123,10 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
     }
 
     private void applyTextColorResource() {
+        SkinLog.e("mView = " + mView + ", mTextColorResId = " + Integer.toHexString(mTextColorResId));
+        if (mTextColorResId != INVALID_ID) {
+            SkinLog.e("mView = " + mView + ", mTextColorResId name = " + mView.getResources().getResourceName(mTextColorResId));
+        }
         mTextColorResId = checkResourceId(mTextColorResId);
         if (mTextColorResId == R.color.abc_primary_text_disable_only_material_light
                 || mTextColorResId == R.color.abc_secondary_text_material_light) {

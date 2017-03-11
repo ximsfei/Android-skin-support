@@ -16,4 +16,9 @@
         android:layout_height="?attr/actionBarSize"
         android:text="点击换肤" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Button hint text" />
+
 </LinearLayout>

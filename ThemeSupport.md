@@ -5,9 +5,9 @@
   * app:titleTextColor -> android:textColorPrimary
   * app:subtitleTextColor -> android:textColorSecondary
 * Button
-  * android:background
+  * android:background -> buttonStyle
   * android:textColor -> android:textColorPrimary
-  * android:textColorHint
+  * android:textColorHint -> android:textColorHint
   * android:drawableLeft
   * android:drawableTop
   * android:drawableRight
