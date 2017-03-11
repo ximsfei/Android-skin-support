@@ -6,6 +6,9 @@
 
     <color name="grey_50">#fffafafa</color>
 
+    <drawable name="btn_background_default">@android:color/white</drawable>
+    <drawable name="btn_background_pressed">@android:color/darker_gray</drawable>
+
     <!-- Window colors -->
     <color name="colorForeground">@android:color/black</color>
     <color name="colorForegroundInverse">@android:color/white</color>

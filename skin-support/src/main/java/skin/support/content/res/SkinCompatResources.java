@@ -6,8 +6,6 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.ContextCompatApi21;
-import android.util.TypedValue;
 
 /**
  * Created by ximsfei on 2017/1/11.
@@ -55,15 +53,7 @@ public class SkinCompatResources {
 
         int targetResId = mResources.getIdentifier(resName, "color", mSkinPkgName);
 
-        return targetResId == 0 ? originColor : getColor(targetResId, context.getTheme());
-    }
-
-    private int getColor(int resId, Resources.Theme theme) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return mResources.getColor(resId, theme);
-        } else {
-            return mResources.getColor(resId);
-        }
+        return targetResId == 0 ? originColor : mResources.getColor(targetResId);
     }
 
     public Drawable getDrawable(Context context, int resId) {
@@ -110,14 +100,6 @@ public class SkinCompatResources {
 
         int targetResId = mResources.getIdentifier(resName, "color", mSkinPkgName);
 
-        return targetResId == 0 ? colorStateList : getColorStateList(targetResId, context.getTheme());
-    }
-
-    private ColorStateList getColorStateList(int resId, Resources.Theme theme) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return mResources.getColorStateList(resId, theme);
-        } else {
-            return mResources.getColorStateList(resId);
-        }
+        return targetResId == 0 ? colorStateList : mResources.getColorStateList(targetResId);
     }
 }
