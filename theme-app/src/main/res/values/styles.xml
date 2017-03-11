@@ -213,4 +213,8 @@
     <style name="AppTheme" parent="BaseAppTheme">
 
     </style>
+
+    <style name="SkinButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/btn_background</item>
+    </style>
 </resources>

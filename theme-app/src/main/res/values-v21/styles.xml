@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SkinButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/btn_background_v21</item>
+    </style>
+</resources>
