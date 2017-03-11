@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/skin-support/skin-support.iml" filepath="$PROJECT_DIR$/skin-support/skin-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/skin-support-cardview/skin-support-cardview.iml" filepath="$PROJECT_DIR$/skin-support-cardview/skin-support-cardview.iml" />
       <module fileurl="file://$PROJECT_DIR$/skin-support-design/skin-support-design.iml" filepath="$PROJECT_DIR$/skin-support-design/skin-support-design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/theme-app/theme-app.iml" filepath="$PROJECT_DIR$/theme-app/theme-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/theme-night/theme-night.iml" filepath="$PROJECT_DIR$/theme-night/theme-night.iml" />
       <module fileurl="file://$PROJECT_DIR$/third-part-support/third-part-support.iml" filepath="$PROJECT_DIR$/third-part-support/third-part-support.iml" />
     </modules>
   </component>

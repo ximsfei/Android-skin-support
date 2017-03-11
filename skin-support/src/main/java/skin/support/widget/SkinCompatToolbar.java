@@ -7,9 +7,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.TintTypedArray;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.utils.SkinLog;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -66,6 +68,10 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
     }
 
     private void applyTitleTextColor() {
+        SkinLog.e("mTitleTextColorResId = " + Integer.toHexString(mTitleTextColorResId));
+        if (mTitleTextColorResId != INVALID_ID) {
+            SkinLog.e("mTitleTextColorResId res name = " + getResources().getResourceName(mTitleTextColorResId));
+        }
         mTitleTextColorResId = SkinCompatHelper.checkResourceId(mTitleTextColorResId);
         if (mTitleTextColorResId != INVALID_ID) {
             setTitleTextColor(SkinCompatResources.getInstance().getColor(mTitleTextColorResId));

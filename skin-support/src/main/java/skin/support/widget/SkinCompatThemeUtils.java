@@ -47,4 +47,13 @@ public class SkinCompatThemeUtils {
         }
         return resId;
     }
+
+    public static int getWindowBackgroundResId(Context context) {
+        TypedArray a = context.obtainStyledAttributes(new int[] {android.R.attr.windowBackground});
+        final int resId = a.getResourceId(0, INVALID_ID);
+        if (a != null) {
+            a.recycle();
+        }
+        return resId;
+    }
 }

@@ -23,23 +23,23 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     compile 'com.android.support:appcompat-v7:25.1.0'
-    compile project(':skin-support')
-//    compile 'skin.support:skin-support:1.2.1'
+//    compile project(':skin-support')
+    compile 'skin.support:skin-support:1.2.1'
 
     compile 'com.android.support:design:25.1.0'
-    compile project(':skin-support-design')
-//    compile 'skin.support:skin-support-design:1.2.1'
+//    compile project(':skin-support-design')
+    compile 'skin.support:skin-support-design:1.2.1'
 
     compile 'com.android.support:cardview-v7:25.1.0'
-    compile project(':skin-support-cardview')
-//    compile 'skin.support:skin-support-cardview:1.2.0'
+//    compile project(':skin-support-cardview')
+    compile 'skin.support:skin-support-cardview:1.2.0'
 
     // 第三方控件库换肤支持
     compile 'de.hdodenhof:circleimageview:2.1.0'
-    compile project(':third-part-support:circleimageview')
-//    compile 'skin.support:circleimageview:2.1.0.1'
+//    compile project(':third-part-support:circleimageview')
+    compile 'skin.support:circleimageview:2.1.0.1'
 
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
-    compile project(':third-part-support:flycotablayout')
-//    compile 'skin.support:flycotablayout:2.1.2'
+//    compile project(':third-part-support:flycotablayout')
+    compile 'skin.support:flycotablayout:2.1.2'
 }

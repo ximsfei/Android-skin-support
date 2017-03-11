@@ -10,20 +10,20 @@
         android:theme="@style/AppTheme">
 
         <activity android:name="com.ximsfei.skindemo.SplashActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-
-        <activity android:name="com.ximsfei.skindemo.theme.ThemeSupportActivity"
-            android:theme="@style/ThemeSupportTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name="com.ximsfei.skindemo.theme.ThemeSupportActivity"
+            android:theme="@style/ThemeSupportTheme">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
 
         <activity android:name="com.ximsfei.skindemo.MainActivity" />
