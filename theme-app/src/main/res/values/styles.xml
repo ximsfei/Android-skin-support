@@ -161,8 +161,8 @@
         <!--&lt;!&ndash; Color palette &ndash;&gt;-->
         <!--<item name="colorControlNormal">?android:attr/textColorSecondary</item>-->
         <!--<item name="colorControlActivated">?attr/colorAccent</item>-->
-        <!--<item name="colorControlHighlight">@color/ripple_material_light</item>-->
-        <!--<item name="colorButtonNormal">@color/button_material_light</item>-->
+        <item name="colorControlHighlight">@color/ripple_material_light</item>
+        <item name="colorButtonNormal">@color/button_material_light</item>
         <!--<item name="colorSwitchThumbNormal">@color/switch_thumb_material_light</item>-->
         <!--<item name="controlBackground">?attr/selectableItemBackgroundBorderless</item>-->
 
@@ -178,7 +178,7 @@
         <!--<item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>-->
 
         <!--&lt;!&ndash; Button styles &ndash;&gt;-->
-        <!--<item name="buttonStyle">@style/Widget.AppCompat.Button</item>-->
+        <item name="buttonStyle">@style/SkinButtonStyle</item>
         <!--<item name="buttonStyleSmall">@style/Widget.AppCompat.Button.Small</item>-->
         <!--<item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Widget.Button</item>-->
 

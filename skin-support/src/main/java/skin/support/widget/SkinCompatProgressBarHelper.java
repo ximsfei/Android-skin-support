@@ -132,14 +132,14 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
     public void applySkin() {
         mIndeterminateDrawableResId = checkResourceId(mIndeterminateDrawableResId);
         if (mIndeterminateDrawableResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mIndeterminateDrawableResId);
+            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mIndeterminateDrawableResId);
             drawable.setBounds(mView.getIndeterminateDrawable().getBounds());
             mView.setIndeterminateDrawable(tileifyIndeterminate(drawable));
         }
 
         mProgressDrawableResId = checkProgressDrawableResId(mProgressDrawableResId);
         if (mProgressDrawableResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mProgressDrawableResId);
+            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mProgressDrawableResId);
             mView.setProgressDrawable(tileify(drawable, false));
         }
     }

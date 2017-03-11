@@ -43,14 +43,14 @@ public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
     private void applyButtonResource() {
         mButtonResourceId = SkinCompatHelper.checkResourceId(mButtonResourceId);
         if (mButtonResourceId != INVALID_ID) {
-            mView.setButtonDrawable(SkinCompatResources.getInstance().getDrawable(mButtonResourceId));
+            mView.setButtonDrawable(SkinCompatResources.getInstance().getDrawable(mView.getContext(), mButtonResourceId));
         }
     }
 
     private void applyButtonTintResource() {
         mButtonTintResId = SkinCompatHelper.checkResourceId(mButtonTintResId);
         if (mButtonTintResId != INVALID_ID) {
-            CompoundButtonCompat.setButtonTintList(mView, SkinCompatResources.getInstance().getColorStateList(mButtonTintResId));
+            CompoundButtonCompat.setButtonTintList(mView, SkinCompatResources.getInstance().getColorStateList(mView.getContext(), mButtonTintResId));
         }
     }
 

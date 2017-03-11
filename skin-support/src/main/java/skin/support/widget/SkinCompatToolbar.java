@@ -67,21 +67,21 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
     private void applyTitleTextColor() {
         mTitleTextColorResId = SkinCompatHelper.checkResourceId(mTitleTextColorResId);
         if (mTitleTextColorResId != INVALID_ID) {
-            setTitleTextColor(SkinCompatResources.getInstance().getColor(mTitleTextColorResId));
+            setTitleTextColor(SkinCompatResources.getInstance().getColor(getContext(), mTitleTextColorResId));
         }
     }
 
     private void applySubtitleTextColor() {
         mSubtitleTextColorResId = SkinCompatHelper.checkResourceId(mSubtitleTextColorResId);
         if (mSubtitleTextColorResId != INVALID_ID) {
-            setSubtitleTextColor(SkinCompatResources.getInstance().getColor(mSubtitleTextColorResId));
+            setSubtitleTextColor(SkinCompatResources.getInstance().getColor(getContext(), mSubtitleTextColorResId));
         }
     }
 
     private void applyNavigationIcon() {
         mNavigationIconResId = SkinCompatHelper.checkResourceId(mNavigationIconResId);
         if (mNavigationIconResId != INVALID_ID) {
-            setNavigationIcon(SkinCompatResources.getInstance().getDrawable(mNavigationIconResId));
+            setNavigationIcon(SkinCompatResources.getInstance().getDrawable(getContext(), mNavigationIconResId));
         }
     }
 

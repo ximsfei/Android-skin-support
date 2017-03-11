@@ -87,7 +87,7 @@ public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implemen
     private void applyCheckMark() {
         mCheckMarkResId = SkinCompatHelper.checkResourceId(mCheckMarkResId);
         if (mCheckMarkResId != INVALID_ID) {
-            setCheckMarkDrawable(SkinCompatResources.getInstance().getDrawable(mCheckMarkResId));
+            setCheckMarkDrawable(SkinCompatResources.getInstance().getDrawable(getContext(), mCheckMarkResId));
         }
     }
 }

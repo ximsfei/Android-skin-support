@@ -93,7 +93,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
             TextView counterView = getCounterView();
             if (counterView != null) {
 //                SkinLog.e(TAG, "mCounterTextColor = " +Integer.toHexString(SkinCompatResources.getInstance().getColor(mCounterTextColorResId)));
-                counterView.setTextColor(SkinCompatResources.getInstance().getColor(mCounterTextColorResId));
+                counterView.setTextColor(SkinCompatResources.getInstance().getColor(getContext(), mCounterTextColorResId));
                 updateEditTextBackground();
             }
         }
@@ -142,7 +142,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
         if (mErrorTextColorResId != INVALID_ID && mErrorTextColorResId != R.color.design_error) {
             TextView errorView = getErrorView();
             if (errorView != null) {
-                errorView.setTextColor(SkinCompatResources.getInstance().getColor(mErrorTextColorResId));
+                errorView.setTextColor(SkinCompatResources.getInstance().getColor(getContext(), mErrorTextColorResId));
                 updateEditTextBackground();
             }
         }
@@ -183,7 +183,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
     private void applyFocusedTextColorResource() {
         mFocusedTextColorResId = SkinCompatHelper.checkResourceId(mFocusedTextColorResId);
         if (mFocusedTextColorResId != INVALID_ID && mFocusedTextColorResId != R.color.abc_hint_foreground_material_light) {
-            setFocusedTextColor(SkinCompatResources.getInstance().getColorStateList(mFocusedTextColorResId));
+            setFocusedTextColor(SkinCompatResources.getInstance().getColorStateList(getContext(), mFocusedTextColorResId));
         } else if (getEditText() != null) {
             int textColorResId = INVALID_ID;
             if (getEditText() instanceof SkinCompatEditText) {
@@ -193,7 +193,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
             }
             textColorResId = SkinCompatHelper.checkResourceId(textColorResId);
             if (textColorResId != INVALID_ID) {
-                ColorStateList colors = SkinCompatResources.getInstance().getColorStateList(textColorResId);
+                ColorStateList colors = SkinCompatResources.getInstance().getColorStateList(getContext(), textColorResId);
                 setFocusedTextColor(colors);
             }
         }

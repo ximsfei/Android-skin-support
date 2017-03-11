@@ -58,7 +58,7 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
         getSkinDelegate().applySkin();
         if (mWindowBackgroundResId != INVALID_ID) {
             getWindow().setBackgroundDrawable(new ColorDrawable(
-                    SkinCompatResources.getInstance().getColor(mWindowBackgroundResId)));
+                    SkinCompatResources.getInstance().getColor(this, mWindowBackgroundResId)));
         }
     }
 }
