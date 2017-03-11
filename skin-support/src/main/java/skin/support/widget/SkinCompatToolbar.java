@@ -1,6 +1,7 @@
 package skin.support.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.TintTypedArray;
@@ -35,25 +36,23 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
 
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
-                R.styleable.Toolbar, defStyleAttr, 0);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Toolbar, defStyleAttr, 0);
         mNavigationIconResId = a.getResourceId(R.styleable.Toolbar_navigationIcon, INVALID_ID);
 
         int titleAp = a.getResourceId(R.styleable.Toolbar_titleTextAppearance, INVALID_ID);
         int subtitleAp = a.getResourceId(R.styleable.Toolbar_subtitleTextAppearance, INVALID_ID);
         a.recycle();
         if (titleAp != INVALID_ID) {
-            a = TintTypedArray.obtainStyledAttributes(context, titleAp, R.styleable.SkinTextAppearance);
+            a = context.obtainStyledAttributes(titleAp, R.styleable.SkinTextAppearance);
             mTitleTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
             a.recycle();
         }
         if (subtitleAp != INVALID_ID) {
-            a = TintTypedArray.obtainStyledAttributes(context, subtitleAp, R.styleable.SkinTextAppearance);
+            a = context.obtainStyledAttributes(subtitleAp, R.styleable.SkinTextAppearance);
             mSubtitleTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
             a.recycle();
         }
-        a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
-                R.styleable.Toolbar, defStyleAttr, 0);
+        a = context.obtainStyledAttributes(attrs, R.styleable.Toolbar, defStyleAttr, 0);
         if (a.hasValue(R.styleable.Toolbar_titleTextColor)) {
             mTitleTextColorResId = a.getResourceId(R.styleable.Toolbar_titleTextColor, INVALID_ID);
         }
