@@ -69,19 +69,19 @@ public class SkinSlidingTabLayout extends SlidingTabLayout implements SkinCompat
     private void applySlidingTabLayoutResources() {
         SkinCompatResources resources = SkinCompatResources.getInstance();
         if (mIndicatorColorResId != INVALID_ID) {
-            setIndicatorColor(resources.getColor(mIndicatorColorResId));
+            setIndicatorColor(resources.getColor(getContext(), mIndicatorColorResId));
         }
         if (mUnderlineColorResId != INVALID_ID) {
-            setUnderlineColor(resources.getColor(mUnderlineColorResId));
+            setUnderlineColor(resources.getColor(getContext(), mUnderlineColorResId));
         }
         if (mDividerColorResId != INVALID_ID) {
-            setDividerColor(resources.getColor(mDividerColorResId));
+            setDividerColor(resources.getColor(getContext(), mDividerColorResId));
         }
         if (mTextSelectColorResId != INVALID_ID) {
-            setTextSelectColor(resources.getColor(mTextSelectColorResId));
+            setTextSelectColor(resources.getColor(getContext(), mTextSelectColorResId));
         }
         if (mTextUnselectColorResId != INVALID_ID) {
-            setTextUnselectColor(resources.getColor(mTextUnselectColorResId));
+            setTextUnselectColor(resources.getColor(getContext(), mTextUnselectColorResId));
         }
     }
 

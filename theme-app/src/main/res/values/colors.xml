@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ce3d3a</color>
+    <color name="colorPrimaryDark">#ce3d3a</color>
+    <color name="colorAccent">#ce3d3a</color>
+
+    <color name="grey_50">#fffafafa</color>
+
+    <drawable name="btn_background_default">@android:color/white</drawable>
+    <drawable name="btn_background_pressed">@android:color/darker_gray</drawable>
+
+    <!-- Window colors -->
+    <color name="colorForeground">@android:color/black</color>
+    <color name="colorForegroundInverse">@android:color/white</color>
+    <color name="colorBackground">@color/grey_50</color>
+    <color name="colorBackgroundCacheHint">@color/grey_50</color>
+    <color name="windowBackground">@color/grey_50</color>
+
+    <!-- Text colors -->
+    <color name="primary_text_color_default">#de000000</color>
+    <color name="primary_text_color_disabled">#39000000</color>
+    <color name="primary_text_color_inverse_default">#ffffffff</color>
+    <color name="primary_text_color_inverse_disabled">#4Dffffff</color>
+    <color name="secondary_text_color_default">#8a000000</color>
+    <color name="secondary_text_color_disabled">#24000000</color>
+    <color name="secondary_text_color_inverse_default">#b3ffffff</color>
+    <color name="secondary_text_color_inverse_disabled">#36ffffff</color>
+    <color name="bright_foreground_default">@android:color/black</color>
+    <color name="bright_foreground_deisabled">#80000000</color>
+    <color name="foreground_hint">@android:color/black</color>
+    <color name="foreground_default">@android:color/black</color>
+
+    <color name="textColorPrimary">@color/primary_text_color_selector</color>
+    <color name="textColorPrimaryInverse">@color/primary_text_color_inverse_selector</color>
+    <color name="textColorSecondary">@color/secondary_text_color_selector</color>
+    <color name="textColorSecondaryInverse">@color/secondary_text_color_inverse_selector</color>
+    <color name="textColorTertiary">@color/secondary_text_color_selector</color>
+    <color name="textColorTertiaryInverse">@color/secondary_text_color_inverse_selector</color>
+    <color name="textColorPrimaryDisableOnly">@color/primary_text_disable_only_selector</color>
+    <color name="textColorHint">@color/hint_foreground_selector</color>
+    <color name="textColorHintInverse">@color/hint_foreground_inverse_selector</color>
+    <color name="textColorHighlight">#66009688</color>
+
+    <!-- platte color -->
+    <color name="colorControlHighlight">#1f000000</color>
+</resources>

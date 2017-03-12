@@ -2,8 +2,6 @@ package skin.support.widget;
 
 import android.content.res.TypedArray;
 import android.support.v4.widget.CompoundButtonCompat;
-import android.support.v7.content.res.AppCompatResources;
-import android.support.v7.widget.DrawableUtils;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
 
@@ -16,6 +14,7 @@ import skin.support.content.res.SkinCompatResources;
 public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
     private final CompoundButton mView;
     private int mButtonResourceId = INVALID_ID;
+    private int mButtonTintResId = INVALID_ID;
 
     public SkinCompatCompoundButtonHelper(CompoundButton view) {
         mView = view;
@@ -25,25 +24,11 @@ public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
         TypedArray a = mView.getContext().obtainStyledAttributes(attrs, R.styleable.CompoundButton,
                 defStyleAttr, INVALID_ID);
         try {
-            if (a.hasValue(R.styleable.CompoundButton_android_button)) {
-                mButtonResourceId = a.getResourceId(
-                        R.styleable.CompoundButton_android_button, INVALID_ID);
+            mButtonResourceId = a.getResourceId(R.styleable.CompoundButton_android_button, INVALID_ID);
+            mButtonTintResId = a.getResourceId(R.styleable.CompoundButton_buttonTint, INVALID_ID);
+            if (mButtonTintResId == INVALID_ID) {
+                mButtonTintResId = SkinCompatThemeUtils.getColorAccentResId(mView.getContext());
             }
-//                if (resourceId != 0) {
-//                    mView.setButtonDrawable(
-//                            AppCompatResources.getDrawable(mView.getContext(), resourceId));
-//                }
-//            }
-//            if (a.hasValue(R.styleable.CompoundButton_buttonTint)) {
-//                CompoundButtonCompat.setButtonTintList(mView,
-//                        a.getColorStateList(R.styleable.CompoundButton_buttonTint));
-//            }
-//            if (a.hasValue(R.styleable.CompoundButton_buttonTintMode)) {
-//                CompoundButtonCompat.setButtonTintMode(mView,
-//                        DrawableUtils.parseTintMode(
-//                                a.getInt(R.styleable.CompoundButton_buttonTintMode, -1),
-//                                null));
-//            }
         } finally {
             a.recycle();
         }
@@ -52,14 +37,26 @@ public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
 
     public void setButtonDrawable(int resId) {
         mButtonResourceId = resId;
-        applySkin();
+        applyButtonResource();
+    }
+
+    private void applyButtonResource() {
+        mButtonResourceId = SkinCompatHelper.checkResourceId(mButtonResourceId);
+        if (mButtonResourceId != INVALID_ID) {
+            mView.setButtonDrawable(SkinCompatResources.getInstance().getDrawable(mView.getContext(), mButtonResourceId));
+        }
+    }
+
+    private void applyButtonTintResource() {
+        mButtonTintResId = SkinCompatHelper.checkResourceId(mButtonTintResId);
+        if (mButtonTintResId != INVALID_ID) {
+            CompoundButtonCompat.setButtonTintList(mView, SkinCompatResources.getInstance().getColorStateList(mView.getContext(), mButtonTintResId));
+        }
     }
 
     @Override
     public void applySkin() {
-        mButtonResourceId = SkinCompatHelper.checkResourceId(mButtonResourceId);
-        if (mButtonResourceId != INVALID_ID) {
-            mView.setButtonDrawable(SkinCompatResources.getInstance().getDrawable(mButtonResourceId));
-        }
+        applyButtonResource();
+        applyButtonTintResource();
     }
 }

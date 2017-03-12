@@ -2,9 +2,9 @@ package skin.support.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -43,7 +43,7 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         final Context context = mView.getContext();
 
         // First read the TextAppearance style id
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
+        TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.SkinCompatTextHelper, defStyleAttr, 0);
         final int ap = a.getResourceId(R.styleable.SkinCompatTextHelper_android_textAppearance, INVALID_ID);
         SkinLog.d(TAG, "ap = " + ap);
@@ -63,7 +63,7 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         a.recycle();
 
         if (ap != INVALID_ID) {
-            a = TintTypedArray.obtainStyledAttributes(context, ap, R.styleable.SkinTextAppearance);
+            a = context.obtainStyledAttributes(ap, R.styleable.SkinTextAppearance);
             if (a.hasValue(R.styleable.SkinTextAppearance_android_textColor)) {
                 mTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
                 SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
@@ -77,7 +77,7 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         }
 
         // Now read the style's values
-        a = TintTypedArray.obtainStyledAttributes(context, attrs, R.styleable.SkinTextAppearance,
+        a = context.obtainStyledAttributes(attrs, R.styleable.SkinTextAppearance,
                 defStyleAttr, 0);
         if (a.hasValue(R.styleable.SkinTextAppearance_android_textColor)) {
             mTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
@@ -93,8 +93,7 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
     }
 
     public void onSetTextAppearance(Context context, int resId) {
-        final TintTypedArray a = TintTypedArray.obtainStyledAttributes(context,
-                resId, R.styleable.SkinTextAppearance);
+        final TypedArray a = context.obtainStyledAttributes(resId, R.styleable.SkinTextAppearance);
         if (a.hasValue(R.styleable.SkinTextAppearance_android_textColor)) {
             mTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
             SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
@@ -109,24 +108,32 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
     }
 
     private void applyTextColorHintResource() {
+        SkinLog.e("mView = " + mView + ", mTextColorHintResId = " + Integer.toHexString(mTextColorHintResId));
+        if (mTextColorHintResId != INVALID_ID) {
+            SkinLog.e("mView = " + mView + ", mTextColorHintResId name = " + mView.getResources().getResourceName(mTextColorHintResId));
+        }
         mTextColorHintResId = checkResourceId(mTextColorHintResId);
         if (mTextColorHintResId == R.color.abc_hint_foreground_material_light) {
             return;
         }
         if (mTextColorHintResId != INVALID_ID) {
-            ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mTextColorHintResId);
+            ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mView.getContext(), mTextColorHintResId);
             mView.setHintTextColor(color);
         }
     }
 
     private void applyTextColorResource() {
+        SkinLog.e("mView = " + mView + ", mTextColorResId = " + Integer.toHexString(mTextColorResId));
+        if (mTextColorResId != INVALID_ID) {
+            SkinLog.e("mView = " + mView + ", mTextColorResId name = " + mView.getResources().getResourceName(mTextColorResId));
+        }
         mTextColorResId = checkResourceId(mTextColorResId);
         if (mTextColorResId == R.color.abc_primary_text_disable_only_material_light
                 || mTextColorResId == R.color.abc_secondary_text_material_light) {
             return;
         }
         if (mTextColorResId != INVALID_ID) {
-            ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mTextColorResId);
+            ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mView.getContext(), mTextColorResId);
             mView.setTextColor(color);
         }
     }
@@ -135,19 +142,19 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         Drawable drawableLeft = null, drawableTop = null, drawableRight = null, drawableBottom = null;
         mDrawableLeftResId = checkResourceId(mDrawableLeftResId);
         if (mDrawableLeftResId != INVALID_ID) {
-            drawableLeft = SkinCompatResources.getInstance().getDrawable(mDrawableLeftResId);
+            drawableLeft = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mDrawableLeftResId);
         }
         mDrawableTopResId = checkResourceId(mDrawableTopResId);
         if (mDrawableTopResId != INVALID_ID) {
-            drawableTop = SkinCompatResources.getInstance().getDrawable(mDrawableTopResId);
+            drawableTop = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mDrawableTopResId);
         }
         mDrawableRightResId = checkResourceId(mDrawableRightResId);
         if (mDrawableRightResId != INVALID_ID) {
-            drawableRight = SkinCompatResources.getInstance().getDrawable(mDrawableRightResId);
+            drawableRight = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mDrawableRightResId);
         }
         mDrawableBottomResId = checkResourceId(mDrawableBottomResId);
         if (mDrawableBottomResId != INVALID_ID) {
-            drawableBottom = SkinCompatResources.getInstance().getDrawable(mDrawableBottomResId);
+            drawableBottom = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mDrawableBottomResId);
         }
         mView.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
     }

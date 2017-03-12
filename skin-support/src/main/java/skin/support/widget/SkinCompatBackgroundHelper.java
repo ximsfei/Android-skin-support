@@ -1,16 +1,17 @@
 package skin.support.widget;
 
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 
 import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.utils.SkinLog;
 
 /**
  * Created by ximsfei on 2017/1/10.
@@ -26,7 +27,7 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
     }
 
     public void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(mView.getContext(), attrs,
+        TypedArray a = mView.getContext().obtainStyledAttributes(attrs,
                 R.styleable.SkinBackgroundHelper, defStyleAttr, 0);
         try {
             if (a.hasValue(R.styleable.SkinBackgroundHelper_android_background)) {
@@ -46,6 +47,11 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
     }
 
     public void applySkin() {
+        SkinLog.e("mView = " + mView + ", mBackgroundResId = " + Integer.toHexString(mBackgroundResId));
+        if (mBackgroundResId != INVALID_ID) {
+            SkinLog.e("mView = " + mView + ", mBackgroundResId res name = "
+                    + mView.getResources().getResourceName(mBackgroundResId));
+        }
         mBackgroundResId = checkResourceId(mBackgroundResId);
         if (mBackgroundResId == INVALID_ID) {
             return;
@@ -53,19 +59,19 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
         String typeName = mView.getResources().getResourceTypeName(mBackgroundResId);
         if ("color".equals(typeName)) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                int color = SkinCompatResources.getInstance().getColor(mBackgroundResId);
+                int color = SkinCompatResources.getInstance().getColor(mView.getContext(), mBackgroundResId);
                 mView.setBackgroundColor(color);
             } else {
-                ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mBackgroundResId);
+                ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mView.getContext(), mBackgroundResId);
                 Drawable drawable = mView.getBackground();
                 DrawableCompat.setTintList(drawable, colorStateList);
                 ViewCompat.setBackground(mView, drawable);
             }
         } else if ("drawable".equals(typeName)) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mBackgroundResId);
+            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mBackgroundResId);
             ViewCompat.setBackground(mView, drawable);
         } else if ("mipmap".equals(typeName)) {
-            Drawable drawable = SkinCompatResources.getInstance().getMipmap(mBackgroundResId);
+            Drawable drawable = SkinCompatResources.getInstance().getMipmap(mView.getContext(), mBackgroundResId);
             ViewCompat.setBackground(mView, drawable);
         }
     }

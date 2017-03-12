@@ -65,22 +65,22 @@ public class SkinSegmentTabLayout extends SegmentTabLayout implements SkinCompat
 
     private void applySegmentTabLayoutResources() {
         if (mIndicatorColorResId != INVALID_ID) {
-            setIndicatorColor(SkinCompatResources.getInstance().getColor(mIndicatorColorResId));
+            setIndicatorColor(SkinCompatResources.getInstance().getColor(getContext(), mIndicatorColorResId));
         }
         if (mDividerColorResId != INVALID_ID) {
-            setDividerColor(SkinCompatResources.getInstance().getColor(mDividerColorResId));
+            setDividerColor(SkinCompatResources.getInstance().getColor(getContext(), mDividerColorResId));
         }
         if (mTextSelectColorResId != INVALID_ID) {
-            setTextSelectColor(SkinCompatResources.getInstance().getColor(mTextSelectColorResId));
+            setTextSelectColor(SkinCompatResources.getInstance().getColor(getContext(), mTextSelectColorResId));
         }
         if (mTextUnselectColorResId != INVALID_ID) {
-            setTextUnselectColor(SkinCompatResources.getInstance().getColor(mTextUnselectColorResId));
+            setTextUnselectColor(SkinCompatResources.getInstance().getColor(getContext(), mTextUnselectColorResId));
         }
         if (mBarColorResId != INVALID_ID) {
-            setBarColor(SkinCompatResources.getInstance().getColor(mBarColorResId));
+            setBarColor(SkinCompatResources.getInstance().getColor(getContext(), mBarColorResId));
         }
         if (mBarStrokeColorResId != INVALID_ID) {
-            setBarStrokeColor(SkinCompatResources.getInstance().getColor(mBarStrokeColorResId));
+            setBarStrokeColor(SkinCompatResources.getInstance().getColor(getContext(), mBarStrokeColorResId));
         }
     }
 

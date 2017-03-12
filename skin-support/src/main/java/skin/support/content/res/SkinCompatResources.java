@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 
 /**
@@ -42,52 +43,60 @@ public class SkinCompatResources {
         isDefaultSkin = mAppContext.getPackageName().equals(pkgName);
     }
 
-    public int getColor(int resId) {
-        int originColor = ContextCompat.getColor(mAppContext, resId);
+    public int getColor(Context context, int resId) {
+        int originColor = ContextCompat.getColor(context, resId);
         if (isDefaultSkin) {
             return originColor;
         }
 
-        String resName = mAppContext.getResources().getResourceEntryName(resId);
+        String resName = context.getResources().getResourceEntryName(resId);
 
         int targetResId = mResources.getIdentifier(resName, "color", mSkinPkgName);
 
         return targetResId == 0 ? originColor : mResources.getColor(targetResId);
     }
 
-    public Drawable getDrawable(int resId) {
-        Drawable originDrawable = ContextCompat.getDrawable(mAppContext, resId);
+    public Drawable getDrawable(Context context, int resId) {
+        Drawable originDrawable = ContextCompat.getDrawable(context, resId);
         if (isDefaultSkin) {
             return originDrawable;
         }
 
-        String resName = mAppContext.getResources().getResourceEntryName(resId);
+        String resName = context.getResources().getResourceEntryName(resId);
 
         int targetResId = mResources.getIdentifier(resName, "drawable", mSkinPkgName);
 
-        return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
+        return targetResId == 0 ? originDrawable : getDrawable(targetResId, context.getTheme());
     }
 
-    public Drawable getMipmap(int resId) {
-        Drawable originDrawable = ContextCompat.getDrawable(mAppContext, resId);
+    private Drawable getDrawable(int resId, Resources.Theme theme) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return mResources.getDrawable(resId, theme);
+        } else {
+            return mResources.getDrawable(resId);
+        }
+    }
+
+    public Drawable getMipmap(Context context, int resId) {
+        Drawable originDrawable = ContextCompat.getDrawable(context, resId);
         if (isDefaultSkin) {
             return originDrawable;
         }
 
-        String resName = mAppContext.getResources().getResourceEntryName(resId);
+        String resName = context.getResources().getResourceEntryName(resId);
 
         int targetResId = mResources.getIdentifier(resName, "mipmap", mSkinPkgName);
 
-        return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
+        return targetResId == 0 ? originDrawable : getDrawable(targetResId, context.getTheme());
     }
 
-    public ColorStateList getColorStateList(int resId) {
-        ColorStateList colorStateList = ContextCompat.getColorStateList(mAppContext, resId);
+    public ColorStateList getColorStateList(Context context, int resId) {
+        ColorStateList colorStateList = ContextCompat.getColorStateList(context, resId);
         if (isDefaultSkin) {
             return colorStateList;
         }
 
-        String resName = mAppContext.getResources().getResourceEntryName(resId);
+        String resName = context.getResources().getResourceEntryName(resId);
 
         int targetResId = mResources.getIdentifier(resName, "color", mSkinPkgName);
 

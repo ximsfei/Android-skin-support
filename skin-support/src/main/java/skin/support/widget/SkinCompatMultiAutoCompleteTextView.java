@@ -63,20 +63,20 @@ public class SkinCompatMultiAutoCompleteTextView extends AppCompatMultiAutoCompl
             String typeName = getResources().getResourceTypeName(mDropDownBackgroundResId);
             if ("color".equals(typeName)) {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                    int color = SkinCompatResources.getInstance().getColor(mDropDownBackgroundResId);
+                    int color = SkinCompatResources.getInstance().getColor(getContext(), mDropDownBackgroundResId);
                     setDrawingCacheBackgroundColor(color);
                 } else {
                     ColorStateList colorStateList =
-                            SkinCompatResources.getInstance().getColorStateList(mDropDownBackgroundResId);
+                            SkinCompatResources.getInstance().getColorStateList(getContext(), mDropDownBackgroundResId);
                     Drawable drawable = getDropDownBackground();
                     DrawableCompat.setTintList(drawable, colorStateList);
                     setDropDownBackgroundDrawable(drawable);
                 }
             } else if ("drawable".equals(typeName)) {
-                Drawable drawable = SkinCompatResources.getInstance().getDrawable(mDropDownBackgroundResId);
+                Drawable drawable = SkinCompatResources.getInstance().getDrawable(getContext(), mDropDownBackgroundResId);
                 setDropDownBackgroundDrawable(drawable);
             } else if ("mipmap".equals(typeName)) {
-                Drawable drawable = SkinCompatResources.getInstance().getMipmap(mDropDownBackgroundResId);
+                Drawable drawable = SkinCompatResources.getInstance().getMipmap(getContext(), mDropDownBackgroundResId);
                 setDropDownBackgroundDrawable(drawable);
             }
         }

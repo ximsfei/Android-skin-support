@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff212121</color>
+    <color name="colorPrimaryDark">#616161</color>
+    <color name="colorAccent">#607D8B</color>
+    <color name="grey_50">#ff303030</color>
+
+    <drawable name="btn_background_default">#ff303030</drawable>
+    <drawable name="btn_background_pressed">#616161</drawable>
+
+    <!-- Window colors -->
+    <!--<color name="colorForeground">@android:color/black</color>-->
+    <!--<color name="colorForegroundInverse">@android:color/white</color>-->
+    <color name="colorBackground">@color/grey_50</color>
+    <!--<color name="colorBackgroundCacheHint">@color/grey_50</color>-->
+    <color name="windowBackground">@color/grey_50</color>
+
+    <color name="primary_text_color_default">#ffffffff</color>
+    <color name="primary_text_color_disabled">#4Dffffff</color>
+    <color name="primary_text_color_inverse_default">#de000000</color>
+    <color name="primary_text_color_inverse_disabled">#39000000</color>
+    <color name="secondary_text_color_default">#b3ffffff</color>
+    <color name="secondary_text_color_disabled">#36ffffff</color>
+    <color name="secondary_text_color_inverse_default">#8a000000</color>
+    <color name="secondary_text_color_inverse_disabled">#24000000</color>
+
+    <!-- platte color -->
+    <color name="colorControlHighlight">#33ffffff</color>
+</resources>

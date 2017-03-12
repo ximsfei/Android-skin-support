@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingEnd="48dp"
+    android:paddingLeft="0dp"
+    android:paddingMode="stack"
+    android:paddingRight="0dp"
+    android:paddingStart="0dp">
+    <item
+        android:width="48dp"
+        android:drawable="@drawable/skin_control_background"
+        android:gravity="end|fill_vertical" />
+
+    <item
+        android:width="24dp"
+        android:height="24dp"
+        android:drawable="@drawable/skin_spinner_caret"
+        android:end="12dp"
+        android:gravity="end|center_vertical" />
+</layer-list>

@@ -68,19 +68,19 @@ public class SkinCommonTabLayout extends CommonTabLayout implements SkinCompatSu
 
     private void applyCommonTabLayoutResources() {
         if (mIndicatorColorResId != INVALID_ID) {
-            setIndicatorColor(SkinCompatResources.getInstance().getColor(mIndicatorColorResId));
+            setIndicatorColor(SkinCompatResources.getInstance().getColor(getContext(), mIndicatorColorResId));
         }
         if (mUnderlineColorResId != INVALID_ID) {
-            setUnderlineColor(SkinCompatResources.getInstance().getColor(mUnderlineColorResId));
+            setUnderlineColor(SkinCompatResources.getInstance().getColor(getContext(), mUnderlineColorResId));
         }
         if (mDividerColorResId != INVALID_ID) {
-            setDividerColor(SkinCompatResources.getInstance().getColor(mDividerColorResId));
+            setDividerColor(SkinCompatResources.getInstance().getColor(getContext(), mDividerColorResId));
         }
         if (mTextSelectColorResId != INVALID_ID) {
-            setTextSelectColor(SkinCompatResources.getInstance().getColor(mTextSelectColorResId));
+            setTextSelectColor(SkinCompatResources.getInstance().getColor(getContext(), mTextSelectColorResId));
         }
         if (mTextUnselectColorResId != INVALID_ID) {
-            setTextUnselectColor(SkinCompatResources.getInstance().getColor(mTextUnselectColorResId));
+            setTextUnselectColor(SkinCompatResources.getInstance().getColor(getContext(), mTextUnselectColorResId));
         }
     }
 
