@@ -175,7 +175,7 @@
         <!--<item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>-->
         <!--<item name="ratingBarStyleIndicator">@style/Widget.AppCompat.RatingBar.Indicator</item>-->
         <!--<item name="ratingBarStyleSmall">@style/Widget.AppCompat.RatingBar.Small</item>-->
-        <!--<item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>-->
+        <item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>
 
         <!--&lt;!&ndash; Button styles &ndash;&gt;-->
         <item name="buttonStyle">@style/SkinButtonStyle</item>

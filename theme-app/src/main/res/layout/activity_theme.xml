@@ -26,4 +26,11 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize" />
 
+    <SeekBar
+        android:id="@+id/seek_bar_self"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:max="100"
+        android:progress="20" />
+
 </LinearLayout>

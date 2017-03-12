@@ -15,3 +15,7 @@
 * Spinner
   * android:popupBackground -> spinnerStyle
   * android:background -> spinnerStyle
+* SeekBar
+  * android:thumb -> tint colorAccent -> 5.0
+  * android:indeterminateDrawable -> tint colorAccent -> 5.0
+  * android:progressDrawable -> tint colorAccent -> 5.0
