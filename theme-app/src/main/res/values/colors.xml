@@ -40,4 +40,7 @@
     <color name="textColorHint">@color/hint_foreground_selector</color>
     <color name="textColorHintInverse">@color/hint_foreground_inverse_selector</color>
     <color name="textColorHighlight">#66009688</color>
+
+    <!-- platte color -->
+    <color name="colorControlHighlight">#1f000000</color>
 </resources>

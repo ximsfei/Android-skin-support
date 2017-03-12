@@ -11,6 +11,7 @@ import android.view.View;
 
 import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.utils.SkinLog;
 
 /**
  * Created by ximsfei on 2017/1/10.
@@ -46,6 +47,11 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
     }
 
     public void applySkin() {
+        SkinLog.e("mView = " + mView + ", mBackgroundResId = " + Integer.toHexString(mBackgroundResId));
+        if (mBackgroundResId != INVALID_ID) {
+            SkinLog.e("mView = " + mView + ", mBackgroundResId res name = "
+                    + mView.getResources().getResourceName(mBackgroundResId));
+        }
         mBackgroundResId = checkResourceId(mBackgroundResId);
         if (mBackgroundResId == INVALID_ID) {
             return;

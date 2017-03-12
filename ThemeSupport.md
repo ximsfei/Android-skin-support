@@ -8,8 +8,10 @@
   * android:background -> buttonStyle
   * android:textColor -> android:textColorPrimary
   * android:textColorHint -> android:textColorHint
-  * android:drawableLeft
-  * android:drawableTop
-  * android:drawableRight
-  * android:drawableBottom
-
+  * android:drawableLeft -> @null
+  * android:drawableTop -> @null
+  * android:drawableRight -> @null
+  * android:drawableBottom -> @null
+* Spinner
+  * android:popupBackground -> spinnerStyle
+  * android:background -> spinnerStyle

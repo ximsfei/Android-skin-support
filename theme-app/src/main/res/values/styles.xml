@@ -15,7 +15,7 @@
         <!-- Window colors -->
         <!--<item name="android:colorForeground">@color/colorForeground</item>-->
         <!--<item name="android:colorForegroundInverse">@color/colorForegroundInverse</item>-->
-        <!--<item name="android:colorBackground">@color/colorBackground</item>-->
+        <item name="android:colorBackground">@color/colorBackground</item>
         <!--<item name="android:colorBackgroundCacheHint">@color/colorBackgroundCacheHint</item>-->
         <item name="android:windowBackground">@color/windowBackground</item>
 
@@ -122,7 +122,7 @@
         <!--<item name="listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>-->
 
         <!--&lt;!&ndash; Spinner styles &ndash;&gt;-->
-        <!--<item name="spinnerStyle">@style/Widget.AppCompat.Spinner</item>-->
+        <item name="spinnerStyle">@style/SkinSpinnerStyle</item>
         <!--<item name="android:spinnerItemStyle">@style/Widget.AppCompat.TextView.SpinnerItem</item>-->
         <!--<item name="android:dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>-->
 
@@ -159,7 +159,7 @@
         <!--<item name="autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>-->
 
         <!--&lt;!&ndash; Color palette &ndash;&gt;-->
-        <!--<item name="colorControlNormal">?android:attr/textColorSecondary</item>-->
+        <item name="colorControlNormal">?android:attr/textColorSecondary</item>
         <!--<item name="colorControlActivated">?attr/colorAccent</item>-->
         <item name="colorControlHighlight">@color/ripple_material_light</item>
         <item name="colorButtonNormal">@color/button_material_light</item>
@@ -216,5 +216,10 @@
 
     <style name="SkinButtonStyle" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/btn_background</item>
+    </style>
+
+    <style name="SkinSpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/skin_spinner_background</item>
+        <item name="android:popupBackground">@drawable/skin_popup_background</item>
     </style>
 </resources>

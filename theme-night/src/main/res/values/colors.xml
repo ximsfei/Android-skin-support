@@ -11,7 +11,7 @@
     <!-- Window colors -->
     <!--<color name="colorForeground">@android:color/black</color>-->
     <!--<color name="colorForegroundInverse">@android:color/white</color>-->
-    <!--<color name="colorBackground">@color/grey_50</color>-->
+    <color name="colorBackground">@color/grey_50</color>
     <!--<color name="colorBackgroundCacheHint">@color/grey_50</color>-->
     <color name="windowBackground">@color/grey_50</color>
 
@@ -23,4 +23,7 @@
     <color name="secondary_text_color_disabled">#36ffffff</color>
     <color name="secondary_text_color_inverse_default">#8a000000</color>
     <color name="secondary_text_color_inverse_disabled">#24000000</color>
+
+    <!-- platte color -->
+    <color name="colorControlHighlight">#33ffffff</color>
 </resources>
