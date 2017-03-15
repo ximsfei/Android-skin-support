@@ -1,8 +1,9 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 25
@@ -20,12 +21,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
-}
+    compile project(':skin-support')
 
-ext {
-        publishVersion = '1.2.2'
-        moduleName = 'skin-support'
-        descContent = 'skin-support 基础控件换肤支持包'
+    compile 'com.zhy:autolayout:1.4.5'
+    compile project(':third-part-support:androidautolayout')
 }
-
-apply from: '../publishing_maven.gradle'
