@@ -1,9 +1,9 @@
-package skin.support.androidautolayout;
+package skin.support.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.zhy.autolayout.AutoLinearLayout;
+import com.zhy.autolayout.AutoFrameLayout;
 
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatSupportable;
@@ -12,24 +12,24 @@ import skin.support.widget.SkinCompatSupportable;
  * Created by pengfengwang on 2017/3/15.
  */
 
-public class SkinAutoLinearLayout extends AutoLinearLayout implements SkinCompatSupportable {
+public class SkinAutoFrameLayout extends AutoFrameLayout implements SkinCompatSupportable {
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
-    public SkinAutoLinearLayout(Context context) {
+    public SkinAutoFrameLayout(Context context) {
         this(context, null);
     }
 
-    public SkinAutoLinearLayout(Context context, AttributeSet attrs) {
+    public SkinAutoFrameLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SkinAutoLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinAutoFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
     }
 
-    public SkinAutoLinearLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SkinAutoFrameLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);

@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 
-import skin.support.androidautolayout.SkinAutoFrameLayout;
-import skin.support.androidautolayout.SkinAutoLinearLayout;
-import skin.support.androidautolayout.SkinAutoRelativeLayout;
+import skin.support.widget.SkinAutoFrameLayout;
+import skin.support.widget.SkinAutoLinearLayout;
+import skin.support.widget.SkinAutoRelativeLayout;
 
 /**
  * Created by pengfengwang on 2017/3/15.
