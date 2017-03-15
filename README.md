@@ -1,6 +1,6 @@
 # Android-skin-support
 
-[![skin-support-v1.2.1](https://img.shields.io/badge/skin--support-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.1/)
+[![skin-support-v1.2.2](https://img.shields.io/badge/skin--support-v1.2.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.2/)
 [![design-v1.2.1](https://img.shields.io/badge/skin--support--design-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.1/)
 [![cardview-v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/)
 
