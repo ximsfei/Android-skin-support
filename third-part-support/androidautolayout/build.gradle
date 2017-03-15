@@ -24,3 +24,11 @@ dependencies {
     compile 'com.zhy:autolayout:1.4.5'
     compile project(':skin-support')
 }
+
+ext {
+    publishVersion = '1.4.5'
+    moduleName = 'androidautolayout'
+    descContent = 'hongyangAndroid/AndroidAutoLayout 控件换肤支持包'
+}
+
+apply from: '../../publishing_maven.gradle'
