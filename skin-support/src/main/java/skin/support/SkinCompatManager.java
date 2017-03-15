@@ -36,6 +36,7 @@ public class SkinCompatManager extends SkinObservable {
     private final Context mAppContext;
     private boolean mLoading = false;
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
+    private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
 
     public interface SkinLoaderListener {
         void onStart();
@@ -73,6 +74,15 @@ public class SkinCompatManager extends SkinObservable {
 
     public List<SkinLayoutInflater> getInflaters() {
         return mInflaters;
+    }
+
+    public SkinCompatManager addHookInflater(SkinLayoutInflater inflater) {
+        mHookInflaters.add(inflater);
+        return this;
+    }
+
+    public List<SkinLayoutInflater> getHookInflaters() {
+        return mHookInflaters;
     }
 
     public String getCurSkinName() {

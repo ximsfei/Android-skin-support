@@ -82,9 +82,48 @@ public class SkinCompatViewInflater {
             context = TintContextWrapper.wrap(context);
         }
 
-        View view = null;
+        View view = createViewFromHackInflater(context, name, attrs);
 
         // We need to 'inject' our tint aware Views in place of the standard framework versions
+        if (view == null) {
+            view = createViewFromFV(context, name, attrs);
+        }
+
+        if (view == null) {
+            view = createViewFromV7(context, name, attrs);
+        }
+
+        if (view == null) {
+            view = createViewFromInflater(context, name, attrs);
+        }
+
+        if (view == null) {
+            view = createViewFromTag(context, name, attrs);
+        }
+
+        if (view != null) {
+            // If we have created a view, check it's android:onClick
+            checkOnClickListener(view, attrs);
+        }
+
+        return view;
+    }
+
+    private View createViewFromHackInflater(Context context, String name, AttributeSet attrs) {
+        View view = null;
+        for (SkinLayoutInflater inflater : SkinCompatManager.getInstance().getHookInflaters()) {
+            view = inflater.createView(context, name, attrs);
+            if (view == null) {
+                continue;
+            } else {
+                break;
+            }
+        }
+        return view;
+    }
+
+    private View createViewFromFV(Context context, String name, AttributeSet attrs) {
+        View view = null;
         switch (name) {
             case "View":
                 view = new SkinCompatView(context, attrs);
@@ -141,31 +180,6 @@ public class SkinCompatViewInflater {
                 view = new SkinCompatProgressBar(context, attrs);
                 break;
         }
-
-        if (view == null) {
-            view = createViewFromV7(context, name, attrs);
-        }
-
-        if (view == null) {
-            for (SkinLayoutInflater inflater : SkinCompatManager.getInstance().getInflaters()) {
-                view = inflater.createView(context, name, attrs);
-                if (view == null) {
-                    continue;
-                } else {
-                    break;
-                }
-            }
-        }
-
-        if (view == null) {
-            view = createViewFromTag(context, name, attrs);
-        }
-
-        if (view != null) {
-            // If we have created a view, check it's android:onClick
-            checkOnClickListener(view, attrs);
-        }
-
         return view;
     }
 
@@ -175,6 +189,19 @@ public class SkinCompatViewInflater {
             case "android.support.v7.widget.Toolbar":
                 view = new SkinCompatToolbar(context, attrs);
                 break;
+        }
+        return view;
+    }
+
+    private View createViewFromInflater(Context context, String name, AttributeSet attrs) {
+        View view = null;
+        for (SkinLayoutInflater inflater : SkinCompatManager.getInstance().getInflaters()) {
+            view = inflater.createView(context, name, attrs);
+            if (view == null) {
+                continue;
+            } else {
+                break;
+            }
         }
         return view;
     }
