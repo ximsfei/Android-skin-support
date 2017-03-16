@@ -1,6 +1,6 @@
 # Android-skin-support
 
-[![skin-support-v1.2.2](https://img.shields.io/badge/skin--support-v1.2.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.2/)
+[![skin-support-v1.2.3](https://img.shields.io/badge/skin--support-v1.2.3-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.3/)
 [![design-v1.2.1](https://img.shields.io/badge/skin--support--design-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.1/)
 [![cardview-v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/)
 
@@ -93,7 +93,7 @@ git clone https://github.com/ximsfei/Android-skin-support.git
 ```
 也可以直接添加依赖, [最新版本选择, 请查看更新日志](ChangeLog.md)
 ```xml
-compile 'skin.support:skin-support:1.2.1'          // skin-support 基础控件支持
+compile 'skin.support:skin-support:1.2.3'          // skin-support 基础控件支持
 compile 'skin.support:skin-support-design:1.2.1'   // skin-support-design material design 控件支持[可选]
 compile 'skin.support:skin-support-cardview:1.2.0' // skin-support-cardview CardView 控件支持[可选]
 ```

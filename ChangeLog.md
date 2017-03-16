@@ -3,7 +3,7 @@
 ## skin-support: 基础控件 支持
 
 
-* [![v1.2.2](https://img.shields.io/badge/skin--support-v1.2.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.2/) 新功能开发 依赖 appcompat-v7:25.1.0
+* [![v1.2.3](https://img.shields.io/badge/skin--support-v1.2.3-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.3/) 新功能开发 依赖 appcompat-v7:25.1.0
   * Hook support. 通过addHookInflater方法, 支持开发者定制基础控件换肤.
 
 * [![v1.2.1](https://img.shields.io/badge/skin--support-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.1/) bugfix 依赖 appcompat-v7:25.1.0
