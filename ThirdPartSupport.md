@@ -78,6 +78,7 @@ SkinCompatManager.init(this)
 或者
 ```java
 SkinFlycoTabLayoutManager.init(this);
+```
 
 ## hongyangAndroid/AndroidAutoLayout
 
