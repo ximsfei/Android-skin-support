@@ -28,6 +28,7 @@
 * [第三方控件适配库](ThirdPartSupport.md)
   * [hdodenhof/CircleImageView](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#hdodenhofcircleimageview)
   * [H07000223/FlycoTabLayout](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#h07000223flycotablayout)
+  * [hongyangAndroid/AndroidAutoLayout](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#hongyangandroidandroidautolayout)
 * [交流&打赏](#交流支持)
   * [加群交流](#加群交流)
   * [打赏支持](#打赏支持)
