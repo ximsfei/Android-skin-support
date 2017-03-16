@@ -42,6 +42,18 @@ public class SkinCompatResources {
         isDefaultSkin = mAppContext.getPackageName().equals(pkgName);
     }
 
+    public Resources getSkinResources() {
+        return mResources;
+    }
+
+    public String getSkinPkgName() {
+        return mSkinPkgName;
+    }
+
+    public boolean isDefaultSkin() {
+        return isDefaultSkin;
+    }
+
     public int getColor(int resId) {
         int originColor = ContextCompat.getColor(mAppContext, resId);
         if (isDefaultSkin) {
