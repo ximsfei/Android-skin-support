@@ -66,7 +66,7 @@ public class SkinCompatCircleImageView extends CircleImageView implements SkinCo
     public void setImageResource(@DrawableRes int resId) {
         super.setImageResource(resId);
         if (mImageHelper != null) {
-            mImageHelper.applySkin();
+            mImageHelper.setImageResource(resId);
         }
     }
 
