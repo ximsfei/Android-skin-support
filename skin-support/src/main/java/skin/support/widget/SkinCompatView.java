@@ -27,10 +27,10 @@ public class SkinCompatView extends View implements SkinCompatSupportable {
     }
 
     @Override
-    public void setBackgroundResource(int resid) {
-        super.setBackgroundResource(resid);
+    public void setBackgroundResource(int resId) {
+        super.setBackgroundResource(resId);
         if (mBackgroundTintHelper != null) {
-            mBackgroundTintHelper.applySkin();
+            mBackgroundTintHelper.onSetBackgroundResource(resId);
         }
     }
 
