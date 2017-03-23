@@ -81,11 +81,7 @@ public class BaseActivity extends SkinCompatActivity {}
 ## 用法
 
 ### 导入:
-可以直接下载源码, 选择需要的module依赖：
-```xml
-git clone https://github.com/ximsfei/Android-skin-support.git
-```
-也可以直接添加依赖, [最新版本选择, 请查看更新日志](ChangeLog.md)
+直接添加依赖, [最新版本选择, 请查看更新日志](ChangeLog.md)
 ```xml
 compile 'skin.support:skin-support:1.2.4'          // skin-support 基础控件支持
 compile 'skin.support:skin-support-design:1.2.1'   // skin-support-design material design 控件支持[可选]
