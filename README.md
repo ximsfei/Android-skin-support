@@ -29,12 +29,6 @@
   * [hdodenhof/CircleImageView](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#hdodenhofcircleimageview)
   * [H07000223/FlycoTabLayout](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#h07000223flycotablayout)
   * [hongyangAndroid/AndroidAutoLayout](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#hongyangandroidandroidautolayout)
-* [交流&打赏](#交流支持)
-  * [加群交流](#加群交流)
-  * [打赏支持](#打赏支持)
-    * [支付宝](#支付宝扫码打赏)
-    * [微信](#微信扫码打赏)
-    * [感谢支持我的人](#感谢支持我的人)
 * [LICENSE](#license-mit)
 
 ## 介绍
@@ -218,41 +212,5 @@ colors.xml
 #### 打包生成apk, 即为皮肤包
 
 将打包生成的apk文件, 重命名为'xxx.skin', 防止apk结尾的文件造成混淆.
-
-## 交流&支持
-
-### 加群交流
-
-如有任何疑问, 可扫码加入QQ群进行技术交流:
-
-![QQ群二维码](https://github.com/ximsfei/Res/blob/master/android_group.png)
-
-### 打赏支持
-
-如果觉得换肤框架很好用, 对您有所帮助, 请随意打赏, 或者分享转发给更多朋友.
-
-您的支持与认可, 将使我在开源的道路上越走越远, 谢谢您！
-
-#### 支付宝扫码打赏
-
-![支付宝](https://github.com/ximsfei/Res/blob/master/ds/zfb_s.png)
-
-#### 微信扫码打赏
-
-![微信](https://github.com/ximsfei/Res/blob/master/ds/wx_s.png)
-
-#### 感谢支持我的人
-
-| 昵称          | 支付方式 | 付款时间             | 金额    | 留言         |
-| ------------- |:-------:| ------------------- | ------- | --------------|
-| 匿名          | 微信     | 2017-02-28 23:38:46 | 1 元    | 无            |
-| 匿名          | 支付宝   | 2017-02-28 23:42:13 | 1 元    | 无            |
-| 匿名          | 微信     | 2017-03-01 09:39:09 | 5 元    | 感谢你的开源库 |
-| 匿名          | 微信     | 2017-03-03 15:28:45 | 1 元    | 无            |
-| 匿名          | 微信     | 2017-03-04 22:05:55 | 3 元    | 加油          |
-| 匿名          | 微信     | 2017-03-06 15:23:11 | 50 元   | 感谢作者       |
-| 匿名          | 微信     | 2017-03-07 16:02:33 | 8.88 元 | 无            |
-| 匿名          | 微信     | 2017-03-09 10:14:27 | 3 元    | 加油          |
-| M            | 微信     | 2017-03-16 13:49:44 | 6.66 元 | 群主人确实不错  |
 
 ## [License MIT](LICENSE)
