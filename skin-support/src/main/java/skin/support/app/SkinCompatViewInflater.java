@@ -34,6 +34,7 @@ import skin.support.widget.SkinCompatLinearLayout;
 import skin.support.widget.SkinCompatMultiAutoCompleteTextView;
 import skin.support.widget.SkinCompatProgressBar;
 import skin.support.widget.SkinCompatRadioButton;
+import skin.support.widget.SkinCompatRadioGroup;
 import skin.support.widget.SkinCompatRatingBar;
 import skin.support.widget.SkinCompatRelativeLayout;
 import skin.support.widget.SkinCompatSeekBar;
@@ -160,6 +161,9 @@ public class SkinCompatViewInflater {
                 break;
             case "RadioButton":
                 view = new SkinCompatRadioButton(context, attrs);
+                break;
+            case "RadioGroup":
+                view = new SkinCompatRadioGroup(context, attrs);
                 break;
             case "CheckedTextView":
                 view = new SkinCompatCheckedTextView(context, attrs);
