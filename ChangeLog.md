@@ -3,6 +3,15 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v1.2.5](https://img.shields.io/badge/skin--support-v1.2.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.5/) 新功能开发 依赖 appcompat-v7:25.1.0
+  * RadioGroup
+    * android:background
+  * RadioButton
+    * android:background
+  * 通过代码设置drawable start left top end right bottom
+    * setCompoundDrawablesRelativeWithIntrinsicBounds
+    * setCompoundDrawablesWithIntrinsicBounds
+
 * [![v1.2.4](https://img.shields.io/badge/skin--support-v1.2.4-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.4/) bugfix 依赖 appcompat-v7:25.1.0
   * 修复View, RelativeLayout, LinearLayout, FrameLayout在代码中setBackgroundResource换肤失效的问题
 
