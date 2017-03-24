@@ -104,6 +104,24 @@ public class SkinCompatMultiAutoCompleteTextView extends AppCompatMultiAutoCompl
     }
 
     @Override
+    public void setCompoundDrawablesRelativeWithIntrinsicBounds(
+            @DrawableRes int start, @DrawableRes int top, @DrawableRes int end, @DrawableRes int bottom) {
+        super.setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+        if (mTextHelper != null) {
+            mTextHelper.onSetCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+        }
+    }
+
+    @Override
+    public void setCompoundDrawablesWithIntrinsicBounds(
+            @DrawableRes int left, @DrawableRes int top, @DrawableRes int right, @DrawableRes int bottom) {
+        super.setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
+        if (mTextHelper != null) {
+            mTextHelper.onSetCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
+        }
+    }
+
+    @Override
     public void applySkin() {
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();

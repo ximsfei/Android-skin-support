@@ -27,6 +27,18 @@
         android:textColor="@color/color_selector"
         android:textSize="18sp" />
 
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="v17 java start end top bottom" />
+
+    <EditText
+        android:id="@+id/edit1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="java left right top bottom" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

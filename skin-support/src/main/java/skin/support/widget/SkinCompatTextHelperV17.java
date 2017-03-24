@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.util.AttributeSet;
@@ -44,8 +45,17 @@ public class SkinCompatTextHelperV17 extends SkinCompatTextHelper {
         super.loadFromAttributes(attrs, defStyleAttr);
     }
 
+    public void onSetCompoundDrawablesRelativeWithIntrinsicBounds(
+            @DrawableRes int start, @DrawableRes int top, @DrawableRes int end, @DrawableRes int bottom) {
+        mDrawableStartResId = start;
+        mDrawableTopResId = top;
+        mDrawableEndResId = end;
+        mDrawableBottomResId = bottom;
+        applyCompoundDrawablesRelativeResource();
+    }
+
     @Override
-    protected void applyCompoundDrawablesResource() {
+    protected void applyCompoundDrawablesRelativeResource() {
         Drawable drawableLeft = null, drawableTop = null, drawableRight = null, drawableBottom = null,
                 drawableStart = null, drawableEnd = null;
         mDrawableLeftResId = checkResourceId(mDrawableLeftResId);
@@ -76,6 +86,12 @@ public class SkinCompatTextHelperV17 extends SkinCompatTextHelper {
         if (drawableEnd == null) {
             drawableEnd = drawableRight;
         }
-        mView.setCompoundDrawablesWithIntrinsicBounds(drawableStart, drawableTop, drawableEnd, drawableBottom);
+        mView.setCompoundDrawablesRelativeWithIntrinsicBounds(drawableStart, drawableTop, drawableEnd, drawableBottom);
+    }
+
+    @Override
+    public void applySkin() {
+        super.applySkin();
+        applyCompoundDrawablesRelativeResource();
     }
 }

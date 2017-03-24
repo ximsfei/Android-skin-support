@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.DrawableRes;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -129,6 +130,28 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
             ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mTextColorResId);
             mView.setTextColor(color);
         }
+    }
+
+    public void onSetCompoundDrawablesRelativeWithIntrinsicBounds(
+            @DrawableRes int start, @DrawableRes int top, @DrawableRes int end, @DrawableRes int bottom) {
+        mDrawableLeftResId = start;
+        mDrawableTopResId = top;
+        mDrawableRightResId = end;
+        mDrawableBottomResId = bottom;
+        applyCompoundDrawablesRelativeResource();
+    }
+
+    public void onSetCompoundDrawablesWithIntrinsicBounds(
+            @DrawableRes int left, @DrawableRes int top, @DrawableRes int right, @DrawableRes int bottom) {
+        mDrawableLeftResId = left;
+        mDrawableTopResId = top;
+        mDrawableRightResId = right;
+        mDrawableBottomResId = bottom;
+        applyCompoundDrawablesResource();
+    }
+
+    protected void applyCompoundDrawablesRelativeResource() {
+        applyCompoundDrawablesResource();
     }
 
     protected void applyCompoundDrawablesResource() {

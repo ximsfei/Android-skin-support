@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.RequiresApi;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.support.v7.widget.TintTypedArray;
@@ -100,6 +101,24 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
         super.setTextAppearance(context, resId);
         if (mTextHelper != null) {
             mTextHelper.onSetTextAppearance(context, resId);
+        }
+    }
+
+    @Override
+    public void setCompoundDrawablesRelativeWithIntrinsicBounds(
+            @DrawableRes int start, @DrawableRes int top, @DrawableRes int end, @DrawableRes int bottom) {
+        super.setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+        if (mTextHelper != null) {
+            mTextHelper.onSetCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+        }
+    }
+
+    @Override
+    public void setCompoundDrawablesWithIntrinsicBounds(
+            @DrawableRes int left, @DrawableRes int top, @DrawableRes int right, @DrawableRes int bottom) {
+        super.setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
+        if (mTextHelper != null) {
+            mTextHelper.onSetCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
         }
     }
 
