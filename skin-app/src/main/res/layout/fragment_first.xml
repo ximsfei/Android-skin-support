@@ -77,8 +77,8 @@
                 android:layout_height="?attr/actionBarSize"
                 android:focusable="false"
                 android:gravity="center_vertical"
-                android:text="EditText focusable=false @color/"
                 android:hint="@color/text_color_hint"
+                android:text="EditText focusable=false @color/"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -94,6 +94,7 @@
                 <RadioGroup
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:background="@color/t2_7_background"
                     android:orientation="horizontal">
 
                     <RadioButton
@@ -105,6 +106,11 @@
                         android:layout_width="?attr/actionBarSize"
                         android:layout_height="?attr/actionBarSize"
                         android:button="@drawable/button_radio" />
+
+                    <RadioButton
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/colorPrimary" />
                 </RadioGroup>
             </LinearLayout>
 
