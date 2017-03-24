@@ -137,6 +137,8 @@
 ## skin-support-design: material design 支持
 
 
+* [![v1.2.2](https://img.shields.io/badge/skin--support--design-v1.2.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.2/) bugfix 依赖skin-support:1.2.5 design:25.1.0
+
 * [![v1.2.1](https://img.shields.io/badge/skin--support--design-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.1/) bugfix 依赖skin-support:1.2.1 design:25.1.0
 
   * bugfix 5.0以下TabLayout换肤失败
