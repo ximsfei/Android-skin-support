@@ -1,5 +1,6 @@
 package skin.support.app;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,8 +8,13 @@ import android.support.v4.view.LayoutInflaterCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import skin.support.SkinCompatManager;
+import skin.support.content.res.SkinCompatResources;
 import skin.support.observe.SkinObservable;
 import skin.support.observe.SkinObserver;
+import skin.support.widget.SkinCompatThemeUtils;
+
+import static skin.support.widget.SkinCompatHelper.INVALID_ID;
+import static skin.support.widget.SkinCompatHelper.checkResourceId;
 
 /**
  * Created by ximsfei on 17-1-8.
@@ -22,6 +28,7 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         LayoutInflaterCompat.setFactory(getLayoutInflater(), getSkinDelegate());
         super.onCreate(savedInstanceState);
+        updateStatusBarColor();
     }
 
     @NonNull
@@ -44,8 +51,29 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
         SkinCompatManager.getInstance().deleteObserver(this);
     }
 
+    /**
+     *
+     * @return true: 打开5.0以上状态栏换肤, false: 关闭5.0以上状态栏换肤;
+     */
+    protected boolean skinStatusBarColorEnable() {
+        return true;
+    }
+
+    protected void updateStatusBarColor() {
+        if (skinStatusBarColorEnable() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            int statusBarColorResId = SkinCompatThemeUtils.getStatusBarColorResId(this);
+            int colorPrimaryDarkResId = SkinCompatThemeUtils.getColorPrimaryDarkResId(this);
+            if (checkResourceId(statusBarColorResId) != INVALID_ID) {
+                getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(statusBarColorResId));
+            } else if (checkResourceId(colorPrimaryDarkResId) != INVALID_ID) {
+                getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(colorPrimaryDarkResId));
+            }
+        }
+    }
+
     @Override
     public void updateSkin(SkinObservable observable, Object o) {
+        updateStatusBarColor();
         getSkinDelegate().applySkin();
     }
 }

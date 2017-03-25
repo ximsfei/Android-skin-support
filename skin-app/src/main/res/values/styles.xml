@@ -11,6 +11,8 @@
 
     <style name="AppTheme" parent="BaseAppTheme"></style>
 
+    <style name="MaterialDesignTheme" parent="BaseAppTheme"></style>
+
     <style name="TextStyle">
         <item name="android:textColor">@color/text_color</item>
         <item name="android:background">@color/text_background</item>

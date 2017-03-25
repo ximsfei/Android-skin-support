@@ -4,4 +4,8 @@
     <style name="AppTheme" parent="BaseAppTheme">
         <item name="android:fitsSystemWindows">false</item>
     </style>
+    <style name="MaterialDesignTheme" parent="BaseAppTheme">
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
 </resources>
