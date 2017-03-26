@@ -14,6 +14,7 @@
     <color name="background">#f2f4f5</color>
     <color name="divider">#44000000</color>
     <color name="ripple_color">#44000000</color>
+    <color name="statusBarColor">#44000000</color>
 
     <!-- flyco tab layout -->
     <color name="textColorPrimary">#ff333333</color>

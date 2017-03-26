@@ -134,4 +134,9 @@ public class CollapsingToolbarLayoutActivity extends BaseActivity {
         alphaAnimation.setFillAfter(true);
         v.startAnimation(alphaAnimation);
     }
+
+    @Override
+    protected boolean skinStatusBarColorEnable() {
+        return false;
+    }
 }
