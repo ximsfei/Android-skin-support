@@ -24,5 +24,6 @@ public class BaseActivity extends SkinCompatActivity {
         toolbar.setTitle("Title");
         toolbar.setSubtitle("Subtitle");
         toolbar.setNavigationIcon(R.drawable.ic_settings_36dp);
+        toolbar.setOverflowIcon(getResources().getDrawable(R.drawable.ic_camera_24dp));
     }
 }
