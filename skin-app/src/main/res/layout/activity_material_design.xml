@@ -59,7 +59,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:itemIconTint="@color/tabSelected"
+                app:itemIconTint="@color/navigation_item_tint"
                 app:menu="@menu/bottom_navigation_view_menu"/>
         </RelativeLayout>
     </LinearLayout>
