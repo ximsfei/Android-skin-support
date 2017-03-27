@@ -35,9 +35,13 @@ public class SkinCompatThemeUtils {
         return getResId(context, APPCOMPAT_COLOR_ACCENT_ATTRS);
     }
 
+    public static int getTextColorPrimaryResId(Context context) {
+        return getResId(context, new int[]{android.R.attr.textColorPrimary});
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public static int getStatusBarColorResId(Context context) {
-        return getResId(context, new int[] {android.R.attr.statusBarColor});
+        return getResId(context, new int[]{android.R.attr.statusBarColor});
     }
 
     public static int getWindowBackgroundResId(Context context) {

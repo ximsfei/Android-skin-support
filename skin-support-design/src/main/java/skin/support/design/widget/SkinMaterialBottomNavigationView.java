@@ -2,10 +2,9 @@ package skin.support.design.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.content.res.AppCompatResources;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
@@ -39,8 +38,7 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
 
     public SkinMaterialBottomNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
-                R.styleable.BottomNavigationView, defStyleAttr,
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.BottomNavigationView, defStyleAttr,
                 R.style.Widget_Design_BottomNavigationView);
 
         if (a.hasValue(R.styleable.BottomNavigationView_itemIconTint)) {
@@ -87,7 +85,7 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
         if (!getContext().getTheme().resolveAttribute(baseColorThemeAttr, value, true)) {
             return null;
         }
-        ColorStateList baseColor = AppCompatResources.getColorStateList(getContext(), value.resourceId);
+        ColorStateList baseColor = SkinCompatResources.getInstance().getColorStateList(value.resourceId);
 
         int colorPrimary = SkinCompatResources.getInstance().getColor(mDefaultTintResId);
         int defaultColor = baseColor.getDefaultColor();
@@ -105,7 +103,7 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
     private int resolveColorPrimary() {
         final TypedValue value = new TypedValue();
         if (!getContext().getTheme().resolveAttribute(
-                android.support.v7.appcompat.R.attr.colorPrimary, value, true)) {
+                R.attr.colorPrimary, value, true)) {
             return INVALID_ID;
         }
         return value.resourceId;
