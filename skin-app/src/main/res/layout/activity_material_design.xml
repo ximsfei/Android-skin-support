@@ -53,14 +53,15 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/refresh"
                 app:backgroundTint="@color/colorPrimary"
-                app:rippleColor="@color/ripple_color"/>
-            
+                app:rippleColor="@color/ripple_color" />
+
             <android.support.design.widget.BottomNavigationView
-                android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:layout_alignParentBottom="true"
                 app:itemIconTint="@color/navigation_item_tint"
-                app:menu="@menu/bottom_navigation_view_menu"/>
+                app:itemTextColor="@color/navigation_item_tint"
+                app:menu="@menu/bottom_navigation_view_menu" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -70,5 +71,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/background"
-        android:fitsSystemWindows="true" />
+        android:fitsSystemWindows="true"
+        app:itemBackground="@drawable/bg_bar"
+        app:itemIconTint="@color/text_color"
+        app:itemTextColor="@color/text_color"
+        app:menu="@menu/menu_options" />
 </android.support.v4.widget.DrawerLayout>
