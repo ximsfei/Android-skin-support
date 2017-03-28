@@ -45,7 +45,7 @@ public class MaterialDesignActivity extends BaseActivity {
     private void configFragments() {
         List<Fragment> list = new ArrayList<>();
         list.add(new MDFirstFragment());
-//        list.add(new MiddleFragment());
+//        list.add(new SFragment());
 //        list.add(new LastFragment());
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);

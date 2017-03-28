@@ -17,7 +17,7 @@ import com.ximsfei.skindemo.R;
  * Created by ximsfei on 17-1-14.
  */
 
-public class MiddleFragment extends Fragment {
+public class SFragment extends Fragment {
     private ProgressBar mHorizontalBar;
     private Button mAdd;
     private Spinner mSpinner;
