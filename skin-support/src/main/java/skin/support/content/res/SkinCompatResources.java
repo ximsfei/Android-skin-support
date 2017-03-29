@@ -73,9 +73,10 @@ public class SkinCompatResources {
             return originDrawable;
         }
 
+        String resType = mAppContext.getResources().getResourceTypeName(resId);
         String resName = mAppContext.getResources().getResourceEntryName(resId);
 
-        int targetResId = mResources.getIdentifier(resName, "drawable", mSkinPkgName);
+        int targetResId = mResources.getIdentifier(resName, resType, mSkinPkgName);
 
         return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
     }
