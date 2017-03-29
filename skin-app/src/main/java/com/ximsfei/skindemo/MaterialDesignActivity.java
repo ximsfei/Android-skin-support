@@ -57,4 +57,9 @@ public class MaterialDesignActivity extends BaseActivity {
         viewPager.setAdapter(mTabFragmentPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
+
+    @Override
+    protected void updateWindowBackground() {
+        super.updateWindowBackground();
+    }
 }

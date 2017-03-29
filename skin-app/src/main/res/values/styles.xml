@@ -7,11 +7,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:windowBackground">@color/background</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme"></style>
 
-    <style name="MaterialDesignTheme" parent="BaseAppTheme"></style>
+    <style name="MaterialDesignTheme" parent="BaseAppTheme">
+        <item name="android:windowBackground">@drawable/background</item>
+    </style>
 
     <style name="TextStyle">
         <item name="android:textColor">@color/text_color</item>

@@ -1,5 +1,7 @@
 package skin.support.app;
 
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -29,6 +31,7 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
         LayoutInflaterCompat.setFactory(getLayoutInflater(), getSkinDelegate());
         super.onCreate(savedInstanceState);
         updateStatusBarColor();
+        updateWindowBackground();
     }
 
     @NonNull
@@ -52,7 +55,6 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
     }
 
     /**
-     *
      * @return true: 打开5.0以上状态栏换肤, false: 关闭5.0以上状态栏换肤;
      */
     protected boolean skinStatusBarColorEnable() {
@@ -71,9 +73,27 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
         }
     }
 
+    protected void updateWindowBackground() {
+        int windowBackgroundResId = SkinCompatThemeUtils.getWindowBackgroundResId(this);
+        if (checkResourceId(windowBackgroundResId) != INVALID_ID) {
+            String typeName = getResources().getResourceTypeName(windowBackgroundResId);
+            if ("color".equals(typeName)) {
+                Drawable drawable = new ColorDrawable(SkinCompatResources.getInstance().getColor(windowBackgroundResId));
+                getWindow().setBackgroundDrawable(drawable);
+            } else if ("drawable".equals(typeName)) {
+                Drawable drawable = SkinCompatResources.getInstance().getDrawable(windowBackgroundResId);
+                getWindow().setBackgroundDrawable(drawable);
+            } else if ("mipmap".equals(typeName)) {
+                Drawable drawable = SkinCompatResources.getInstance().getMipmap(windowBackgroundResId);
+                getWindow().setBackgroundDrawable(drawable);
+            }
+        }
+    }
+
     @Override
     public void updateSkin(SkinObservable observable, Object o) {
         updateStatusBarColor();
+        updateWindowBackground();
         getSkinDelegate().applySkin();
     }
 }
