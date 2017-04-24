@@ -3,6 +3,10 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v1.2.7](https://img.shields.io/badge/skin--support-v1.2.7-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.7/) bugfix 依赖 appcompat-v7:25.1.0
+  * fix: issue #29
+  * fix: issue #33
+
 * [![v1.2.6](https://img.shields.io/badge/skin--support-v1.2.6-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.6/) 新功能开发 依赖 appcompat-v7:25.1.0
   * android:statusBarColor   // 5.0+状态栏换肤, 先取statusBarColor
   * android:colorPrimaryDark // 5.0+状态栏换肤, 未设置statusBarColor, 通过colorPrimaryDark换肤
@@ -140,6 +144,10 @@
 
 ## skin-support-design: material design 支持
 
+
+* [![v1.2.4](https://img.shields.io/badge/skin--support--design-v1.2.4-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.4/) 依赖skin-support:1.2.7 design:25.1.0
+  * fix: issue #29
+  * fix: issue #33
 
 * [![v1.2.3](https://img.shields.io/badge/skin--support--design-v1.2.3-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.3/) 依赖skin-support:1.2.5 design:25.1.0
   * NavigationView
