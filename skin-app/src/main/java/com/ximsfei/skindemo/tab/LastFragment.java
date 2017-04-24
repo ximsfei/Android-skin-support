@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.ximsfei.skindemo.R;
 
@@ -18,6 +19,7 @@ import com.ximsfei.skindemo.R;
 public class LastFragment extends Fragment {
     private EditText mEdit;
     private EditText mEdit1;
+    private TextView mText1;
 
     @Nullable
     @Override
@@ -35,6 +37,11 @@ public class LastFragment extends Fragment {
                 R.drawable.drawable_top_selector,
                 R.drawable.drawable_right_selector,
                 R.drawable.drawable_bottom_selector);
+        mText1 = (TextView) view.findViewById(R.id.text1);
+        mText1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.drawable_left_selector),
+                getResources().getDrawable(R.drawable.drawable_top_selector),
+                getResources().getDrawable(R.drawable.drawable_right_selector),
+                getResources().getDrawable(R.drawable.drawable_bottom_selector));
         return view;
     }
 }

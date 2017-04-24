@@ -39,6 +39,12 @@
         android:layout_height="wrap_content"
         android:text="java left right top bottom" />
 
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="java left right top bottom drawable" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

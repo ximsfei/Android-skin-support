@@ -2,6 +2,7 @@ package skin.support.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
@@ -44,8 +45,7 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         final Context context = mView.getContext();
 
         // First read the TextAppearance style id
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
-                R.styleable.SkinCompatTextHelper, defStyleAttr, 0);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SkinCompatTextHelper, defStyleAttr, 0);
         final int ap = a.getResourceId(R.styleable.SkinCompatTextHelper_android_textAppearance, INVALID_ID);
         SkinLog.d(TAG, "ap = " + ap);
 
@@ -64,7 +64,7 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         a.recycle();
 
         if (ap != INVALID_ID) {
-            a = TintTypedArray.obtainStyledAttributes(context, ap, R.styleable.SkinTextAppearance);
+            a = context.obtainStyledAttributes(ap, R.styleable.SkinTextAppearance);
             if (a.hasValue(R.styleable.SkinTextAppearance_android_textColor)) {
                 mTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
                 SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
@@ -78,8 +78,7 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         }
 
         // Now read the style's values
-        a = TintTypedArray.obtainStyledAttributes(context, attrs, R.styleable.SkinTextAppearance,
-                defStyleAttr, 0);
+        a = context.obtainStyledAttributes(attrs, R.styleable.SkinTextAppearance, defStyleAttr, 0);
         if (a.hasValue(R.styleable.SkinTextAppearance_android_textColor)) {
             mTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
             SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
@@ -94,8 +93,7 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
     }
 
     public void onSetTextAppearance(Context context, int resId) {
-        final TintTypedArray a = TintTypedArray.obtainStyledAttributes(context,
-                resId, R.styleable.SkinTextAppearance);
+        final TypedArray a = context.obtainStyledAttributes(resId, R.styleable.SkinTextAppearance);
         if (a.hasValue(R.styleable.SkinTextAppearance_android_textColor)) {
             mTextColorResId = a.getResourceId(R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
             SkinLog.d(TAG, "mTextColorResId = " + mTextColorResId);
@@ -172,7 +170,12 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         if (mDrawableBottomResId != INVALID_ID) {
             drawableBottom = SkinCompatResources.getInstance().getDrawable(mDrawableBottomResId);
         }
-        mView.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
+        if (mDrawableLeftResId != INVALID_ID
+                || mDrawableTopResId != INVALID_ID
+                || mDrawableRightResId != INVALID_ID
+                || mDrawableBottomResId != INVALID_ID) {
+            mView.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
+        }
     }
 
     public int getTextColorResId() {

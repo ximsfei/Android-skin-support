@@ -86,7 +86,14 @@ public class SkinCompatTextHelperV17 extends SkinCompatTextHelper {
         if (drawableEnd == null) {
             drawableEnd = drawableRight;
         }
-        mView.setCompoundDrawablesRelativeWithIntrinsicBounds(drawableStart, drawableTop, drawableEnd, drawableBottom);
+        if (mDrawableLeftResId != INVALID_ID
+                || mDrawableTopResId != INVALID_ID
+                || mDrawableRightResId != INVALID_ID
+                || mDrawableBottomResId != INVALID_ID
+                || mDrawableStartResId != INVALID_ID
+                || mDrawableEndResId != INVALID_ID) {
+            mView.setCompoundDrawablesRelativeWithIntrinsicBounds(drawableStart, drawableTop, drawableEnd, drawableBottom);
+        }
     }
 
     @Override
