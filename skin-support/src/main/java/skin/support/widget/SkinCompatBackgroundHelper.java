@@ -1,11 +1,12 @@
 package skin.support.widget;
 
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -26,8 +27,7 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
     }
 
     public void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(mView.getContext(), attrs,
-                R.styleable.SkinBackgroundHelper, defStyleAttr, 0);
+        TypedArray a = mView.getContext().obtainStyledAttributes(attrs, R.styleable.SkinBackgroundHelper, defStyleAttr, 0);
         try {
             if (a.hasValue(R.styleable.SkinBackgroundHelper_android_background)) {
                 mBackgroundResId = a.getResourceId(
@@ -58,8 +58,14 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
             } else {
                 ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mBackgroundResId);
                 Drawable drawable = mView.getBackground();
-                DrawableCompat.setTintList(drawable, colorStateList);
-                ViewCompat.setBackground(mView, drawable);
+                if (drawable != null) {
+                    DrawableCompat.setTintList(drawable, colorStateList);
+                    ViewCompat.setBackground(mView, drawable);
+                } else {
+                    ColorDrawable colorDrawable = new ColorDrawable();
+                    colorDrawable.setTintList(colorStateList);
+                    ViewCompat.setBackground(mView, colorDrawable);
+                }
             }
         } else if ("drawable".equals(typeName)) {
             Drawable drawable = SkinCompatResources.getInstance().getDrawable(mBackgroundResId);

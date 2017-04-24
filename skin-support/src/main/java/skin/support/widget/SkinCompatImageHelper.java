@@ -1,11 +1,11 @@
 package skin.support.widget;
 
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -26,11 +26,9 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
     }
 
     public void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
-        TintTypedArray a = null;
+        TypedArray a = null;
         try {
-            a = TintTypedArray.obtainStyledAttributes(mView.getContext(), attrs,
-                    R.styleable.SkinCompatImageView, defStyleAttr, 0);
-
+            a = mView.getContext().obtainStyledAttributes(attrs, R.styleable.SkinCompatImageView, defStyleAttr, 0);
             mSrcResId = a.getResourceId(R.styleable.SkinCompatImageView_android_src, INVALID_ID);
         } finally {
             if (a != null) {
@@ -56,7 +54,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 int color = SkinCompatResources.getInstance().getColor(mSrcResId);
                 Drawable drawable = mView.getDrawable();
-                if (drawable instanceof ColorDrawable) {
+                if (drawable != null && drawable instanceof ColorDrawable) {
                     ((ColorDrawable) drawable.mutate()).setColor(color);
                 } else {
                     mView.setImageDrawable(new ColorDrawable(color));
@@ -64,8 +62,14 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
             } else {
                 ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mSrcResId);
                 Drawable drawable = mView.getDrawable();
-                DrawableCompat.setTintList(drawable, colorStateList);
-                mView.setImageDrawable(drawable);
+                if (drawable != null) {
+                    DrawableCompat.setTintList(drawable, colorStateList);
+                    mView.setImageDrawable(drawable);
+                } else {
+                    ColorDrawable colorDrawable = new ColorDrawable();
+                    colorDrawable.setTintList(colorStateList);
+                    mView.setImageDrawable(colorDrawable);
+                }
             }
         } else if ("drawable".equals(typeName)) {
             Drawable drawable = SkinCompatResources.getInstance().getDrawable(mSrcResId);

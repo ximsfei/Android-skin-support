@@ -3,6 +3,7 @@ package skin.support.design.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -60,8 +61,14 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
                 } else {
                     ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mStatusBarScrimResId);
                     Drawable drawable = getStatusBarScrim();
-                    DrawableCompat.setTintList(drawable, colorStateList);
-                    setStatusBarScrim(drawable);
+                    if (drawable != null) {
+                        DrawableCompat.setTintList(drawable, colorStateList);
+                        setStatusBarScrim(drawable);
+                    } else {
+                        ColorDrawable colorDrawable = new ColorDrawable();
+                        colorDrawable.setTintList(colorStateList);
+                        setStatusBarScrim(colorDrawable);
+                    }
                 }
             } else if ("drawable".equals(typeName)) {
                 Drawable drawable = SkinCompatResources.getInstance().getDrawable(mStatusBarScrimResId);
@@ -84,8 +91,14 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
                 } else {
                     ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mContentScrimResId);
                     Drawable drawable = getContentScrim();
-                    DrawableCompat.setTintList(drawable, colorStateList);
-                    setContentScrim(drawable);
+                    if (drawable != null) {
+                        DrawableCompat.setTintList(drawable, colorStateList);
+                        setContentScrim(drawable);
+                    } else {
+                        ColorDrawable colorDrawable = new ColorDrawable();
+                        colorDrawable.setTintList(colorStateList);
+                        setContentScrim(colorDrawable);
+                    }
                 }
             } else if ("drawable".equals(typeName)) {
                 Drawable drawable = SkinCompatResources.getInstance().getDrawable(mContentScrimResId);

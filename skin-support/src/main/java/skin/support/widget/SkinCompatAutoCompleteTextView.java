@@ -2,13 +2,13 @@ package skin.support.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
-import android.support.annotation.RequiresApi;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 
 import skin.support.R;
@@ -38,8 +38,7 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
 
     public SkinCompatAutoCompleteTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
-                TINT_ATTRS, defStyleAttr, 0);
+        TypedArray a = context.obtainStyledAttributes(attrs, TINT_ATTRS, defStyleAttr, 0);
         if (a.hasValue(0)) {
             mDropDownBackgroundResId = a.getResourceId(0, INVALID_ID);
         }
@@ -70,8 +69,14 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
                     ColorStateList colorStateList =
                             SkinCompatResources.getInstance().getColorStateList(mDropDownBackgroundResId);
                     Drawable drawable = getDropDownBackground();
-                    DrawableCompat.setTintList(drawable, colorStateList);
-                    setDropDownBackgroundDrawable(drawable);
+                    if (drawable != null) {
+                        DrawableCompat.setTintList(drawable, colorStateList);
+                        setDropDownBackgroundDrawable(drawable);
+                    } else {
+                        ColorDrawable colorDrawable = new ColorDrawable();
+                        colorDrawable.setTintList(colorStateList);
+                        setDropDownBackgroundDrawable(colorDrawable);
+                    }
                 }
             } else if ("drawable".equals(typeName)) {
                 Drawable drawable = SkinCompatResources.getInstance().getDrawable(mDropDownBackgroundResId);
