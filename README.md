@@ -11,8 +11,6 @@
   * [skin-support 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-基础控件-支持)
   * [skin-support-design 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-design-material-design-支持)
   * [skin-support-cardview 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-cardview-cardview-支持)
-* [最佳实践](#最佳实践)
-  * [网易云音乐换肤实践](#仿网易云音乐)
 * [框架用法](#用法)
   * [导入](#导入)
   * [使用](#使用)
@@ -58,25 +56,6 @@ public class BaseActivity extends SkinCompatActivity {}
 [skin-support](skin-support)                // 换肤框架, 基础控件支持
 
 [skin-support-design](skin-support-design)  // 换肤框架, Material Design 支持
-
-## 最佳实践
-
-### 仿网易云音乐
-[仿网易云音乐皮肤切换](https://github.com/ximsfei/Skin-Demo)
-
-[仿网易云音乐应用下载](https://github.com/ximsfei/Res/blob/master/skin-demo/app-debug.apk)
-
-![red 1](https://github.com/ximsfei/Res/blob/master/skin-demo/red_1.png)
-![red 2](https://github.com/ximsfei/Res/blob/master/skin-demo/red_2.png)
-![red 3](https://github.com/ximsfei/Res/blob/master/skin-demo/red_3.png)
-
-![white 1](https://github.com/ximsfei/Res/blob/master/skin-demo/white_1.png)
-![white 2](https://github.com/ximsfei/Res/blob/master/skin-demo/white_2.png)
-![white 3](https://github.com/ximsfei/Res/blob/master/skin-demo/white_3.png)
-
-![night 1](https://github.com/ximsfei/Res/blob/master/skin-demo/night_1.png)
-![night 2](https://github.com/ximsfei/Res/blob/master/skin-demo/night_2.png)
-![night 3](https://github.com/ximsfei/Res/blob/master/skin-demo/night_3.png)
 
 ## 用法
 
