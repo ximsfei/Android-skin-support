@@ -98,6 +98,8 @@ public void onCreate() {
 
 让所有需要换肤的Activity继承自`skin.support.app.SkinCompatActivity`.
 
+*如果有特殊需求, 无法继承自SkinCompatActivity, 可以将SkinCompatActivity中的实现移到自己的BaseActivity中.*
+
 ```java
 public class BaseActivity extends SkinCompatActivity {}
 ```
