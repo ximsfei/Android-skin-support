@@ -24,6 +24,10 @@
             android:label="CollapsingToolbarLayoutActivity" />
 
         <activity
+            android:name="com.ximsfei.skindemo.ConstraintLayoutActivity"
+            android:label="ConstraintLayoutActivity" />
+
+        <activity
             android:name="com.ximsfei.skindemo.MaterialDesignActivity"
             android:label="Material Design"
             android:theme="@style/MaterialDesignTheme" />
