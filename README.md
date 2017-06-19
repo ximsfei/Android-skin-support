@@ -11,6 +11,7 @@
   * [skin-support 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-基础控件-支持)
   * [skin-support-design 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-design-material-design-支持)
   * [skin-support-cardview 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-cardview-cardview-支持)
+  * [skin-support-constraint-layout 更新日志](https://github.com/ximsfei/Android-skin-support/blob/master/ChangeLog.md#skin-support-constraint-layout-constraintlayout-支持)
 * [框架用法](#用法)
   * [导入](#导入)
   * [使用](#使用)

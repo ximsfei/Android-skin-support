@@ -215,3 +215,10 @@
 * [![v1.0.0](https://img.shields.io/badge/skin--support--cardview-v1.0.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.0.0/) CardView 支持 依赖skin-support:1.1.2 cardview-v7:25.1.0
   * CardView
     * app:cardBackgroundColor
+
+## skin-support-constraint-layout: ConstraintLayout 支持
+
+
+* [![v1.0.2](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2-green.svg)](http://http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2/) ConstraintLayout 支持 依赖skin-support:1.2.7 constraint-layout:1.0.2
+  * ConstraintLayout
+    * android:background
