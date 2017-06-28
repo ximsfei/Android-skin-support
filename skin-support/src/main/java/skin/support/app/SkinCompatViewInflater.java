@@ -37,6 +37,7 @@ import skin.support.widget.SkinCompatRadioButton;
 import skin.support.widget.SkinCompatRadioGroup;
 import skin.support.widget.SkinCompatRatingBar;
 import skin.support.widget.SkinCompatRelativeLayout;
+import skin.support.widget.SkinCompatScrollView;
 import skin.support.widget.SkinCompatSeekBar;
 import skin.support.widget.SkinCompatSpinner;
 import skin.support.widget.SkinCompatTextView;
@@ -182,6 +183,9 @@ public class SkinCompatViewInflater {
                 break;
             case "ProgressBar":
                 view = new SkinCompatProgressBar(context, attrs);
+                break;
+            case "ScrollView":
+                view = new SkinCompatScrollView(context, attrs);
                 break;
         }
         return view;
