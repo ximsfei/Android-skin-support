@@ -9,9 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ximsfei.skindemo.R;
+
+import skin.support.utils.SkinUtils;
 
 /**
  * Created by ximsfei on 17-1-14.
@@ -43,6 +46,12 @@ public class FirstFragment extends Fragment {
         autoCompleteTextView.setAdapter(arrayAdapter);
         autoCompleteTextView.setThreshold(1);
         autoCompleteTextView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        TextView textView= (TextView) view.findViewById(R.id.tv_test);
+        System.out.println("R.color.text_color = " + R.color.text_color);
+        int color=R.color.text_color;
+        System.out.println("color = " + color);
+//        SkinUtils.setCompatTextColor(textView,R.color.text_color);
+        SkinUtils.setCompatTextColor(textView,color);
         return view;
     }
 }

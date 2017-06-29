@@ -2,11 +2,11 @@ package skin.support.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -113,8 +113,13 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
             return;
         }
         if (mTextColorHintResId != INVALID_ID) {
-            ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mTextColorHintResId);
-            mView.setHintTextColor(color);
+            ColorStateList color;
+            try {
+                color = SkinCompatResources.getInstance().getColorStateList(mTextColorHintResId);
+                mView.setHintTextColor(color);
+            } catch (Resources.NotFoundException exception) {
+                exception.printStackTrace();
+            }
         }
     }
 
@@ -125,8 +130,13 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
             return;
         }
         if (mTextColorResId != INVALID_ID) {
-            ColorStateList color = SkinCompatResources.getInstance().getColorStateList(mTextColorResId);
-            mView.setTextColor(color);
+            ColorStateList color;
+            try {
+                color = SkinCompatResources.getInstance().getColorStateList(mTextColorResId);
+                mView.setTextColor(color);
+            } catch (Resources.NotFoundException exception) {
+                exception.printStackTrace();
+            }
         }
     }
 
@@ -180,6 +190,11 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
 
     public int getTextColorResId() {
         return mTextColorResId;
+    }
+
+    public void setTextColor(int color) {
+        mTextColorResId = color;
+        applyTextColorResource();
     }
 
     public void applySkin() {
