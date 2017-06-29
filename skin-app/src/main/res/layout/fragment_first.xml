@@ -24,12 +24,12 @@
                 android:scaleType="fitXY" />
 
             <TextView
+                android:id="@+id/tv_test"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/text_background"
                 android:gravity="center_vertical"
                 android:text="textView"
-                android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
             <TextView
