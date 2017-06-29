@@ -26,4 +26,23 @@ public class SkinUtils {
         textView.setTextColor(resId);
     }
 
+    public static void setTextColor(TextView textView, int resId) {
+        textView.setTextColor(getColor(resId));
+    }
+
+    public static int getColor(int resId) {
+        return SkinCompatResources.getInstance().getColor(resId);
+    }
+
+    public Drawable getDrawable(int resId) {
+        return SkinCompatResources.getInstance().getDrawable(resId);
+    }
+
+    public Drawable getMipmap(int resId) {
+        return SkinCompatResources.getInstance().getDrawable(resId);
+    }
+
+    public ColorStateList getColorStateList(int resId) {
+        return SkinCompatResources.getInstance().getColorStateList(resId);
+    }
 }
