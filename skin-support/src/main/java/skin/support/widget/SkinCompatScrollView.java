@@ -6,10 +6,7 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 
 /**
- * @Describe
- * @Author Jungle68
- * @Date 2017/6/27
- * @Contact master.jungle68@gmail.com
+ * Created by Jungle68 on 2017/6/27.
  */
 public class SkinCompatScrollView extends ScrollView implements SkinCompatSupportable {
     private SkinCompatBackgroundHelper mBackgroundTintHelper;

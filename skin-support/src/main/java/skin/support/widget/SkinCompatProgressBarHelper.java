@@ -1,5 +1,6 @@
 package skin.support.widget;
 
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Shader;
@@ -11,6 +12,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.drawable.shapes.Shape;
+import android.os.Build;
 import android.support.v4.graphics.drawable.DrawableWrapper;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
@@ -36,19 +38,24 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
     private Bitmap mSampleTile;
     private int mIndeterminateDrawableResId = INVALID_ID;
     private int mProgressDrawableResId = INVALID_ID;
+    private int mIndeterminateTintResId = INVALID_ID;
 
     SkinCompatProgressBarHelper(ProgressBar view) {
         mView = view;
     }
 
     void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(mView.getContext(), attrs,
-                TINT_ATTRS, defStyleAttr, 0);
+        TypedArray a = mView.getContext().obtainStyledAttributes(attrs, TINT_ATTRS, defStyleAttr, 0);
 
         mIndeterminateDrawableResId = a.getResourceId(0, INVALID_ID);
         mProgressDrawableResId = a.getResourceId(1, INVALID_ID);
 
         a.recycle();
+        if (Build.VERSION.SDK_INT > 21) {
+            a = mView.getContext().obtainStyledAttributes(attrs, new int[]{android.R.attr.indeterminateTint}, defStyleAttr, 0);
+            mIndeterminateTintResId = a.getResourceId(0, INVALID_ID);
+            a.recycle();
+        }
         applySkin();
     }
 
@@ -141,6 +148,12 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
         if (mProgressDrawableResId != INVALID_ID) {
             Drawable drawable = SkinCompatResources.getInstance().getDrawable(mProgressDrawableResId);
             mView.setProgressDrawable(tileify(drawable, false));
+        }
+        if (Build.VERSION.SDK_INT > 21) {
+            mIndeterminateTintResId = checkResourceId(mIndeterminateTintResId);
+            if (mIndeterminateTintResId != INVALID_ID) {
+                mView.setIndeterminateTintList(SkinCompatResources.getInstance().getColorStateList(mIndeterminateTintResId));
+            }
         }
     }
 

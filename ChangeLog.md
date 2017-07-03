@@ -3,6 +3,12 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v1.2.8](https://img.shields.io/badge/skin--support-v1.2.8-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.8/) 新功能开发 依赖 appcompat-v7:25.1.0
+  * ScrollView:
+    * android:background
+  * ProgressBar:
+    * android:IndeterminateTint
+
 * [![v1.2.7](https://img.shields.io/badge/skin--support-v1.2.7-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.7/) bugfix 依赖 appcompat-v7:25.1.0
   * fix: issue #29
   * fix: issue #33

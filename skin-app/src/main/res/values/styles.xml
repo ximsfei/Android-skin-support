@@ -28,6 +28,8 @@
     <style name="progress_horizontal_style" parent="Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal</item>
     </style>
+    <style name="indeterminate_tint_style" parent="Widget.AppCompat.ProgressBar">
+    </style>
 
     <style name="RatingBarStyle" parent="Widget.AppCompat.RatingBar">
         <item name="android:progressDrawable">@drawable/rating_bar</item>

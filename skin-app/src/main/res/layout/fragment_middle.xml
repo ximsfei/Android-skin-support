@@ -48,6 +48,12 @@
         android:layout_height="?attr/actionBarSize"
         android:progress="15" />
 
+    <ProgressBar
+        style="@style/indeterminate_tint_style"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        android:progress="75" />
+
     <SeekBar
         android:id="@+id/seekbar_self"
         android:layout_width="match_parent"
