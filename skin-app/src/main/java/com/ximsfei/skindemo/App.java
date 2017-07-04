@@ -23,7 +23,8 @@ public class App extends Application {
 //        SkinCardViewManager.init(this);
 //        SkinFlycoTabLayoutManager.init(this);
 //        SkinCompatManager.init(this).loadSkin();
-        SkinCompatManager.init(this)
+//        SkinCompatManager.init(this)
+        SkinCompatManager.withoutActivity(this)
                 .addInflater(new SkinMaterialViewInflater())    // material design
                 .addInflater(new SkinConstraintViewInflater())  // ConstraintLayout
                 .addInflater(new SkinCardViewInflater())        // CardView v7

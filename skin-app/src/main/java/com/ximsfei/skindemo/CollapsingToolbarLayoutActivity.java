@@ -135,8 +135,4 @@ public class CollapsingToolbarLayoutActivity extends BaseActivity {
         v.startAnimation(alphaAnimation);
     }
 
-    @Override
-    protected boolean skinStatusBarColorEnable() {
-        return false;
-    }
 }

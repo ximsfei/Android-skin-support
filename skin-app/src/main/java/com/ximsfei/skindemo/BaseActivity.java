@@ -1,14 +1,13 @@
 package com.ximsfei.skindemo;
 
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
-import skin.support.app.SkinCompatActivity;
 
 /**
  * Created by ximsfei on 17-3-1.
  */
 
-public class BaseActivity extends SkinCompatActivity {
+public class BaseActivity extends AppCompatActivity {
     protected void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

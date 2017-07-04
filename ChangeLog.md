@@ -3,6 +3,9 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v2.0.1](https://img.shields.io/badge/skin--support-v2.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.0.1/) 新功能开发 依赖 appcompat-v7:25.1.0
+  * 弃用SkinCompatActivity, 换肤框架集成更方便
+
 * [![v1.2.8](https://img.shields.io/badge/skin--support-v1.2.8-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.8/) 新功能开发 依赖 appcompat-v7:25.1.0
   * ScrollView:
     * android:background

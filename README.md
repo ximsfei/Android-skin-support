@@ -1,6 +1,6 @@
 # Android-skin-support
 
-[![skin-support-v1.2.8](https://img.shields.io/badge/skin--support-v1.2.8-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/1.2.8/)
+[![skin-support-v2.0.1](https://img.shields.io/badge/skin--support-v2.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.0.1/)
 [![design-v1.2.4](https://img.shields.io/badge/skin--support--design-v1.2.4-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.4/)
 [![cardview-v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/)
 
@@ -16,7 +16,6 @@
   * [导入](#导入)
   * [使用](#使用)
     * [初始化](#在application的oncreate中初始化)
-    * [继承SkinCompatActivity](#继承skincompatactivity)
     * [皮肤开关](#皮肤开关)
     * [加载插件皮肤库](#加载插件皮肤库)
     * [自定义view换肤](#自定义view换肤)
@@ -34,18 +33,10 @@
 
 Android-skin-support: 一款用心去做的Android 换肤框架, 极低的学习成本, 极好的用户体验.
 
-只需要两行代码, 就可以实现换肤, 你值得拥有!!!
-
-第一行: 在Application的onCreate中初始化
+只需要一行代码, 就可以实现换肤, 你值得拥有!!!
 
 ```java
-SkinCompatManager.init(this).loadSkin();
-```
-
-第二行: 继承自SkinCompatActivity
-
-```java
-public class BaseActivity extends SkinCompatActivity {}
+SkinCompatManager.withoutActivity(this).loadSkin();
 ```
 
 就这么简单, 你的APK已经拥有了强大的换肤功能.
@@ -63,7 +54,7 @@ public class BaseActivity extends SkinCompatActivity {}
 ### 导入:
 直接添加依赖, [最新版本选择, 请查看更新日志](ChangeLog.md)
 ```xml
-compile 'skin.support:skin-support:1.2.8'          // skin-support 基础控件支持
+compile 'skin.support:skin-support:2.0.1'          // skin-support 基础控件支持
 compile 'skin.support:skin-support-design:1.2.4'   // skin-support-design material design 控件支持[可选]
 compile 'skin.support:skin-support-cardview:1.2.0' // skin-support-cardview CardView 控件支持[可选]
 ```
@@ -76,33 +67,12 @@ compile 'skin.support:skin-support-cardview:1.2.0' // skin-support-cardview Card
 @Override
 public void onCreate() {
     super.onCreate();
-    SkinCompatManager.init(this)                          // 基础控件换肤初始化
-            .addInflater(new SkinMaterialViewInflater())  // material design 控件换肤初始化[可选]
-            .addInflater(new SkinCardViewInflater())      // CardView 控件换肤初始化[可选]
-            .loadSkin();                                  // 加载当前皮肤库(保存在SharedPreferences中)
+    SkinCompatManager.withoutActivity(this)                 // 基础控件换肤初始化
+            .addInflater(new SkinMaterialViewInflater())    // material design 控件换肤初始化[可选]
+            .addInflater(new SkinConstraintViewInflater())  // ConstraintLayout 控件换肤初始化[可选]
+            .addInflater(new SkinCardViewInflater())        // CardView v7 控件换肤初始化[可选]
+            .loadSkin();
 }
-```
-
-或者
-
-```java
-@Override
-public void onCreate() {
-    super.onCreate();
-    SkinMaterialManager.init(this);          // material design 控件换肤初始化[可选]
-    SkinCardViewManager.init(this);          // CardView 控件换肤初始化[可选]
-    SkinCompatManager.init(this).loadSkin(); // 基础控件换肤初始化并加载当前皮肤库(保存在SharedPreferences中)
-}
-```
-
-#### 继承SkinCompatActivity
-
-让所有需要换肤的Activity继承自`skin.support.app.SkinCompatActivity`.
-
-*如果有特殊需求, 无法继承自SkinCompatActivity, 可以将SkinCompatActivity中的实现移到自己的BaseActivity中.*
-
-```java
-public class BaseActivity extends SkinCompatActivity {}
 ```
 
 #### 皮肤开关

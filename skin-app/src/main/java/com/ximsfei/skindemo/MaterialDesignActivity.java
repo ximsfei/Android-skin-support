@@ -58,8 +58,4 @@ public class MaterialDesignActivity extends BaseActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    @Override
-    protected void updateWindowBackground() {
-        super.updateWindowBackground();
-    }
 }

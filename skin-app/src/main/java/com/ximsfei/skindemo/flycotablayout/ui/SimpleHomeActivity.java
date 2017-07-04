@@ -11,9 +11,7 @@ import android.widget.ListView;
 
 import com.ximsfei.skindemo.flycotablayout.adapter.SimpleHomeAdapter;
 
-import skin.support.app.SkinCompatActivity;
-
-public class SimpleHomeActivity extends SkinCompatActivity {
+public class SimpleHomeActivity extends AppCompatActivity {
     private Context mContext = this;
     private final String[] mItems = {"SlidingTabLayout", "CommonTabLayout", "SegmentTabLayout"};
     private final Class<?>[] mClasses = {SlidingTabActivity.class, CommonTabActivity.class,

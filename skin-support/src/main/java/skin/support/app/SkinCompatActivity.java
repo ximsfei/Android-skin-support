@@ -21,7 +21,7 @@ import static skin.support.widget.SkinCompatHelper.checkResourceId;
 /**
  * Created by ximsfei on 17-1-8.
  */
-
+@Deprecated
 public class SkinCompatActivity extends AppCompatActivity implements SkinObserver {
 
     private SkinCompatDelegate mSkinDelegate;
