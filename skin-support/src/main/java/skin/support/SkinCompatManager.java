@@ -113,6 +113,8 @@ public class SkinCompatManager extends SkinObservable {
                     observer = new SkinObserver() {
                         @Override
                         public void updateSkin(SkinObservable observable, Object o) {
+                            updateStatusBarColor(activity);
+                            updateWindowBackground(activity);
                             getSkinDelegate((AppCompatActivity) activity).applySkin();
                         }
                     };

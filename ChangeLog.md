@@ -3,6 +3,9 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v2.0.2](https://img.shields.io/badge/skin--support-v2.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.0.2/) 新功能开发 依赖 appcompat-v7:25.1.0
+  * 状态栏换肤异常
+
 * [![v2.0.1](https://img.shields.io/badge/skin--support-v2.0.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.0.1/) 新功能开发 依赖 appcompat-v7:25.1.0
   * 弃用SkinCompatActivity, 换肤框架集成更方便
 
