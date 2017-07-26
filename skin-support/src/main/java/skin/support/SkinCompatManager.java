@@ -243,21 +243,21 @@ public class SkinCompatManager extends SkinObservable {
         loadSkin("");
     }
 
-    private SkinCompatManager setSkinStatusBarColorEnable(boolean enable) {
+    public SkinCompatManager setSkinStatusBarColorEnable(boolean enable) {
         mSkinStatusBarColorEnable = enable;
         return this;
     }
 
-    private boolean isSkinStatusBarColorEnable() {
+    public boolean isSkinStatusBarColorEnable() {
         return mSkinStatusBarColorEnable;
     }
 
-    private SkinCompatManager setSkinWindowBackgroundEnable(boolean enable) {
+    public SkinCompatManager setSkinWindowBackgroundEnable(boolean enable) {
         mSkinWindowBackgroundColorEnable = enable;
         return this;
     }
 
-    private boolean isSkinWindowBackgroundEnable() {
+    public boolean isSkinWindowBackgroundEnable() {
         return mSkinWindowBackgroundColorEnable;
     }
 

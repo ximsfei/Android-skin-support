@@ -30,6 +30,7 @@ public class App extends Application {
                 .addInflater(new SkinCardViewInflater())        // CardView v7
                 .addInflater(new SkinCircleImageViewInflater()) // hdodenhof/CircleImageView
                 .addInflater(new SkinFlycoTabLayoutInflater())  // H07000223/FlycoTabLayout
+                .setSkinStatusBarColorEnable(false)
                 .loadSkin();
     }
 }
