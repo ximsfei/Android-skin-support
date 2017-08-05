@@ -42,7 +42,7 @@ Android-skin-support: 一款用心去做的Android 换肤框架, 极低的学习
 SkinCompatManager.withoutActivity(this).loadSkin();
 ```
 
-就这么简单, 你的APK已经拥有了强大的换肤功能.
+就这么简单, 你的APK已经拥有了强大的换肤功能, 当然现在是拥有了换肤功能, 别忘了[制作皮肤包](#制作皮肤插件).
 
 [skin-app](skin-app)                        // 换肤demo app
 
