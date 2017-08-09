@@ -8,8 +8,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:background="@color/t1_3_background"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/t1_3_background">
 
         <LinearLayout
             android:layout_width="match_parent"

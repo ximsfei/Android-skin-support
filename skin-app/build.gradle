@@ -24,11 +24,11 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:25.1.0'
 //    compile project(':skin-support')
-    compile 'skin.support:skin-support:2.0.3'
+    compile 'skin.support:skin-support:2.0.4'
 
     compile 'com.android.support:design:25.1.0'
-//    compile project(':skin-support-design')
-    compile 'skin.support:skin-support-design:1.2.3'
+    compile project(':skin-support-design')
+//    compile 'skin.support:skin-support-design:1.2.3'
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 //    compile project(':skin-support-constraint-layout')

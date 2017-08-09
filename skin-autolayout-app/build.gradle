@@ -21,8 +21,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
-//    compile project(':skin-support')
-    compile 'skin.support:skin-support:1.2.3'
+    compile project(':skin-support')
+//    compile 'skin.support:skin-support:1.2.3'
 
     compile 'com.zhy:autolayout:1.4.5'
 //    compile project(':third-part-support:androidautolayout')
