@@ -25,6 +25,7 @@ public class TFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_t, null);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.addItemDecoration(new CustomDividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         mRecyclerView.setAdapter(new TAdapter());
         return view;
     }
@@ -33,7 +34,7 @@ public class TFragment extends Fragment {
         @Override
         public TViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new TViewHolder(
-                    LayoutInflater.from(getActivity().getApplication())
+                    LayoutInflater.from(getActivity())
                             .inflate(R.layout.item_t, parent, false));
         }
 
