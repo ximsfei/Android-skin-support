@@ -1,5 +1,6 @@
 package skin.support;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -18,6 +19,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
 import skin.support.observe.SkinObservable;
 import skin.support.utils.SkinConstants;
@@ -25,26 +27,6 @@ import skin.support.utils.SkinFileUtils;
 import skin.support.utils.SkinLog;
 import skin.support.utils.SkinPreference;
 import skin.support.content.res.SkinCompatResources;
-
-import android.app.Activity;
-import android.app.Application;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Bundle;
-import android.support.v4.view.LayoutInflaterCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-
-import java.lang.reflect.Field;
-import java.util.WeakHashMap;
-
-import skin.support.app.SkinCompatDelegate;
-import skin.support.observe.SkinObserver;
-import skin.support.widget.SkinCompatThemeUtils;
-
-import static skin.support.widget.SkinCompatHelper.INVALID_ID;
-import static skin.support.widget.SkinCompatHelper.checkResourceId;
 
 /**
  * Created by ximsfei on 17-1-10.
@@ -84,130 +66,8 @@ public class SkinCompatManager extends SkinObservable {
     }
 
     public static SkinCompatManager withoutActivity(Application application) {
-        if (sInstance == null)
-            sInstance = init(application);
-        application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
-
-            private WeakHashMap<Activity, SkinCompatDelegate> skinDeleMap;
-            private WeakHashMap<Activity, SkinObserver> skinObserverMap;
-
-            private SkinCompatDelegate getSkinDelegate(AppCompatActivity activity) {
-                if (skinDeleMap == null) {
-                    skinDeleMap = new WeakHashMap<>();
-                }
-
-                SkinCompatDelegate mSkinDelegate = skinDeleMap.get(activity);
-                if (mSkinDelegate == null) {
-                    mSkinDelegate = SkinCompatDelegate.create(activity);
-                }
-                skinDeleMap.put(activity, mSkinDelegate);
-                return mSkinDelegate;
-            }
-
-            private SkinObserver getObserver(final Activity activity) {
-                if (skinObserverMap == null) {
-                    skinObserverMap = new WeakHashMap<>();
-                }
-                SkinObserver observer = skinObserverMap.get(activity);
-                if (observer == null) {
-                    observer = new SkinObserver() {
-                        @Override
-                        public void updateSkin(SkinObservable observable, Object o) {
-                            updateStatusBarColor(activity);
-                            updateWindowBackground(activity);
-                            getSkinDelegate((AppCompatActivity) activity).applySkin();
-                        }
-                    };
-                }
-                skinObserverMap.put(activity, observer);
-                return observer;
-            }
-
-            private void updateStatusBarColor(Activity activity) {
-                if (SkinCompatManager.getInstance().isSkinStatusBarColorEnable()
-                        && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    int statusBarColorResId = SkinCompatThemeUtils.getStatusBarColorResId(activity);
-                    int colorPrimaryDarkResId = SkinCompatThemeUtils.getColorPrimaryDarkResId(activity);
-                    if (checkResourceId(statusBarColorResId) != INVALID_ID) {
-                        activity.getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(statusBarColorResId));
-                    } else if (checkResourceId(colorPrimaryDarkResId) != INVALID_ID) {
-                        activity.getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(colorPrimaryDarkResId));
-                    }
-                }
-            }
-
-            protected void updateWindowBackground(Activity activity) {
-                if (SkinCompatManager.getInstance().isSkinWindowBackgroundEnable()) {
-                    int windowBackgroundResId = SkinCompatThemeUtils.getWindowBackgroundResId(activity);
-                    if (checkResourceId(windowBackgroundResId) != INVALID_ID) {
-                        String typeName = activity.getResources().getResourceTypeName(windowBackgroundResId);
-                        if ("color".equals(typeName)) {
-                            Drawable drawable = new ColorDrawable(SkinCompatResources.getInstance().getColor(windowBackgroundResId));
-                            activity.getWindow().setBackgroundDrawable(drawable);
-                        } else if ("drawable".equals(typeName)) {
-                            Drawable drawable = SkinCompatResources.getInstance().getDrawable(windowBackgroundResId);
-                            activity.getWindow().setBackgroundDrawable(drawable);
-                        } else if ("mipmap".equals(typeName)) {
-                            Drawable drawable = SkinCompatResources.getInstance().getMipmap(windowBackgroundResId);
-                            activity.getWindow().setBackgroundDrawable(drawable);
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                if (activity instanceof AppCompatActivity) {
-                    LayoutInflater layoutInflater = activity.getLayoutInflater();
-                    try {
-                        Field field = LayoutInflater.class.getDeclaredField("mFactorySet");
-                        field.setAccessible(true);
-                        field.setBoolean(layoutInflater, false);
-                        LayoutInflaterCompat.setFactory(activity.getLayoutInflater(),
-                                getSkinDelegate((AppCompatActivity) activity));
-                    } catch (NoSuchFieldException e) {
-                        e.printStackTrace();
-                    } catch (IllegalArgumentException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                    updateStatusBarColor(activity);
-                    updateWindowBackground(activity);
-                }
-            }
-
-            @Override
-            public void onActivityStarted(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivityResumed(Activity activity) {
-                SkinCompatManager.getInstance().addObserver(getObserver(activity));
-            }
-
-            @Override
-            public void onActivityPaused(Activity activity) {
-            }
-
-            @Override
-            public void onActivityStopped(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-
-            }
-
-            @Override
-            public void onActivityDestroyed(Activity activity) {
-                SkinCompatManager.getInstance().deleteObserver(getObserver(activity));
-                skinObserverMap.remove(activity);
-                skinDeleMap.remove(activity);
-            }
-        });
+        init(application);
+        SkinActivityLifecycle.init(application);
         return sInstance;
     }
 
