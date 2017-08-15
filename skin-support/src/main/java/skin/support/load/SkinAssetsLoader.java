@@ -10,6 +10,7 @@ import java.io.OutputStream;
 
 import skin.support.SkinCompatManager;
 import skin.support.utils.SkinConstants;
+import skin.support.utils.SkinFileUtils;
 
 public class SkinAssetsLoader extends SkinSDCardLoader {
     @Override
@@ -28,7 +29,7 @@ public class SkinAssetsLoader extends SkinSDCardLoader {
     }
 
     private String copySkinFromAssets(Context context, String name) {
-        String skinPath = getSkinPath(context, name);
+        String skinPath = new File(SkinFileUtils.getSkinDir(context), name).getAbsolutePath();
         try {
             InputStream is = context.getAssets().open(
                     SkinConstants.SKIN_DEPLOY_PATH + File.separator + name);

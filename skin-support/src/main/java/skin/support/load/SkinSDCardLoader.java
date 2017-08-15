@@ -14,19 +14,17 @@ import skin.support.utils.SkinFileUtils;
 public class SkinSDCardLoader implements SkinLoaderStrategy {
     @Override
     public String loadSkinInBackground(Context context, String skinName) {
-        if (!TextUtils.isEmpty(skinName)) {
-            String skinPkgPath = getSkinPath(context, skinName);
-            if (SkinFileUtils.isFileExists(skinPkgPath)) {
-                String pkgName = SkinCompatManager.getInstance().getSkinPackageName(skinPkgPath);
-                Resources resources = SkinCompatManager.getInstance().getSkinResources(skinPkgPath);
-                if (resources != null && !TextUtils.isEmpty(pkgName)) {
-                    SkinCompatResources.getInstance().setupSkin(
-                            resources,
-                            pkgName,
-                            skinName,
-                            this);
-                    return skinName;
-                }
+        String skinPkgPath = getSkinPath(context, skinName);
+        if (SkinFileUtils.isFileExists(skinPkgPath)) {
+            String pkgName = SkinCompatManager.getInstance().getSkinPackageName(skinPkgPath);
+            Resources resources = SkinCompatManager.getInstance().getSkinResources(skinPkgPath);
+            if (resources != null && !TextUtils.isEmpty(pkgName)) {
+                SkinCompatResources.getInstance().setupSkin(
+                        resources,
+                        pkgName,
+                        skinName,
+                        this);
+                return skinName;
             }
         }
         return null;

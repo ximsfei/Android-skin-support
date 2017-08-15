@@ -221,7 +221,12 @@ public class SkinCompatManager extends SkinObservable {
             }
             try {
                 if (params.length == 1) {
-                    if (!TextUtils.isEmpty(mStrategy.loadSkinInBackground(mAppContext, params[0]))) {
+                    if (TextUtils.isEmpty(params[0])) {
+                        SkinCompatResources.getInstance().reset();
+                        return params[0];
+                    }
+                    if (!TextUtils.isEmpty(
+                            mStrategy.loadSkinInBackground(mAppContext, params[0]))) {
                         return params[0];
                     }
                 }
@@ -235,7 +240,8 @@ public class SkinCompatManager extends SkinObservable {
         protected void onPostExecute(String skinName) {
             SkinLog.e("skinName = " + skinName);
             synchronized (mLock) {
-                if (!TextUtils.isEmpty(skinName)) {
+                // skinName 为""时，恢复默认皮肤
+                if (skinName != null) {
                     notifyUpdateSkin();
                     SkinPreference.getInstance().setSkinName(skinName).setSkinStrategy(mStrategy.getType()).commitEditor();
                     if (mListener != null) mListener.onSuccess();
