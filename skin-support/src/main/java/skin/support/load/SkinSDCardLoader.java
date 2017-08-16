@@ -11,7 +11,7 @@ import skin.support.SkinCompatManager.SkinLoaderStrategy;
 import skin.support.content.res.SkinCompatResources;
 import skin.support.utils.SkinFileUtils;
 
-public class SkinSDCardLoader implements SkinLoaderStrategy {
+public abstract class SkinSDCardLoader implements SkinLoaderStrategy {
     @Override
     public String loadSkinInBackground(Context context, String skinName) {
         String skinPkgPath = getSkinPath(context, skinName);
@@ -30,21 +30,10 @@ public class SkinSDCardLoader implements SkinLoaderStrategy {
         return null;
     }
 
-    public String getSkinPath(Context context, String skinName) {
-        String sdcard = SkinCompatManager.getInstance().getSDCardPath();
-        if (TextUtils.isEmpty(sdcard)) {
-            sdcard = SkinFileUtils.getSkinDir(context);
-        }
-        return new File(sdcard, skinName).getAbsolutePath();
-    }
+    protected abstract String getSkinPath(Context context, String skinName);
 
     @Override
     public String getTargetResourceEntryName(Context context, String skinName, int resId) {
         return null;
-    }
-
-    @Override
-    public int getType() {
-        return SkinCompatManager.SKIN_LOADER_STRATEGY_SDCARD;
     }
 }

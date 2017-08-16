@@ -14,7 +14,7 @@ import skin.support.utils.SkinFileUtils;
 
 public class SkinAssetsLoader extends SkinSDCardLoader {
     @Override
-    public String getSkinPath(Context context, String skinName) {
+    protected String getSkinPath(Context context, String skinName) {
         return copySkinFromAssets(context, skinName);
     }
 

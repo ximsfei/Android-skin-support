@@ -31,7 +31,6 @@ public class SkinCompatManager extends SkinObservable {
     public static final int SKIN_LOADER_STRATEGY_NONE = -1;
     public static final int SKIN_LOADER_STRATEGY_ASSETS = 0;
     public static final int SKIN_LOADER_STRATEGY_BUILD_IN = 1;
-    public static final int SKIN_LOADER_STRATEGY_SDCARD = 2;
     private static volatile SkinCompatManager sInstance;
     private final Object mLock = new Object();
     private final Context mAppContext;
@@ -91,7 +90,6 @@ public class SkinCompatManager extends SkinObservable {
         /**
          * {@link #SKIN_LOADER_STRATEGY_ASSETS}
          * {@link #SKIN_LOADER_STRATEGY_BUILD_IN}
-         * {@link #SKIN_LOADER_STRATEGY_SDCARD}
          *
          * @return 皮肤包加载策略类型.
          */
@@ -139,7 +137,6 @@ public class SkinCompatManager extends SkinObservable {
 
     private void initLoaderStrategy() {
         mStrategyMap.put(SKIN_LOADER_STRATEGY_ASSETS, new SkinAssetsLoader());
-        mStrategyMap.put(SKIN_LOADER_STRATEGY_SDCARD, new SkinSDCardLoader());
         mStrategyMap.put(SKIN_LOADER_STRATEGY_BUILD_IN, new SkinBuildInLoader());
     }
 
@@ -156,22 +153,6 @@ public class SkinCompatManager extends SkinObservable {
 
     public Map<Integer, SkinLoaderStrategy> getStrategies() {
         return mStrategyMap;
-    }
-
-    /**
-     * 设置自定义加载路径.
-     *
-     * @param path {@link SkinSDCardLoader#getSkinPath(Context, String)}, 自定义皮肤包父目录.
-     * @return
-     */
-    public SkinCompatManager setSDCardPath(String path) {
-        mSDCardPath = path;
-        return this;
-    }
-
-
-    public String getSDCardPath() {
-        return mSDCardPath;
     }
 
     /**
