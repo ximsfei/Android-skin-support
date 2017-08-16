@@ -126,6 +126,9 @@ public class SkinCompatViewInflater {
 
     private View createViewFromFV(Context context, String name, AttributeSet attrs) {
         View view = null;
+        if (name.contains(".")) {
+            return null;
+        }
         switch (name) {
             case "View":
                 view = new SkinCompatView(context, attrs);

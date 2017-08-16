@@ -23,6 +23,9 @@ public class SkinMaterialViewInflater implements SkinLayoutInflater {
     @Override
     public View createView(@NonNull Context context, final String name, @NonNull AttributeSet attrs) {
         View view = null;
+        if (!name.startsWith("android.support.design.widget.")) {
+            return null;
+        }
         switch (name) {
             case "android.support.design.widget.AppBarLayout":
                 view = new SkinMaterialAppBarLayout(context, attrs);
