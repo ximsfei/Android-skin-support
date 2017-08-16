@@ -3,6 +3,15 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v2.1.0](https://img.shields.io/badge/skin--support-v2.1.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.0/) 新功能开发 依赖 appcompat-v7:25.1.0
+  * 新增皮肤包加载策略
+    * 应用内资源换肤
+    * 插件式换肤
+    * 用户自定义换肤策略
+  * CheckBox:
+    * buttonTint
+
+
 * [![v2.0.4](https://img.shields.io/badge/skin--support-v2.0.4-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.0.4/) 新功能开发 依赖 appcompat-v7:25.1.0
   * ImageView:
     * app:srcCompat
