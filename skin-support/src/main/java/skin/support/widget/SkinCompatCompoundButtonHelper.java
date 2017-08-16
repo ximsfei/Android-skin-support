@@ -2,8 +2,6 @@ package skin.support.widget;
 
 import android.content.res.TypedArray;
 import android.support.v4.widget.CompoundButtonCompat;
-import android.support.v7.content.res.AppCompatResources;
-import android.support.v7.widget.DrawableUtils;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
 
@@ -16,6 +14,7 @@ import skin.support.content.res.SkinCompatResources;
 public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
     private final CompoundButton mView;
     private int mButtonResourceId = INVALID_ID;
+    private int mButtonTintResId = INVALID_ID;
 
     public SkinCompatCompoundButtonHelper(CompoundButton view) {
         mView = view;
@@ -34,10 +33,9 @@ public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
 //                            AppCompatResources.getDrawable(mView.getContext(), resourceId));
 //                }
 //            }
-//            if (a.hasValue(R.styleable.CompoundButton_buttonTint)) {
-//                CompoundButtonCompat.setButtonTintList(mView,
-//                        a.getColorStateList(R.styleable.CompoundButton_buttonTint));
-//            }
+            if (a.hasValue(R.styleable.CompoundButton_buttonTint)) {
+                mButtonTintResId = a.getResourceId(R.styleable.CompoundButton_buttonTint, INVALID_ID);
+            }
 //            if (a.hasValue(R.styleable.CompoundButton_buttonTintMode)) {
 //                CompoundButtonCompat.setButtonTintMode(mView,
 //                        DrawableUtils.parseTintMode(
@@ -60,6 +58,10 @@ public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
         mButtonResourceId = SkinCompatHelper.checkResourceId(mButtonResourceId);
         if (mButtonResourceId != INVALID_ID) {
             mView.setButtonDrawable(SkinCompatResources.getInstance().getDrawable(mButtonResourceId));
+        }
+        mButtonTintResId = SkinCompatHelper.checkResourceId(mButtonTintResId);
+        if (mButtonTintResId != INVALID_ID) {
+            CompoundButtonCompat.setButtonTintList(mView, SkinCompatResources.getInstance().getColorStateList(mButtonTintResId));
         }
     }
 }

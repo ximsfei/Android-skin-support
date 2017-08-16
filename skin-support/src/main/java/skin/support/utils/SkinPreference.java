@@ -3,6 +3,8 @@ package skin.support.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import skin.support.SkinCompatManager;
+
 /**
  * Created by ximsfei on 2017/1/10.
  */
@@ -10,7 +12,8 @@ import android.content.SharedPreferences;
 public class SkinPreference {
     private static final String FILE_NAME = "meta-data";
 
-    public static final String KEY_SKIN_NAME = "skin-name";
+    private static final String KEY_SKIN_NAME = "skin-name";
+    private static final String KEY_SKIN_STRATEGY = "skin-strategy";
     private static SkinPreference sInstance;
     private final Context mApp;
     private final SharedPreferences mPref;
@@ -43,6 +46,15 @@ public class SkinPreference {
 
     public String getSkinName() {
         return mPref.getString(KEY_SKIN_NAME, "");
+    }
+
+    public SkinPreference setSkinStrategy(int strategy) {
+        mEditor.putInt(KEY_SKIN_STRATEGY, strategy);
+        return this;
+    }
+
+    public int getSkinStrategy() {
+        return mPref.getInt(KEY_SKIN_STRATEGY, SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS);
     }
 
     public void commitEditor() {

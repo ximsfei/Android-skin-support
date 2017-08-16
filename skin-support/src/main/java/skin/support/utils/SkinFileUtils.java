@@ -2,6 +2,7 @@ package skin.support.utils;
 
 import android.content.Context;
 import android.os.Environment;
+import android.text.TextUtils;
 
 import java.io.File;
 
@@ -18,7 +19,7 @@ public class SkinFileUtils {
         return skinDir.getAbsolutePath();
     }
 
-    public static String getCacheDir(Context context) {
+    private static String getCacheDir(Context context) {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             File cacheDir = context.getExternalCacheDir();
             if (cacheDir != null && (cacheDir.exists() || cacheDir.mkdirs())) {
@@ -29,4 +30,8 @@ public class SkinFileUtils {
         return context.getCacheDir().getAbsolutePath();
     }
 
+
+    public static boolean isFileExists(String path) {
+        return !TextUtils.isEmpty(path) && new File(path).exists();
+    }
 }

@@ -1,73 +1,106 @@
 package skin.support;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
+import skin.support.load.SkinAssetsLoader;
+import skin.support.load.SkinBuildInLoader;
+import skin.support.load.SkinSDCardLoader;
 import skin.support.observe.SkinObservable;
-import skin.support.utils.SkinConstants;
-import skin.support.utils.SkinFileUtils;
 import skin.support.utils.SkinLog;
 import skin.support.utils.SkinPreference;
 import skin.support.content.res.SkinCompatResources;
 
-import android.app.Activity;
-import android.app.Application;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Bundle;
-import android.support.v4.view.LayoutInflaterCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-
-import java.lang.reflect.Field;
-import java.util.WeakHashMap;
-
-import skin.support.app.SkinCompatDelegate;
-import skin.support.observe.SkinObserver;
-import skin.support.widget.SkinCompatThemeUtils;
-
-import static skin.support.widget.SkinCompatHelper.INVALID_ID;
-import static skin.support.widget.SkinCompatHelper.checkResourceId;
-
-/**
- * Created by ximsfei on 17-1-10.
- */
-
 public class SkinCompatManager extends SkinObservable {
+    public static final int SKIN_LOADER_STRATEGY_NONE = -1;
+    public static final int SKIN_LOADER_STRATEGY_ASSETS = 0;
+    public static final int SKIN_LOADER_STRATEGY_BUILD_IN = 1;
     private static volatile SkinCompatManager sInstance;
     private final Object mLock = new Object();
     private final Context mAppContext;
     private boolean mLoading = false;
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
+    private Map<Integer, SkinLoaderStrategy> mStrategyMap = new HashMap<>();
     private boolean mSkinStatusBarColorEnable = true;
     private boolean mSkinWindowBackgroundColorEnable = true;
+    private String mSDCardPath;
 
+    /**
+     * 皮肤包加载监听.
+     */
     public interface SkinLoaderListener {
+        /**
+         * 开始加载.
+         */
         void onStart();
 
+        /**
+         * 加载成功.
+         */
         void onSuccess();
 
+        /**
+         * 加载失败.
+         *
+         * @param errMsg 错误信息.
+         */
         void onFailed(String errMsg);
     }
 
+    /**
+     * 皮肤包加载策略.
+     */
+    public interface SkinLoaderStrategy {
+        /**
+         * 加载皮肤包.
+         *
+         * @param context {@link Context}
+         * @param skinName 皮肤包名称.
+         * @return 加载成功，返回皮肤包名称；失败，则返回空。
+         */
+        String loadSkinInBackground(Context context, String skinName);
+
+        /**
+         * 根据应用中的资源ID，获取皮肤包相应资源的资源名.
+         *
+         * @param context {@link Context}
+         * @param skinName 皮肤包名称.
+         * @param resId 应用中需要换肤的资源ID.
+         * @return 皮肤包中相应的资源名.
+         */
+        String getTargetResourceEntryName(Context context, String skinName, int resId);
+
+        /**
+         * {@link #SKIN_LOADER_STRATEGY_ASSETS}
+         * {@link #SKIN_LOADER_STRATEGY_BUILD_IN}
+         *
+         * @return 皮肤包加载策略类型.
+         */
+        int getType();
+    }
+
+    /**
+     * 初始化换肤框架. 通过该方法初始化，应用中Activity需继承自{@link skin.support.app.SkinCompatActivity}.
+     * @param context
+     * @return
+     */
     public static SkinCompatManager init(Context context) {
         if (sInstance == null) {
             synchronized (SkinCompatManager.class) {
@@ -83,131 +116,15 @@ public class SkinCompatManager extends SkinObservable {
         return sInstance;
     }
 
+    /**
+     * 初始化换肤框架，监听Activity生命周期. 通过该方法初始化，应用中Activity无需继承{@link skin.support.app.SkinCompatActivity}.
+     *
+     * @param application 应用Application.
+     * @return
+     */
     public static SkinCompatManager withoutActivity(Application application) {
-        if (sInstance == null)
-            sInstance = init(application);
-        application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
-
-            private WeakHashMap<Activity, SkinCompatDelegate> skinDeleMap;
-            private WeakHashMap<Activity, SkinObserver> skinObserverMap;
-
-            private SkinCompatDelegate getSkinDelegate(AppCompatActivity activity) {
-                if (skinDeleMap == null) {
-                    skinDeleMap = new WeakHashMap<>();
-                }
-
-                SkinCompatDelegate mSkinDelegate = skinDeleMap.get(activity);
-                if (mSkinDelegate == null) {
-                    mSkinDelegate = SkinCompatDelegate.create(activity);
-                }
-                skinDeleMap.put(activity, mSkinDelegate);
-                return mSkinDelegate;
-            }
-
-            private SkinObserver getObserver(final Activity activity) {
-                if (skinObserverMap == null) {
-                    skinObserverMap = new WeakHashMap<>();
-                }
-                SkinObserver observer = skinObserverMap.get(activity);
-                if (observer == null) {
-                    observer = new SkinObserver() {
-                        @Override
-                        public void updateSkin(SkinObservable observable, Object o) {
-                            updateStatusBarColor(activity);
-                            updateWindowBackground(activity);
-                            getSkinDelegate((AppCompatActivity) activity).applySkin();
-                        }
-                    };
-                }
-                skinObserverMap.put(activity, observer);
-                return observer;
-            }
-
-            private void updateStatusBarColor(Activity activity) {
-                if (SkinCompatManager.getInstance().isSkinStatusBarColorEnable()
-                        && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    int statusBarColorResId = SkinCompatThemeUtils.getStatusBarColorResId(activity);
-                    int colorPrimaryDarkResId = SkinCompatThemeUtils.getColorPrimaryDarkResId(activity);
-                    if (checkResourceId(statusBarColorResId) != INVALID_ID) {
-                        activity.getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(statusBarColorResId));
-                    } else if (checkResourceId(colorPrimaryDarkResId) != INVALID_ID) {
-                        activity.getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(colorPrimaryDarkResId));
-                    }
-                }
-            }
-
-            protected void updateWindowBackground(Activity activity) {
-                if (SkinCompatManager.getInstance().isSkinWindowBackgroundEnable()) {
-                    int windowBackgroundResId = SkinCompatThemeUtils.getWindowBackgroundResId(activity);
-                    if (checkResourceId(windowBackgroundResId) != INVALID_ID) {
-                        String typeName = activity.getResources().getResourceTypeName(windowBackgroundResId);
-                        if ("color".equals(typeName)) {
-                            Drawable drawable = new ColorDrawable(SkinCompatResources.getInstance().getColor(windowBackgroundResId));
-                            activity.getWindow().setBackgroundDrawable(drawable);
-                        } else if ("drawable".equals(typeName)) {
-                            Drawable drawable = SkinCompatResources.getInstance().getDrawable(windowBackgroundResId);
-                            activity.getWindow().setBackgroundDrawable(drawable);
-                        } else if ("mipmap".equals(typeName)) {
-                            Drawable drawable = SkinCompatResources.getInstance().getMipmap(windowBackgroundResId);
-                            activity.getWindow().setBackgroundDrawable(drawable);
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                if (activity instanceof AppCompatActivity) {
-                    LayoutInflater layoutInflater = activity.getLayoutInflater();
-                    try {
-                        Field field = LayoutInflater.class.getDeclaredField("mFactorySet");
-                        field.setAccessible(true);
-                        field.setBoolean(layoutInflater, false);
-                        LayoutInflaterCompat.setFactory(activity.getLayoutInflater(),
-                                getSkinDelegate((AppCompatActivity) activity));
-                    } catch (NoSuchFieldException e) {
-                        e.printStackTrace();
-                    } catch (IllegalArgumentException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                    updateStatusBarColor(activity);
-                    updateWindowBackground(activity);
-                }
-            }
-
-            @Override
-            public void onActivityStarted(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivityResumed(Activity activity) {
-                SkinCompatManager.getInstance().addObserver(getObserver(activity));
-            }
-
-            @Override
-            public void onActivityPaused(Activity activity) {
-            }
-
-            @Override
-            public void onActivityStopped(Activity activity) {
-
-            }
-
-            @Override
-            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-
-            }
-
-            @Override
-            public void onActivityDestroyed(Activity activity) {
-                SkinCompatManager.getInstance().deleteObserver(getObserver(activity));
-                skinObserverMap.remove(activity);
-                skinDeleMap.remove(activity);
-            }
-        });
+        init(application);
+        SkinActivityLifecycle.init(application);
         return sInstance;
     }
 
@@ -215,8 +132,35 @@ public class SkinCompatManager extends SkinObservable {
         mAppContext = context.getApplicationContext();
         SkinPreference.init(mAppContext);
         SkinCompatResources.init(mAppContext);
+        initLoaderStrategy();
     }
 
+    private void initLoaderStrategy() {
+        mStrategyMap.put(SKIN_LOADER_STRATEGY_ASSETS, new SkinAssetsLoader());
+        mStrategyMap.put(SKIN_LOADER_STRATEGY_BUILD_IN, new SkinBuildInLoader());
+    }
+
+    /**
+     * 添加皮肤包加载策略.
+     *
+     * @param strategy 自定义加载策略
+     * @return
+     */
+    public SkinCompatManager addStrategy(SkinLoaderStrategy strategy) {
+        mStrategyMap.put(strategy.getType(), strategy);
+        return this;
+    }
+
+    public Map<Integer, SkinLoaderStrategy> getStrategies() {
+        return mStrategyMap;
+    }
+
+    /**
+     * 自定义View换肤时，可选择添加一个{@link SkinLayoutInflater}
+     *
+     * @param inflater 在{@link skin.support.app.SkinCompatViewInflater#createView(Context, String, String)}方法中调用.
+     * @return
+     */
     public SkinCompatManager addInflater(SkinLayoutInflater inflater) {
         mInflaters.add(inflater);
         return this;
@@ -226,6 +170,13 @@ public class SkinCompatManager extends SkinObservable {
         return mInflaters;
     }
 
+
+    /**
+     * 自定义View换肤时，可选择添加一个{@link SkinLayoutInflater}
+     *
+     * @param inflater 在{@link skin.support.app.SkinCompatViewInflater#createView(Context, String, String)}方法中最先调用.
+     * @return
+     */
     public SkinCompatManager addHookInflater(SkinLayoutInflater inflater) {
         mHookInflaters.add(inflater);
         return this;
@@ -235,14 +186,28 @@ public class SkinCompatManager extends SkinObservable {
         return mHookInflaters;
     }
 
+    /**
+     * 获取当前皮肤包.
+     *
+     * @return
+     */
     public String getCurSkinName() {
         return SkinPreference.getInstance().getSkinName();
     }
 
+    /**
+     * 恢复默认主题，使用应用自带资源.
+     */
     public void restoreDefaultTheme() {
         loadSkin("");
     }
 
+    /**
+     * 设置状态栏换肤，使用Theme中的{@link android.R.attr#statusBarColor}属性. 5.0以上有效.
+     *
+     * @param enable true: 打开; false: 关闭.
+     * @return
+     */
     public SkinCompatManager setSkinStatusBarColorEnable(boolean enable) {
         mSkinStatusBarColorEnable = enable;
         return this;
@@ -252,6 +217,12 @@ public class SkinCompatManager extends SkinObservable {
         return mSkinStatusBarColorEnable;
     }
 
+    /**
+     * 设置WindowBackground换肤，使用Theme中的{@link android.R.attr#windowBackground}属性.
+     *
+     * @param enable true: 打开; false: 关闭.
+     * @return
+     */
     public SkinCompatManager setSkinWindowBackgroundEnable(boolean enable) {
         mSkinWindowBackgroundColorEnable = enable;
         return this;
@@ -261,35 +232,74 @@ public class SkinCompatManager extends SkinObservable {
         return mSkinWindowBackgroundColorEnable;
     }
 
+    /**
+     * 加载记录的皮肤包，一般在Application中初始化换肤框架后调用.
+     * @return
+     */
     public AsyncTask loadSkin() {
         String skin = SkinPreference.getInstance().getSkinName();
-        if (TextUtils.isEmpty(skin)) {
+        int strategy = SkinPreference.getInstance().getSkinStrategy();
+        if (TextUtils.isEmpty(skin) || strategy == SKIN_LOADER_STRATEGY_NONE) {
             return null;
         }
-        return loadSkin(skin, null);
+        return loadSkin(skin, null, strategy);
     }
 
+    /**
+     * 加载记录的皮肤包，一般在Application中初始化换肤框架后调用.
+     *
+     * @param listener 皮肤包加载监听.
+     * @return
+     */
     public AsyncTask loadSkin(SkinLoaderListener listener) {
         String skin = SkinPreference.getInstance().getSkinName();
-        if (TextUtils.isEmpty(skin)) {
+        int strategy = SkinPreference.getInstance().getSkinStrategy();
+        if (TextUtils.isEmpty(skin) || strategy == SKIN_LOADER_STRATEGY_NONE) {
             return null;
         }
-        return loadSkin(skin, listener);
+        return loadSkin(skin, listener, strategy);
     }
 
+    @Deprecated
     public AsyncTask loadSkin(String skinName) {
         return loadSkin(skinName, null);
     }
 
+    @Deprecated
     public AsyncTask loadSkin(String skinName, final SkinLoaderListener listener) {
-        return new SkinLoadTask(listener).execute(skinName);
+        return loadSkin(skinName, listener, SKIN_LOADER_STRATEGY_ASSETS);
+    }
+
+    /**
+     * 加载皮肤包.
+     *
+     * @param skinName 皮肤包名称.
+     * @param strategy 皮肤包加载策略.
+     * @return
+     */
+    public AsyncTask loadSkin(String skinName, int strategy) {
+        return loadSkin(skinName, null, strategy);
+    }
+
+    /**
+     * 加载皮肤包.
+     *
+     * @param skinName 皮肤包名称.
+     * @param listener 皮肤包加载监听.
+     * @param strategy 皮肤包加载策略.
+     * @return
+     */
+    public AsyncTask loadSkin(String skinName, SkinLoaderListener listener, int strategy) {
+        return new SkinLoadTask(listener, mStrategyMap.get(strategy)).execute(skinName);
     }
 
     private class SkinLoadTask extends AsyncTask<String, Void, String> {
         private final SkinLoaderListener mListener;
+        private final SkinLoaderStrategy mStrategy;
 
-        public SkinLoadTask(SkinLoaderListener listener) {
+        SkinLoadTask(@Nullable SkinLoaderListener listener, @NonNull SkinLoaderStrategy strategy) {
             mListener = listener;
+            mStrategy = strategy;
         }
 
         protected void onPreExecute() {
@@ -313,43 +323,31 @@ public class SkinCompatManager extends SkinObservable {
             try {
                 if (params.length == 1) {
                     if (TextUtils.isEmpty(params[0])) {
-                        SkinCompatResources.getInstance().setSkinResource(
-                                mAppContext.getResources(), mAppContext.getPackageName());
+                        SkinCompatResources.getInstance().reset();
                         return params[0];
                     }
-                    SkinLog.d("skinPkgPath", params[0]);
-                    String skinPkgPath = SkinFileUtils.getSkinDir(mAppContext) + File.separator + params[0];
-                    // ToDo 方便调试, 每次点击都从assets中读取
-//                    if (!isSkinExists(params[0])) {
-                    copySkinFromAssets(params[0]);
-                    if (!isSkinExists(params[0])) {
-                        return null;
-                    }
-//                    }
-                    String pkgName = initSkinPackageName(skinPkgPath);
-                    Resources resources = initSkinResources(skinPkgPath);
-                    if (resources != null && !TextUtils.isEmpty(pkgName)) {
-                        SkinCompatResources.getInstance().setSkinResource(resources, pkgName);
+                    if (!TextUtils.isEmpty(
+                            mStrategy.loadSkinInBackground(mAppContext, params[0]))) {
                         return params[0];
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            SkinCompatResources.getInstance().setSkinResource(
-                    mAppContext.getResources(), mAppContext.getPackageName());
+            SkinCompatResources.getInstance().reset();
             return null;
         }
 
         protected void onPostExecute(String skinName) {
             SkinLog.e("skinName = " + skinName);
             synchronized (mLock) {
+                // skinName 为""时，恢复默认皮肤
                 if (skinName != null) {
                     notifyUpdateSkin();
-                    SkinPreference.getInstance().setSkinName(skinName).commitEditor();
+                    SkinPreference.getInstance().setSkinName(skinName).setSkinStrategy(mStrategy.getType()).commitEditor();
                     if (mListener != null) mListener.onSuccess();
                 } else {
-                    SkinPreference.getInstance().setSkinName("").commitEditor();
+                    SkinPreference.getInstance().setSkinName("").setSkinStrategy(SKIN_LOADER_STRATEGY_NONE).commitEditor();
                     if (mListener != null) mListener.onFailed("皮肤资源获取失败");
                 }
                 mLoading = false;
@@ -358,14 +356,26 @@ public class SkinCompatManager extends SkinObservable {
         }
     }
 
-    private String initSkinPackageName(String skinPkgPath) {
+    /**
+     * 获取皮肤包包名.
+     *
+     * @param skinPkgPath sdcard中皮肤包路径.
+     * @return
+     */
+    public String getSkinPackageName(String skinPkgPath) {
         PackageManager mPm = mAppContext.getPackageManager();
         PackageInfo info = mPm.getPackageArchiveInfo(skinPkgPath, PackageManager.GET_ACTIVITIES);
         return info.packageName;
     }
 
+    /**
+     * 获取皮肤包资源{@link Resources}.
+     *
+     * @param skinPkgPath sdcard中皮肤包路径.
+     * @return
+     */
     @Nullable
-    private Resources initSkinResources(String skinPkgPath) {
+    public Resources getSkinResources(String skinPkgPath) {
         try {
             AssetManager assetManager = AssetManager.class.newInstance();
             Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
@@ -377,38 +387,5 @@ public class SkinCompatManager extends SkinObservable {
             e.printStackTrace();
         }
         return null;
-    }
-
-    private String copySkinFromAssets(String name) {
-        String skinDir = SkinFileUtils.getSkinDir(mAppContext);
-        String skinPath = skinDir + File.separator + name;
-        try {
-            InputStream is = mAppContext.getAssets().open(
-                    SkinConstants.SKIN_DEPLOY_PATH
-                            + File.separator
-                            + name);
-            File fileDir = new File(skinDir);
-            if (!fileDir.exists()) {
-                fileDir.mkdirs();
-            }
-            OutputStream os = new FileOutputStream(skinPath);
-            int byteCount;
-            byte[] bytes = new byte[1024];
-
-            while ((byteCount = is.read(bytes)) != -1) {
-                os.write(bytes, 0, byteCount);
-            }
-            os.close();
-            is.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return skinPath;
-    }
-
-    public boolean isSkinExists(String skinName) {
-        return !TextUtils.isEmpty(skinName)
-                && new File(SkinFileUtils.getSkinDir(mAppContext) + File.separator + skinName).exists();
     }
 }
