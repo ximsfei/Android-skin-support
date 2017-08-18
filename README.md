@@ -22,10 +22,12 @@
     * [皮肤开关](#皮肤开关)
     * [加载插件皮肤库](#加载插件皮肤库)
     * [自定义view换肤](#自定义view换肤)
-  * [制作皮肤插件](#制作皮肤插件)
+  * [应用内换肤](#应用内换肤)
+  * [插件式换肤](#插件式换肤)
     * [新建皮肤工程](#新建android-application工程)
     * [添加皮肤资源](#将需要换肤的资源放到res目录下同名资源)
     * [生成皮肤插件](#打包生成apk-即为皮肤包)
+    * [加载皮肤插件](#加载皮肤插件)
 * [第三方控件适配库](ThirdPartSupport.md)
   * [hdodenhof/CircleImageView](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#hdodenhofcircleimageview)
   * [H07000223/FlycoTabLayout](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#h07000223flycotablayout)
@@ -98,7 +100,7 @@ textColor="@color/red"
 
 ```java
 // 指定皮肤插件
-SkinCompatManager.getInstance().loadSkin("new.skin"[, SkinLoaderListener]);
+SkinCompatManager.getInstance().loadSkin("new.skin"[, SkinLoaderListener], int strategy);
 
 // 恢复应用默认皮肤
 SkinCompatManager.getInstance().restoreDefaultTheme();
@@ -134,7 +136,18 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
   eg: [SkinCompatCircleImageView](third-part-support/circleimageview)
 
-### 制作皮肤插件:
+### 应用内换肤:
+
+应用内换肤，皮肤名为: night; 新增需要换肤的资源添加后缀 _night。
+
+需要换肤的资源为R.color.windowBackgroundColor, 添加对应资源R.color.windowBackgroundColor_night。
+
+加载应用内皮肤:
+```java
+SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+```
+
+### 插件式换肤:
 
 #### 新建Android application工程
 
@@ -164,5 +177,12 @@ colors.xml
 #### 打包生成apk, 即为皮肤包
 
 将打包生成的apk文件, 重命名为'xxx.skin', 防止apk结尾的文件造成混淆.
+
+#### 加载皮肤插件
+
+加载插件式皮肤, 将皮肤包放到assets/skins目录下
+```java
+SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS);
+```
 
 ## [License MIT](LICENSE)
