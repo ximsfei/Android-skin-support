@@ -118,11 +118,11 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 * 自定义View可以直接继承自SkinCompatView, SkinCompatLinearLayout等已有控件
 
-  eg: [CustomTextView](skin-app/src/main/java/com/ximsfei/dynamicskindemo/widget/CustomTextView.java)
+  eg: [CustomTextView](skin-app/src/main/java/com/ximsfei/skindemo/widget/CustomTextView.java)
 
 * 不想继承自已有控件
 
-  eg: [CustomTextView2](skin-app/src/main/java/com/ximsfei/dynamicskindemo/widget/CustomTextView2.java)
+  eg: [CustomTextView2](skin-app/src/main/java/com/ximsfei/skindemo/widget/CustomTextView2.java)
 
 * 需要换肤自定义属性
 
