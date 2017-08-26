@@ -115,13 +115,18 @@ public class SkinCompatResources {
     }
 
     private int getTargetResId(int resId, String type) {
-        String resName = null;
-        if (mStrategy != null) {
-            resName = mStrategy.getTargetResourceEntryName(mAppContext, mSkinName, resId);
+        try {
+            String resName = null;
+            if (mStrategy != null) {
+                resName = mStrategy.getTargetResourceEntryName(mAppContext, mSkinName, resId);
+            }
+            if (TextUtils.isEmpty(resName)) {
+                resName = mAppContext.getResources().getResourceEntryName(resId);
+            }
+            return mResources.getIdentifier(resName, type, mSkinPkgName);
+        } catch (Exception e) {
+            // 换肤失败不至于应用崩溃.
+            return 0;
         }
-        if (TextUtils.isEmpty(resName)) {
-            resName = mAppContext.getResources().getResourceEntryName(resId);
-        }
-        return mResources.getIdentifier(resName, type, mSkinPkgName);
     }
 }

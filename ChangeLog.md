@@ -3,6 +3,9 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v2.1.2](https://img.shields.io/badge/skin--support-v2.1.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.2/) bugfix
+  * 换肤失败异常处理
+
 * [![v2.1.1](https://img.shields.io/badge/skin--support-v2.1.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.1/) 新功能开发 依赖 appcompat-v7:25.1.0
   * 新增皮肤包加载策略
     * 应用内资源换肤

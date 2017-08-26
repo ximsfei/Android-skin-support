@@ -22,8 +22,14 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
 }
 
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
 ext {
-        publishVersion = '2.1.1'
+        publishVersion = '2.1.2'
         moduleName = 'skin-support'
         descContent = 'skin-support 基础控件换肤支持包'
 }
