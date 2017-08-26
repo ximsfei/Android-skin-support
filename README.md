@@ -3,7 +3,7 @@
 [![skin-support-v2.1.1](https://img.shields.io/badge/skin--support-v2.1.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.1/)
 [![design-v1.2.5](https://img.shields.io/badge/skin--support--design-v1.2.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.5/)
 [![cardview-v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/)
-[![v1.0.2](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2-green.svg)](http://http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2/)
+[![v1.0.2](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2/)
 
 [![circleimageview-v2.2.0.2](https://img.shields.io/badge/circleimageview-v2.1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/circleimageview/2.1.0.2/)
 [![v2.1.2](https://img.shields.io/badge/flycotablayout-v2.1.2-green.svg)](http://jcenter.bintray.com/skin/support/flycotablayout/2.1.2/)
