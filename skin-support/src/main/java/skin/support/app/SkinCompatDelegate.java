@@ -93,7 +93,7 @@ public class SkinCompatDelegate implements LayoutInflaterFactory {
     }
 
     public void applySkin() {
-        if (mSkinHelpers != null || !mSkinHelpers.isEmpty()) {
+        if (mSkinHelpers != null && !mSkinHelpers.isEmpty()) {
             SkinLog.d("size - " + mSkinHelpers.size());
             for (WeakReference ref : mSkinHelpers) {
                 if (ref != null && ref.get() != null) {
