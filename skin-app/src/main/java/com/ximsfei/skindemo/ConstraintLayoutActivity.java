@@ -1,12 +1,11 @@
 package com.ximsfei.skindemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.view.View;
 
-import skin.support.SkinCompatManager;
-import skin.support.utils.SkinPreference;
+import com.ximsfei.skindemo.settings.SettingsActivity;
 
 /**
  * Created by pengfengwang on 2017/6/19.
@@ -21,11 +20,7 @@ public class ConstraintLayoutActivity extends BaseActivity {
         findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
-                    SkinCompatManager.getInstance().loadSkin("night.skin", null);
-                } else {
-                    SkinCompatManager.getInstance().restoreDefaultTheme();
-                }
+                startActivity(new Intent(ConstraintLayoutActivity.this, SettingsActivity.class));
             }
         });
     }

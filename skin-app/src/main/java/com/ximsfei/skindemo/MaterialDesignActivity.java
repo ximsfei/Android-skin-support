@@ -1,21 +1,19 @@
 package com.ximsfei.skindemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
 import android.view.View;
 
 import com.ximsfei.skindemo.mdtab.MDFirstFragment;
+import com.ximsfei.skindemo.settings.SettingsActivity;
 import com.ximsfei.skindemo.tab.TabFragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import skin.support.SkinCompatManager;
-import skin.support.utils.SkinPreference;
 
 /**
  * Created by ximsfei on 17-3-1.
@@ -33,11 +31,7 @@ public class MaterialDesignActivity extends BaseActivity {
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
-                    SkinCompatManager.getInstance().loadSkin("night.skin", null);
-                } else {
-                    SkinCompatManager.getInstance().restoreDefaultTheme();
-                }
+                startActivity(new Intent(MaterialDesignActivity.this, SettingsActivity.class));
             }
         });
     }

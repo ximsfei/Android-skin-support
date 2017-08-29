@@ -131,7 +131,9 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityResumed(Activity activity) {
-        SkinCompatManager.getInstance().addObserver(getObserver(activity));
+        if (activity instanceof AppCompatActivity) {
+            SkinCompatManager.getInstance().addObserver(getObserver(activity));
+        }
     }
 
     @Override
@@ -150,8 +152,10 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        SkinCompatManager.getInstance().deleteObserver(getObserver(activity));
-        mSkinObserverMap.remove(activity);
-        mSkinDelegateMap.remove(activity);
+        if (activity instanceof AppCompatActivity) {
+            SkinCompatManager.getInstance().deleteObserver(getObserver(activity));
+            mSkinObserverMap.remove(activity);
+            mSkinDelegateMap.remove(activity);
+        }
     }
 }

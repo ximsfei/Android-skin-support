@@ -1,5 +1,6 @@
 package com.ximsfei.skindemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -11,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.ximsfei.skindemo.settings.SettingsActivity;
 
 import skin.support.SkinCompatManager;
 import skin.support.utils.SkinPreference;
@@ -68,11 +71,7 @@ public class CollapsingToolbarLayoutActivity extends BaseActivity {
         findViewById(R.id.small_photo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
-                    SkinCompatManager.getInstance().loadSkin("night.skin", null);
-                } else {
-                    SkinCompatManager.getInstance().restoreDefaultTheme();
-                }
+                startActivity(new Intent(CollapsingToolbarLayoutActivity.this, SettingsActivity.class));
             }
         });
 

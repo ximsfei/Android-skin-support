@@ -25,7 +25,6 @@ import skin.support.utils.SkinPreference;
  */
 
 public class MainActivity extends BaseActivity {
-//public class MainActivity extends AppCompatActivity {
     private TabFragmentPagerAdapter mTabFragmentPagerAdapter;
 
     @Override
@@ -34,16 +33,6 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         initToolbar();
         configFragments();
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(SkinPreference.getInstance().getSkinName())) {
-                    SkinCompatManager.getInstance().loadSkin("night.skin", null);
-                } else {
-                    SkinCompatManager.getInstance().restoreDefaultTheme();
-                }
-            }
-        });
     }
 
     @Override

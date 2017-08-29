@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/colorPrimary_night" android:state_pressed="true" />
+    <item android:color="@color/colorPrimary_night" android:state_selected="true" />
+    <item android:color="@color/colorPrimary_night" android:state_checked="true" />
+    <item android:color="@color/text_color_night" />
+</selector>

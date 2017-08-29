@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按下状态 -->
+    <item android:drawable="@drawable/thumb_dn_night" android:state_pressed="true" />
+
+    <!-- 焦点状态 -->
+    <item android:drawable="@drawable/thumb_up_night" android:state_focused="true" />
+
+    <!-- 默认状态 -->
+    <item android:drawable="@drawable/thumb_up_night" />
+
+</selector> 
