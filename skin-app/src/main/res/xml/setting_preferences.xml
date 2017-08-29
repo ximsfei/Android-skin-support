@@ -14,5 +14,10 @@
             android:summary="插件式换肤"
             android:title="夜间模式" />
 
+        <SwitchPreference
+            android:key="SDCardNightMode"
+            android:summary="指定sdcard路径"
+            android:title="夜间模式" />
+
     </PreferenceCategory>
 </PreferenceScreen>

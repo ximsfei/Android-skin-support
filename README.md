@@ -28,6 +28,7 @@
     * [添加皮肤资源](#将需要换肤的资源放到res目录下同名资源)
     * [生成皮肤插件](#打包生成apk-即为皮肤包)
     * [加载皮肤插件](#加载皮肤插件)
+  * [自定义加载策略](#自定义加载策略)
 * [第三方控件适配库](ThirdPartSupport.md)
   * [hdodenhof/CircleImageView](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#hdodenhofcircleimageview)
   * [H07000223/FlycoTabLayout](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#h07000223flycotablayout)
@@ -184,5 +185,45 @@ colors.xml
 ```java
 SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS);
 ```
+
+### 自定义加载策略:
+
+以自定义SDCard加载路径为例:
+
+继承自`SkinSDCardLoader`，通过`getSkinPath`方法指定皮肤加载路径，通过`getType`方法指定加载器type。
+
+```java
+public class CustomSDCardLoader extends SkinSDCardLoader {
+    public static final int SKIN_LOADER_STRATEGY_SDCARD = Integer.MAX_VALUE;
+
+    @Override
+    protected String getSkinPath(Context context, String skinName) {
+        return new File(SkinFileUtils.getSkinDir(context), skinName).getAbsolutePath();
+    }
+
+    @Override
+    public int getType() {
+        return SKIN_LOADER_STRATEGY_SDCARD;
+    }
+}
+```
+
+*注: 自定义加载器type 值最好从整数最大值开始递减，框架的type值从小数开始递增，以免将来框架升级造成type 值冲突*
+
+在Application中，添加自定义加载策略:
+
+```java
+SkinCompatManager.withoutActivity(this)
+        .addStrategy(new CustomSDCardLoader());          // 自定义加载策略，指定SDCard路径
+```
+
+*注: 自定义加载器必须在Application中注册，皮肤切换后，重启应用需要根据当前策略加载皮肤*
+
+使用自定义加载器加载皮肤:
+
+```java
+SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.SKIN_LOADER_STRATEGY_SDCARD);
+```
+
 
 ## [License MIT](LICENSE)
