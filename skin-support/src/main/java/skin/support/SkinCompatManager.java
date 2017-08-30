@@ -343,8 +343,8 @@ public class SkinCompatManager extends SkinObservable {
             synchronized (mLock) {
                 // skinName 为""时，恢复默认皮肤
                 if (skinName != null) {
-                    notifyUpdateSkin();
                     SkinPreference.getInstance().setSkinName(skinName).setSkinStrategy(mStrategy.getType()).commitEditor();
+                    notifyUpdateSkin();
                     if (mListener != null) mListener.onSuccess();
                 } else {
                     SkinPreference.getInstance().setSkinName("").setSkinStrategy(SKIN_LOADER_STRATEGY_NONE).commitEditor();

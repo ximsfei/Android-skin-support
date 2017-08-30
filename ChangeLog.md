@@ -3,6 +3,9 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v2.1.3](https://img.shields.io/badge/skin--support-v2.1.3-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.3/) bugfix
+  * 先写SharedPreferences, 再通知UI更新
+
 * [![v2.1.2](https://img.shields.io/badge/skin--support-v2.1.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.2/) bugfix
   * 换肤失败异常处理
 
