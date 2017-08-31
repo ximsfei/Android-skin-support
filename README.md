@@ -29,6 +29,7 @@
     * [生成皮肤插件](#打包生成apk-即为皮肤包)
     * [加载皮肤插件](#加载皮肤插件)
   * [自定义加载策略](#自定义加载策略)
+* [AlertDialog换肤](#docs/AlertDialog.md)
 * [第三方控件适配库](ThirdPartSupport.md)
   * [hdodenhof/CircleImageView](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#hdodenhofcircleimageview)
   * [H07000223/FlycoTabLayout](https://github.com/ximsfei/Android-skin-support/blob/master/ThirdPartSupport.md#h07000223flycotablayout)
