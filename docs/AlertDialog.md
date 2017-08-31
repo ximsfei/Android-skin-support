@@ -2,13 +2,13 @@
 
 AlertDialog的使用可参考demo中的[AlertDialogActivity](../skin-app/src/main/java/com/ximsfei/skindemo/alert/AlertDialogActivity.java)
 
-##. 使用最新的 skin-support 框架
+## 使用最新的 skin-support 框架
 
-##. 使用v7包中的AlertDialog
+## 使用v7包中的AlertDialog
 
 将`android.app.AlertDialog`替换成`android.support.v7.app.AlertDialog`
 
-##. 在需要使用 AlertDialog 的 Activity 的 Theme 中添加以下属性
+## 在需要使用 AlertDialog 的 Activity 的 Theme 中添加以下属性
 
 ```xml
 <style name="xxx" parent="BaseAppTheme">
