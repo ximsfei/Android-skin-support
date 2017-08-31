@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <EditText
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:hint="@color/text_color_hint"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="alert dialog edit text"
+        android:textSize="32sp" />
+</RelativeLayout>

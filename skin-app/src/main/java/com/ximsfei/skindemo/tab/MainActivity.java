@@ -1,24 +1,21 @@
-package com.ximsfei.skindemo;
+package com.ximsfei.skindemo.tab;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
 import android.view.Menu;
-import android.view.View;
 
-import com.ximsfei.skindemo.tab.FirstFragment;
-import com.ximsfei.skindemo.tab.LastFragment;
-import com.ximsfei.skindemo.tab.SFragment;
-import com.ximsfei.skindemo.tab.TFragment;
-import com.ximsfei.skindemo.tab.TabFragmentPagerAdapter;
+import com.ximsfei.skindemo.BaseActivity;
+import com.ximsfei.skindemo.R;
+import com.ximsfei.skindemo.tab.fragment.FirstFragment;
+import com.ximsfei.skindemo.tab.fragment.LastFragment;
+import com.ximsfei.skindemo.tab.fragment.SFragment;
+import com.ximsfei.skindemo.tab.fragment.TFragment;
+import com.ximsfei.skindemo.tab.fragment.TabFragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import skin.support.SkinCompatManager;
-import skin.support.utils.SkinPreference;
 
 /**
  * Created by ximsfei on 2017/1/9.

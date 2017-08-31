@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo.tab;
+package com.ximsfei.skindemo.tab.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
