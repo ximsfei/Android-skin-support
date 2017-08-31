@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="skinAlertDialogBackground" format="reference" />
+    <attr name="skinAlertDialogTitleTextColor" format="reference" />
+    <attr name="skinAlertDialogMessageTextColor" format="reference" />
+    <attr name="skinAlertDialogNeutralButtonTextColor" format="reference" />
+    <attr name="skinAlertDialogNegativeButtonTextColor" format="reference" />
+    <attr name="skinAlertDialogPositiveButtonTextColor" format="reference" />
+    <attr name="skinAlertDialogControlHighlightColor" format="reference" />
+    <attr name="skinAlertDialogListDivider" format="reference" />
+    <attr name="skinAlertDialogListItemTextColor" format="reference" />
+    <attr name="skinListChoiceIndicatorMultiple" format="reference" />
+    <attr name="skinListChoiceIndicatorSingle" format="reference" />
+</resources>

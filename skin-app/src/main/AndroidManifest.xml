@@ -17,22 +17,27 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.ximsfei.skindemo.MainActivity" />
+        <activity android:name="com.ximsfei.skindemo.tab.MainActivity" />
 
         <activity
             android:name="com.ximsfei.skindemo.settings.SettingsActivity"
             android:label="SettingsActivity" />
 
         <activity
-            android:name="com.ximsfei.skindemo.CollapsingToolbarLayoutActivity"
+            android:name="com.ximsfei.skindemo.mdtab.CollapsingToolbarLayoutActivity"
             android:label="CollapsingToolbarLayoutActivity" />
 
         <activity
-            android:name="com.ximsfei.skindemo.ConstraintLayoutActivity"
+            android:name="com.ximsfei.skindemo.constraint.ConstraintLayoutActivity"
             android:label="ConstraintLayoutActivity" />
 
         <activity
-            android:name="com.ximsfei.skindemo.MaterialDesignActivity"
+            android:name="com.ximsfei.skindemo.alert.AlertDialogActivity"
+            android:label="AlertDialogActivity"
+            android:theme="@style/AlertDialogTheme" />
+
+        <activity
+            android:name="com.ximsfei.skindemo.mdtab.MaterialDesignActivity"
             android:label="Material Design"
             android:theme="@style/MaterialDesignTheme" />
 

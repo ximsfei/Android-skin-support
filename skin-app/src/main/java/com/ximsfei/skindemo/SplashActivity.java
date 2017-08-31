@@ -17,7 +17,11 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ximsfei.skindemo.alert.AlertDialogActivity;
+import com.ximsfei.skindemo.constraint.ConstraintLayoutActivity;
 import com.ximsfei.skindemo.flycotablayout.ui.SimpleHomeActivity;
+import com.ximsfei.skindemo.mdtab.MaterialDesignActivity;
+import com.ximsfei.skindemo.tab.MainActivity;
 
 /**
  * Created by ximsf on 2017/3/8.
@@ -26,9 +30,9 @@ import com.ximsfei.skindemo.flycotablayout.ui.SimpleHomeActivity;
 public class SplashActivity extends BaseActivity {
     private ListView mListView;
     private Context mContext = this;
-    private final String[] mItems = {"基础控件", "Material Design", "ConstraintLayout", "FlycoTabLayout"};
+    private final String[] mItems = {"基础控件", "Material Design", "ConstraintLayout", "FlycoTabLayout", "AlertDialog"};
     private final Class<?>[] mClasses = {MainActivity.class, MaterialDesignActivity.class, ConstraintLayoutActivity.class,
-            SimpleHomeActivity.class};
+            SimpleHomeActivity.class, AlertDialogActivity.class};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

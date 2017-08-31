@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo;
+package com.ximsfei.skindemo.mdtab;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.ximsfei.skindemo.mdtab.MDFirstFragment;
+import com.ximsfei.skindemo.BaseActivity;
+import com.ximsfei.skindemo.R;
 import com.ximsfei.skindemo.settings.SettingsActivity;
-import com.ximsfei.skindemo.tab.TabFragmentPagerAdapter;
+import com.ximsfei.skindemo.tab.fragment.TabFragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
