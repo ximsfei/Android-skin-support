@@ -201,9 +201,9 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
 
     private void setFocusedTextColor(ColorStateList colors) {
         try {
-            Field focusedTextcolor = TextInputLayout.class.getDeclaredField("mFocusedTextColor");
-            focusedTextcolor.setAccessible(true);
-            focusedTextcolor.set(this, colors);
+            Field focusedTextColor = TextInputLayout.class.getDeclaredField("mFocusedTextColor");
+            focusedTextColor.setAccessible(true);
+            focusedTextColor.set(this, colors);
             updateLabelState();
         } catch (Exception e) {
             e.printStackTrace();
