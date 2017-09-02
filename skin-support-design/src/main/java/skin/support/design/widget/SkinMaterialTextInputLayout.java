@@ -33,7 +33,6 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
     private int mErrorTextColorResId = INVALID_ID;
     private int mFocusedTextColorResId = INVALID_ID;
     private int mDefaultTextColorResId = INVALID_ID;
-    private boolean mSkinSupport = true;
 
     public SkinMaterialTextInputLayout(Context context) {
         this(context, null);

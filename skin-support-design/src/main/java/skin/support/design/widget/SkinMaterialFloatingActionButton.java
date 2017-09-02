@@ -22,7 +22,6 @@ public class SkinMaterialFloatingActionButton extends FloatingActionButton imple
     private int mBackgroundTintResId = INVALID_ID;
 
     private SkinCompatImageHelper mImageHelper;
-    private boolean mSkinSupport = true;
 
     public SkinMaterialFloatingActionButton(Context context) {
         this(context, null);

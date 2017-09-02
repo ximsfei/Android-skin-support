@@ -19,7 +19,6 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 public class SkinMaterialTextInputEditText extends TextInputEditText implements SkinCompatSupportable {
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
-    private boolean mSkinSupport = true;
 
     public SkinMaterialTextInputEditText(Context context) {
         this(context, null);
