@@ -49,7 +49,7 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 就这么简单, 你的APK已经拥有了强大的换肤功能, 当然现在是拥有了换肤功能, 别忘了[制作皮肤包](#应用内换肤).
 
-### 项目目录结构
+### 目录结构
 
 > [demo](demo)                                       // 换肤demo 集合
 
