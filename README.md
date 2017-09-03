@@ -90,7 +90,7 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 ## 用法
 
 ### 导入:
-直接添加依赖, [最新版本选择, 请查看更新日志](ChangeLog.md)
+直接添加依赖, [最新版本选择, 请查看更新日志](docs/ChangeLog.md)
 ```xml
 compile 'skin.support:skin-support:2.1.4'          // skin-support 基础控件支持
 compile 'skin.support:skin-support-design:1.2.5'   // skin-support-design material design 控件支持[可选]
