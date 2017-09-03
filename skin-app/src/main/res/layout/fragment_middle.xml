@@ -22,7 +22,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/text_background"
         android:text="custom text view 2"
-        android:textColor="@color/color_selector" />
+        android:textColor="@drawable/color_selector" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="加进度"
-            android:textColor="@color/color_selector" />
+            android:textColor="@drawable/color_selector" />
     </LinearLayout>
 
     <ProgressBar

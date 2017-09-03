@@ -54,8 +54,8 @@
                 android:layout_height="?attr/actionBarSize"
                 android:clickable="true"
                 android:gravity="center_vertical"
-                android:text="点击可变文本颜色 @color/color_selector"
-                android:textColor="@color/color_selector"
+                android:text="点击可变文本颜色 @drawable/color_selector"
+                android:textColor="@drawable/color_selector"
                 android:textSize="18sp" />
 
             <ImageView

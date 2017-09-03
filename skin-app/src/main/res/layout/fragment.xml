@@ -24,7 +24,7 @@
         android:drawableTop="@drawable/drawable_top_selector"
         android:gravity="center"
         android:text="left right top bottom"
-        android:textColor="@color/color_selector"
+        android:textColor="@drawable/color_selector"
         android:textSize="18sp" />
 
     <EditText
@@ -62,7 +62,7 @@
             android:drawableTop="@drawable/drawable_left_selector"
             android:gravity="center_horizontal"
             android:text="一"
-            android:textColor="@color/color_selector" />
+            android:textColor="@drawable/color_selector" />
 
         <RadioButton
             android:layout_width="0dp"
@@ -72,7 +72,7 @@
             android:drawableTop="@drawable/drawable_top_selector"
             android:gravity="center_horizontal"
             android:text="二"
-            android:textColor="@color/color_selector" />
+            android:textColor="@drawable/color_selector" />
 
         <RadioButton
             android:layout_width="0dp"
@@ -82,7 +82,7 @@
             android:drawableTop="@drawable/drawable_right_selector"
             android:gravity="center_horizontal"
             android:text="三"
-            android:textColor="@color/color_selector" />
+            android:textColor="@drawable/color_selector" />
 
         <RadioButton
             android:layout_width="0dp"
@@ -92,7 +92,7 @@
             android:drawableTop="@drawable/drawable_bottom_selector"
             android:gravity="center_horizontal"
             android:text="四"
-            android:textColor="@color/color_selector" />
+            android:textColor="@drawable/color_selector" />
     </LinearLayout>
 
     <View
