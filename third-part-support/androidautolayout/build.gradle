@@ -22,7 +22,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.zhy:autolayout:1.4.5'
-    compile project(':skin-support')
+    compile project(':android-support:skin-support')
 }
 
 ext {

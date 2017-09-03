@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
@@ -20,14 +20,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile project(':skin-support')
-}
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile project(':android-support:skin-support')
+//    compile 'skin.support:skin-support:1.2.3'
 
-ext {
-    publishVersion = "1.0.2"
-    moduleName = 'skin-support-constraint-layout'
-    descContent = 'ConstraintLayout控件换肤支持包'
+    compile 'com.zhy:autolayout:1.4.5'
+//    compile project(':third-part-support:androidautolayout')
+    compile 'skin.support:androidautolayout:1.4.5'
 }
-
-apply from: '../publishing_maven.gradle'

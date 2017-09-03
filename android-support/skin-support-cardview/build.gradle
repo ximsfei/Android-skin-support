@@ -9,6 +9,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
     }
     buildTypes {
         release {
@@ -20,16 +21,14 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
-
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    compile 'com.android.support:cardview-v7:25.1.0'
     compile project(':android-support:skin-support')
 }
 
 ext {
-    publishVersion = '2.1.2'
-    moduleName = 'flycotablayout'
-    descContent = 'H07000223/FlycoTabLayout 控件换肤支持包'
+    publishVersion="1.2.0"
+    moduleName="skin-support-cardview"
+    descContent="CardView-v7 换肤支持包"
 }
 
 apply from: '../../publishing_maven.gradle'

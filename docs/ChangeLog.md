@@ -4,7 +4,7 @@
 
 
 * [![v2.1.4](https://img.shields.io/badge/skin--support-v2.1.4-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.4/) bugfix 新功能开发
-  * android.support.v7.app.AlertDialog [换肤支持](docs/AlertDialog.md)
+  * android.support.v7.app.AlertDialog [换肤支持](AlertDialog.md)
   * fix: issue #77
 
 * [![v2.1.3](https://img.shields.io/badge/skin--support-v2.1.3-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.3/) bugfix
