@@ -110,7 +110,8 @@ public class SkinCompatResources {
             return colorStateList;
         }
 
-        int targetResId = getTargetResId(resId, "color");
+        String resType = mAppContext.getResources().getResourceTypeName(resId);
+        int targetResId = getTargetResId(resId, resType);
         return targetResId == 0 ? colorStateList : mResources.getColorStateList(targetResId);
     }
 
