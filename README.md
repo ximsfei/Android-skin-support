@@ -49,13 +49,18 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 就这么简单, 你的APK已经拥有了强大的换肤功能, 当然现在是拥有了换肤功能, 别忘了[制作皮肤包](#应用内换肤).
 
-[skin-app](skin-app)                        // 换肤demo app
+> [demo](demo)                                       // 换肤demo 集合
+>> [skin-app](demo/skin-app)                         // demo app
+>> [skin-night](demo/skin-night)                     // 夜间模式皮肤工程
+>> [skin-autolayout-app](demo/skin-autolayout-app)   // autolayout demo app
 
-[skin-night](skin-night)                    // 换肤demo 夜间模式
+> [android-support](android-support)                 // Android 原生控件
+>> [skin-support](android-support／skin-support)                      // 换肤框架, 基础控件支持
+>> [skin-support-cardview](android-support／skin-support-cardview)    // 换肤框架, CardView 支持
+>> [skin-support-design](android-support／skin-support-design)        // 换肤框架, Material Design 支持
+>> [skin-support-constraint-layout](android-support／skin-support-constraint-layout)  // 换肤框架, ConstraintLayout 支持
 
-[skin-support](skin-support)                // 换肤框架, 基础控件支持
-
-[skin-support-design](skin-support-design)  // 换肤框架, Material Design 支持
+> [third-part-support](third-part-support)           // 第三方控件换肤支持
 
 ## Demo
 
