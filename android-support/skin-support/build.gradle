@@ -3,7 +3,6 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
-
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 25
@@ -16,19 +15,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-alertdialog']
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
-    compile project(':skin-support')
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
 }
 
 ext {
-    publishVersion="1.2.5"
-    moduleName = 'skin-support-design'
-    descContent = 'material design控件换肤支持包'
+    publishVersion = '2.1.4'
+    moduleName = 'skin-support'
+    descContent = 'skin-support 基础控件换肤支持包'
 }
 
-apply from: '../publishing_maven.gradle'
+apply from: '../../publishing_maven.gradle'

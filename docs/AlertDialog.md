@@ -1,6 +1,6 @@
 # AlertDialog 换肤支持
 
-AlertDialog的使用可参考demo中的[AlertDialogActivity](../skin-app/src/main/java/com/ximsfei/skindemo/alert/AlertDialogActivity.java)
+AlertDialog的使用可参考demo中的[AlertDialogActivity](../demo/skin-app/src/main/java/com/ximsfei/skindemo/alert/AlertDialogActivity.java)
 
 ## 使用最新的 skin-support 框架
 

@@ -9,7 +9,6 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-
     }
     buildTypes {
         release {
@@ -21,14 +20,15 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:cardview-v7:25.1.0'
-    compile project(':skin-support')
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
+    compile project(':android-support:skin-support')
 }
 
 ext {
-    publishVersion="1.2.0"
-    moduleName="skin-support-cardview"
-    descContent="CardView-v7 换肤支持包"
+    publishVersion="1.2.5"
+    moduleName = 'skin-support-design'
+    descContent = 'material design控件换肤支持包'
 }
 
-apply from: '../publishing_maven.gradle'
+apply from: '../../publishing_maven.gradle'
