@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AlertDialog.SkinCompat" parent="Base.AlertDialog.AppCompat">
+        <item name="android:layout">@layout/skin_alert_dialog</item>
+        <item name="listLayout">@layout/skin_select_dialog</item>
+        <item name="listItemLayout">@layout/skin_select_dialog_item</item>
+        <item name="multiChoiceItemLayout">@layout/skin_select_dialog_multichoice</item>
+        <item name="singleChoiceItemLayout">@layout/skin_select_dialog_singlechoice</item>
+    </style>
+</resources>

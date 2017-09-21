@@ -8,11 +8,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/android" />
             <option value="$PROJECT_DIR$/android-support" />
             <option value="$PROJECT_DIR$/android-support/skin-support" />
             <option value="$PROJECT_DIR$/android-support/skin-support-cardview" />
             <option value="$PROJECT_DIR$/android-support/skin-support-constraint-layout" />
             <option value="$PROJECT_DIR$/android-support/skin-support-design" />
+            <option value="$PROJECT_DIR$/android/skin" />
             <option value="$PROJECT_DIR$/demo" />
             <option value="$PROJECT_DIR$/demo/skin-app" />
             <option value="$PROJECT_DIR$/demo/skin-autolayout-app" />
