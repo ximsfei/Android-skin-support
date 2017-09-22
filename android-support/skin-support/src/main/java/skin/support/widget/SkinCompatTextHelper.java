@@ -49,17 +49,17 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         final int ap = a.getResourceId(R.styleable.SkinCompatTextHelper_android_textAppearance, INVALID_ID);
         SkinLog.d(TAG, "ap = " + ap);
 
-        if (a.hasValue(R.styleable.AppCompatTextHelper_android_drawableLeft)) {
-            mDrawableLeftResId = a.getResourceId(R.styleable.AppCompatTextHelper_android_drawableLeft, INVALID_ID);
+        if (a.hasValue(R.styleable.SkinCompatTextHelper_android_drawableLeft)) {
+            mDrawableLeftResId = a.getResourceId(R.styleable.SkinCompatTextHelper_android_drawableLeft, INVALID_ID);
         }
-        if (a.hasValue(R.styleable.AppCompatTextHelper_android_drawableTop)) {
-            mDrawableTopResId = a.getResourceId(R.styleable.AppCompatTextHelper_android_drawableTop, INVALID_ID);
+        if (a.hasValue(R.styleable.SkinCompatTextHelper_android_drawableTop)) {
+            mDrawableTopResId = a.getResourceId(R.styleable.SkinCompatTextHelper_android_drawableTop, INVALID_ID);
         }
-        if (a.hasValue(R.styleable.AppCompatTextHelper_android_drawableRight)) {
-            mDrawableRightResId = a.getResourceId(R.styleable.AppCompatTextHelper_android_drawableRight, INVALID_ID);
+        if (a.hasValue(R.styleable.SkinCompatTextHelper_android_drawableRight)) {
+            mDrawableRightResId = a.getResourceId(R.styleable.SkinCompatTextHelper_android_drawableRight, INVALID_ID);
         }
-        if (a.hasValue(R.styleable.AppCompatTextHelper_android_drawableBottom)) {
-            mDrawableBottomResId = a.getResourceId(R.styleable.AppCompatTextHelper_android_drawableBottom, INVALID_ID);
+        if (a.hasValue(R.styleable.SkinCompatTextHelper_android_drawableBottom)) {
+            mDrawableBottomResId = a.getResourceId(R.styleable.SkinCompatTextHelper_android_drawableBottom, INVALID_ID);
         }
         a.recycle();
 
