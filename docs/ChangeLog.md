@@ -3,6 +3,9 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v2.1.5](https://img.shields.io/badge/skin--support-v2.1.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.5/) bugfix 新功能开发
+  * fix: issue #87
+
 * [![v2.1.4](https://img.shields.io/badge/skin--support-v2.1.4-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.4/) bugfix 新功能开发
   * android.support.v7.app.AlertDialog [换肤支持](AlertDialog.md)
   * fix: issue #77
