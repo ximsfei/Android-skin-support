@@ -183,8 +183,8 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
     }
 
     public void applySkin() {
+        applyCompoundDrawablesRelativeResource();
         applyTextColorResource();
         applyTextColorHintResource();
-        applyCompoundDrawablesResource();
     }
 }

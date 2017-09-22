@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.RequiresApi;
-import android.support.v7.widget.AppCompatDrawableManager;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -92,13 +91,7 @@ public class SkinCompatTextHelperV17 extends SkinCompatTextHelper {
                 || mDrawableBottomResId != INVALID_ID
                 || mDrawableStartResId != INVALID_ID
                 || mDrawableEndResId != INVALID_ID) {
-            mView.setCompoundDrawablesRelativeWithIntrinsicBounds(drawableStart, drawableTop, drawableEnd, drawableBottom);
+            mView.setCompoundDrawablesWithIntrinsicBounds(drawableStart, drawableTop, drawableEnd, drawableBottom);
         }
-    }
-
-    @Override
-    public void applySkin() {
-        super.applySkin();
-        applyCompoundDrawablesRelativeResource();
     }
 }

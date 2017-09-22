@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
 import skin.support.SkinCompatManager;
@@ -75,47 +74,46 @@ public class SkinCompatResources {
     }
 
     public int getColor(int resId) {
-        int originColor = ContextCompat.getColor(mAppContext, resId);
+        int originColor = mAppContext.getResources().getColor(resId);
         if (isDefaultSkin) {
             return originColor;
         }
 
-        int targetResId = getTargetResId(resId, "color");
+        int targetResId = getTargetResId(resId);
         return targetResId == 0 ? originColor : mResources.getColor(targetResId);
     }
 
     public Drawable getDrawable(int resId) {
-        Drawable originDrawable = ContextCompat.getDrawable(mAppContext, resId);
+        Drawable originDrawable = mAppContext.getResources().getDrawable(resId);
         if (isDefaultSkin) {
             return originDrawable;
         }
 
-        int targetResId = getTargetResId(resId, "drawable");
+        int targetResId = getTargetResId(resId);
         return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
     }
 
     public Drawable getMipmap(int resId) {
-        Drawable originDrawable = ContextCompat.getDrawable(mAppContext, resId);
+        Drawable originDrawable = mAppContext.getResources().getDrawable(resId);
         if (isDefaultSkin) {
             return originDrawable;
         }
 
-        int targetResId = getTargetResId(resId, "mipmap");
+        int targetResId = getTargetResId(resId);
         return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
     }
 
     public ColorStateList getColorStateList(int resId) {
-        ColorStateList colorStateList = ContextCompat.getColorStateList(mAppContext, resId);
+        ColorStateList colorStateList = mAppContext.getResources().getColorStateList(resId);
         if (isDefaultSkin) {
             return colorStateList;
         }
 
-        String resType = mAppContext.getResources().getResourceTypeName(resId);
-        int targetResId = getTargetResId(resId, resType);
+        int targetResId = getTargetResId(resId);
         return targetResId == 0 ? colorStateList : mResources.getColorStateList(targetResId);
     }
 
-    private int getTargetResId(int resId, String type) {
+    private int getTargetResId(int resId) {
         try {
             String resName = null;
             if (mStrategy != null) {
@@ -124,6 +122,7 @@ public class SkinCompatResources {
             if (TextUtils.isEmpty(resName)) {
                 resName = mAppContext.getResources().getResourceEntryName(resId);
             }
+            String type = mAppContext.getResources().getResourceTypeName(resId);
             return mResources.getIdentifier(resName, type, mSkinPkgName);
         } catch (Exception e) {
             // 换肤失败不至于应用崩溃.
