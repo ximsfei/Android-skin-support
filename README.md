@@ -126,15 +126,15 @@ public void onCreate() {
 
 如果项目中有特殊需求。例如, 股票控件: 控件颜色始终为红色或绿色, 不需要随着模式切换而换肤
 
-那么可以使用类似的方法, 直接设置color值
+那么可以使用类似的方法, 直接设置drawable
 ```xml
-setTextColor(0xce3d3a) // 不支持换肤
-textColor="#ce3d3a"
+setBackgroundDrawable(redDrawable) // 不支持换肤
+background="#ce3d3a"
 ```
-而不是使用R.color.red
+而不是使用R.drawable.red
 ```xml
-setTextColor(R.color.red)
-textColor="@color/red"
+setBackgroundResource(R.drawable.red)
+background="@drawable/red"
 ```
 
 #### 加载插件皮肤库
