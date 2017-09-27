@@ -2,11 +2,14 @@ package skin.support.app;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.LayoutInflaterCompat;
 import android.view.LayoutInflater;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.WeakHashMap;
 
 import skin.support.SkinCompatManager;
@@ -14,19 +17,22 @@ import skin.support.observe.SkinObservable;
 import skin.support.observe.SkinObserver;
 
 public class SkinActivityLifecycle implements Application.ActivityLifecycleCallbacks {
-    private static volatile SkinActivityLifecycle sInstance = null;
+    private static final Map<Context, SkinActivityLifecycle> sInstanceMap = new HashMap<>();
     private WeakHashMap<Activity, SkinCompatDelegate> mSkinDelegateMap;
     private WeakHashMap<Activity, SkinObserver> mSkinObserverMap;
 
     public static SkinActivityLifecycle init(Application application) {
-        if (sInstance == null) {
+        SkinActivityLifecycle instance = sInstanceMap.get(application);
+        if (instance == null) {
             synchronized (SkinActivityLifecycle.class) {
-                if (sInstance == null) {
-                    sInstance = new SkinActivityLifecycle(application);
+                instance = sInstanceMap.get(application);
+                if (instance == null) {
+                    instance = new SkinActivityLifecycle(application);
+                    sInstanceMap.put(application, instance);
                 }
             }
         }
-        return sInstance;
+        return instance;
     }
 
     private SkinActivityLifecycle(Application application) {
@@ -56,6 +62,9 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
                 @Override
                 public void updateSkin(SkinObservable observable, Object o) {
                     getSkinDelegate(activity).applySkin();
+                    if (activity instanceof SkinActivity) {
+                        ((SkinActivity) activity).applySkin();
+                    }
                 }
             };
         }
@@ -65,7 +74,7 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        if (activity instanceof SkinActivity) {
+        if (isActivitySkinEnable(activity)) {
             LayoutInflater layoutInflater = activity.getLayoutInflater();
             try {
                 Field field = LayoutInflater.class.getDeclaredField("mFactorySet");
@@ -86,8 +95,8 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityResumed(Activity activity) {
-        if (activity instanceof SkinActivity) {
-            SkinCompatManager.getInstance().addObserver(getObserver(activity));
+        if (isActivitySkinEnable(activity)) {
+            SkinCompatManager.getInstance(activity).addObserver(getObserver(activity));
         }
     }
 
@@ -107,10 +116,14 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        if (activity instanceof SkinActivity) {
-            SkinCompatManager.getInstance().deleteObserver(getObserver(activity));
+        if (isActivitySkinEnable(activity)) {
+            SkinCompatManager.getInstance(activity).deleteObserver(getObserver(activity));
             mSkinObserverMap.remove(activity);
             mSkinDelegateMap.remove(activity);
         }
+    }
+
+    private boolean isActivitySkinEnable(Activity activity) {
+        return SkinCompatManager.getInstance(activity).isSkinAllActivityEnable() || activity instanceof SkinActivity;
     }
 }

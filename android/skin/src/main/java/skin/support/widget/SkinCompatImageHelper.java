@@ -55,7 +55,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
         String typeName = mView.getResources().getResourceTypeName(mSrcResId);
         if ("color".equals(typeName)) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                int color = SkinCompatResources.getInstance().getColor(mSrcResId);
+                int color = SkinCompatResources.getInstance(mView.getContext()).getColor(mSrcResId);
                 Drawable drawable = mView.getDrawable();
                 if (drawable != null && drawable instanceof ColorDrawable) {
                     ((ColorDrawable) drawable.mutate()).setColor(color);
@@ -63,7 +63,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
                     mView.setImageDrawable(new ColorDrawable(color));
                 }
             } else {
-                ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mSrcResId);
+                ColorStateList colorStateList = SkinCompatResources.getInstance(mView.getContext()).getColorStateList(mSrcResId);
                 Drawable drawable = mView.getDrawable();
                 if (drawable != null) {
                     DrawableCompat.setTintList(drawable, colorStateList);
@@ -75,10 +75,10 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
                 }
             }
         } else if ("drawable".equals(typeName)) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mSrcResId);
+            Drawable drawable = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mSrcResId);
             mView.setImageDrawable(drawable);
         } else if ("mipmap".equals(typeName)) {
-            Drawable drawable = SkinCompatResources.getInstance().getMipmap(mSrcResId);
+            Drawable drawable = SkinCompatResources.getInstance(mView.getContext()).getMipmap(mSrcResId);
             mView.setImageDrawable(drawable);
         }
     }

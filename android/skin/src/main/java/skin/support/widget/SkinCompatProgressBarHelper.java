@@ -138,20 +138,20 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
     public void applySkin() {
         mIndeterminateDrawableResId = checkResourceId(mIndeterminateDrawableResId);
         if (mIndeterminateDrawableResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mIndeterminateDrawableResId);
+            Drawable drawable = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mIndeterminateDrawableResId);
             drawable.setBounds(mView.getIndeterminateDrawable().getBounds());
             mView.setIndeterminateDrawable(tileifyIndeterminate(drawable));
         }
 
         mProgressDrawableResId = checkProgressDrawableResId(mProgressDrawableResId);
         if (mProgressDrawableResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mProgressDrawableResId);
+            Drawable drawable = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mProgressDrawableResId);
             mView.setProgressDrawable(tileify(drawable, false));
         }
         if (Build.VERSION.SDK_INT > 21) {
             mIndeterminateTintResId = checkResourceId(mIndeterminateTintResId);
             if (mIndeterminateTintResId != INVALID_ID) {
-                mView.setIndeterminateTintList(SkinCompatResources.getInstance().getColorStateList(mIndeterminateTintResId));
+                mView.setIndeterminateTintList(SkinCompatResources.getInstance(mView.getContext()).getColorStateList(mIndeterminateTintResId));
             }
         }
     }

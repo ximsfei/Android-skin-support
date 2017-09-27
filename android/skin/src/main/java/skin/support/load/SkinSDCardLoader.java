@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
 
-import java.io.File;
-
 import skin.support.SkinCompatManager;
 import skin.support.SkinCompatManager.SkinLoaderStrategy;
 import skin.support.content.res.SkinCompatResources;
@@ -16,10 +14,10 @@ public abstract class SkinSDCardLoader implements SkinLoaderStrategy {
     public String loadSkinInBackground(Context context, String skinName) {
         String skinPkgPath = getSkinPath(context, skinName);
         if (SkinFileUtils.isFileExists(skinPkgPath)) {
-            String pkgName = SkinCompatManager.getInstance().getSkinPackageName(skinPkgPath);
-            Resources resources = SkinCompatManager.getInstance().getSkinResources(skinPkgPath);
+            String pkgName = SkinCompatManager.getInstance(context).getSkinPackageName(skinPkgPath);
+            Resources resources = SkinCompatManager.getInstance(context).getSkinResources(skinPkgPath);
             if (resources != null && !TextUtils.isEmpty(pkgName)) {
-                SkinCompatResources.getInstance().setupSkin(
+                SkinCompatResources.getInstance(context).setupSkin(
                         resources,
                         pkgName,
                         skinName,

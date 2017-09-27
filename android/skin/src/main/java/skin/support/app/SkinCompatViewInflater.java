@@ -96,7 +96,7 @@ public class SkinCompatViewInflater {
 
     private View createViewFromHackInflater(Context context, String name, AttributeSet attrs) {
         View view = null;
-        for (SkinLayoutInflater inflater : SkinCompatManager.getInstance().getHookInflaters()) {
+        for (SkinLayoutInflater inflater : SkinCompatManager.getInstance(context).getHookInflaters()) {
             view = inflater.createView(context, name, attrs);
             if (view != null) break;
         }
@@ -169,7 +169,7 @@ public class SkinCompatViewInflater {
 
     private View createViewFromInflater(Context context, String name, AttributeSet attrs) {
         View view = null;
-        for (SkinLayoutInflater inflater : SkinCompatManager.getInstance().getInflaters()) {
+        for (SkinLayoutInflater inflater : SkinCompatManager.getInstance(context).getInflaters()) {
             view = inflater.createView(context, name, attrs);
             if (view != null) break;
         }

@@ -7,10 +7,13 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import skin.support.SkinCompatManager;
 
 public class SkinCompatResources {
-    private static volatile SkinCompatResources sInstance;
+    private static final Map<Context, SkinCompatResources> sInstanceMap = new HashMap<>();
     private final Context mAppContext;
     private Resources mResources;
     private String mSkinPkgName;
@@ -24,17 +27,20 @@ public class SkinCompatResources {
     }
 
     public static void init(Context context) {
-        if (sInstance == null) {
+        SkinCompatResources instance = sInstanceMap.get(context.getApplicationContext());
+        if (instance == null) {
             synchronized (SkinCompatResources.class) {
-                if (sInstance == null) {
-                    sInstance = new SkinCompatResources(context);
+                instance = sInstanceMap.get(context.getApplicationContext());
+                if (instance == null) {
+                    instance = new SkinCompatResources(context);
+                    sInstanceMap.put(context.getApplicationContext(), instance);
                 }
             }
         }
     }
 
-    public static SkinCompatResources getInstance() {
-        return sInstance;
+    public static SkinCompatResources getInstance(Context context) {
+        return sInstanceMap.get(context.getApplicationContext());
     }
 
     public void reset() {

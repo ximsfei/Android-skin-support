@@ -21,7 +21,6 @@ import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
 import skin.support.load.SkinAssetsLoader;
 import skin.support.load.SkinBuildInLoader;
-import skin.support.load.SkinSDCardLoader;
 import skin.support.observe.SkinObservable;
 import skin.support.utils.SkinPreference;
 import skin.support.content.res.SkinCompatResources;
@@ -30,16 +29,14 @@ public class SkinCompatManager extends SkinObservable {
     public static final int SKIN_LOADER_STRATEGY_NONE = -1;
     public static final int SKIN_LOADER_STRATEGY_ASSETS = 0;
     public static final int SKIN_LOADER_STRATEGY_BUILD_IN = 1;
-    private static volatile SkinCompatManager sInstance;
+    private static final Map<Context, SkinCompatManager> sInstanceMap = new HashMap<>();
     private final Object mLock = new Object();
     private final Context mAppContext;
     private boolean mLoading = false;
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
     private Map<Integer, SkinLoaderStrategy> mStrategyMap = new HashMap<>();
-    private boolean mSkinStatusBarColorEnable = true;
-    private boolean mSkinWindowBackgroundColorEnable = true;
-    private String mSDCardPath;
+    private boolean mSkinAllActivityEnable = true;
 
     /**
      * 皮肤包加载监听.
@@ -101,18 +98,21 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public static SkinCompatManager init(Application application) {
-        if (sInstance == null) {
+        SkinCompatManager instance = sInstanceMap.get(application);
+        if (instance == null) {
             synchronized (SkinCompatManager.class) {
-                if (sInstance == null) {
-                    sInstance = new SkinCompatManager(application);
+                instance = sInstanceMap.get(application);
+                if (instance == null) {
+                    instance = new SkinCompatManager(application);
+                    sInstanceMap.put(application, instance);
                 }
             }
         }
-        return sInstance;
+        return instance;
     }
 
-    public static SkinCompatManager getInstance() {
-        return sInstance;
+    public static SkinCompatManager getInstance(Context context) {
+        return init((Application) context.getApplicationContext());
     }
 
     private SkinCompatManager(Application application) {
@@ -180,7 +180,7 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public String getCurSkinName() {
-        return SkinPreference.getInstance().getSkinName();
+        return SkinPreference.getInstance(mAppContext).getSkinName();
     }
 
     /**
@@ -191,33 +191,18 @@ public class SkinCompatManager extends SkinObservable {
     }
 
     /**
-     * 设置状态栏换肤，使用Theme中的{@link android.R.attr#statusBarColor}属性. 5.0以上有效.
+     * 设置是否所有Activity都换肤.
      *
-     * @param enable true: 打开; false: 关闭.
+     * @param enable true: 所有Activity都换肤; false: 实现SkinActivity的Activity支持换肤.
      * @return
      */
-    public SkinCompatManager setSkinStatusBarColorEnable(boolean enable) {
-        mSkinStatusBarColorEnable = enable;
+    public SkinCompatManager setSkinAllActivityEnable(boolean enable) {
+        mSkinAllActivityEnable = enable;
         return this;
     }
 
-    public boolean isSkinStatusBarColorEnable() {
-        return mSkinStatusBarColorEnable;
-    }
-
-    /**
-     * 设置WindowBackground换肤，使用Theme中的{@link android.R.attr#windowBackground}属性.
-     *
-     * @param enable true: 打开; false: 关闭.
-     * @return
-     */
-    public SkinCompatManager setSkinWindowBackgroundEnable(boolean enable) {
-        mSkinWindowBackgroundColorEnable = enable;
-        return this;
-    }
-
-    public boolean isSkinWindowBackgroundEnable() {
-        return mSkinWindowBackgroundColorEnable;
+    public boolean isSkinAllActivityEnable() {
+        return mSkinAllActivityEnable;
     }
 
     /**
@@ -225,8 +210,8 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public AsyncTask loadSkin() {
-        String skin = SkinPreference.getInstance().getSkinName();
-        int strategy = SkinPreference.getInstance().getSkinStrategy();
+        String skin = SkinPreference.getInstance(mAppContext).getSkinName();
+        int strategy = SkinPreference.getInstance(mAppContext).getSkinStrategy();
         if (TextUtils.isEmpty(skin) || strategy == SKIN_LOADER_STRATEGY_NONE) {
             return null;
         }
@@ -240,8 +225,8 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public AsyncTask loadSkin(SkinLoaderListener listener) {
-        String skin = SkinPreference.getInstance().getSkinName();
-        int strategy = SkinPreference.getInstance().getSkinStrategy();
+        String skin = SkinPreference.getInstance(mAppContext).getSkinName();
+        int strategy = SkinPreference.getInstance(mAppContext).getSkinStrategy();
         if (TextUtils.isEmpty(skin) || strategy == SKIN_LOADER_STRATEGY_NONE) {
             return null;
         }
@@ -311,7 +296,7 @@ public class SkinCompatManager extends SkinObservable {
             try {
                 if (params.length == 1) {
                     if (TextUtils.isEmpty(params[0])) {
-                        SkinCompatResources.getInstance().reset();
+                        SkinCompatResources.getInstance(mAppContext).reset();
                         return params[0];
                     }
                     if (!TextUtils.isEmpty(
@@ -322,7 +307,7 @@ public class SkinCompatManager extends SkinObservable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            SkinCompatResources.getInstance().reset();
+            SkinCompatResources.getInstance(mAppContext).reset();
             return null;
         }
 
@@ -330,11 +315,11 @@ public class SkinCompatManager extends SkinObservable {
             synchronized (mLock) {
                 // skinName 为""时，恢复默认皮肤
                 if (skinName != null) {
-                    SkinPreference.getInstance().setSkinName(skinName).setSkinStrategy(mStrategy.getType()).commitEditor();
+                    SkinPreference.getInstance(mAppContext).setSkinName(skinName).setSkinStrategy(mStrategy.getType()).commitEditor();
                     notifyUpdateSkin();
                     if (mListener != null) mListener.onSuccess();
                 } else {
-                    SkinPreference.getInstance().setSkinName("").setSkinStrategy(SKIN_LOADER_STRATEGY_NONE).commitEditor();
+                    SkinPreference.getInstance(mAppContext).setSkinName("").setSkinStrategy(SKIN_LOADER_STRATEGY_NONE).commitEditor();
                     if (mListener != null) mListener.onFailed("皮肤资源获取失败");
                 }
                 mLoading = false;

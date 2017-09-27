@@ -63,11 +63,11 @@ public class SkinCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVi
             String typeName = getResources().getResourceTypeName(mDropDownBackgroundResId);
             if ("color".equals(typeName)) {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                    int color = SkinCompatResources.getInstance().getColor(mDropDownBackgroundResId);
+                    int color = SkinCompatResources.getInstance(getContext()).getColor(mDropDownBackgroundResId);
                     setDrawingCacheBackgroundColor(color);
                 } else {
                     ColorStateList colorStateList =
-                            SkinCompatResources.getInstance().getColorStateList(mDropDownBackgroundResId);
+                            SkinCompatResources.getInstance(getContext()).getColorStateList(mDropDownBackgroundResId);
                     Drawable drawable = getDropDownBackground();
                     if (drawable != null) {
                         DrawableCompat.setTintList(drawable, colorStateList);
@@ -79,10 +79,10 @@ public class SkinCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVi
                     }
                 }
             } else if ("drawable".equals(typeName)) {
-                Drawable drawable = SkinCompatResources.getInstance().getDrawable(mDropDownBackgroundResId);
+                Drawable drawable = SkinCompatResources.getInstance(getContext()).getDrawable(mDropDownBackgroundResId);
                 setDropDownBackgroundDrawable(drawable);
             } else if ("mipmap".equals(typeName)) {
-                Drawable drawable = SkinCompatResources.getInstance().getMipmap(mDropDownBackgroundResId);
+                Drawable drawable = SkinCompatResources.getInstance(getContext()).getMipmap(mDropDownBackgroundResId);
                 setDropDownBackgroundDrawable(drawable);
             }
         }
