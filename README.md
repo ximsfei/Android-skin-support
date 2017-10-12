@@ -74,21 +74,9 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ## Demo
 
-[仿网易云音乐皮肤切换](https://github.com/ximsfei/Skin-Demo)
-
-[下载](https://github.com/ximsfei/Res/blob/master/skin-demo/app-debug.apk)
-
-![red 1](https://github.com/ximsfei/Res/blob/master/skin-demo/red_1.png)
-![red 2](https://github.com/ximsfei/Res/blob/master/skin-demo/red_2.png)
-![red 3](https://github.com/ximsfei/Res/blob/master/skin-demo/red_3.png)
-
-![white 1](https://github.com/ximsfei/Res/blob/master/skin-demo/white_1.png)
-![white 2](https://github.com/ximsfei/Res/blob/master/skin-demo/white_2.png)
-![white 3](https://github.com/ximsfei/Res/blob/master/skin-demo/white_3.png)
-
-![night 1](https://github.com/ximsfei/Res/blob/master/skin-demo/night_1.png)
-![night 2](https://github.com/ximsfei/Res/blob/master/skin-demo/night_2.png)
-![night 3](https://github.com/ximsfei/Res/blob/master/skin-demo/night_3.png)
+![default](https://github.com/ximsfei/Res/blob/master/skin/preview/default.png)
+![app-in](https://github.com/ximsfei/Res/blob/master/skin/preview/app-in.png)
+![plug-in](https://github.com/ximsfei/Res/blob/master/skin/preview/plug-in.png)
 
 ## 用法
 
