@@ -190,19 +190,6 @@ SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_
 
 #### 将需要换肤的资源放到res目录下(同名资源)
 
-例如 APK中窗口背景颜色为
-
-colors.xml
-```xml
-<color name="background">#ffffff</color>
-```
-那么夜间模式你可以在skin-night工程中设置
-
-colors.xml
-```xml
-<color name="background">#000000</color>
-```
-
 #### 打包生成apk, 即为皮肤包
 
 将打包生成的apk文件, 重命名为'xxx.skin', 防止apk结尾的文件造成混淆.
