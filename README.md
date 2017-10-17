@@ -35,6 +35,7 @@
   * [hdodenhof/CircleImageView](docs/ThirdPartSupport.md#hdodenhofcircleimageview)
   * [H07000223/FlycoTabLayout](docs/ThirdPartSupport.md#h07000223flycotablayout)
   * [hongyangAndroid/AndroidAutoLayout](docs/ThirdPartSupport.md#hongyangandroidandroidautolayout)
+* [FAQ](docs/FAQ.md)
 * [技术交流](#技术交流)
 * [LICENSE](#license-mit)
 
