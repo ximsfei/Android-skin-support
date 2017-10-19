@@ -165,7 +165,7 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
   // 需要使用https://github.com/hdodenhof/CircleImageView 控件, 并且要支持换肤
 
-  eg: [SkinCompatCircleImageView](third-part-support/circleimageview)
+  eg: [SkinCompatCircleImageView](third-part-support/circleimageview/src/main/java/skin/support/circleimageview/widget/SkinCompatCircleImageView.java)
 
 ### 应用内换肤:
 
