@@ -33,5 +33,6 @@
     </declare-styleable>
     <declare-styleable name="SkinCompatProgressBar">
         <attr name="android:indeterminateDrawable" />
+        <attr name="android:progressDrawable" />
     </declare-styleable>
 </resources>

@@ -28,11 +28,6 @@ import skin.support.content.res.SkinCompatResources;
 
 public class SkinCompatProgressBarHelper extends SkinCompatHelper {
 
-    private static final int[] TINT_ATTRS = {
-            android.R.attr.indeterminateDrawable,
-            android.R.attr.progressDrawable
-    };
-
     private final ProgressBar mView;
 
     private Bitmap mSampleTile;
@@ -45,10 +40,10 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
     }
 
     void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
-        TypedArray a = mView.getContext().obtainStyledAttributes(attrs, TINT_ATTRS, defStyleAttr, 0);
+        TypedArray a = mView.getContext().obtainStyledAttributes(attrs, R.styleable.SkinCompatProgressBar, defStyleAttr, 0);
 
-        mIndeterminateDrawableResId = a.getResourceId(0, INVALID_ID);
-        mProgressDrawableResId = a.getResourceId(1, INVALID_ID);
+        mIndeterminateDrawableResId = a.getResourceId(R.styleable.SkinCompatProgressBar_android_indeterminateDrawable, INVALID_ID);
+        mProgressDrawableResId = a.getResourceId(R.styleable.SkinCompatProgressBar_android_progressDrawable, INVALID_ID);
 
         a.recycle();
         if (Build.VERSION.SDK_INT > 21) {
