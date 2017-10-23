@@ -22,6 +22,7 @@ import com.ximsfei.skindemo.constraint.ConstraintLayoutActivity;
 import com.ximsfei.skindemo.flycotablayout.ui.SimpleHomeActivity;
 import com.ximsfei.skindemo.mdtab.MaterialDesignActivity;
 import com.ximsfei.skindemo.tab.MainActivity;
+import com.ximsfei.skindemo.test.TestActivity;
 
 /**
  * Created by ximsf on 2017/3/8.
@@ -30,9 +31,9 @@ import com.ximsfei.skindemo.tab.MainActivity;
 public class SplashActivity extends BaseActivity {
     private ListView mListView;
     private Context mContext = this;
-    private final String[] mItems = {"基础控件", "Material Design", "ConstraintLayout", "FlycoTabLayout", "AlertDialog"};
+    private final String[] mItems = {"基础控件", "Material Design", "ConstraintLayout", "FlycoTabLayout", "AlertDialog", "Test"};
     private final Class<?>[] mClasses = {MainActivity.class, MaterialDesignActivity.class, ConstraintLayoutActivity.class,
-            SimpleHomeActivity.class, AlertDialogActivity.class};
+            SimpleHomeActivity.class, AlertDialogActivity.class, TestActivity.class};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

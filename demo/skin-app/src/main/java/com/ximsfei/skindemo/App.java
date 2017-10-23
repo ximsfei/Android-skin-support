@@ -1,6 +1,9 @@
 package com.ximsfei.skindemo;
 
 import android.app.Application;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.content.res.AppCompatResources;
+import android.support.v7.widget.AppCompatDrawableManager;
 
 import com.ximsfei.skindemo.loader.CustomSDCardLoader;
 
@@ -36,5 +39,6 @@ public class App extends Application {
 //                .setSkinStatusBarColorEnable(false)             // 关闭状态栏换肤
 //                .setSkinWindowBackgroundEnable(false)           // 关闭windowBackground换肤
                 .loadSkin();
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 }

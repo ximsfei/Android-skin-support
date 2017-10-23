@@ -20,6 +20,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
     private static final String TAG = SkinCompatImageHelper.class.getSimpleName();
     private final ImageView mView;
     private int mSrcResId = INVALID_ID;
+    private int mSrcCompatResId = INVALID_ID;
 
     public SkinCompatImageHelper(ImageView imageView) {
         mView = imageView;
@@ -30,11 +31,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
         try {
             a = mView.getContext().obtainStyledAttributes(attrs, R.styleable.SkinCompatImageView, defStyleAttr, 0);
             mSrcResId = a.getResourceId(R.styleable.SkinCompatImageView_android_src, INVALID_ID);
-            int srcCompatResId = a.getResourceId(R.styleable.SkinCompatImageView_srcCompat, INVALID_ID);
-            srcCompatResId = checkResourceId(srcCompatResId);
-            if (srcCompatResId != INVALID_ID) {
-                mSrcResId = srcCompatResId;
-            }
+            mSrcCompatResId = a.getResourceId(R.styleable.SkinCompatImageView_srcCompat, INVALID_ID);
         } finally {
             if (a != null) {
                 a.recycle();
@@ -49,39 +46,47 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
     }
 
     public void applySkin() {
-        mSrcResId = checkResourceId(mSrcResId);
-        SkinLog.d(TAG, "mSrcResId = " + mSrcResId);
-        if (mSrcResId == INVALID_ID) {
-            return;
-        }
-        String typeName = mView.getResources().getResourceTypeName(mSrcResId);
-        if ("color".equals(typeName)) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                int color = SkinCompatResources.getInstance().getColor(mSrcResId);
-                Drawable drawable = mView.getDrawable();
-                if (drawable != null && drawable instanceof ColorDrawable) {
-                    ((ColorDrawable) drawable.mutate()).setColor(color);
-                } else {
-                    mView.setImageDrawable(new ColorDrawable(color));
-                }
-            } else {
-                ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mSrcResId);
-                Drawable drawable = mView.getDrawable();
-                if (drawable != null) {
-                    DrawableCompat.setTintList(drawable, colorStateList);
-                    mView.setImageDrawable(drawable);
-                } else {
-                    ColorDrawable colorDrawable = new ColorDrawable();
-                    colorDrawable.setTintList(colorStateList);
-                    mView.setImageDrawable(colorDrawable);
-                }
+        mSrcCompatResId = checkResourceId(mSrcCompatResId);
+        if (mSrcCompatResId != INVALID_ID) {
+            Drawable drawable = SkinCompatResources.getInstance().getSrcCompatDrawable(mView.getContext(), mSrcCompatResId);
+            if (drawable != null) {
+                mView.setImageDrawable(drawable);
             }
-        } else if ("drawable".equals(typeName)) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mSrcResId);
-            mView.setImageDrawable(drawable);
-        } else if ("mipmap".equals(typeName)) {
-            Drawable drawable = SkinCompatResources.getInstance().getMipmap(mSrcResId);
-            mView.setImageDrawable(drawable);
+        } else {
+            mSrcResId = checkResourceId(mSrcResId);
+            SkinLog.d(TAG, "mSrcResId = " + mSrcResId);
+            if (mSrcResId == INVALID_ID) {
+                return;
+            }
+            String typeName = mView.getResources().getResourceTypeName(mSrcResId);
+            if ("color".equals(typeName)) {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                    int color = SkinCompatResources.getInstance().getColor(mSrcResId);
+                    Drawable drawable = mView.getDrawable();
+                    if (drawable != null && drawable instanceof ColorDrawable) {
+                        ((ColorDrawable) drawable.mutate()).setColor(color);
+                    } else {
+                        mView.setImageDrawable(new ColorDrawable(color));
+                    }
+                } else {
+                    ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mSrcResId);
+                    Drawable drawable = mView.getDrawable();
+                    if (drawable != null) {
+                        DrawableCompat.setTintList(drawable, colorStateList);
+                        mView.setImageDrawable(drawable);
+                    } else {
+                        ColorDrawable colorDrawable = new ColorDrawable();
+                        colorDrawable.setTintList(colorStateList);
+                        mView.setImageDrawable(colorDrawable);
+                    }
+                }
+            } else if ("drawable".equals(typeName)) {
+                Drawable drawable = SkinCompatResources.getInstance().getDrawable(mSrcResId);
+                mView.setImageDrawable(drawable);
+            } else if ("mipmap".equals(typeName)) {
+                Drawable drawable = SkinCompatResources.getInstance().getMipmap(mSrcResId);
+                mView.setImageDrawable(drawable);
+            }
         }
     }
 

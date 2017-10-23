@@ -40,6 +40,10 @@
             android:name="com.ximsfei.skindemo.mdtab.MaterialDesignActivity"
             android:label="Material Design"
             android:theme="@style/MaterialDesignTheme" />
+        <activity
+            android:name=".test.TestActivity"
+            android:label="Test Activity"
+            android:theme="@style/AppTheme" />
 
         <!-- flycotablayout -->
         <activity

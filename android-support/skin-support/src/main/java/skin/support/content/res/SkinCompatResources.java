@@ -84,8 +84,8 @@ public class SkinCompatResources {
         return targetResId == 0 ? originColor : mResources.getColor(targetResId);
     }
 
-    public Drawable getDrawable(int resId) {
-        Drawable originDrawable = AppCompatResources.getDrawable(mAppContext, resId);
+    public Drawable getSrcCompatDrawable(Context context, int resId) {
+        Drawable originDrawable = AppCompatResources.getDrawable(context, resId);
         if (isDefaultSkin) {
             return originDrawable;
         }
@@ -98,18 +98,24 @@ public class SkinCompatResources {
         }
     }
 
-    public Drawable getMipmap(int resId) {
-        Drawable originDrawable = AppCompatResources.getDrawable(mAppContext, resId);
+    public Drawable getDrawable(int resId) {
+        Drawable originDrawable = mAppContext.getResources().getDrawable(resId);
         if (isDefaultSkin) {
             return originDrawable;
         }
 
         int targetResId = getTargetResId(resId);
-        try {
-            return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
-        } catch (Exception e) {
+        return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
+    }
+
+    public Drawable getMipmap(int resId) {
+        Drawable originDrawable = mAppContext.getResources().getDrawable(resId);
+        if (isDefaultSkin) {
             return originDrawable;
         }
+
+        int targetResId = getTargetResId(resId);
+        return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
     }
 
     public ColorStateList getColorStateList(int resId) {
