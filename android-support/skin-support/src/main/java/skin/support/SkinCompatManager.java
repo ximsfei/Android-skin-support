@@ -109,6 +109,8 @@ public class SkinCompatManager extends SkinObservable {
                 }
             }
         }
+        SkinPreference.init(context);
+        SkinCompatResources.init(context);
         return sInstance;
     }
 
@@ -130,8 +132,6 @@ public class SkinCompatManager extends SkinObservable {
 
     private SkinCompatManager(Context context) {
         mAppContext = context.getApplicationContext();
-        SkinPreference.init(mAppContext);
-        SkinCompatResources.init(mAppContext);
         initLoaderStrategy();
     }
 

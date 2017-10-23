@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.support.v7.content.res.AppCompatResources;
 import android.text.TextUtils;
 
 import skin.support.SkinCompatManager;
@@ -84,23 +85,31 @@ public class SkinCompatResources {
     }
 
     public Drawable getDrawable(int resId) {
-        Drawable originDrawable = mAppContext.getResources().getDrawable(resId);
+        Drawable originDrawable = AppCompatResources.getDrawable(mAppContext, resId);
         if (isDefaultSkin) {
             return originDrawable;
         }
 
         int targetResId = getTargetResId(resId);
-        return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
+        try {
+            return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
+        } catch (Exception e) {
+            return originDrawable;
+        }
     }
 
     public Drawable getMipmap(int resId) {
-        Drawable originDrawable = mAppContext.getResources().getDrawable(resId);
+        Drawable originDrawable = AppCompatResources.getDrawable(mAppContext, resId);
         if (isDefaultSkin) {
             return originDrawable;
         }
 
         int targetResId = getTargetResId(resId);
-        return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
+        try {
+            return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
+        } catch (Exception e) {
+            return originDrawable;
+        }
     }
 
     public ColorStateList getColorStateList(int resId) {
