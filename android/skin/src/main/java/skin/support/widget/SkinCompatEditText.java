@@ -1,9 +1,7 @@
 package skin.support.widget;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
@@ -20,15 +18,21 @@ public class SkinCompatEditText extends EditText implements SkinCompatSupportabl
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
     public SkinCompatEditText(Context context) {
-        this(context, null);
+        super(context);
+        init(null, R.attr.editTextStyle);
     }
 
     public SkinCompatEditText(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.editTextStyle);
+        super(context, attrs);
+        init(attrs, R.attr.editTextStyle);
     }
 
     public SkinCompatEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(attrs, defStyleAttr);
+    }
+
+    private void init(AttributeSet attrs, int defStyleAttr) {
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);

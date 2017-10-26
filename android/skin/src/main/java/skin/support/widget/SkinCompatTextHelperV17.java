@@ -94,10 +94,4 @@ public class SkinCompatTextHelperV17 extends SkinCompatTextHelper {
             mView.setCompoundDrawablesRelativeWithIntrinsicBounds(drawableStart, drawableTop, drawableEnd, drawableBottom);
         }
     }
-
-    @Override
-    public void applySkin() {
-        super.applySkin();
-        applyCompoundDrawablesRelativeResource();
-    }
 }
