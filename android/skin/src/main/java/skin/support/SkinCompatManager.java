@@ -21,6 +21,7 @@ import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
 import skin.support.load.SkinAssetsLoader;
 import skin.support.load.SkinBuildInLoader;
+import skin.support.load.SkinPrefixBuildInLoader;
 import skin.support.observe.SkinObservable;
 import skin.support.utils.SkinPreference;
 import skin.support.content.res.SkinCompatResources;
@@ -29,6 +30,7 @@ public class SkinCompatManager extends SkinObservable {
     public static final int SKIN_LOADER_STRATEGY_NONE = -1;
     public static final int SKIN_LOADER_STRATEGY_ASSETS = 0;
     public static final int SKIN_LOADER_STRATEGY_BUILD_IN = 1;
+    public static final int SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN = 2;
     private static final Map<Context, SkinCompatManager> sInstanceMap = new HashMap<>();
     private final Object mLock = new Object();
     private final Context mAppContext;
@@ -37,6 +39,7 @@ public class SkinCompatManager extends SkinObservable {
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
     private Map<Integer, SkinLoaderStrategy> mStrategyMap = new HashMap<>();
     private boolean mSkinAllActivityEnable = true;
+    private boolean mSkinWindowBackgroundColorEnable = false;
 
     /**
      * 皮肤包加载监听.
@@ -67,7 +70,7 @@ public class SkinCompatManager extends SkinObservable {
         /**
          * 加载皮肤包.
          *
-         * @param context {@link Context}
+         * @param context  {@link Context}
          * @param skinName 皮肤包名称.
          * @return 加载成功，返回皮肤包名称；失败，则返回空。
          */
@@ -76,9 +79,9 @@ public class SkinCompatManager extends SkinObservable {
         /**
          * 根据应用中的资源ID，获取皮肤包相应资源的资源名.
          *
-         * @param context {@link Context}
+         * @param context  {@link Context}
          * @param skinName 皮肤包名称.
-         * @param resId 应用中需要换肤的资源ID.
+         * @param resId    应用中需要换肤的资源ID.
          * @return 皮肤包中相应的资源名.
          */
         String getTargetResourceEntryName(Context context, String skinName, int resId);
@@ -86,6 +89,7 @@ public class SkinCompatManager extends SkinObservable {
         /**
          * {@link #SKIN_LOADER_STRATEGY_ASSETS}
          * {@link #SKIN_LOADER_STRATEGY_BUILD_IN}
+         * {@link #SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN}
          *
          * @return 皮肤包加载策略类型.
          */
@@ -94,6 +98,7 @@ public class SkinCompatManager extends SkinObservable {
 
     /**
      * 初始化换肤框架.
+     *
      * @param application
      * @return
      */
@@ -126,6 +131,7 @@ public class SkinCompatManager extends SkinObservable {
     private void initLoaderStrategy() {
         mStrategyMap.put(SKIN_LOADER_STRATEGY_ASSETS, new SkinAssetsLoader());
         mStrategyMap.put(SKIN_LOADER_STRATEGY_BUILD_IN, new SkinBuildInLoader());
+        mStrategyMap.put(SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN, new SkinPrefixBuildInLoader());
     }
 
     /**
@@ -206,7 +212,23 @@ public class SkinCompatManager extends SkinObservable {
     }
 
     /**
+     * 设置WindowBackground换肤，使用Theme中的{@link android.R.attr#windowBackground}属性.
+     *
+     * @param enable true: 打开; false: 关闭.
+     * @return
+     */
+    public SkinCompatManager setSkinWindowBackgroundEnable(boolean enable) {
+        mSkinWindowBackgroundColorEnable = enable;
+        return this;
+    }
+
+    public boolean isSkinWindowBackgroundEnable() {
+        return mSkinWindowBackgroundColorEnable;
+    }
+
+    /**
      * 加载记录的皮肤包，一般在Application中初始化换肤框架后调用.
+     *
      * @return
      */
     public AsyncTask loadSkin() {
