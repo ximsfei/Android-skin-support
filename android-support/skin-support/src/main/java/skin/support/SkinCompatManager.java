@@ -21,6 +21,7 @@ import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
 import skin.support.load.SkinAssetsLoader;
 import skin.support.load.SkinBuildInLoader;
+import skin.support.load.SkinPrefixBuildInLoader;
 import skin.support.load.SkinSDCardLoader;
 import skin.support.observe.SkinObservable;
 import skin.support.utils.SkinLog;
@@ -31,6 +32,7 @@ public class SkinCompatManager extends SkinObservable {
     public static final int SKIN_LOADER_STRATEGY_NONE = -1;
     public static final int SKIN_LOADER_STRATEGY_ASSETS = 0;
     public static final int SKIN_LOADER_STRATEGY_BUILD_IN = 1;
+    public static final int SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN = 2;
     private static volatile SkinCompatManager sInstance;
     private final Object mLock = new Object();
     private final Context mAppContext;
@@ -90,6 +92,7 @@ public class SkinCompatManager extends SkinObservable {
         /**
          * {@link #SKIN_LOADER_STRATEGY_ASSETS}
          * {@link #SKIN_LOADER_STRATEGY_BUILD_IN}
+         * {@link #SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN}
          *
          * @return 皮肤包加载策略类型.
          */
@@ -138,6 +141,7 @@ public class SkinCompatManager extends SkinObservable {
     private void initLoaderStrategy() {
         mStrategyMap.put(SKIN_LOADER_STRATEGY_ASSETS, new SkinAssetsLoader());
         mStrategyMap.put(SKIN_LOADER_STRATEGY_BUILD_IN, new SkinBuildInLoader());
+        mStrategyMap.put(SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN, new SkinPrefixBuildInLoader());
     }
 
     /**
