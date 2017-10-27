@@ -33,11 +33,16 @@ public class SkinCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVi
     }
 
     public SkinCompatMultiAutoCompleteTextView(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.editTextStyle);
+        super(context, attrs);
+        init(context, attrs, R.attr.autoCompleteTextViewStyle);
     }
 
     public SkinCompatMultiAutoCompleteTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray a = context.obtainStyledAttributes(attrs, TINT_ATTRS, defStyleAttr, 0);
         if (a.hasValue(0)) {
             mDropDownBackgroundResId = a.getResourceId(0, INVALID_ID);

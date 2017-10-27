@@ -21,11 +21,16 @@ public class SkinCompatRadioButton extends RadioButton implements SkinCompatSupp
     }
 
     public SkinCompatRadioButton(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.radioButtonStyle);
+        super(context, attrs);
+        init(context, attrs, R.attr.radioButtonStyle);
     }
 
     public SkinCompatRadioButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mCompoundButtonHelper = new SkinCompatCompoundButtonHelper(this);
         mCompoundButtonHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);

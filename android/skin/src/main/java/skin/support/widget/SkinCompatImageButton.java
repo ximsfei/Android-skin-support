@@ -20,11 +20,16 @@ public class SkinCompatImageButton extends ImageButton implements SkinCompatSupp
     }
 
     public SkinCompatImageButton(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.imageButtonStyle);
+        super(context, attrs);
+        init(context, attrs, R.attr.imageButtonStyle);
     }
 
     public SkinCompatImageButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
 

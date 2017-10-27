@@ -16,11 +16,16 @@ public class SkinCompatScrollView extends ScrollView implements SkinCompatSuppor
     }
 
     public SkinCompatScrollView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
+        init(context, attrs, 0);
     }
 
     public SkinCompatScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
     }

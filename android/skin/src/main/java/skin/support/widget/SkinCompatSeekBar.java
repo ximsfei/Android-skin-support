@@ -18,11 +18,16 @@ public class SkinCompatSeekBar extends SeekBar implements SkinCompatSupportable 
     }
 
     public SkinCompatSeekBar(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.seekBarStyle);
+        super(context, attrs);
+        init(context, attrs, R.attr.seekBarStyle);
     }
 
     public SkinCompatSeekBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mSkinCompatSeekBarHelper = new SkinCompatProgressBarHelper(this);
         mSkinCompatSeekBarHelper.loadFromAttributes(attrs, defStyleAttr);
     }

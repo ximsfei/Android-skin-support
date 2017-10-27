@@ -16,11 +16,16 @@ public class SkinCompatProgressBar extends ProgressBar implements SkinCompatSupp
     }
 
     public SkinCompatProgressBar(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.progressBarStyle);
+        super(context, attrs);
+        init(context, attrs, android.R.attr.progressBarStyle);
     }
 
     public SkinCompatProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mSkinCompatProgressBarHelper = new SkinCompatProgressBarHelper(this);
         mSkinCompatProgressBarHelper.loadFromAttributes(attrs, defStyleAttr);
     }

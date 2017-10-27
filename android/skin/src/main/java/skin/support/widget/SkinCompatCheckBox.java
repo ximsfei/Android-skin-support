@@ -19,11 +19,16 @@ public class SkinCompatCheckBox extends CheckBox implements SkinCompatSupportabl
     }
 
     public SkinCompatCheckBox(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.checkboxStyle);
+        super(context, attrs);
+        init(attrs, R.attr.checkboxStyle);
     }
 
     public SkinCompatCheckBox(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(attrs, defStyleAttr);
+    }
+
+    private void init(AttributeSet attrs, int defStyleAttr) {
         mCompoundButtonHelper = new SkinCompatCompoundButtonHelper(this);
         mCompoundButtonHelper.loadFromAttributes(attrs, defStyleAttr);
     }

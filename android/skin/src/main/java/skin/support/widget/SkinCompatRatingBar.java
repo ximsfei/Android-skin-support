@@ -18,11 +18,16 @@ public class SkinCompatRatingBar extends RatingBar implements SkinCompatSupporta
     }
 
     public SkinCompatRatingBar(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.ratingBarStyle);
+        super(context, attrs);
+        init(context, attrs, R.attr.ratingBarStyle);
     }
 
     public SkinCompatRatingBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mSkinCompatProgressBarHelper = new SkinCompatProgressBarHelper(this);
         mSkinCompatProgressBarHelper.loadFromAttributes(attrs, defStyleAttr);
     }

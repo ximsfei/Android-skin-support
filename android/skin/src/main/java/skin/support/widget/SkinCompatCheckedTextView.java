@@ -6,6 +6,7 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.CheckedTextView;
 
+import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
@@ -29,11 +30,16 @@ public class SkinCompatCheckedTextView extends CheckedTextView implements SkinCo
     }
 
     public SkinCompatCheckedTextView(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.checkedTextViewStyle);
+        super(context, attrs);
+        init(context, attrs, R.attr.checkedTextViewStyle);
     }
 
     public SkinCompatCheckedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);

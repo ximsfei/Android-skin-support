@@ -18,11 +18,16 @@ public class SkinCompatTextView extends TextView implements SkinCompatSupportabl
     }
 
     public SkinCompatTextView(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.textViewStyle);
+        super(context, attrs);
+        init(context, attrs, android.R.attr.textViewStyle);
     }
 
     public SkinCompatTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);

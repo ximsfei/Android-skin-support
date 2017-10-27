@@ -21,11 +21,16 @@ public class SkinCompatButton extends Button implements SkinCompatSupportable {
     }
 
     public SkinCompatButton(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.buttonStyle);
+        super(context, attrs);
+        init(attrs, R.attr.buttonStyle);
     }
 
     public SkinCompatButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(attrs, defStyleAttr);
+    }
+
+    private void init(AttributeSet attrs, int defStyleAttr) {
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);
