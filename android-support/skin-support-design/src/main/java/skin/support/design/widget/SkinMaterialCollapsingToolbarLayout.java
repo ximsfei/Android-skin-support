@@ -53,28 +53,8 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
     private void applyStatusBarScrimResource() {
         mStatusBarScrimResId = SkinCompatHelper.checkResourceId(mStatusBarScrimResId);
         if (mStatusBarScrimResId != INVALID_ID) {
-            String typeName = getResources().getResourceTypeName(mStatusBarScrimResId);
-            if ("color".equals(typeName)) {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                    int color = SkinCompatResources.getInstance().getColor(mStatusBarScrimResId);
-                    setStatusBarScrimColor(color);
-                } else {
-                    ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mStatusBarScrimResId);
-                    Drawable drawable = getStatusBarScrim();
-                    if (drawable != null) {
-                        DrawableCompat.setTintList(drawable, colorStateList);
-                        setStatusBarScrim(drawable);
-                    } else {
-                        ColorDrawable colorDrawable = new ColorDrawable();
-                        colorDrawable.setTintList(colorStateList);
-                        setStatusBarScrim(colorDrawable);
-                    }
-                }
-            } else if ("drawable".equals(typeName)) {
-                Drawable drawable = SkinCompatResources.getInstance().getDrawable(mStatusBarScrimResId);
-                setStatusBarScrim(drawable);
-            } else if ("mipmap".equals(typeName)) {
-                Drawable drawable = SkinCompatResources.getInstance().getMipmap(mStatusBarScrimResId);
+            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mStatusBarScrimResId);
+            if (drawable != null) {
                 setStatusBarScrim(drawable);
             }
         }
@@ -83,28 +63,8 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
     private void applyContentScrimResource() {
         mContentScrimResId = SkinCompatHelper.checkResourceId(mContentScrimResId);
         if (mContentScrimResId != INVALID_ID) {
-            String typeName = getResources().getResourceTypeName(mContentScrimResId);
-            if ("color".equals(typeName)) {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                    int color = SkinCompatResources.getInstance().getColor(mContentScrimResId);
-                    setContentScrimColor(color);
-                } else {
-                    ColorStateList colorStateList = SkinCompatResources.getInstance().getColorStateList(mContentScrimResId);
-                    Drawable drawable = getContentScrim();
-                    if (drawable != null) {
-                        DrawableCompat.setTintList(drawable, colorStateList);
-                        setContentScrim(drawable);
-                    } else {
-                        ColorDrawable colorDrawable = new ColorDrawable();
-                        colorDrawable.setTintList(colorStateList);
-                        setContentScrim(colorDrawable);
-                    }
-                }
-            } else if ("drawable".equals(typeName)) {
-                Drawable drawable = SkinCompatResources.getInstance().getDrawable(mContentScrimResId);
-                setContentScrim(drawable);
-            } else if ("mipmap".equals(typeName)) {
-                Drawable drawable = SkinCompatResources.getInstance().getMipmap(mContentScrimResId);
+            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mContentScrimResId);
+            if (drawable != null) {
                 setContentScrim(drawable);
             }
         }

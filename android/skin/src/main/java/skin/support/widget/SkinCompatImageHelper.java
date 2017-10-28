@@ -52,35 +52,9 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
         if (mSrcResId == INVALID_ID) {
             return;
         }
-        String typeName = mView.getResources().getResourceTypeName(mSrcResId);
-        if ("color".equals(typeName)) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                int color = SkinCompatResources.getInstance(mView.getContext()).getColor(mSrcResId);
-                Drawable drawable = mView.getDrawable();
-                if (drawable != null && drawable instanceof ColorDrawable) {
-                    ((ColorDrawable) drawable.mutate()).setColor(color);
-                } else {
-                    mView.setImageDrawable(new ColorDrawable(color));
-                }
-            } else {
-                ColorStateList colorStateList = SkinCompatResources.getInstance(mView.getContext()).getColorStateList(mSrcResId);
-                Drawable drawable = mView.getDrawable();
-                if (drawable != null) {
-                    DrawableCompat.setTintList(drawable, colorStateList);
-                    mView.setImageDrawable(drawable);
-                } else {
-                    ColorDrawable colorDrawable = new ColorDrawable();
-                    colorDrawable.setTintList(colorStateList);
-                    mView.setImageDrawable(colorDrawable);
-                }
-            }
-        } else if ("drawable".equals(typeName)) {
-            Drawable drawable = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mSrcResId);
-            mView.setImageDrawable(drawable);
-        } else if ("mipmap".equals(typeName)) {
-            Drawable drawable = SkinCompatResources.getInstance(mView.getContext()).getMipmap(mSrcResId);
+        Drawable drawable = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mSrcResId);
+        if (drawable != null) {
             mView.setImageDrawable(drawable);
         }
     }
-
 }

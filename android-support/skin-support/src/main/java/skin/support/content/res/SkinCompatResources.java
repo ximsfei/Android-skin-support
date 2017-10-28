@@ -108,16 +108,6 @@ public class SkinCompatResources {
         return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
     }
 
-    public Drawable getMipmap(int resId) {
-        Drawable originDrawable = mAppContext.getResources().getDrawable(resId);
-        if (isDefaultSkin) {
-            return originDrawable;
-        }
-
-        int targetResId = getTargetResId(resId);
-        return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
-    }
-
     public ColorStateList getColorStateList(int resId) {
         ColorStateList colorStateList = mAppContext.getResources().getColorStateList(resId);
         if (isDefaultSkin) {
