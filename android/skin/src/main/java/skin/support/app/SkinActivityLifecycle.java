@@ -17,6 +17,7 @@ import skin.support.SkinCompatManager;
 import skin.support.content.res.SkinCompatResources;
 import skin.support.observe.SkinObservable;
 import skin.support.observe.SkinObserver;
+import skin.support.widget.SkinCompatSupportable;
 import skin.support.widget.SkinCompatThemeUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
@@ -24,8 +25,8 @@ import static skin.support.widget.SkinCompatHelper.checkResourceId;
 
 public class SkinActivityLifecycle implements Application.ActivityLifecycleCallbacks {
     private static final Map<Context, SkinActivityLifecycle> sInstanceMap = new HashMap<>();
-    private WeakHashMap<Activity, SkinCompatDelegate> mSkinDelegateMap;
-    private WeakHashMap<Activity, SkinObserver> mSkinObserverMap;
+    private WeakHashMap<Context, SkinCompatDelegate> mSkinDelegateMap;
+    private WeakHashMap<Context, SkinObserver> mSkinObserverMap;
 
     public static SkinActivityLifecycle init(Application application) {
         SkinActivityLifecycle instance = sInstanceMap.get(application);
@@ -43,55 +44,61 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     private SkinActivityLifecycle(Application application) {
         application.registerActivityLifecycleCallbacks(this);
+        installLayoutFactory(application);
     }
 
-    private SkinCompatDelegate getSkinDelegate(Activity activity) {
+    private void installLayoutFactory(Context context) {
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
+        try {
+            Field field = LayoutInflater.class.getDeclaredField("mFactorySet");
+            field.setAccessible(true);
+            field.setBoolean(layoutInflater, false);
+            LayoutInflaterCompat.setFactory(layoutInflater, getSkinDelegate(context));
+        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private SkinCompatDelegate getSkinDelegate(Context context) {
         if (mSkinDelegateMap == null) {
             mSkinDelegateMap = new WeakHashMap<>();
         }
 
-        SkinCompatDelegate mSkinDelegate = mSkinDelegateMap.get(activity);
+        SkinCompatDelegate mSkinDelegate = mSkinDelegateMap.get(context);
         if (mSkinDelegate == null) {
-            mSkinDelegate = SkinCompatDelegate.create(activity);
+            mSkinDelegate = SkinCompatDelegate.create(context);
         }
-        mSkinDelegateMap.put(activity, mSkinDelegate);
+        mSkinDelegateMap.put(context, mSkinDelegate);
         return mSkinDelegate;
     }
 
-    private SkinObserver getObserver(final Activity activity) {
+    private SkinObserver getObserver(final Context context) {
         if (mSkinObserverMap == null) {
             mSkinObserverMap = new WeakHashMap<>();
         }
-        SkinObserver observer = mSkinObserverMap.get(activity);
+        SkinObserver observer = mSkinObserverMap.get(context);
         if (observer == null) {
             observer = new SkinObserver() {
                 @Override
                 public void updateSkin(SkinObservable observable, Object o) {
-                    getSkinDelegate(activity).applySkin();
-                    if (activity instanceof SkinActivity) {
-                        updateWindowBackground(activity);
-                        ((SkinActivity) activity).applySkin();
+                    getSkinDelegate(context).applySkin();
+                    if (context instanceof Activity && isContextSkinEnable((Activity) context)) {
+                        updateWindowBackground((Activity) context);
+                    }
+                    if (context instanceof SkinCompatSupportable) {
+                        ((SkinCompatSupportable) context).applySkin();
                     }
                 }
             };
         }
-        mSkinObserverMap.put(activity, observer);
+        mSkinObserverMap.put(context, observer);
         return observer;
     }
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        if (isActivitySkinEnable(activity)) {
-            LayoutInflater layoutInflater = activity.getLayoutInflater();
-            try {
-                Field field = LayoutInflater.class.getDeclaredField("mFactorySet");
-                field.setAccessible(true);
-                field.setBoolean(layoutInflater, false);
-                LayoutInflaterCompat.setFactory(activity.getLayoutInflater(),
-                        getSkinDelegate(activity));
-            } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
+        if (isContextSkinEnable(activity)) {
+            installLayoutFactory(activity);
             updateWindowBackground(activity);
         }
     }
@@ -103,7 +110,7 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityResumed(Activity activity) {
-        if (isActivitySkinEnable(activity)) {
+        if (isContextSkinEnable(activity)) {
             SkinCompatManager.getInstance(activity).addObserver(getObserver(activity));
         }
     }
@@ -124,15 +131,15 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        if (isActivitySkinEnable(activity)) {
+        if (isContextSkinEnable(activity)) {
             SkinCompatManager.getInstance(activity).deleteObserver(getObserver(activity));
             mSkinObserverMap.remove(activity);
             mSkinDelegateMap.remove(activity);
         }
     }
 
-    private boolean isActivitySkinEnable(Activity activity) {
-        return SkinCompatManager.getInstance(activity).isSkinAllActivityEnable() || activity instanceof SkinActivity;
+    private boolean isContextSkinEnable(Context context) {
+        return SkinCompatManager.getInstance(context).isSkinAllActivityEnable() || context instanceof SkinCompatSupportable;
     }
 
     private void updateWindowBackground(Activity activity) {

@@ -17,12 +17,12 @@ import java.util.List;
 import skin.support.widget.SkinCompatSupportable;
 
 public class SkinCompatDelegate implements LayoutInflaterFactory {
-    private final Activity mActivity;
+    private final Context mContext;
     private SkinCompatViewInflater mSkinCompatViewInflater;
     private List<WeakReference<SkinCompatSupportable>> mSkinHelpers = new ArrayList<>();
 
-    private SkinCompatDelegate(Activity activity) {
-        mActivity = activity;
+    private SkinCompatDelegate(Context context) {
+        mContext = context;
     }
 
     @Override
@@ -61,28 +61,31 @@ public class SkinCompatDelegate implements LayoutInflaterFactory {
             // The initial parent is null so just return false
             return false;
         }
-        final View windowDecor = mActivity.getWindow().getDecorView();
-        while (true) {
-            if (parent == null) {
-                // Bingo. We've hit a view which has a null parent before being terminated from
-                // the loop. This is (most probably) because it's the root view in an inflation
-                // call, therefore we should inherit. This works as the inflated layout is only
-                // added to the hierarchy at the end of the inflate() call.
-                return true;
-            } else if (parent == windowDecor || !(parent instanceof View)
-                    || ViewCompat.isAttachedToWindow((View) parent)) {
-                // We have either hit the window's decor view, a parent which isn't a View
-                // (i.e. ViewRootImpl), or an attached view, so we know that the original parent
-                // is currently added to the view hierarchy. This means that it has not be
-                // inflated in the current inflate() call and we should not inherit the context.
-                return false;
+        if (mContext instanceof Activity) {
+            final View windowDecor = ((Activity) mContext).getWindow().getDecorView();
+            while (true) {
+                if (parent == null) {
+                    // Bingo. We've hit a view which has a null parent before being terminated from
+                    // the loop. This is (most probably) because it's the root view in an inflation
+                    // call, therefore we should inherit. This works as the inflated layout is only
+                    // added to the hierarchy at the end of the inflate() call.
+                    return true;
+                } else if (parent == windowDecor || !(parent instanceof View)
+                        || ViewCompat.isAttachedToWindow((View) parent)) {
+                    // We have either hit the window's decor view, a parent which isn't a View
+                    // (i.e. ViewRootImpl), or an attached view, so we know that the original parent
+                    // is currently added to the view hierarchy. This means that it has not be
+                    // inflated in the current inflate() call and we should not inherit the context.
+                    return false;
+                }
+                parent = parent.getParent();
             }
-            parent = parent.getParent();
         }
+        return false;
     }
 
-    public static SkinCompatDelegate create(Activity activity) {
-        return new SkinCompatDelegate(activity);
+    public static SkinCompatDelegate create(Context context) {
+        return new SkinCompatDelegate(context);
     }
 
     public void applySkin() {
