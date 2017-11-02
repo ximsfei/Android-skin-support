@@ -23,6 +23,7 @@ import com.ximsfei.skindemo.flycotablayout.ui.SimpleHomeActivity;
 import com.ximsfei.skindemo.mdtab.MaterialDesignActivity;
 import com.ximsfei.skindemo.tab.MainActivity;
 import com.ximsfei.skindemo.test.TestActivity;
+import com.ximsfei.skindemo.window.WindowManagerActivity;
 
 /**
  * Created by ximsf on 2017/3/8.
@@ -31,9 +32,9 @@ import com.ximsfei.skindemo.test.TestActivity;
 public class SplashActivity extends BaseActivity {
     private ListView mListView;
     private Context mContext = this;
-    private final String[] mItems = {"基础控件", "Material Design", "ConstraintLayout", "FlycoTabLayout", "AlertDialog", "Test"};
+    private final String[] mItems = {"基础控件", "Material Design", "ConstraintLayout", "FlycoTabLayout", "AlertDialog", "WindowManager", "Test"};
     private final Class<?>[] mClasses = {MainActivity.class, MaterialDesignActivity.class, ConstraintLayoutActivity.class,
-            SimpleHomeActivity.class, AlertDialogActivity.class, TestActivity.class};
+            SimpleHomeActivity.class, AlertDialogActivity.class, WindowManagerActivity.class, TestActivity.class};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,12 +56,10 @@ public class SplashActivity extends BaseActivity {
     }
 
     public class HomeAdapter extends BaseAdapter {
-        private Context mContext;
         private String[] mItems;
         private DisplayMetrics mDisplayMetrics;
 
         public HomeAdapter(Context context, String[] items) {
-            this.mContext = context;
             this.mItems = items;
             mDisplayMetrics = new DisplayMetrics();
             ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);

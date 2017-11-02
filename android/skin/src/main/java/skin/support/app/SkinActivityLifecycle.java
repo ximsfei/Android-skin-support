@@ -45,6 +45,7 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
     private SkinActivityLifecycle(Application application) {
         application.registerActivityLifecycleCallbacks(this);
         installLayoutFactory(application);
+        SkinCompatManager.getInstance(application).addObserver(getObserver(application));
     }
 
     private void installLayoutFactory(Context context) {

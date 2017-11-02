@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ximsfei.skindemo">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:name="com.ximsfei.skindemo.App"
         android:allowBackup="true"
@@ -18,6 +20,8 @@
         </activity>
 
         <activity android:name="com.ximsfei.skindemo.tab.MainActivity" />
+
+        <activity android:name="com.ximsfei.skindemo.window.WindowManagerActivity" />
 
         <activity
             android:name="com.ximsfei.skindemo.settings.SettingsActivity"
@@ -63,6 +67,7 @@
             android:name=".flycotablayout.ui.SegmentTabActivity"
             android:screenOrientation="portrait" />
 
+        <service android:name=".window.WindowService" />
     </application>
 
 </manifest>
