@@ -33,7 +33,6 @@ Now, you have a strong skinning feature. What you need to do is [make a skin](#m
 * [Make a skin](#make-a-skin)
   * [BuildIn Skin](#app-buildin-skin)
   * [Plug-In Skin](#plug-in-skin)
-* [Third Party Support](docs/ThirdPartSupport.md)
 * [Change Log](docs/ChangeLog.md)
 * [LICENSE](#license-mit)
 
