@@ -31,7 +31,7 @@ Now, you have a strong skinning feature. What you need to do is [make a skin](#m
   * [Load Skin](#load-skin)
   * [Custom View skin support](#custom-view-skin-support)
 * [Make a skin](#make-a-skin)
-  * [BuildIn Skin](#buildin-skin)
+  * [BuildIn Skin](#app-buildin-skin)
   * [Plug-In Skin](#plug-in-skin)
 * [Third Party Support](docs/ThirdPartSupport.md)
 * [Change Log](docs/ChangeLog.md)
