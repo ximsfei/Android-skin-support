@@ -181,7 +181,7 @@ public class CustomSDCardLoader extends SkinSDCardLoader {
 }
 ```
 
-Register this strategy int Application's `onCreate`
+Register this strategy in Application's `onCreate`
 
 ```java
 SkinCompatManager.withoutActivity(this).addStrategy(new CustomSDCardLoader());
