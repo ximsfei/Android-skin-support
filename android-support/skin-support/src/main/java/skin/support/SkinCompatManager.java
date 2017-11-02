@@ -42,7 +42,6 @@ public class SkinCompatManager extends SkinObservable {
     private Map<Integer, SkinLoaderStrategy> mStrategyMap = new HashMap<>();
     private boolean mSkinStatusBarColorEnable = true;
     private boolean mSkinWindowBackgroundColorEnable = true;
-    private String mSDCardPath;
 
     /**
      * 皮肤包加载监听.
