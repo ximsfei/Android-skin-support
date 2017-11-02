@@ -117,11 +117,9 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        if (activity instanceof AppCompatActivity) {
-            installLayoutFactory(activity);
-            updateStatusBarColor(activity);
-            updateWindowBackground(activity);
-        }
+        installLayoutFactory(activity);
+        updateStatusBarColor(activity);
+        updateWindowBackground(activity);
     }
 
     @Override

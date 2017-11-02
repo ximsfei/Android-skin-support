@@ -3,7 +3,7 @@
 ## skin-support: 基础控件 支持
 
 
-* [![v2.1.8](https://img.shields.io/badge/skin--support-v2.1.8-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.8/) bugfix 新功能开发
+* [![v2.1.9](https://img.shields.io/badge/skin--support-v2.1.9-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.9/) bugfix 新功能开发
   * 使用Application Context换肤支持
   * 新增应用内换肤前缀加载策略
   * ViewGroup:
