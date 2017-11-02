@@ -38,7 +38,7 @@ Now, you have a strong skinning feature. What you need to do is [make a skin](#m
 
 ## Gradle Dependencies
 
-The Gradle Dependency is avalable via [jCenter](https://bintray.com/pengfeng/skin-support),
+The Gradle Dependency is available via [jCenter](https://bintray.com/pengfeng/skin-support),
 
 Add dependencies directly, [For the latest version, please refer to change log](docs/ChangeLog.md)
 
