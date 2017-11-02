@@ -34,6 +34,7 @@ Now, you have a strong skinning feature. What you need to do is [make a skin](#m
   * [BuildIn Skin](#app-buildin-skin)
   * [Plug-In Skin](#plug-in-skin)
 * [Change Log](docs/ChangeLog.md)
+* [About Author](#about-author)
 * [LICENSE](#license-mit)
 
 ## Gradle Dependencies
@@ -191,5 +192,11 @@ Use this strategy to load skin:
 ```java
 SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.SKIN_LOADER_STRATEGY_SDCARD);
 ```
+
+## About Author
+
+Pengfeng Wang
+
+email: ximsfei@gmail.com
 
 ## [License MIT](LICENSE)
