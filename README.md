@@ -195,7 +195,7 @@ SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.
 
 ## About Author
 
-Pengfeng Wang
+Pengfeng Wang(王鹏锋)
 
 email: ximsfei@gmail.com
 
