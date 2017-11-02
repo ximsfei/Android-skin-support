@@ -1,6 +1,6 @@
 # Android-skin-support
 
-[![skin-support-v2.1.5](https://img.shields.io/badge/skin--support-v2.1.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.5/)
+[![skin-support-v2.1.8](https://img.shields.io/badge/skin--support-v2.1.8-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.8/)
 [![design-v1.2.5](https://img.shields.io/badge/skin--support--design-v1.2.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.5/)
 [![cardview-v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/)
 [![v1.0.2](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2/)
@@ -84,7 +84,7 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 ### 导入:
 直接添加依赖, [最新版本选择, 请查看更新日志](docs/ChangeLog.md)
 ```xml
-compile 'skin.support:skin-support:2.1.5'          // skin-support 基础控件支持
+compile 'skin.support:skin-support:2.1.8'          // skin-support 基础控件支持
 compile 'skin.support:skin-support-design:1.2.5'   // skin-support-design material design 控件支持[可选]
 compile 'skin.support:skin-support-cardview:1.2.0' // skin-support-cardview CardView 控件支持[可选]
 compile 'skin.support:skin-support-constraint-layout:1.0.2' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
@@ -169,13 +169,14 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 ### 应用内换肤:
 
-应用内换肤，皮肤名为: night; 新增需要换肤的资源添加后缀 _night。
+应用内换肤，皮肤名为: night; 新增需要换肤的资源添加后缀 _night或者前缀 night_。
 
 需要换肤的资源为R.color.windowBackgroundColor, 添加对应资源R.color.windowBackgroundColor_night。
 
 加载应用内皮肤:
 ```java
-SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN); // 后缀加载
+SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN); // 前缀加载
 ```
 
 ### 插件式换肤:
