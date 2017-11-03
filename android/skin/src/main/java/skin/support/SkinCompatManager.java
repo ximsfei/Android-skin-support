@@ -199,7 +199,7 @@ public class SkinCompatManager extends SkinObservable {
     /**
      * 设置是否所有Activity都换肤.
      *
-     * @param enable true: 所有Activity都换肤; false: 实现SkinActivity的Activity支持换肤.
+     * @param enable true: 所有Activity都换肤; false: 实现SkinCompatSupportable的Activity支持换肤.
      * @return
      */
     public SkinCompatManager setSkinAllActivityEnable(boolean enable) {
