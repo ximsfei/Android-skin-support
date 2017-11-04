@@ -27,17 +27,17 @@
     * [生成皮肤插件](#打包生成apk-即为皮肤包)
     * [加载皮肤插件](#加载皮肤插件)
   * [自定义加载策略](#自定义加载策略)
-* [AlertDialog换肤](docs/AlertDialog.md)
-* [更新日志](docs/ChangeLog.md)
-  * [skin-support 更新日志](docs/ChangeLog.md#skin-support-基础控件-支持)
-  * [skin-support-design 更新日志](docs/ChangeLog.md#skin-support-design-material-design-支持)
-  * [skin-support-cardview 更新日志](docs/ChangeLog.md#skin-support-cardview-cardview-支持)
-  * [skin-support-constraint-layout 更新日志](docs/ChangeLog.md#skin-support-constraint-layout-constraintlayout-支持)
-* [第三方控件适配库](docs/ThirdPartSupport.md)
-  * [hdodenhof/CircleImageView](docs/ThirdPartSupport.md#hdodenhofcircleimageview)
-  * [H07000223/FlycoTabLayout](docs/ThirdPartSupport.md#h07000223flycotablayout)
-  * [hongyangAndroid/AndroidAutoLayout](docs/ThirdPartSupport.md#hongyangandroidandroidautolayout)
-* [FAQ](docs/FAQ.md)
+* [AlertDialog换肤](../AlertDialog.md)
+* [更新日志](../ChangeLog.md)
+  * [skin-support 更新日志](../ChangeLog.md#skin-support-基础控件-支持)
+  * [skin-support-design 更新日志](../ChangeLog.md#skin-support-design-material-design-支持)
+  * [skin-support-cardview 更新日志](../ChangeLog.md#skin-support-cardview-cardview-支持)
+  * [skin-support-constraint-layout 更新日志](../ChangeLog.md#skin-support-constraint-layout-constraintlayout-支持)
+* [第三方控件适配库](../ThirdPartSupport.md)
+  * [hdodenhof/CircleImageView](../ThirdPartSupport.md#hdodenhofcircleimageview)
+  * [H07000223/FlycoTabLayout](../ThirdPartSupport.md#h07000223flycotablayout)
+  * [hongyangAndroid/AndroidAutoLayout](../ThirdPartSupport.md#hongyangandroidandroidautolayout)
+* [FAQ](../FAQ.md)
 * [技术交流](#技术交流)
 * [LICENSE](#license-mit)
 
@@ -84,7 +84,7 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 ## 用法
 
 ### 导入:
-直接添加依赖, [最新版本选择, 请查看更新日志](docs/ChangeLog.md)
+直接添加依赖, [最新版本选择, 请查看更新日志](../ChangeLog.md)
 ```xml
 compile 'skin.support:skin-support:2.1.9'          // skin-support 基础控件支持
 compile 'skin.support:skin-support-design:1.2.5'   // skin-support-design material design 控件支持[可选]
