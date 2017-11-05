@@ -31,7 +31,7 @@ Now, you have a strong skinning feature. What you need to do is [make a skin](#m
   * [Load Skin](#load-skin)
   * [Custom View skin support](#custom-view-skin-support)
 * [Make a skin](#make-a-skin)
-  * [BuildIn Skin](#app-buildin-skin)
+  * [BuildIn Skin](#buildin-skin)
   * [Plug-In Skin](#plug-in-skin)
 * [Change Log](docs/ChangeLog.md)
 * [About Author](#about-author)
@@ -114,7 +114,7 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 ## Make a skin
 
-### App BuildIn Skin:
+### BuildIn Skin:
 
 BuildIn Skin，if the skin name is `night`; Add a resource that needs to be skinned with a suffix `_night` or prefix `night_`.
 
