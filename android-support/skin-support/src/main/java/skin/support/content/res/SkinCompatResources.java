@@ -75,47 +75,46 @@ public class SkinCompatResources {
     }
 
     public int getColor(int resId) {
-        int originColor = mAppContext.getResources().getColor(resId);
-        if (isDefaultSkin) {
-            return originColor;
+        if (!isDefaultSkin) {
+            int targetResId = getTargetResId(resId);
+            if (targetResId != 0) {
+                return mResources.getColor(targetResId);
+            }
         }
-
-        int targetResId = getTargetResId(resId);
-        return targetResId == 0 ? originColor : mResources.getColor(targetResId);
+        return mAppContext.getResources().getColor(resId);
     }
 
     public Drawable getSrcCompatDrawable(Context context, int resId) {
-        Drawable originDrawable = AppCompatResources.getDrawable(context, resId);
-        if (isDefaultSkin) {
-            return originDrawable;
+        if (!isDefaultSkin) {
+            int targetResId = getTargetResId(resId);
+            if (targetResId != 0) {
+                try {
+                    return mResources.getDrawable(targetResId);
+                } catch (Exception e) {
+                }
+            }
         }
-
-        int targetResId = getTargetResId(resId);
-        try {
-            return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
-        } catch (Exception e) {
-            return originDrawable;
-        }
+        return AppCompatResources.getDrawable(context, resId);
     }
 
     public Drawable getDrawable(int resId) {
-        Drawable originDrawable = mAppContext.getResources().getDrawable(resId);
-        if (isDefaultSkin) {
-            return originDrawable;
+        if (!isDefaultSkin) {
+            int targetResId = getTargetResId(resId);
+            if (targetResId != 0) {
+                return mResources.getDrawable(targetResId);
+            }
         }
-
-        int targetResId = getTargetResId(resId);
-        return targetResId == 0 ? originDrawable : mResources.getDrawable(targetResId);
+        return mAppContext.getResources().getDrawable(resId);
     }
 
     public ColorStateList getColorStateList(int resId) {
-        ColorStateList colorStateList = mAppContext.getResources().getColorStateList(resId);
-        if (isDefaultSkin) {
-            return colorStateList;
+        if (!isDefaultSkin) {
+            int targetResId = getTargetResId(resId);
+            if (targetResId != 0) {
+                return mResources.getColorStateList(targetResId);
+            }
         }
-
-        int targetResId = getTargetResId(resId);
-        return targetResId == 0 ? colorStateList : mResources.getColorStateList(targetResId);
+        return mAppContext.getResources().getColorStateList(resId);
     }
 
     private int getTargetResId(int resId) {
