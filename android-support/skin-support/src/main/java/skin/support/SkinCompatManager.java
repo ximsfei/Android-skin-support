@@ -22,9 +22,7 @@ import skin.support.app.SkinLayoutInflater;
 import skin.support.load.SkinAssetsLoader;
 import skin.support.load.SkinBuildInLoader;
 import skin.support.load.SkinPrefixBuildInLoader;
-import skin.support.load.SkinSDCardLoader;
 import skin.support.observe.SkinObservable;
-import skin.support.utils.SkinLog;
 import skin.support.utils.SkinPreference;
 import skin.support.content.res.SkinCompatResources;
 
@@ -342,7 +340,6 @@ public class SkinCompatManager extends SkinObservable {
         }
 
         protected void onPostExecute(String skinName) {
-            SkinLog.e("skinName = " + skinName);
             synchronized (mLock) {
                 // skinName 为""时，恢复默认皮肤
                 if (skinName != null) {

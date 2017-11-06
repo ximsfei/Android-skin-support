@@ -13,7 +13,6 @@ import java.lang.reflect.Method;
 
 import skin.support.content.res.SkinCompatResources;
 import skin.support.design.R;
-import skin.support.utils.SkinLog;
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatEditText;
 import skin.support.widget.SkinCompatHelper;
@@ -52,9 +51,6 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
         if (a.hasValue(R.styleable.TextInputLayout_android_textColorHint)) {
             mDefaultTextColorResId = mFocusedTextColorResId =
                     a.getResourceId(R.styleable.TextInputLayout_android_textColorHint, INVALID_ID);
-            SkinLog.e(TAG, "mDefaultTextColorResId = " + mDefaultTextColorResId
-                    + ", hex = " + Integer.toHexString(getResources().getColor(mDefaultTextColorResId))
-                    + ", res name = " + getResources().getResourceName(mDefaultTextColorResId));
             applyFocusedTextColorResource();
         }
 
@@ -71,7 +67,6 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
             TintTypedArray counterTA = TintTypedArray.obtainStyledAttributes(getContext(), resId, skin.support.R.styleable.SkinTextAppearance);
             if (counterTA.hasValue(skin.support.R.styleable.SkinTextAppearance_android_textColor)) {
                 mCounterTextColorResId = counterTA.getResourceId(skin.support.R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
-                SkinLog.d(TAG, "mCounterTextColorResId name = " + getResources().getResourceName(mCounterTextColorResId));
             }
             counterTA.recycle();
         }
@@ -121,7 +116,6 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
                     resId, skin.support.R.styleable.SkinTextAppearance);
             if (errorTA.hasValue(skin.support.R.styleable.SkinTextAppearance_android_textColor)) {
                 mErrorTextColorResId = errorTA.getResourceId(skin.support.R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
-                SkinLog.d(TAG, "mErrorTextColorResId = " + SkinCompatHelper.checkResourceId(mErrorTextColorResId));
             }
             errorTA.recycle();
         }

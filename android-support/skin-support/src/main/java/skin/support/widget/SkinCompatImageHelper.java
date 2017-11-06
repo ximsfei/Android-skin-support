@@ -1,17 +1,12 @@
 package skin.support.widget;
 
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
-import skin.support.utils.SkinLog;
 
 /**
  * Created by ximsfei on 2017/1/12.
@@ -54,7 +49,6 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
             }
         } else {
             mSrcResId = checkResourceId(mSrcResId);
-            SkinLog.d(TAG, "mSrcResId = " + mSrcResId);
             if (mSrcResId == INVALID_ID) {
                 return;
             }
