@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.SparseArray;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class SkinCompatManager extends SkinObservable {
     private boolean mLoading = false;
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
-    private Map<Integer, SkinLoaderStrategy> mStrategyMap = new HashMap<>();
+    private SparseArray<SkinLoaderStrategy> mStrategyMap = new SparseArray<>();
     private boolean mSkinAllActivityEnable = true;
     private boolean mSkinWindowBackgroundColorEnable = false;
 
@@ -145,7 +146,7 @@ public class SkinCompatManager extends SkinObservable {
         return this;
     }
 
-    public Map<Integer, SkinLoaderStrategy> getStrategies() {
+    public SparseArray<SkinLoaderStrategy> getStrategies() {
         return mStrategyMap;
     }
 

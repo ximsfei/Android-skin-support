@@ -10,12 +10,11 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.SparseArray;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
@@ -37,7 +36,7 @@ public class SkinCompatManager extends SkinObservable {
     private boolean mLoading = false;
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
-    private Map<Integer, SkinLoaderStrategy> mStrategyMap = new HashMap<>();
+    private SparseArray<SkinLoaderStrategy> mStrategyMap = new SparseArray<>();
     private boolean mSkinStatusBarColorEnable = true;
     private boolean mSkinWindowBackgroundColorEnable = true;
 
@@ -70,7 +69,7 @@ public class SkinCompatManager extends SkinObservable {
         /**
          * 加载皮肤包.
          *
-         * @param context {@link Context}
+         * @param context  {@link Context}
          * @param skinName 皮肤包名称.
          * @return 加载成功，返回皮肤包名称；失败，则返回空。
          */
@@ -79,9 +78,9 @@ public class SkinCompatManager extends SkinObservable {
         /**
          * 根据应用中的资源ID，获取皮肤包相应资源的资源名.
          *
-         * @param context {@link Context}
+         * @param context  {@link Context}
          * @param skinName 皮肤包名称.
-         * @param resId 应用中需要换肤的资源ID.
+         * @param resId    应用中需要换肤的资源ID.
          * @return 皮肤包中相应的资源名.
          */
         String getTargetResourceEntryName(Context context, String skinName, int resId);
@@ -98,6 +97,7 @@ public class SkinCompatManager extends SkinObservable {
 
     /**
      * 初始化换肤框架. 通过该方法初始化，应用中Activity需继承自{@link skin.support.app.SkinCompatActivity}.
+     *
      * @param context
      * @return
      */
@@ -152,7 +152,7 @@ public class SkinCompatManager extends SkinObservable {
         return this;
     }
 
-    public Map<Integer, SkinLoaderStrategy> getStrategies() {
+    public SparseArray<SkinLoaderStrategy> getStrategies() {
         return mStrategyMap;
     }
 
@@ -235,6 +235,7 @@ public class SkinCompatManager extends SkinObservable {
 
     /**
      * 加载记录的皮肤包，一般在Application中初始化换肤框架后调用.
+     *
      * @return
      */
     public AsyncTask loadSkin() {
