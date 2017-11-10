@@ -1,6 +1,5 @@
 package skin.support.widget;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
@@ -51,9 +50,7 @@ public class SkinCompatThemeUtils {
     private static int getResId(Context context, int[] attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs);
         final int resId = a.getResourceId(0, INVALID_ID);
-        if (a != null) {
-            a.recycle();
-        }
+        a.recycle();
         return resId;
     }
 }

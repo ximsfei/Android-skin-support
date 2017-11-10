@@ -6,7 +6,6 @@ package skin.support.widget;
  */
 
 public abstract class SkinCompatHelper {
-    protected static final String TAG = SkinCompatHelper.class.getSimpleName();
     protected static final String SYSTEM_ID_PREFIX = "1";
     public static final int INVALID_ID = 0;
 

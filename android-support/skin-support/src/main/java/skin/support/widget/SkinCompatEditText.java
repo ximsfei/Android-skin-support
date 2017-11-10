@@ -1,9 +1,7 @@
 package skin.support.widget;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
 import android.support.v7.appcompat.R;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
