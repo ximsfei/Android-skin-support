@@ -151,23 +151,23 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 * 自定义View可以直接继承自SkinCompatView, SkinCompatLinearLayout等已有控件
 
-  eg: [CustomTextView](demo/skin-app/src/main/java/com/ximsfei/skindemo/widget/CustomTextView.java)
+  eg: [CustomTextView](../../demo/skin-app/src/main/java/com/ximsfei/skindemo/widget/CustomTextView.java)
 
 * 不想继承自已有控件
 
-  eg: [CustomTextView2](demo/skin-app/src/main/java/com/ximsfei/skindemo/widget/CustomTextView2.java)
+  eg: [CustomTextView2](../../demo/skin-app/src/main/java/com/ximsfei/skindemo/widget/CustomTextView2.java)
 
 * 需要换肤自定义属性
 
   // 需要换肤AutoCompleteTextView的R.attr.popupBackground属性
 
-  eg: [SkinCompatAutoCompleteTextView](android-support/skin-support/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
+  eg: [SkinCompatAutoCompleteTextView](../../android-support/skin-support/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
 
 * 需要使用第三方库控件怎么办
 
   // 需要使用https://github.com/hdodenhof/CircleImageView 控件, 并且要支持换肤
 
-  eg: [SkinCompatCircleImageView](third-part-support/circleimageview/src/main/java/skin/support/circleimageview/widget/SkinCompatCircleImageView.java)
+  eg: [SkinCompatCircleImageView](../../third-part-support/circleimageview/src/main/java/skin/support/circleimageview/widget/SkinCompatCircleImageView.java)
 
 ### 应用内换肤:
 
