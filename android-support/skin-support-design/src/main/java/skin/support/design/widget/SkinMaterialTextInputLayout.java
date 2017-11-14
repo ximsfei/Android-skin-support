@@ -2,9 +2,9 @@ package skin.support.design.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.support.annotation.StyleRes;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -46,8 +46,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
 
-        final TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
-                R.styleable.TextInputLayout, defStyleAttr, R.style.Widget_Design_TextInputLayout);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TextInputLayout, defStyleAttr, R.style.Widget_Design_TextInputLayout);
         if (a.hasValue(R.styleable.TextInputLayout_android_textColorHint)) {
             mDefaultTextColorResId = mFocusedTextColorResId =
                     a.getResourceId(R.styleable.TextInputLayout_android_textColorHint, INVALID_ID);
@@ -64,7 +63,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
 
     private void loadCounterTextColorResFromAttributes(@StyleRes int resId) {
         if (resId != INVALID_ID) {
-            TintTypedArray counterTA = TintTypedArray.obtainStyledAttributes(getContext(), resId, skin.support.R.styleable.SkinTextAppearance);
+            TypedArray counterTA = getContext().obtainStyledAttributes(resId, skin.support.R.styleable.SkinTextAppearance);
             if (counterTA.hasValue(skin.support.R.styleable.SkinTextAppearance_android_textColor)) {
                 mCounterTextColorResId = counterTA.getResourceId(skin.support.R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
             }
@@ -112,8 +111,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
 
     private void loadErrorTextColorResFromAttributes(@StyleRes int resId) {
         if (resId != INVALID_ID) {
-            TintTypedArray errorTA = TintTypedArray.obtainStyledAttributes(getContext(),
-                    resId, skin.support.R.styleable.SkinTextAppearance);
+            TypedArray errorTA = getContext().obtainStyledAttributes(resId, skin.support.R.styleable.SkinTextAppearance);
             if (errorTA.hasValue(skin.support.R.styleable.SkinTextAppearance_android_textColor)) {
                 mErrorTextColorResId = errorTA.getResourceId(skin.support.R.styleable.SkinTextAppearance_android_textColor, INVALID_ID);
             }

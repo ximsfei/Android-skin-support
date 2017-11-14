@@ -1,9 +1,9 @@
 package skin.support.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.DrawableRes;
 import android.support.v7.widget.AppCompatCheckedTextView;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 
 import skin.support.content.res.SkinCompatResources;
@@ -39,8 +39,7 @@ public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implemen
         mTextHelper = SkinCompatTextHelper.create(this);
         mTextHelper.loadFromAttributes(attrs, defStyleAttr);
 
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
-                TINT_ATTRS, defStyleAttr, 0);
+        TypedArray a = context.obtainStyledAttributes(attrs, TINT_ATTRS, defStyleAttr, 0);
         mCheckMarkResId = a.getResourceId(0, INVALID_ID);
         a.recycle();
         applyCheckMark();

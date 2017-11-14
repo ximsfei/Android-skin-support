@@ -1,6 +1,6 @@
 package skin.support.widget;
 
-import android.support.v7.widget.TintTypedArray;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
 
@@ -24,8 +24,7 @@ public class SkinCompatSeekBarHelper extends SkinCompatProgressBarHelper {
     void loadFromAttributes(AttributeSet attrs, int defStyleAttr) {
         super.loadFromAttributes(attrs, defStyleAttr);
 
-        TintTypedArray a = TintTypedArray.obtainStyledAttributes(mView.getContext(), attrs,
-                R.styleable.AppCompatSeekBar, defStyleAttr, 0);
+        TypedArray a = mView.getContext().obtainStyledAttributes(attrs, R.styleable.AppCompatSeekBar, defStyleAttr, 0);
         mThumbResId = a.getResourceId(R.styleable.AppCompatSeekBar_android_thumb, INVALID_ID);
 //        final Drawable drawable = a.getDrawableIfKnown(R.styleable.AppCompatSeekBar_android_thumb);
 //        if (drawable != null) {
