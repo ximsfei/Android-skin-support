@@ -61,13 +61,9 @@ Only one line of code to integrate the framework.
 public void onCreate() {
     super.onCreate();
     SkinCompatManager.withoutActivity(this)                         // Basic Widget support
-            .addStrategy(new CustomSDCardLoader())                  // Custom loader strategy            [selectable]
-            .addHookInflater(new SkinHookAutoLayoutViewInflater())  // hongyangAndroid/AndroidAutoLayout [selectable]
             .addInflater(new SkinMaterialViewInflater())            // material design support           [selectable]
             .addInflater(new SkinConstraintViewInflater())          // ConstraintLayout support          [selectable]
             .addInflater(new SkinCardViewInflater())                // CardView v7 support               [selectable]
-            .addInflater(new SkinCircleImageViewInflater())         // hdodenhof/CircleImageView         [selectable]
-            .addInflater(new SkinFlycoTabLayoutInflater())          // H07000223/FlycoTabLayout          [selectable]
             .setSkinStatusBarColorEnable(false)                     // Disable statusBarColor skin support，default true   [selectable]
             .setSkinWindowBackgroundEnable(false)                   // Disable windowBackground skin support，default true [selectable]
             .loadSkin();
