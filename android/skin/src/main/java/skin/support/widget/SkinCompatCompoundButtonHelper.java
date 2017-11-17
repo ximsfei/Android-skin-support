@@ -41,7 +41,7 @@ public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
     public void applySkin() {
         mButtonResourceId = SkinCompatHelper.checkResourceId(mButtonResourceId);
         if (mButtonResourceId != INVALID_ID) {
-            mView.setButtonDrawable(SkinCompatResources.getInstance(mView.getContext()).getDrawable(mButtonResourceId));
+            mView.setButtonDrawable(SkinCompatResources.getInstance().getDrawable(mButtonResourceId));
         }
     }
 }

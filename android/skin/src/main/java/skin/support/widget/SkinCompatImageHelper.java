@@ -52,7 +52,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
         if (mSrcResId == INVALID_ID) {
             return;
         }
-        Drawable drawable = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mSrcResId);
+        Drawable drawable = SkinCompatResources.getInstance().getDrawable(mSrcResId);
         if (drawable != null) {
             mView.setImageDrawable(drawable);
         }

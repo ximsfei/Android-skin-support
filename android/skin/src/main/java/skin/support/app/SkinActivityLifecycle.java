@@ -9,8 +9,6 @@ import android.support.v4.view.LayoutInflaterCompat;
 import android.view.LayoutInflater;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.WeakHashMap;
 
 import skin.support.SkinCompatManager;
@@ -24,28 +22,23 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 import static skin.support.widget.SkinCompatHelper.checkResourceId;
 
 public class SkinActivityLifecycle implements Application.ActivityLifecycleCallbacks {
-    private static final Map<Context, SkinActivityLifecycle> sInstanceMap = new HashMap<>();
+    private static volatile SkinActivityLifecycle sInstance;
     private WeakHashMap<Context, SkinCompatDelegate> mSkinDelegateMap;
     private WeakHashMap<Context, SkinObserver> mSkinObserverMap;
 
     public static SkinActivityLifecycle init(Application application) {
-        SkinActivityLifecycle instance = sInstanceMap.get(application);
-        if (instance == null) {
+        if (sInstance == null) {
             synchronized (SkinActivityLifecycle.class) {
-                instance = sInstanceMap.get(application);
-                if (instance == null) {
-                    instance = new SkinActivityLifecycle(application);
-                    sInstanceMap.put(application, instance);
-                }
+                sInstance = new SkinActivityLifecycle(application);
             }
         }
-        return instance;
+        return sInstance;
     }
 
     private SkinActivityLifecycle(Application application) {
         application.registerActivityLifecycleCallbacks(this);
         installLayoutFactory(application);
-        SkinCompatManager.getInstance(application).addObserver(getObserver(application));
+        SkinCompatManager.getInstance().addObserver(getObserver(application));
     }
 
     private void installLayoutFactory(Context context) {
@@ -112,7 +105,7 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
     @Override
     public void onActivityResumed(Activity activity) {
         if (isContextSkinEnable(activity)) {
-            SkinCompatManager.getInstance(activity).addObserver(getObserver(activity));
+            SkinCompatManager.getInstance().addObserver(getObserver(activity));
         }
     }
 
@@ -133,21 +126,21 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
     @Override
     public void onActivityDestroyed(Activity activity) {
         if (isContextSkinEnable(activity)) {
-            SkinCompatManager.getInstance(activity).deleteObserver(getObserver(activity));
+            SkinCompatManager.getInstance().deleteObserver(getObserver(activity));
             mSkinObserverMap.remove(activity);
             mSkinDelegateMap.remove(activity);
         }
     }
 
     private boolean isContextSkinEnable(Context context) {
-        return SkinCompatManager.getInstance(context).isSkinAllActivityEnable() || context instanceof SkinCompatSupportable;
+        return SkinCompatManager.getInstance().isSkinAllActivityEnable() || context instanceof SkinCompatSupportable;
     }
 
     private void updateWindowBackground(Activity activity) {
-        if (SkinCompatManager.getInstance(activity).isSkinWindowBackgroundEnable()) {
+        if (SkinCompatManager.getInstance().isSkinWindowBackgroundEnable()) {
             int windowBackgroundResId = SkinCompatThemeUtils.getWindowBackgroundResId(activity);
             if (checkResourceId(windowBackgroundResId) != INVALID_ID) {
-                Drawable drawable = SkinCompatResources.getInstance(activity).getDrawable(windowBackgroundResId);
+                Drawable drawable = SkinCompatResources.getInstance().getDrawable(windowBackgroundResId);
                 if (drawable != null) {
                     activity.getWindow().setBackgroundDrawable(drawable);
                 }

@@ -3,9 +3,6 @@ package skin.support.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import skin.support.SkinCompatManager;
 
 public class SkinPreference {
@@ -13,26 +10,21 @@ public class SkinPreference {
 
     private static final String KEY_SKIN_NAME = "skin-name";
     private static final String KEY_SKIN_STRATEGY = "skin-strategy";
-    private static final Map<Context, SkinPreference> sInstanceMap = new HashMap<>();
+    private static volatile SkinPreference sInstance;
     private final Context mApp;
     private final SharedPreferences mPref;
     private final SharedPreferences.Editor mEditor;
 
     public static void init(Context context) {
-        SkinPreference instance =  sInstanceMap.get(context.getApplicationContext());
-        if (instance == null) {
+        if (sInstance == null) {
             synchronized (SkinPreference.class) {
-                instance =  sInstanceMap.get(context.getApplicationContext());
-                if (instance == null) {
-                    instance = new SkinPreference(context.getApplicationContext());
-                    sInstanceMap.put(context.getApplicationContext(), instance);
-                }
+                sInstance = new SkinPreference(context.getApplicationContext());
             }
         }
     }
 
-    public static SkinPreference getInstance(Context context) {
-        return sInstanceMap.get(context);
+    public static SkinPreference getInstance() {
+        return sInstance;
     }
 
     private SkinPreference(Context applicationContext) {

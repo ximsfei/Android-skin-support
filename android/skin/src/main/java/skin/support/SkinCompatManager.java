@@ -14,9 +14,7 @@ import android.util.SparseArray;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
@@ -32,7 +30,7 @@ public class SkinCompatManager extends SkinObservable {
     public static final int SKIN_LOADER_STRATEGY_ASSETS = 0;
     public static final int SKIN_LOADER_STRATEGY_BUILD_IN = 1;
     public static final int SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN = 2;
-    private static final Map<Context, SkinCompatManager> sInstanceMap = new HashMap<>();
+    private static volatile SkinCompatManager sManager = null;
     private final Object mLock = new Object();
     private final Context mAppContext;
     private boolean mLoading = false;
@@ -104,21 +102,16 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public static SkinCompatManager init(Application application) {
-        SkinCompatManager instance = sInstanceMap.get(application);
-        if (instance == null) {
+        if (sManager == null) {
             synchronized (SkinCompatManager.class) {
-                instance = sInstanceMap.get(application);
-                if (instance == null) {
-                    instance = new SkinCompatManager(application);
-                    sInstanceMap.put(application, instance);
-                }
+                sManager = new SkinCompatManager(application);
             }
         }
-        return instance;
+        return sManager;
     }
 
-    public static SkinCompatManager getInstance(Context context) {
-        return init((Application) context.getApplicationContext());
+    public static SkinCompatManager getInstance() {
+        return sManager;
     }
 
     private SkinCompatManager(Application application) {
@@ -187,7 +180,7 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public String getCurSkinName() {
-        return SkinPreference.getInstance(mAppContext).getSkinName();
+        return SkinPreference.getInstance().getSkinName();
     }
 
     /**
@@ -233,8 +226,8 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public AsyncTask loadSkin() {
-        String skin = SkinPreference.getInstance(mAppContext).getSkinName();
-        int strategy = SkinPreference.getInstance(mAppContext).getSkinStrategy();
+        String skin = SkinPreference.getInstance().getSkinName();
+        int strategy = SkinPreference.getInstance().getSkinStrategy();
         if (TextUtils.isEmpty(skin) || strategy == SKIN_LOADER_STRATEGY_NONE) {
             return null;
         }
@@ -248,8 +241,8 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public AsyncTask loadSkin(SkinLoaderListener listener) {
-        String skin = SkinPreference.getInstance(mAppContext).getSkinName();
-        int strategy = SkinPreference.getInstance(mAppContext).getSkinStrategy();
+        String skin = SkinPreference.getInstance().getSkinName();
+        int strategy = SkinPreference.getInstance().getSkinStrategy();
         if (TextUtils.isEmpty(skin) || strategy == SKIN_LOADER_STRATEGY_NONE) {
             return null;
         }
@@ -319,7 +312,7 @@ public class SkinCompatManager extends SkinObservable {
             try {
                 if (params.length == 1) {
                     if (TextUtils.isEmpty(params[0])) {
-                        SkinCompatResources.getInstance(mAppContext).reset();
+                        SkinCompatResources.getInstance().reset();
                         return params[0];
                     }
                     if (!TextUtils.isEmpty(
@@ -330,7 +323,7 @@ public class SkinCompatManager extends SkinObservable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            SkinCompatResources.getInstance(mAppContext).reset();
+            SkinCompatResources.getInstance().reset();
             return null;
         }
 
@@ -338,11 +331,11 @@ public class SkinCompatManager extends SkinObservable {
             synchronized (mLock) {
                 // skinName 为""时，恢复默认皮肤
                 if (skinName != null) {
-                    SkinPreference.getInstance(mAppContext).setSkinName(skinName).setSkinStrategy(mStrategy.getType()).commitEditor();
+                    SkinPreference.getInstance().setSkinName(skinName).setSkinStrategy(mStrategy.getType()).commitEditor();
                     notifyUpdateSkin();
                     if (mListener != null) mListener.onSuccess();
                 } else {
-                    SkinPreference.getInstance(mAppContext).setSkinName("").setSkinStrategy(SKIN_LOADER_STRATEGY_NONE).commitEditor();
+                    SkinPreference.getInstance().setSkinName("").setSkinStrategy(SKIN_LOADER_STRATEGY_NONE).commitEditor();
                     if (mListener != null) mListener.onFailed("皮肤资源获取失败");
                 }
                 mLoading = false;

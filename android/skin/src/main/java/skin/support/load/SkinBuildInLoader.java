@@ -9,7 +9,7 @@ import skin.support.content.res.SkinCompatResources;
 public class SkinBuildInLoader implements SkinLoaderStrategy {
     @Override
     public String loadSkinInBackground(Context context, String skinName) {
-        SkinCompatResources.getInstance(context).setupSkin(
+        SkinCompatResources.getInstance().setupSkin(
                 context.getResources(),
                 context.getPackageName(),
                 skinName,

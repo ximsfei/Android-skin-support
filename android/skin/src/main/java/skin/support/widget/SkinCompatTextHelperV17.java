@@ -59,28 +59,28 @@ public class SkinCompatTextHelperV17 extends SkinCompatTextHelper {
                 drawableStart = null, drawableEnd = null;
         mDrawableLeftResId = checkResourceId(mDrawableLeftResId);
         if (mDrawableLeftResId != INVALID_ID) {
-            drawableLeft = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mDrawableLeftResId);
+            drawableLeft = SkinCompatResources.getInstance().getDrawable(mDrawableLeftResId);
         }
         mDrawableTopResId = checkResourceId(mDrawableTopResId);
         if (mDrawableTopResId != INVALID_ID) {
-            drawableTop = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mDrawableTopResId);
+            drawableTop = SkinCompatResources.getInstance().getDrawable(mDrawableTopResId);
         }
         mDrawableRightResId = checkResourceId(mDrawableRightResId);
         if (mDrawableRightResId != INVALID_ID) {
-            drawableRight = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mDrawableRightResId);
+            drawableRight = SkinCompatResources.getInstance().getDrawable(mDrawableRightResId);
         }
         mDrawableBottomResId = checkResourceId(mDrawableBottomResId);
         if (mDrawableBottomResId != INVALID_ID) {
-            drawableBottom = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mDrawableBottomResId);
+            drawableBottom = SkinCompatResources.getInstance().getDrawable(mDrawableBottomResId);
         }
         if (mDrawableStartResId != INVALID_ID) {
-            drawableStart = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mDrawableStartResId);
+            drawableStart = SkinCompatResources.getInstance().getDrawable(mDrawableStartResId);
         }
         if (drawableStart == null) {
             drawableStart = drawableLeft;
         }
         if (mDrawableEndResId != INVALID_ID) {
-            drawableEnd = SkinCompatResources.getInstance(mView.getContext()).getDrawable(mDrawableEndResId);
+            drawableEnd = SkinCompatResources.getInstance().getDrawable(mDrawableEndResId);
         }
         if (drawableEnd == null) {
             drawableEnd = drawableRight;
