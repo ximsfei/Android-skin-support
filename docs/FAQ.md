@@ -23,3 +23,11 @@
   问题解析:
 
   该框架默认支持了一些常用的属性换肤。出于对换肤性能的考虑，不常用的属性，没有做默认支持，业务层可根据自己的需求，参考[自定义View换肤](https://github.com/ximsfei/Android-skin-support#自定义view换肤)来扩展。
+
+## 动态设置`TextView`的`textColor`(`mTextView.setTextColor(getResources().getColor(R.color.text_color)))`无法换肤?
+
+  可以通过动态设置`textAppearance`来实现`textColor`的换肤操作。`mTextView.setTextAppearance(R.style.CustomTextAppearance);`
+
+  问题解析:
+
+  该框架是基于Resource Id来进行换肤的。框架初始化时，会解析布局文件中设置的资源(或者有业务代码直接设置`setTextAppearance(R.style.CustomTextAppearance)`，会从该style中解析出textColorResId)。
