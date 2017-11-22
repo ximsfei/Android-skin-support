@@ -212,7 +212,7 @@ colors.xml
 
 加载插件式皮肤, 将皮肤包放到assets/skins目录下
 ```java
-SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS);
+SkinCompatManager.getInstance().loadSkin("night.skin", SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS);
 ```
 
 ### 自定义加载策略:

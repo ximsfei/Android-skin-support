@@ -152,7 +152,7 @@ You can rename night.apk to night.skin by yourself.
 You can put the skin package into the assets/skins directory.
 
 ```java
-SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS);
+SkinCompatManager.getInstance().loadSkin("night.skin", SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS);
 ```
 
 Or you can customize the loading strategy:
