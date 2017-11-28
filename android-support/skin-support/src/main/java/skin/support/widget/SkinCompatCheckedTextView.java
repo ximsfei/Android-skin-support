@@ -6,6 +6,7 @@ import android.support.annotation.DrawableRes;
 import android.support.v7.widget.AppCompatCheckedTextView;
 import android.util.AttributeSet;
 
+import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
@@ -29,7 +30,7 @@ public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implemen
     }
 
     public SkinCompatCheckedTextView(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.checkedTextViewStyle);
+        this(context, attrs, R.attr.checkedTextViewStyle);
     }
 
     public SkinCompatCheckedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
