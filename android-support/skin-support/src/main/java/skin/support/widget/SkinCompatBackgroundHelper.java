@@ -48,7 +48,12 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
         }
         Drawable drawable = SkinCompatResources.getInstance().getDrawable(mBackgroundResId);
         if (drawable != null) {
+            int paddingLeft = mView.getPaddingLeft();
+            int paddingTop = mView.getPaddingTop();
+            int paddingRight = mView.getPaddingRight();
+            int paddingBottom = mView.getPaddingBottom();
             ViewCompat.setBackground(mView, drawable);
+            mView.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 }
