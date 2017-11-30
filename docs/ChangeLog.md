@@ -205,6 +205,9 @@
 ## skin-support-design: material design 支持
 
 
+* [![v1.2.6](https://img.shields.io/badge/skin--support--design-v1.2.6-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.6/) 依赖skin-support:1.2.7 design:25.1.0
+  * bugfix: #105
+
 * [![v1.2.5](https://img.shields.io/badge/skin--support--design-v1.2.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.5/) 依赖skin-support:1.2.7 design:25.1.0
   * 加速View创建
 
@@ -271,6 +274,9 @@
 
 ## skin-support-cardview: CardView 支持
 
+
+* [![v1.2.1](https://img.shields.io/badge/skin--support--cardview-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.1/) CardView 支持 依赖skin-support:1.2.1 cardview-v7:25.1.0
+  * bugfix: #105
 
 * [![v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/) CardView 支持 依赖skin-support:1.2.0 cardview-v7:25.1.0
   * remove skinSupport
