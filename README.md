@@ -5,7 +5,7 @@ In English | [中文](docs/cn/README.md)
 [![skin-support-v2.1.10](https://img.shields.io/badge/skin--support-v2.1.10-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.10/)
 [![design-v1.2.6](https://img.shields.io/badge/skin--support--design-v1.2.6-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.6/)
 [![cardview-v1.2.1](https://img.shields.io/badge/skin--support--cardview-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.1/)
-[![v1.0.2](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2/)
+[![v1.0.2.1](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2.1/)
 
 [![circleimageview-v2.2.0.2](https://img.shields.io/badge/circleimageview-v2.1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/circleimageview/2.1.0.2/)
 [![v2.1.2](https://img.shields.io/badge/flycotablayout-v2.1.2-green.svg)](http://jcenter.bintray.com/skin/support/flycotablayout/2.1.2/)
@@ -47,7 +47,7 @@ Add dependencies directly, [For the latest version, please refer to change log](
 compile 'skin.support:skin-support:2.1.10'         // skin-support basic widget
 compile 'skin.support:skin-support-design:1.2.6'   // skin-support-design material design support [selectable]
 compile 'skin.support:skin-support-cardview:1.2.1' // skin-support-cardview CardView support [selectable]
-compile 'skin.support:skin-support-constraint-layout:1.0.2' // skin-support-constraint-layout ConstraintLayout support [selectable]
+compile 'skin.support:skin-support-constraint-layout:1.0.2.1' // skin-support-constraint-layout ConstraintLayout support [selectable]
 ```
 
 ## Integration

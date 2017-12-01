@@ -288,6 +288,9 @@
 ## skin-support-constraint-layout: ConstraintLayout 支持
 
 
+* [![v1.0.2.1](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2.1-green.svg)](http://http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2.1/) ConstraintLayout 支持 依赖skin-support:1.2.7 constraint-layout:1.0.2
+  * bugfix: #105
+
 * [![v1.0.2](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2-green.svg)](http://http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2/) ConstraintLayout 支持 依赖skin-support:1.2.7 constraint-layout:1.0.2
   * ConstraintLayout
     * android:background
