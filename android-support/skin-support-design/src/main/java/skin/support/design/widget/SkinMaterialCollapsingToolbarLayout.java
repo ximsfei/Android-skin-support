@@ -53,7 +53,7 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
     private void applyStatusBarScrimResource() {
         mStatusBarScrimResId = SkinCompatHelper.checkResourceId(mStatusBarScrimResId);
         if (mStatusBarScrimResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mStatusBarScrimResId);
+            Drawable drawable = SkinCompatResources.getInstance().getDrawable(getContext(), mStatusBarScrimResId);
             if (drawable != null) {
                 setStatusBarScrim(drawable);
             }
@@ -63,7 +63,7 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
     private void applyContentScrimResource() {
         mContentScrimResId = SkinCompatHelper.checkResourceId(mContentScrimResId);
         if (mContentScrimResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mContentScrimResId);
+            Drawable drawable = SkinCompatResources.getInstance().getDrawable(getContext(), mContentScrimResId);
             if (drawable != null) {
                 setContentScrim(drawable);
             }

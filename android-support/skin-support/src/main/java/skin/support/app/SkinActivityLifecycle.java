@@ -106,7 +106,7 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
         if (SkinCompatManager.getInstance().isSkinWindowBackgroundEnable()) {
             int windowBackgroundResId = SkinCompatThemeUtils.getWindowBackgroundResId(activity);
             if (checkResourceId(windowBackgroundResId) != INVALID_ID) {
-                Drawable drawable = SkinCompatResources.getInstance().getDrawable(windowBackgroundResId);
+                Drawable drawable = SkinCompatResources.getInstance().getDrawable(activity, windowBackgroundResId);
                 if (drawable != null) {
                     activity.getWindow().setBackgroundDrawable(drawable);
                 }

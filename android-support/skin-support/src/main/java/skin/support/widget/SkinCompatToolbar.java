@@ -81,7 +81,7 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
     private void applyNavigationIcon() {
         mNavigationIconResId = SkinCompatHelper.checkResourceId(mNavigationIconResId);
         if (mNavigationIconResId != INVALID_ID) {
-            setNavigationIcon(SkinCompatResources.getInstance().getDrawable(mNavigationIconResId));
+            setNavigationIcon(SkinCompatResources.getInstance().getDrawable(getContext(), mNavigationIconResId));
         }
     }
 
