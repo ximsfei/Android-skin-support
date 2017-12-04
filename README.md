@@ -2,8 +2,8 @@
 
 In English | [中文](docs/cn/README.md)
 
-[![skin-support-v2.1.10](https://img.shields.io/badge/skin--support-v2.1.10-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.10/)
-[![design-v1.2.6](https://img.shields.io/badge/skin--support--design-v1.2.6-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.6/)
+[![skin-support-v2.2.0](https://img.shields.io/badge/skin--support-v2.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.2.0/)
+[![design-v1.3.0](https://img.shields.io/badge/skin--support--design-v1.3.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.3.0/)
 [![cardview-v1.2.1](https://img.shields.io/badge/skin--support--cardview-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.1/)
 [![v1.0.2.1](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2.1/)
 
@@ -44,8 +44,8 @@ The Gradle Dependency is available via [jCenter](https://bintray.com/pengfeng/sk
 Add dependencies directly, [For the latest version, please refer to change log](docs/ChangeLog.md)
 
 ```xml
-compile 'skin.support:skin-support:2.1.10'         // skin-support basic widget
-compile 'skin.support:skin-support-design:1.2.6'   // skin-support-design material design support [selectable]
+compile 'skin.support:skin-support:2.2.0'          // skin-support basic widget
+compile 'skin.support:skin-support-design:1.3.0'   // skin-support-design material design support [selectable]
 compile 'skin.support:skin-support-cardview:1.2.1' // skin-support-cardview CardView support [selectable]
 compile 'skin.support:skin-support-constraint-layout:1.0.2.1' // skin-support-constraint-layout ConstraintLayout support [selectable]
 ```

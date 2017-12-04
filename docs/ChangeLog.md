@@ -3,6 +3,10 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v2.2.0](https://img.shields.io/badge/skin--support-v2.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.2.0/) bugfix
+  * bugfix:
+    * issue #68 5.0以下支持svg换肤
+
 * [![v2.1.10](https://img.shields.io/badge/skin--support-v2.1.10-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.10/) bugfix
   * bugfix:
     * 设置Background导致Padding无效问题
@@ -205,8 +209,11 @@
 ## skin-support-design: material design 支持
 
 
+* [![v1.3.0](https://img.shields.io/badge/skin--support--design-v1.3.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.3.0/) 依赖skin-support:1.2.7 design:25.1.0
+  * bugfix: issue #68
+
 * [![v1.2.6](https://img.shields.io/badge/skin--support--design-v1.2.6-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.6/) 依赖skin-support:1.2.7 design:25.1.0
-  * bugfix: #105
+  * bugfix: issue #105
 
 * [![v1.2.5](https://img.shields.io/badge/skin--support--design-v1.2.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.5/) 依赖skin-support:1.2.7 design:25.1.0
   * 加速View创建
