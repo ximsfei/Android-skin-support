@@ -17,7 +17,7 @@ public class BaseActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle("Title");
         toolbar.setSubtitle("Subtitle");
-        toolbar.setNavigationIcon(R.drawable.ic_settings_36dp);
+        toolbar.setNavigationIcon(R.drawable.ic_settings_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
