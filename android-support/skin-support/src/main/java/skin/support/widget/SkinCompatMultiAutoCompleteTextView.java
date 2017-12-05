@@ -56,7 +56,7 @@ public class SkinCompatMultiAutoCompleteTextView extends AppCompatMultiAutoCompl
     private void applyDropDownBackgroundResource() {
         mDropDownBackgroundResId = SkinCompatHelper.checkResourceId(mDropDownBackgroundResId);
         if (mDropDownBackgroundResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mDropDownBackgroundResId);
+            Drawable drawable = SkinCompatResources.getInstance().getDrawable(getContext(), mDropDownBackgroundResId);
             if (drawable != null) {
                 setDropDownBackgroundDrawable(drawable);
             }

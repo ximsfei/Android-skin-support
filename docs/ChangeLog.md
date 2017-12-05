@@ -3,6 +3,10 @@
 ## skin-support: 基础控件 支持
 
 
+* [![v2.2.0](https://img.shields.io/badge/skin--support-v2.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.2.0/) bugfix
+  * bugfix:
+    * issue #68 5.0以下支持svg换肤
+
 * [![v2.1.10](https://img.shields.io/badge/skin--support-v2.1.10-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.10/) bugfix
   * bugfix:
     * 设置Background导致Padding无效问题
@@ -205,6 +209,12 @@
 ## skin-support-design: material design 支持
 
 
+* [![v1.3.0](https://img.shields.io/badge/skin--support--design-v1.3.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.3.0/) 依赖skin-support:1.2.7 design:25.1.0
+  * bugfix: issue #68
+
+* [![v1.2.6](https://img.shields.io/badge/skin--support--design-v1.2.6-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.6/) 依赖skin-support:1.2.7 design:25.1.0
+  * bugfix: issue #105
+
 * [![v1.2.5](https://img.shields.io/badge/skin--support--design-v1.2.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.5/) 依赖skin-support:1.2.7 design:25.1.0
   * 加速View创建
 
@@ -272,6 +282,9 @@
 ## skin-support-cardview: CardView 支持
 
 
+* [![v1.2.1](https://img.shields.io/badge/skin--support--cardview-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.1/) CardView 支持 依赖skin-support:1.2.1 cardview-v7:25.1.0
+  * bugfix: #105
+
 * [![v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/) CardView 支持 依赖skin-support:1.2.0 cardview-v7:25.1.0
   * remove skinSupport
 
@@ -281,6 +294,9 @@
 
 ## skin-support-constraint-layout: ConstraintLayout 支持
 
+
+* [![v1.0.2.1](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2.1-green.svg)](http://http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2.1/) ConstraintLayout 支持 依赖skin-support:1.2.7 constraint-layout:1.0.2
+  * bugfix: #105
 
 * [![v1.0.2](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2-green.svg)](http://http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2/) ConstraintLayout 支持 依赖skin-support:1.2.7 constraint-layout:1.0.2
   * ConstraintLayout

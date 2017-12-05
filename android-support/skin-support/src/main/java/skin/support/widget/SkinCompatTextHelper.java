@@ -147,19 +147,19 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         Drawable drawableLeft = null, drawableTop = null, drawableRight = null, drawableBottom = null;
         mDrawableLeftResId = checkResourceId(mDrawableLeftResId);
         if (mDrawableLeftResId != INVALID_ID) {
-            drawableLeft = SkinCompatResources.getInstance().getDrawable(mDrawableLeftResId);
+            drawableLeft = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mDrawableLeftResId);
         }
         mDrawableTopResId = checkResourceId(mDrawableTopResId);
         if (mDrawableTopResId != INVALID_ID) {
-            drawableTop = SkinCompatResources.getInstance().getDrawable(mDrawableTopResId);
+            drawableTop = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mDrawableTopResId);
         }
         mDrawableRightResId = checkResourceId(mDrawableRightResId);
         if (mDrawableRightResId != INVALID_ID) {
-            drawableRight = SkinCompatResources.getInstance().getDrawable(mDrawableRightResId);
+            drawableRight = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mDrawableRightResId);
         }
         mDrawableBottomResId = checkResourceId(mDrawableBottomResId);
         if (mDrawableBottomResId != INVALID_ID) {
-            drawableBottom = SkinCompatResources.getInstance().getDrawable(mDrawableBottomResId);
+            drawableBottom = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mDrawableBottomResId);
         }
         if (mDrawableLeftResId != INVALID_ID
                 || mDrawableTopResId != INVALID_ID

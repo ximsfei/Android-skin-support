@@ -90,7 +90,7 @@ public class SkinMaterialNavigationView extends NavigationView implements SkinCo
         if (mItemBackgroundResId == INVALID_ID) {
             return;
         }
-        Drawable drawable = SkinCompatResources.getInstance().getDrawable(mItemBackgroundResId);
+        Drawable drawable = SkinCompatResources.getInstance().getDrawable(getContext(), mItemBackgroundResId);
         if (drawable != null) {
             setItemBackground(drawable);
         }

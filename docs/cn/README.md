@@ -2,10 +2,10 @@
 
 [In English](../../README.md) | 中文
 
-[![skin-support-v2.1.10](https://img.shields.io/badge/skin--support-v2.1.10-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.10/)
-[![design-v1.2.5](https://img.shields.io/badge/skin--support--design-v1.2.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.2.5/)
-[![cardview-v1.2.0](https://img.shields.io/badge/skin--support--cardview-v1.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.0/)
-[![v1.0.2](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2/)
+[![skin-support-v2.2.0](https://img.shields.io/badge/skin--support-v2.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.2.0/)
+[![design-v1.3.0](https://img.shields.io/badge/skin--support--design-v1.3.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.3.0/)
+[![cardview-v1.2.1](https://img.shields.io/badge/skin--support--cardview-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.1/)
+[![v1.0.2.1](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2.1/)
 
 [![circleimageview-v2.2.0.2](https://img.shields.io/badge/circleimageview-v2.1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/circleimageview/2.1.0.2/)
 [![v2.1.2](https://img.shields.io/badge/flycotablayout-v2.1.2-green.svg)](http://jcenter.bintray.com/skin/support/flycotablayout/2.1.2/)
@@ -86,10 +86,10 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 ### 导入:
 直接添加依赖, [最新版本选择, 请查看更新日志](../ChangeLog.md)
 ```xml
-compile 'skin.support:skin-support:2.1.10'         // skin-support 基础控件支持
-compile 'skin.support:skin-support-design:1.2.5'   // skin-support-design material design 控件支持[可选]
-compile 'skin.support:skin-support-cardview:1.2.0' // skin-support-cardview CardView 控件支持[可选]
-compile 'skin.support:skin-support-constraint-layout:1.0.2' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+compile 'skin.support:skin-support:2.2.0'          // skin-support 基础控件支持
+compile 'skin.support:skin-support-design:1.3.0'   // skin-support-design material design 控件支持[可选]
+compile 'skin.support:skin-support-cardview:1.2.1' // skin-support-cardview CardView 控件支持[可选]
+compile 'skin.support:skin-support-constraint-layout:1.0.2.1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
 
 ### 使用:

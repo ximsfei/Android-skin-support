@@ -76,7 +76,7 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
     protected void updateWindowBackground() {
         int windowBackgroundResId = SkinCompatThemeUtils.getWindowBackgroundResId(this);
         if (checkResourceId(windowBackgroundResId) != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(windowBackgroundResId);
+            Drawable drawable = SkinCompatResources.getInstance().getDrawable(this, windowBackgroundResId);
             if (drawable != null) {
                 getWindow().setBackgroundDrawable(drawable);
             }
