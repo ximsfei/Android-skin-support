@@ -37,7 +37,8 @@ public class App extends Application {
                 .addInflater(new SkinCircleImageViewInflater()) // hdodenhof/CircleImageView
                 .addInflater(new SkinFlycoTabLayoutInflater())  // H07000223/FlycoTabLayout
 //                .setSkinStatusBarColorEnable(false)             // 关闭状态栏换肤
-                .setSkinWindowBackgroundEnable(false)           // 关闭windowBackground换肤
+//                .setSkinWindowBackgroundEnable(false)           // 关闭windowBackground换肤
+//                .setSkinAllActivityEnable(false)                // true: 默认所有的Activity都换肤; false: 只有实现SkinCompatSupportable接口的Activity换肤
                 .loadSkin();
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
