@@ -17,11 +17,13 @@ import com.ximsfei.skindemo.tab.fragment.TabFragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import skin.support.widget.SkinCompatSupportable;
+
 /**
  * Created by ximsfei on 2017/1/9.
  */
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements SkinCompatSupportable {
     private TabFragmentPagerAdapter mTabFragmentPagerAdapter;
 
     @Override
@@ -55,5 +57,10 @@ public class MainActivity extends BaseActivity {
         mTabFragmentPagerAdapter = new TabFragmentPagerAdapter(getSupportFragmentManager(), list, listTitle);
         viewPager.setAdapter(mTabFragmentPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    public void applySkin() {
+
     }
 }

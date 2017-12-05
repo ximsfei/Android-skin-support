@@ -37,6 +37,7 @@ public class SkinCompatManager extends SkinObservable {
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
     private SparseArray<SkinLoaderStrategy> mStrategyMap = new SparseArray<>();
+    private boolean mSkinAllActivityEnable = true;
     private boolean mSkinStatusBarColorEnable = true;
     private boolean mSkinWindowBackgroundColorEnable = true;
 
@@ -201,6 +202,21 @@ public class SkinCompatManager extends SkinObservable {
      */
     public void restoreDefaultTheme() {
         loadSkin("");
+    }
+
+    /**
+     * 设置是否所有Activity都换肤.
+     *
+     * @param enable true: 所有Activity都换肤; false: 实现SkinCompatSupportable的Activity支持换肤.
+     * @return
+     */
+    public SkinCompatManager setSkinAllActivityEnable(boolean enable) {
+        mSkinAllActivityEnable = enable;
+        return this;
+    }
+
+    public boolean isSkinAllActivityEnable() {
+        return mSkinAllActivityEnable;
     }
 
     /**

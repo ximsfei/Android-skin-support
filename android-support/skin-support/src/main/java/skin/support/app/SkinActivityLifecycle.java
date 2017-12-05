@@ -16,6 +16,7 @@ import skin.support.SkinCompatManager;
 import skin.support.content.res.SkinCompatResources;
 import skin.support.observe.SkinObservable;
 import skin.support.observe.SkinObserver;
+import skin.support.widget.SkinCompatSupportable;
 import skin.support.widget.SkinCompatThemeUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
@@ -77,11 +78,14 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
             observer = new SkinObserver() {
                 @Override
                 public void updateSkin(SkinObservable observable, Object o) {
-                    if (context instanceof Activity) {
+                    if (context instanceof Activity && isContextSkinEnable(context)) {
                         updateStatusBarColor((Activity) context);
                         updateWindowBackground((Activity) context);
                     }
                     getSkinDelegate(context).applySkin();
+                    if (context instanceof SkinCompatSupportable) {
+                        ((SkinCompatSupportable) context).applySkin();
+                    }
                 }
             };
         }
@@ -116,9 +120,14 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        installLayoutFactory(activity);
-        updateStatusBarColor(activity);
-        updateWindowBackground(activity);
+        if (isContextSkinEnable(activity)) {
+            installLayoutFactory(activity);
+            updateStatusBarColor(activity);
+            updateWindowBackground(activity);
+            if (activity instanceof SkinCompatSupportable) {
+                ((SkinCompatSupportable) activity).applySkin();
+            }
+        }
     }
 
     @Override
@@ -128,7 +137,9 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityResumed(Activity activity) {
-        SkinCompatManager.getInstance().addObserver(getObserver(activity));
+        if (isContextSkinEnable(activity)) {
+            SkinCompatManager.getInstance().addObserver(getObserver(activity));
+        }
     }
 
     @Override
@@ -147,8 +158,14 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        SkinCompatManager.getInstance().deleteObserver(getObserver(activity));
-        mSkinObserverMap.remove(activity);
-        mSkinDelegateMap.remove(activity);
+        if (isContextSkinEnable(activity)) {
+            SkinCompatManager.getInstance().deleteObserver(getObserver(activity));
+            mSkinObserverMap.remove(activity);
+            mSkinDelegateMap.remove(activity);
+        }
+    }
+
+    private boolean isContextSkinEnable(Context context) {
+        return SkinCompatManager.getInstance().isSkinAllActivityEnable() || context instanceof SkinCompatSupportable;
     }
 }
