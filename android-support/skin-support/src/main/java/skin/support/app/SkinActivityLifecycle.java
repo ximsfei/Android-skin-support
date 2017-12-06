@@ -13,6 +13,7 @@ import java.lang.reflect.Field;
 import java.util.WeakHashMap;
 
 import skin.support.SkinCompatManager;
+import skin.support.annotation.Skinable;
 import skin.support.content.res.SkinCompatResources;
 import skin.support.observe.SkinObservable;
 import skin.support.observe.SkinObserver;
@@ -166,6 +167,8 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
     }
 
     private boolean isContextSkinEnable(Context context) {
-        return SkinCompatManager.getInstance().isSkinAllActivityEnable() || context instanceof SkinCompatSupportable;
+        return SkinCompatManager.getInstance().isSkinAllActivityEnable()
+                || context.getClass().getAnnotation(Skinable.class) != null
+                || context instanceof SkinCompatSupportable;
     }
 }

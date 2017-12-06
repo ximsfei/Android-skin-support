@@ -7,10 +7,13 @@ import android.view.View;
 
 import com.ximsfei.skindemo.settings.SettingsActivity;
 
+import skin.support.annotation.Skinable;
+
 /**
  * Created by ximsfei on 17-3-1.
  */
 
+@Skinable
 public class BaseActivity extends AppCompatActivity {
     protected void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
