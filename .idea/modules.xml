@@ -3,13 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Android-skin-support.iml" filepath="$PROJECT_DIR$/Android-skin-support.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/android.iml" filepath="$PROJECT_DIR$/android/android.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-support/android-support.iml" filepath="$PROJECT_DIR$/android-support/android-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/third-part-support/androidautolayout/androidautolayout.iml" filepath="$PROJECT_DIR$/third-part-support/androidautolayout/androidautolayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/third-part-support/circleimageview/circleimageview.iml" filepath="$PROJECT_DIR$/third-part-support/circleimageview/circleimageview.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/third-part-support/flycotablayout/flycotablayout.iml" filepath="$PROJECT_DIR$/third-part-support/flycotablayout/flycotablayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/skin/skin.iml" filepath="$PROJECT_DIR$/android/skin/skin.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/skin-app/skin-app.iml" filepath="$PROJECT_DIR$/demo/skin-app/skin-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/skin-autolayout-app/skin-autolayout-app.iml" filepath="$PROJECT_DIR$/demo/skin-autolayout-app/skin-autolayout-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/skin-night/skin-night.iml" filepath="$PROJECT_DIR$/demo/skin-night/skin-night.iml" />
