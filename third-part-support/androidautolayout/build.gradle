@@ -26,7 +26,7 @@ dependencies {
 }
 
 ext {
-    publishVersion = '1.4.5'
+    publishVersion = '1.4.5.1'
     moduleName = 'androidautolayout'
     descContent = 'hongyangAndroid/AndroidAutoLayout 控件换肤支持包'
 }

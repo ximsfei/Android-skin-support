@@ -49,7 +49,7 @@ public class SkinCompatCircleImageView extends CircleImageView implements SkinCo
     private void applyFillColorResource() {
         mFillColorResId = SkinCompatHelper.checkResourceId(mFillColorResId);
         if (mFillColorResId != INVALID_ID) {
-            int color = SkinCompatResources.getInstance().getColor(mFillColorResId);
+            int color = SkinCompatResources.getColor(getContext(), mFillColorResId);
             setFillColor(color);
         }
     }
@@ -57,7 +57,7 @@ public class SkinCompatCircleImageView extends CircleImageView implements SkinCo
     private void applyBorderColorResource() {
         mBorderColorResId = SkinCompatHelper.checkResourceId(mBorderColorResId);
         if (mBorderColorResId != INVALID_ID) {
-            int color = SkinCompatResources.getInstance().getColor(mBorderColorResId);
+            int color = SkinCompatResources.getColor(getContext(), mBorderColorResId);
             setBorderColor(color);
         }
     }

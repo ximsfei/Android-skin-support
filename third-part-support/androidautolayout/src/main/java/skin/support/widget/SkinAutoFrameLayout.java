@@ -5,9 +5,6 @@ import android.util.AttributeSet;
 
 import com.zhy.autolayout.AutoFrameLayout;
 
-import skin.support.widget.SkinCompatBackgroundHelper;
-import skin.support.widget.SkinCompatSupportable;
-
 /**
  * Created by pengfengwang on 2017/3/15.
  */

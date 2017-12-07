@@ -27,7 +27,7 @@ dependencies {
 }
 
 ext {
-    publishVersion = '2.1.2'
+    publishVersion = '2.1.2.1'
     moduleName = 'flycotablayout'
     descContent = 'H07000223/FlycoTabLayout 控件换肤支持包'
 }
