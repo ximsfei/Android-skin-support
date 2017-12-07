@@ -46,7 +46,7 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
         if (mBackgroundResId == INVALID_ID) {
             return;
         }
-        Drawable drawable = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mBackgroundResId);
+        Drawable drawable = SkinCompatResources.getDrawableCompat(mView.getContext(), mBackgroundResId);
         if (drawable != null) {
             int paddingLeft = mView.getPaddingLeft();
             int paddingTop = mView.getPaddingTop();

@@ -101,7 +101,7 @@ public class SkinCompatSpinner extends AppCompatSpinner implements SkinCompatSup
     private void applyPopupBackground() {
         mPopupBackgroundResId = checkResourceId(mPopupBackgroundResId);
         if (mPopupBackgroundResId != INVALID_ID) {
-            setPopupBackgroundDrawable(SkinCompatResources.getInstance().getDrawable(getContext(), mPopupBackgroundResId));
+            setPopupBackgroundDrawable(SkinCompatResources.getDrawableCompat(getContext(), mPopupBackgroundResId));
         }
     }
 

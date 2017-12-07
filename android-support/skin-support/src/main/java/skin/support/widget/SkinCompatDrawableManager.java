@@ -185,7 +185,7 @@ public final class SkinCompatDrawableManager {
             drawable = createDrawableIfNeeded(context, resId);
         }
         if (drawable == null) {
-            drawable = SkinCompatResources.getInstance().getDrawable(resId);
+            drawable = SkinCompatResources.getDrawable(context, resId);
         }
 
         if (drawable != null) {
@@ -219,7 +219,7 @@ public final class SkinCompatDrawableManager {
             mTypedValue = new TypedValue();
         }
         final TypedValue tv = mTypedValue;
-        SkinCompatResources.getInstance().getValue(resId, tv, true);
+        SkinCompatResources.getValue(context, resId, tv, true);
         final long key = createCacheKey(tv);
 
         Drawable dr = getCachedDrawable(context, key);
@@ -314,7 +314,7 @@ public final class SkinCompatDrawableManager {
                 mTypedValue = new TypedValue();
             }
             final TypedValue tv = mTypedValue;
-            SkinCompatResources.getInstance().getValue(resId, tv, true);
+            SkinCompatResources.getValue(context, resId, tv, true);
 
             final long key = createCacheKey(tv);
 
@@ -331,7 +331,7 @@ public final class SkinCompatDrawableManager {
             if (tv.string != null && tv.string.toString().endsWith(".xml")) {
                 // If the resource is an XML file, let's try and parse it
                 try {
-                    final XmlPullParser parser = SkinCompatResources.getInstance().getXml(resId);
+                    final XmlPullParser parser = SkinCompatResources.getXml(context, resId);
                     final AttributeSet attrs = Xml.asAttributeSet(parser);
                     int type;
                     while ((type = parser.next()) != XmlPullParser.START_TAG &&
@@ -501,11 +501,11 @@ public final class SkinCompatDrawableManager {
         if (tint == null) {
             // ...if the cache did not contain a color state list, try and create one
             if (resId == R.drawable.abc_edit_text_material) {
-                tint = SkinCompatResources.getInstance().getColorStateList(R.color.abc_tint_edittext);
+                tint = SkinCompatResources.getColorStateList(context, R.color.abc_tint_edittext);
             } else if (resId == R.drawable.abc_switch_track_mtrl_alpha) {
-                tint = SkinCompatResources.getInstance().getColorStateList(R.color.abc_tint_switch_track);
+                tint = SkinCompatResources.getColorStateList(context, R.color.abc_tint_switch_track);
             } else if (resId == R.drawable.abc_switch_thumb_material) {
-                tint = SkinCompatResources.getInstance().getColorStateList(R.color.abc_tint_switch_thumb);
+                tint = SkinCompatResources.getColorStateList(context, R.color.abc_tint_switch_thumb);
             } else if (resId == R.drawable.abc_btn_default_mtrl_shape) {
                 tint = createDefaultButtonColorStateList(context);
             } else if (resId == R.drawable.abc_btn_borderless_material) {
@@ -514,15 +514,15 @@ public final class SkinCompatDrawableManager {
                 tint = createColoredButtonColorStateList(context);
             } else if (resId == R.drawable.abc_spinner_mtrl_am_alpha
                     || resId == R.drawable.abc_spinner_textfield_background_material) {
-                tint = SkinCompatResources.getInstance().getColorStateList(R.color.abc_tint_spinner);
+                tint = SkinCompatResources.getColorStateList(context, R.color.abc_tint_spinner);
             } else if (arrayContains(TINT_COLOR_CONTROL_NORMAL, resId)) {
                 tint = getThemeAttrColorStateList(context, R.attr.colorControlNormal);
             } else if (arrayContains(TINT_COLOR_CONTROL_STATE_LIST, resId)) {
-                tint = SkinCompatResources.getInstance().getColorStateList(R.color.abc_tint_default);
+                tint = SkinCompatResources.getColorStateList(context, R.color.abc_tint_default);
             } else if (arrayContains(TINT_CHECKABLE_BUTTON_LIST, resId)) {
-                tint = SkinCompatResources.getInstance().getColorStateList(R.color.abc_tint_btn_checkable);
+                tint = SkinCompatResources.getColorStateList(context, R.color.abc_tint_btn_checkable);
             } else if (resId == R.drawable.abc_seekbar_thumb_material) {
-                tint = SkinCompatResources.getInstance().getColorStateList(R.color.abc_tint_seek_thumb);
+                tint = SkinCompatResources.getColorStateList(context, R.color.abc_tint_seek_thumb);
             }
 
             if (tint != null) {

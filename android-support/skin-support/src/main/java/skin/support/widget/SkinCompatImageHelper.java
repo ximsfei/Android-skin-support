@@ -43,7 +43,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
     public void applySkin() {
         mSrcCompatResId = checkResourceId(mSrcCompatResId);
         if (mSrcCompatResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mSrcCompatResId);
+            Drawable drawable = SkinCompatResources.getDrawableCompat(mView.getContext(), mSrcCompatResId);
             if (drawable != null) {
                 mView.setImageDrawable(drawable);
             }
@@ -52,7 +52,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
             if (mSrcResId == INVALID_ID) {
                 return;
             }
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(mView.getContext(), mSrcResId);
+            Drawable drawable = SkinCompatResources.getDrawableCompat(mView.getContext(), mSrcResId);
             if (drawable != null) {
                 mView.setImageDrawable(drawable);
             }

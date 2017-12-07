@@ -49,14 +49,14 @@ public class SkinMaterialFloatingActionButton extends FloatingActionButton imple
     private void applyBackgroundTintResource() {
         mBackgroundTintResId = SkinCompatHelper.checkResourceId(mBackgroundTintResId);
         if (mBackgroundTintResId != INVALID_ID) {
-            setBackgroundTintList(SkinCompatResources.getInstance().getColorStateList(mBackgroundTintResId));
+            setBackgroundTintList(SkinCompatResources.getColorStateList(getContext(), mBackgroundTintResId));
         }
     }
 
     private void applyRippleColorResource() {
         mRippleColorResId = SkinCompatHelper.checkResourceId(mRippleColorResId);
         if (mRippleColorResId != INVALID_ID) {
-            setRippleColor(SkinCompatResources.getInstance().getColor(mRippleColorResId));
+            setRippleColor(SkinCompatResources.getColor(getContext(), mRippleColorResId));
         }
     }
 

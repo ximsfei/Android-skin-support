@@ -3,7 +3,6 @@ package skin.support.design.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StyleRes;
@@ -90,7 +89,7 @@ public class SkinMaterialNavigationView extends NavigationView implements SkinCo
         if (mItemBackgroundResId == INVALID_ID) {
             return;
         }
-        Drawable drawable = SkinCompatResources.getInstance().getDrawable(getContext(), mItemBackgroundResId);
+        Drawable drawable = SkinCompatResources.getDrawableCompat(getContext(), mItemBackgroundResId);
         if (drawable != null) {
             setItemBackground(drawable);
         }
@@ -112,7 +111,7 @@ public class SkinMaterialNavigationView extends NavigationView implements SkinCo
     private void applyItemTextColorResource() {
         mTextColorResId = SkinCompatHelper.checkResourceId(mTextColorResId);
         if (mTextColorResId != INVALID_ID) {
-            setItemTextColor(SkinCompatResources.getInstance().getColorStateList(mTextColorResId));
+            setItemTextColor(SkinCompatResources.getColorStateList(getContext(), mTextColorResId));
         } else {
             mDefaultTintResId = SkinCompatHelper.checkResourceId(mDefaultTintResId);
             if (mDefaultTintResId != INVALID_ID) {
@@ -124,7 +123,7 @@ public class SkinMaterialNavigationView extends NavigationView implements SkinCo
     private void applyItemIconTintResource() {
         mIconTintResId = SkinCompatHelper.checkResourceId(mIconTintResId);
         if (mIconTintResId != INVALID_ID) {
-            setItemIconTintList(SkinCompatResources.getInstance().getColorStateList(mIconTintResId));
+            setItemIconTintList(SkinCompatResources.getColorStateList(getContext(), mIconTintResId));
         } else {
             mDefaultTintResId = SkinCompatHelper.checkResourceId(mDefaultTintResId);
             if (mDefaultTintResId != INVALID_ID) {
@@ -138,9 +137,9 @@ public class SkinMaterialNavigationView extends NavigationView implements SkinCo
         if (!getContext().getTheme().resolveAttribute(baseColorThemeAttr, value, true)) {
             return null;
         }
-        ColorStateList baseColor = SkinCompatResources.getInstance().getColorStateList(value.resourceId);
+        ColorStateList baseColor = SkinCompatResources.getColorStateList(getContext(), value.resourceId);
 
-        int colorPrimary = SkinCompatResources.getInstance().getColor(mDefaultTintResId);
+        int colorPrimary = SkinCompatResources.getColor(getContext(), mDefaultTintResId);
         int defaultColor = baseColor.getDefaultColor();
         return new ColorStateList(new int[][]{
                 DISABLED_STATE_SET,

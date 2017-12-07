@@ -56,7 +56,7 @@ public class SkinCompatAutoCompleteTextView extends AppCompatAutoCompleteTextVie
     private void applyDropDownBackgroundResource() {
         mDropDownBackgroundResId = SkinCompatHelper.checkResourceId(mDropDownBackgroundResId);
         if (mDropDownBackgroundResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(getContext(), mDropDownBackgroundResId);
+            Drawable drawable = SkinCompatResources.getDrawableCompat(getContext(), mDropDownBackgroundResId);
             if (drawable != null) {
                 setDropDownBackgroundDrawable(drawable);
             }

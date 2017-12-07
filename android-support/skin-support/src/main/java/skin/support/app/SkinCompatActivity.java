@@ -1,6 +1,5 @@
 package skin.support.app;
 
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -66,9 +65,9 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
             int statusBarColorResId = SkinCompatThemeUtils.getStatusBarColorResId(this);
             int colorPrimaryDarkResId = SkinCompatThemeUtils.getColorPrimaryDarkResId(this);
             if (checkResourceId(statusBarColorResId) != INVALID_ID) {
-                getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(statusBarColorResId));
+                getWindow().setStatusBarColor(SkinCompatResources.getColor(this, statusBarColorResId));
             } else if (checkResourceId(colorPrimaryDarkResId) != INVALID_ID) {
-                getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(colorPrimaryDarkResId));
+                getWindow().setStatusBarColor(SkinCompatResources.getColor(this, colorPrimaryDarkResId));
             }
         }
     }
@@ -76,7 +75,7 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
     protected void updateWindowBackground() {
         int windowBackgroundResId = SkinCompatThemeUtils.getWindowBackgroundResId(this);
         if (checkResourceId(windowBackgroundResId) != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(this, windowBackgroundResId);
+            Drawable drawable = SkinCompatResources.getDrawableCompat(this, windowBackgroundResId);
             if (drawable != null) {
                 getWindow().setBackgroundDrawable(drawable);
             }

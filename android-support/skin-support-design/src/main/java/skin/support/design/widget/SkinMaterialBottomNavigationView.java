@@ -59,7 +59,7 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
     private void applyItemTextColorResource() {
         mTextColorResId = SkinCompatHelper.checkResourceId(mTextColorResId);
         if (mTextColorResId != INVALID_ID) {
-            setItemTextColor(SkinCompatResources.getInstance().getColorStateList(mTextColorResId));
+            setItemTextColor(SkinCompatResources.getColorStateList(getContext(), mTextColorResId));
         } else {
             mDefaultTintResId = SkinCompatHelper.checkResourceId(mDefaultTintResId);
             if (mDefaultTintResId != INVALID_ID) {
@@ -71,7 +71,7 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
     private void applyItemIconTintResource() {
         mIconTintResId = SkinCompatHelper.checkResourceId(mIconTintResId);
         if (mIconTintResId != INVALID_ID) {
-            setItemIconTintList(SkinCompatResources.getInstance().getColorStateList(mIconTintResId));
+            setItemIconTintList(SkinCompatResources.getColorStateList(getContext(), mIconTintResId));
         } else {
             mDefaultTintResId = SkinCompatHelper.checkResourceId(mDefaultTintResId);
             if (mDefaultTintResId != INVALID_ID) {
@@ -85,9 +85,9 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
         if (!getContext().getTheme().resolveAttribute(baseColorThemeAttr, value, true)) {
             return null;
         }
-        ColorStateList baseColor = SkinCompatResources.getInstance().getColorStateList(value.resourceId);
+        ColorStateList baseColor = SkinCompatResources.getColorStateList(getContext(), value.resourceId);
 
-        int colorPrimary = SkinCompatResources.getInstance().getColor(mDefaultTintResId);
+        int colorPrimary = SkinCompatResources.getColor(getContext(), mDefaultTintResId);
         int defaultColor = baseColor.getDefaultColor();
         return new ColorStateList(new int[][]{
                 DISABLED_STATE_SET,

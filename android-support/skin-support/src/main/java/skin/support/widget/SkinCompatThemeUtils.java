@@ -9,7 +9,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.graphics.ColorUtils;
 import android.util.TypedValue;
 
-import skin.support.SkinCompatManager;
 import skin.support.content.res.SkinCompatResources;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
@@ -82,7 +81,7 @@ public class SkinCompatThemeUtils {
         try {
             int resId = a.getResourceId(0, 0);
             if (resId != 0) {
-                return SkinCompatResources.getInstance().getColor(resId);
+                return SkinCompatResources.getColor(context, resId);
             }
             return 0;
         } finally {
@@ -96,7 +95,7 @@ public class SkinCompatThemeUtils {
         try {
             int resId = a.getResourceId(0, 0);
             if (resId != 0) {
-                return SkinCompatResources.getInstance().getColorStateList(resId);
+                return SkinCompatResources.getColorStateList(context, resId);
             }
             return null;
         } finally {

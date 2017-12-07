@@ -37,6 +37,7 @@ public class SkinCompatManager extends SkinObservable {
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
     private SparseArray<SkinLoaderStrategy> mStrategyMap = new SparseArray<>();
+    private boolean mSkinVectorDrawableEnable = false;
     private boolean mSkinAllActivityEnable = true;
     private boolean mSkinStatusBarColorEnable = true;
     private boolean mSkinWindowBackgroundColorEnable = true;
@@ -111,7 +112,6 @@ public class SkinCompatManager extends SkinObservable {
             }
         }
         SkinPreference.init(context);
-        SkinCompatResources.init(context);
         return sInstance;
     }
 
@@ -140,6 +140,10 @@ public class SkinCompatManager extends SkinObservable {
         mStrategyMap.put(SKIN_LOADER_STRATEGY_ASSETS, new SkinAssetsLoader());
         mStrategyMap.put(SKIN_LOADER_STRATEGY_BUILD_IN, new SkinBuildInLoader());
         mStrategyMap.put(SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN, new SkinPrefixBuildInLoader());
+    }
+
+    public Context getContext() {
+        return mAppContext;
     }
 
     /**
@@ -202,6 +206,21 @@ public class SkinCompatManager extends SkinObservable {
      */
     public void restoreDefaultTheme() {
         loadSkin("");
+    }
+
+    /**
+     * 设置是否开启矢量图换肤.
+     *
+     * @param enable true: 开启矢量图换肤; false: 关闭矢量图换肤.
+     * @return
+     */
+    public SkinCompatManager setSkinVectorDrawableEnable(boolean enable) {
+        mSkinVectorDrawableEnable = enable;
+        return this;
+    }
+
+    public boolean isSkinVectorDrawableEnable() {
+        return mSkinVectorDrawableEnable;
     }
 
     /**

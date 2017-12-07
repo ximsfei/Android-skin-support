@@ -30,4 +30,6 @@ ext {
     targetSdkVersion = 25
 
     supportLibraryVersion = "25.1.0"
+
+    skinSupportVersion = "2.2.1"
 }

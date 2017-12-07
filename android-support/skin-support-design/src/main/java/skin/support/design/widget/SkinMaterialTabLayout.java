@@ -65,15 +65,15 @@ public class SkinMaterialTabLayout extends TabLayout implements SkinCompatSuppor
     public void applySkin() {
         mTabIndicatorColorResId = SkinCompatHelper.checkResourceId(mTabIndicatorColorResId);
         if (mTabIndicatorColorResId != INVALID_ID) {
-            setSelectedTabIndicatorColor(SkinCompatResources.getInstance().getColor(mTabIndicatorColorResId));
+            setSelectedTabIndicatorColor(SkinCompatResources.getColor(getContext(), mTabIndicatorColorResId));
         }
         mTabTextColorsResId = SkinCompatHelper.checkResourceId(mTabTextColorsResId);
         if (mTabTextColorsResId != INVALID_ID) {
-            setTabTextColors(SkinCompatResources.getInstance().getColorStateList(mTabTextColorsResId));
+            setTabTextColors(SkinCompatResources.getColorStateList(getContext(), mTabTextColorsResId));
         }
         mTabSelectedTextColorResId = SkinCompatHelper.checkResourceId(mTabSelectedTextColorResId);
         if (mTabSelectedTextColorResId != INVALID_ID) {
-            int selected = SkinCompatResources.getInstance().getColor(mTabSelectedTextColorResId);
+            int selected = SkinCompatResources.getColor(getContext(), mTabSelectedTextColorResId);
             if (getTabTextColors() != null) {
                 setTabTextColors(getTabTextColors().getDefaultColor(), selected);
             }

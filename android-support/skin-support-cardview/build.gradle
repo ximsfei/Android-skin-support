@@ -26,9 +26,9 @@ dependencies {
 }
 
 ext {
-    publishVersion="1.2.1"
-    moduleName="skin-support-cardview"
-    descContent="CardView-v7 换肤支持包"
+    publishVersion = rootProject.skinSupportVersion
+    moduleName = "skin-support-cardview"
+    descContent = "CardView-v7 换肤支持包"
 }
 
 apply from: '../../publishing_maven.gradle'

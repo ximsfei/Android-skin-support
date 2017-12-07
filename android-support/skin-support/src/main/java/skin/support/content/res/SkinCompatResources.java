@@ -15,48 +15,32 @@ import skin.support.widget.SkinCompatDrawableManager;
 
 public class SkinCompatResources {
     private static volatile SkinCompatResources sInstance;
-    private final Context mAppContext;
     private Resources mResources;
-    private String mSkinPkgName;
-    private String mSkinName;
+    private String mSkinPkgName = "";
+    private String mSkinName = "";
     private SkinCompatManager.SkinLoaderStrategy mStrategy;
-    private boolean isDefaultSkin;
+    private boolean isDefaultSkin = true;
 
-    private SkinCompatResources(Context context) {
-        mAppContext = context.getApplicationContext();
-        reset();
-    }
-
-    public static void init(Context context) {
-        if (sInstance == null) {
-            synchronized (SkinCompatResources.class) {
-                if (sInstance == null) {
-                    sInstance = new SkinCompatResources(context);
-                }
-            }
-        }
+    private SkinCompatResources() {
     }
 
     public static SkinCompatResources getInstance() {
+        if (sInstance == null) {
+            synchronized (SkinCompatResources.class) {
+                if (sInstance == null) {
+                    sInstance = new SkinCompatResources();
+                }
+            }
+        }
         return sInstance;
     }
 
     public void reset() {
-        mResources = mAppContext.getResources();
-        mSkinPkgName = mAppContext.getPackageName();
+        mResources = null;
+        mSkinPkgName = "";
         mSkinName = "";
         mStrategy = null;
         isDefaultSkin = true;
-        SkinCompatDrawableManager.get().clearCaches();
-    }
-
-    @Deprecated
-    public void setSkinResource(Resources resources, String pkgName) {
-        mResources = resources;
-        mSkinPkgName = pkgName;
-        mSkinName = "";
-        mStrategy = null;
-        isDefaultSkin = mAppContext.getPackageName().equals(pkgName);
         SkinCompatDrawableManager.get().clearCaches();
     }
 
@@ -65,7 +49,7 @@ public class SkinCompatResources {
         mSkinPkgName = pkgName;
         mSkinName = skinName;
         mStrategy = strategy;
-        isDefaultSkin = TextUtils.isEmpty(skinName);
+        isDefaultSkin = TextUtils.isEmpty(skinName) || TextUtils.isEmpty(pkgName) || resources == null;
         SkinCompatDrawableManager.get().clearCaches();
     }
 
@@ -81,98 +65,143 @@ public class SkinCompatResources {
         return isDefaultSkin;
     }
 
+    @Deprecated
     public int getColor(int resId) {
         if (!isDefaultSkin) {
-            int targetResId = getTargetResId(resId);
+            int targetResId = getTargetResId(SkinCompatManager.getInstance().getContext(), resId);
             if (targetResId != 0) {
                 return mResources.getColor(targetResId);
             }
         }
-        return mAppContext.getResources().getColor(resId);
+        return SkinCompatManager.getInstance().getContext().getResources().getColor(resId);
     }
 
-    public Drawable getSrcCompatDrawable(Context context, int resId) {
-        if (!isDefaultSkin) {
-            int targetResId = getTargetResId(resId);
-            if (targetResId != 0) {
-                try {
-                    return mResources.getDrawable(targetResId);
-                } catch (Exception e) {
-                }
-            }
-        }
-        return AppCompatResources.getDrawable(context, resId);
-    }
-
+    @Deprecated
     public Drawable getDrawable(int resId) {
         if (!isDefaultSkin) {
-            int targetResId = getTargetResId(resId);
+            int targetResId = getTargetResId(SkinCompatManager.getInstance().getContext(), resId);
             if (targetResId != 0) {
                 return mResources.getDrawable(targetResId);
             }
         }
-        return mAppContext.getResources().getDrawable(resId);
+        return SkinCompatManager.getInstance().getContext().getResources().getDrawable(resId);
     }
 
-    public Drawable getDrawable(Context context, int resId) {
-        if (!isDefaultSkin) {
-            try {
-                Drawable drawable = SkinCompatDrawableManager.get().getDrawable(context, resId);
-                if (drawable != null) {
-                    return drawable;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return AppCompatResources.getDrawable(context, resId);
-    }
-
+    @Deprecated
     public ColorStateList getColorStateList(int resId) {
         if (!isDefaultSkin) {
-            int targetResId = getTargetResId(resId);
+            int targetResId = getTargetResId(SkinCompatManager.getInstance().getContext(), resId);
             if (targetResId != 0) {
                 return mResources.getColorStateList(targetResId);
             }
         }
-        return mAppContext.getResources().getColorStateList(resId);
+        return SkinCompatManager.getInstance().getContext().getResources().getColorStateList(resId);
     }
 
-    public XmlResourceParser getXml(int resId) {
-        if (!isDefaultSkin) {
-            int targetResId = getTargetResId(resId);
-            if (targetResId != 0) {
-                return mResources.getXml(targetResId);
-            }
-        }
-        return mAppContext.getResources().getXml(resId);
-    }
-
-    public void getValue(@AnyRes int resId, TypedValue outValue, boolean resolveRefs) {
-        if (!isDefaultSkin) {
-            int targetResId = getTargetResId(resId);
-            if (targetResId != 0) {
-                mResources.getValue(targetResId, outValue, resolveRefs);
-                return;
-            }
-        }
-        mAppContext.getResources().getValue(resId, outValue, resolveRefs);
-    }
-
-    private int getTargetResId(int resId) {
+    private int getTargetResId(Context context, int resId) {
         try {
             String resName = null;
             if (mStrategy != null) {
-                resName = mStrategy.getTargetResourceEntryName(mAppContext, mSkinName, resId);
+                resName = mStrategy.getTargetResourceEntryName(context, mSkinName, resId);
             }
             if (TextUtils.isEmpty(resName)) {
-                resName = mAppContext.getResources().getResourceEntryName(resId);
+                resName = context.getResources().getResourceEntryName(resId);
             }
-            String type = mAppContext.getResources().getResourceTypeName(resId);
+            String type = context.getResources().getResourceTypeName(resId);
             return mResources.getIdentifier(resName, type, mSkinPkgName);
         } catch (Exception e) {
             // 换肤失败不至于应用崩溃.
             return 0;
         }
+    }
+
+    private int getSkinColor(Context context, int resId) {
+        if (!isDefaultSkin) {
+            int targetResId = getTargetResId(context, resId);
+            if (targetResId != 0) {
+                return mResources.getColor(targetResId);
+            }
+        }
+        return context.getResources().getColor(resId);
+    }
+
+    private ColorStateList getSkinColorStateList(Context context, int resId) {
+        if (!isDefaultSkin) {
+            int targetResId = getTargetResId(context, resId);
+            if (targetResId != 0) {
+                return mResources.getColorStateList(targetResId);
+            }
+        }
+        return context.getResources().getColorStateList(resId);
+    }
+
+    private Drawable getSkinDrawable(Context context, int resId) {
+        if (!isDefaultSkin) {
+            int targetResId = getTargetResId(context, resId);
+            if (targetResId != 0) {
+                return mResources.getDrawable(targetResId);
+            }
+        }
+        return context.getResources().getDrawable(resId);
+    }
+
+    private Drawable getSkinDrawableCompat(Context context, int resId) {
+        if (SkinCompatManager.getInstance().isSkinVectorDrawableEnable()) {
+            if (!isDefaultSkin) {
+                try {
+                    return SkinCompatDrawableManager.get().getDrawable(context, resId);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return AppCompatResources.getDrawable(context, resId);
+        } else {
+            return getSkinDrawable(context, resId);
+        }
+    }
+
+    private XmlResourceParser getSkinXml(Context context, int resId) {
+        if (!isDefaultSkin) {
+            int targetResId = getTargetResId(context, resId);
+            if (targetResId != 0) {
+                return mResources.getXml(targetResId);
+            }
+        }
+        return context.getResources().getXml(resId);
+    }
+
+    private void getSkinValue(Context context, @AnyRes int resId, TypedValue outValue, boolean resolveRefs) {
+        if (!isDefaultSkin) {
+            int targetResId = getTargetResId(context, resId);
+            if (targetResId != 0) {
+                mResources.getValue(targetResId, outValue, resolveRefs);
+                return;
+            }
+        }
+        context.getResources().getValue(resId, outValue, resolveRefs);
+    }
+
+    public static int getColor(Context context, int resId) {
+        return getInstance().getSkinColor(context, resId);
+    }
+
+    public static ColorStateList getColorStateList(Context context, int resId) {
+        return getInstance().getSkinColorStateList(context, resId);
+    }
+
+    public static Drawable getDrawable(Context context, int resId) {
+        return getInstance().getSkinDrawable(context, resId);
+    }
+
+    public static Drawable getDrawableCompat(Context context, int resId) {
+        return getInstance().getSkinDrawableCompat(context, resId);
+    }
+
+    public static XmlResourceParser getXml(Context context, int resId) {
+        return getInstance().getSkinXml(context, resId);
+    }
+
+    public static void getValue(Context context, @AnyRes int resId, TypedValue outValue, boolean resolveRefs) {
+        getInstance().getSkinValue(context, resId, outValue, resolveRefs);
     }
 }

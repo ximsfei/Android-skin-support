@@ -100,9 +100,9 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
             int statusBarColorResId = SkinCompatThemeUtils.getStatusBarColorResId(activity);
             int colorPrimaryDarkResId = SkinCompatThemeUtils.getColorPrimaryDarkResId(activity);
             if (checkResourceId(statusBarColorResId) != INVALID_ID) {
-                activity.getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(statusBarColorResId));
+                activity.getWindow().setStatusBarColor(SkinCompatResources.getColor(activity, statusBarColorResId));
             } else if (checkResourceId(colorPrimaryDarkResId) != INVALID_ID) {
-                activity.getWindow().setStatusBarColor(SkinCompatResources.getInstance().getColor(colorPrimaryDarkResId));
+                activity.getWindow().setStatusBarColor(SkinCompatResources.getColor(activity, colorPrimaryDarkResId));
             }
         }
     }
@@ -111,7 +111,7 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
         if (SkinCompatManager.getInstance().isSkinWindowBackgroundEnable()) {
             int windowBackgroundResId = SkinCompatThemeUtils.getWindowBackgroundResId(activity);
             if (checkResourceId(windowBackgroundResId) != INVALID_ID) {
-                Drawable drawable = SkinCompatResources.getInstance().getDrawable(activity, windowBackgroundResId);
+                Drawable drawable = SkinCompatResources.getDrawableCompat(activity, windowBackgroundResId);
                 if (drawable != null) {
                     activity.getWindow().setBackgroundDrawable(drawable);
                 }

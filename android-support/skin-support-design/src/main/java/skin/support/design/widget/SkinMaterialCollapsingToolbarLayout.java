@@ -1,13 +1,9 @@
 package skin.support.design.widget;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 
 import skin.support.content.res.SkinCompatResources;
@@ -53,7 +49,7 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
     private void applyStatusBarScrimResource() {
         mStatusBarScrimResId = SkinCompatHelper.checkResourceId(mStatusBarScrimResId);
         if (mStatusBarScrimResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(getContext(), mStatusBarScrimResId);
+            Drawable drawable = SkinCompatResources.getDrawableCompat(getContext(), mStatusBarScrimResId);
             if (drawable != null) {
                 setStatusBarScrim(drawable);
             }
@@ -63,7 +59,7 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
     private void applyContentScrimResource() {
         mContentScrimResId = SkinCompatHelper.checkResourceId(mContentScrimResId);
         if (mContentScrimResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getInstance().getDrawable(getContext(), mContentScrimResId);
+            Drawable drawable = SkinCompatResources.getDrawableCompat(getContext(), mContentScrimResId);
             if (drawable != null) {
                 setContentScrim(drawable);
             }
