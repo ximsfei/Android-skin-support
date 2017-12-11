@@ -37,7 +37,6 @@ public class SkinCompatManager extends SkinObservable {
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
     private SparseArray<SkinLoaderStrategy> mStrategyMap = new SparseArray<>();
-    private boolean mSkinVectorDrawableEnable = false;
     private boolean mSkinAllActivityEnable = true;
     private boolean mSkinStatusBarColorEnable = true;
     private boolean mSkinWindowBackgroundColorEnable = true;
@@ -209,24 +208,9 @@ public class SkinCompatManager extends SkinObservable {
     }
 
     /**
-     * 设置是否开启矢量图换肤.
-     *
-     * @param enable true: 开启矢量图换肤; false: 关闭矢量图换肤.
-     * @return
-     */
-    public SkinCompatManager setSkinVectorDrawableEnable(boolean enable) {
-        mSkinVectorDrawableEnable = enable;
-        return this;
-    }
-
-    public boolean isSkinVectorDrawableEnable() {
-        return mSkinVectorDrawableEnable;
-    }
-
-    /**
      * 设置是否所有Activity都换肤.
      *
-     * @param enable true: 所有Activity都换肤; false: 实现SkinCompatSupportable的Activity支持换肤.
+     * @param enable true: 所有Activity都换肤; false: 添加注解Skinable或实现SkinCompatSupportable的Activity支持换肤.
      * @return
      */
     public SkinCompatManager setSkinAllActivityEnable(boolean enable) {

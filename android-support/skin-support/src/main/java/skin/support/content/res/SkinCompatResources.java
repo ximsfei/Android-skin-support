@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.AnyRes;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.content.res.AppCompatResources;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -146,7 +147,7 @@ public class SkinCompatResources {
     }
 
     private Drawable getSkinDrawableCompat(Context context, int resId) {
-        if (SkinCompatManager.getInstance().isSkinVectorDrawableEnable()) {
+        if (AppCompatDelegate.isCompatVectorFromResourcesEnabled()) {
             if (!isDefaultSkin) {
                 try {
                     return SkinCompatDrawableManager.get().getDrawable(context, resId);
