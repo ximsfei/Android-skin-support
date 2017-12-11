@@ -2,14 +2,7 @@
 
 In English | [中文](docs/cn/README.md)
 
-[![skin-support-v2.2.0](https://img.shields.io/badge/skin--support-v2.2.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.2.0/)
-[![design-v1.3.0](https://img.shields.io/badge/skin--support--design-v1.3.0-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-design/1.3.0/)
-[![cardview-v1.2.1](https://img.shields.io/badge/skin--support--cardview-v1.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-cardview/1.2.1/)
-[![v1.0.2.1](https://img.shields.io/badge/skin--support--constraint--layout-v1.0.2.1-green.svg)](http://jcenter.bintray.com/skin/support/skin-support-constraint-layout/1.0.2.1/)
-
-[![circleimageview-v2.2.0.2](https://img.shields.io/badge/circleimageview-v2.1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/circleimageview/2.1.0.2/)
-[![v2.1.2](https://img.shields.io/badge/flycotablayout-v2.1.2-green.svg)](http://jcenter.bintray.com/skin/support/flycotablayout/2.1.2/)
-[![v1.4.5](https://img.shields.io/badge/androidautolayout-v1.4.5-green.svg)](http://jcenter.bintray.com/skin/support/androidautolayout/1.4.5/)
+[![skin-support-v2.2.2](https://img.shields.io/badge/skin--support-v2.2.2-green.svg)](http://jcenter.bintray.com/skin/support)
 
 Android-skin-support is an easy to use skin framework for Android. The best case, Only one line of code to integrate the framework.
 
@@ -44,10 +37,10 @@ The Gradle Dependency is available via [jCenter](https://bintray.com/pengfeng/sk
 Add dependencies directly, [For the latest version, please refer to change log](docs/ChangeLog.md)
 
 ```xml
-compile 'skin.support:skin-support:2.2.0'          // skin-support basic widget
-compile 'skin.support:skin-support-design:1.3.0'   // skin-support-design material design support [selectable]
-compile 'skin.support:skin-support-cardview:1.2.1' // skin-support-cardview CardView support [selectable]
-compile 'skin.support:skin-support-constraint-layout:1.0.2.1' // skin-support-constraint-layout ConstraintLayout support [selectable]
+compile 'skin.support:skin-support:2.2.2'                   // skin-support basic widget
+compile 'skin.support:skin-support-design:2.2.2'            // skin-support-design material design support [selectable]
+compile 'skin.support:skin-support-cardview:2.2.2'          // skin-support-cardview CardView support [selectable]
+compile 'skin.support:skin-support-constraint-layout:2.2.2' // skin-support-constraint-layout ConstraintLayout support [selectable]
 ```
 
 ## Integration
