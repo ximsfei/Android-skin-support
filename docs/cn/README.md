@@ -48,25 +48,25 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ### 目录结构
 
-> [demo](demo)                                       // 换肤demo 集合
+> [demo](../../demo)                                       // 换肤demo 集合
 
->> [skin-app](demo/skin-app)                         // demo app
+>> [skin-app](../../demo/skin-app)                         // demo app
 
->> [skin-night](demo/skin-night)                     // 夜间模式皮肤工程
+>> [skin-night](../../demo/skin-night)                     // 夜间模式皮肤工程
 
->> [skin-autolayout-app](demo/skin-autolayout-app)   // autolayout demo app
+>> [skin-autolayout-app](../../demo/skin-autolayout-app)   // autolayout demo app
 
-> [android-support](android-support)                 // Android 原生控件
+> [android-support](../../android-support)                 // Android 原生控件
 
->> [skin-support](android-support／skin-support)                      // 换肤框架, 基础控件支持
+>> [skin-support](../../android-support／skin-support)                      // 换肤框架, 基础控件支持
 
->> [skin-support-cardview](android-support／skin-support-cardview)    // 换肤框架, CardView 支持
+>> [skin-support-cardview](../../android-support／skin-support-cardview)    // 换肤框架, CardView 支持
 
->> [skin-support-design](android-support／skin-support-design)        // 换肤框架, Material Design 支持
+>> [skin-support-design](../../android-support／skin-support-design)        // 换肤框架, Material Design 支持
 
->> [skin-support-constraint-layout](android-support／skin-support-constraint-layout)  // 换肤框架, ConstraintLayout 支持
+>> [skin-support-constraint-layout](../../android-support／skin-support-constraint-layout)  // 换肤框架, ConstraintLayout 支持
 
-> [third-part-support](third-part-support)           // 第三方控件换肤支持
+> [third-part-support](../../third-part-support)           // 第三方控件换肤支持
 
 ## Demo
 
