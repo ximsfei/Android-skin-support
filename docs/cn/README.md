@@ -2,7 +2,9 @@
 
 [In English](../../README.md) | 中文
 
-[![skin-support-v2.2.2](https://img.shields.io/badge/skin--support-v2.2.2-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://img.shields.io/badge/release-v2.2.2-green.svg)](http://jcenter.bintray.com/skin/support)
+![build](https://img.shields.io/badge/build-passing-green.svg)
+![license](https://img.shields.io/badge/license-mit-blue.svg)
 
 * [介绍](#介绍)
 * [Demo](#demo)
