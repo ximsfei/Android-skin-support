@@ -2,7 +2,9 @@
 
 In English | [中文](docs/cn/README.md)
 
-[![skin-support-v2.2.2](https://img.shields.io/badge/skin--support-v2.2.2-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://img.shields.io/badge/release-v2.2.2-green.svg)](http://jcenter.bintray.com/skin/support)
+![build](https://img.shields.io/badge/build-passing-green.svg)
+![license](https://img.shields.io/badge/license-mit-blue.svg)
 
 Android-skin-support is an easy to use skin framework for Android. The best case, Only one line of code to integrate the framework.
 
