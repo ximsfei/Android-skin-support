@@ -311,7 +311,7 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public AsyncTask loadSkin(String skinName, SkinLoaderListener listener, int strategy) {
-        return new SkinLoadTask(listener, mStrategyMap.get(strategy)).execute(skinName);
+        return new SkinLoadTask(listener, mStrategyMap.get(strategy)).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, skinName);
     }
 
     private class SkinLoadTask extends AsyncTask<String, Void, String> {
