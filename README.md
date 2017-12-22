@@ -154,7 +154,7 @@ Or you can customize the loading strategy:
 
 For example:
 
-Inherit from `SkinSDCardLoader`，Rewrite the `getSkinPath`、`getType` methods。
+Inherit from `SkinSDCardLoader`，Override the `getSkinPath`、`getType` methods。
 
 ```java
 public class CustomSDCardLoader extends SkinSDCardLoader {
