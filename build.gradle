@@ -31,5 +31,5 @@ ext {
 
     supportLibraryVersion = "25.1.0"
 
-    skinSupportVersion = "2.2.2"
+    skinSupportVersion = "2.2.3"
 }
