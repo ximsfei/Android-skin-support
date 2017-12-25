@@ -252,10 +252,12 @@ SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.
 
 ## 谁在使用
 
-[<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/sohunews_explore-icon.png"/>](https://k.sohu.com/)
-[<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/vflynote-icon.png"/>](http://www.iyuji.cn/iyuji/home)
-[<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/qoo-app.png"/>](https://news.qoo-app.com/)
-[<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/dwnews.png"/>](http://www.dwnews.com/)(需要翻墙)
+| icon | name | description |
+| :--: | :--- | :---------- |
+| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/sohunews_explore-icon.png"/>](https://k.sohu.com/) | [搜狐新闻探索版](https://k.sohu.com/) | 
+| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/vflynote-icon.png"/>](http://www.iyuji.cn/iyuji/home) | [讯飞语记](http://www.iyuji.cn/iyuji/home) |
+| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/qoo-app.png"/>](https://news.qoo-app.com/) | [qoo app](https://news.qoo-app.com/) |
+| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/dwnews.png"/>](http://www.dwnews.com/) | [dwnews](http://www.dwnews.com/)| 需要翻墙 |
 
 
 ## 技术交流
