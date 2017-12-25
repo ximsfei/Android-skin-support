@@ -32,6 +32,7 @@
   * [hdodenhof/CircleImageView](../ThirdPartSupport.md#hdodenhofcircleimageview)
   * [H07000223/FlycoTabLayout](../ThirdPartSupport.md#h07000223flycotablayout)
   * [hongyangAndroid/AndroidAutoLayout](../ThirdPartSupport.md#hongyangandroidandroidautolayout)
+* [谁在使用](#谁在使用)
 * [FAQ](../FAQ.md)
 * [技术交流](#技术交流)
 * [LICENSE](#license-mit)
@@ -248,6 +249,12 @@ SkinCompatManager.withoutActivity(this)
 ```java
 SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.SKIN_LOADER_STRATEGY_SDCARD);
 ```
+
+## 谁在使用
+
+[<img width="96" height="96" src="https://github.com/ximsfei/Res/blob/master/who-use-it/skin/sohunews_explore-icon.png"/>](https://k.sohu.com/)
+[<img width="96" height="96" src="https://github.com/ximsfei/Res/blob/master/who-use-it/skin/vflynote-icon.png"/>](http://www.iyuji.cn/iyuji/home)
+
 
 ## 技术交流
 

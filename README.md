@@ -29,6 +29,7 @@ Now, you have a strong skinning feature. What you need to do is [make a skin](#m
   * [BuildIn Skin](#buildin-skin)
   * [Plug-In Skin](#plug-in-skin)
 * [Change Log](docs/ChangeLog.md)
+* [Who Use It](#who-use-it)
 * [About Author](#about-author)
 * [LICENSE](#license-mit)
 
@@ -183,6 +184,11 @@ Use this strategy to load skin:
 ```java
 SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.SKIN_LOADER_STRATEGY_SDCARD);
 ```
+
+## Who use it
+
+[<img width="96" height="96" src="https://github.com/ximsfei/Res/blob/master/who-use-it/skin/sohunews_explore-icon.png"/>](https://k.sohu.com/)
+[<img width="96" height="96" src="https://github.com/ximsfei/Res/blob/master/who-use-it/skin/vflynote-icon.png"/>](http://www.iyuji.cn/iyuji/home)
 
 ## About Author
 
