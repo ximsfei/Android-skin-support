@@ -104,8 +104,13 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
             return;
         }
         if (mTextColorHintResId != INVALID_ID) {
-            ColorStateList color = SkinCompatResources.getColorStateList(mView.getContext(), mTextColorHintResId);
-            mView.setHintTextColor(color);
+            // TODO: HTC_U-3u OS:8.0上调用framework的getColorStateList方法，有可能抛出异常，暂时没有找到更好的解决办法.
+            // issue: https://github.com/ximsfei/Android-skin-support/issues/110
+            try {
+                ColorStateList color = SkinCompatResources.getColorStateList(mView.getContext(), mTextColorHintResId);
+                mView.setHintTextColor(color);
+            } catch (Exception e) {
+            }
         }
     }
 
@@ -116,8 +121,13 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
             return;
         }
         if (mTextColorResId != INVALID_ID) {
-            ColorStateList color = SkinCompatResources.getColorStateList(mView.getContext(), mTextColorResId);
-            mView.setTextColor(color);
+            // TODO: HTC_U-3u OS:8.0上调用framework的getColorStateList方法，有可能抛出异常，暂时没有找到更好的解决办法.
+            // issue: https://github.com/ximsfei/Android-skin-support/issues/110
+            try {
+                ColorStateList color = SkinCompatResources.getColorStateList(mView.getContext(), mTextColorResId);
+                mView.setTextColor(color);
+            } catch (Exception e) {
+            }
         }
     }
 
