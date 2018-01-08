@@ -21,16 +21,9 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/abc_ic_ab_back_material" />
-
-    <com.ximsfei.skindemo.test.SkinWebView
-        android:id="@+id/web_view"
+    <ViewStub
+        android:id="@+id/view_stub"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-
 </LinearLayout>
