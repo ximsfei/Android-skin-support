@@ -17,6 +17,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ximsfei.skindemo.actionbar.ActionbarTestActivity;
 import com.ximsfei.skindemo.alert.AlertDialogActivity;
 import com.ximsfei.skindemo.constraint.ConstraintLayoutActivity;
 import com.ximsfei.skindemo.flycotablayout.ui.SimpleHomeActivity;
@@ -32,15 +33,16 @@ import com.ximsfei.skindemo.window.WindowManagerActivity;
 public class SplashActivity extends BaseActivity {
     private ListView mListView;
     private Context mContext = this;
-    private final String[] mItems = {"基础控件", "Material Design", "ConstraintLayout", "FlycoTabLayout", "AlertDialog", "WindowManager", "Test"};
+    private final String[] mItems = {"基础控件", "Material Design", "ConstraintLayout", "FlycoTabLayout", "AlertDialog", "WindowManager", "Test","Actionbar"};
     private final Class<?>[] mClasses = {MainActivity.class, MaterialDesignActivity.class, ConstraintLayoutActivity.class,
-            SimpleHomeActivity.class, AlertDialogActivity.class, WindowManagerActivity.class, TestActivity.class};
+            SimpleHomeActivity.class, AlertDialogActivity.class, WindowManagerActivity.class, TestActivity.class, ActionbarTestActivity.class};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         initToolbar();
+
         mListView = (ListView) findViewById(R.id.list);
         mListView.setCacheColorHint(Color.TRANSPARENT);
         mListView.setFadingEdgeLength(0);

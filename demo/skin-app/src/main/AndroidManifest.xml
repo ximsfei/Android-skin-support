@@ -66,6 +66,10 @@
         <activity
             android:name=".flycotablayout.ui.SegmentTabActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".actionbar.ActionbarTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActionbarTheme"/>
 
         <service android:name=".window.WindowService" />
     </application>
