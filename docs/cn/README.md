@@ -264,4 +264,4 @@ SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.
 
 ![](https://github.com/ximsfei/Res/blob/master/Android%26%2332%3B%E6%8D%A2%E8%82%A4.png)
 
-## [License MIT](LICENSE)
+## [License MIT](../../LICENSE)
