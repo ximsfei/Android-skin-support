@@ -173,6 +173,13 @@ SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_
 SkinCompatManager.getInstance().loadSkin("night", SkinCompatManager.SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN); // 前缀加载
 ```
 
+推荐将应用内换肤相关的皮肤资源放到单独的目录中
+
+eg: [res-night](https://github.com/ximsfei/Android-skin-support/tree/master/demo/skin-app/src/main/res-night)
+
+*注: 如果使用这种方式来增加换肤资源，记得在build.gradle 中配置一下这个资源目录 sourceSets {main {res.srcDirs = ['src/main/res', 'src/main/res-night']}}*
+
+
 ### 插件式换肤:
 
 #### 新建Android application工程
