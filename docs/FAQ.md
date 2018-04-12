@@ -31,3 +31,11 @@
   问题解析:
 
   该框架是基于Resource Id来进行换肤的。框架初始化时，会解析布局文件中设置的资源(或者有业务代码直接设置`setTextAppearance(R.style.CustomTextAppearance)`，会从该style中解析出textColorResId)。
+  
+## 用了换肤框架后，为什么项目里的Button，CheckBox等等都无法点击了？很多UI显示不正常了？
+
+  检查一下是否使用了appcompat-v7库里的主题，eg: `<style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">`
+
+  问题解析:
+  
+  该框架在运行时会替换所有需要换肤的组件 eg: TextView -> SkinCompatTextView，而SkinCompatTextView集成自appcompat-v7包里的AppCompatTextView。所以需要使用appcompat-v7包里的主题。
