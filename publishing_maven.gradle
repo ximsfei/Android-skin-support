@@ -60,7 +60,7 @@ install {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 task sourcesJar(type: Jar) {
@@ -83,6 +83,8 @@ artifacts {
     archives sourcesJar
 }
 
-task findConventions << {
-    println project.getConvention()
+task findConventions {
+    doLast {
+        println project.getConvention()
+    }
 }

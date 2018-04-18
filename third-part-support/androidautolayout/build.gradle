@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.minSdkVersion
@@ -19,14 +18,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
-    compile 'com.zhy:autolayout:1.4.5'
-    compile project(':android-support:skin-support')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
+    implementation 'com.zhy:autolayout:1.4.5'
+    implementation project(':android-support:skin-support')
 }
 
 ext {
-    publishVersion = '1.4.5.1'
+    publishVersion = '1.4.5.2'
     moduleName = 'androidautolayout'
     descContent = 'hongyangAndroid/AndroidAutoLayout 控件换肤支持包'
 }

@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.minSdkVersion
@@ -19,12 +18,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
-    compile project(':android-support:skin-support')
-//    compile 'skin.support:skin-support:1.2.3'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
+    implementation project(':android-support:skin-support')
+//    implementation 'skin.support:skin-support:1.2.3'
 
-    compile 'com.zhy:autolayout:1.4.5'
-//    compile project(':third-part-support:androidautolayout')
-    compile 'skin.support:androidautolayout:1.4.5'
+    implementation 'com.zhy:autolayout:1.4.5'
+    implementation project(':third-part-support:androidautolayout')
+//    implementation 'skin.support:androidautolayout:1.4.5'
 }

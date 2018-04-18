@@ -11,8 +11,8 @@
 [![v2.1.0.2](https://img.shields.io/badge/circleimageview-v2.1.0.2-green.svg)](http://jcenter.bintray.com/skin/support/circleimageview/2.1.0.2/)
 
 ```xml
-compile 'de.hdodenhof:circleimageview:2.1.0'
-compile 'skin.support:circleimageview:2.1.0.2'
+implementation 'de.hdodenhof:circleimageview:2.1.0'
+implementation 'skin.support:circleimageview:2.1.0.4'
 ```
 
 ### 使用方法一
@@ -62,8 +62,8 @@ SkinCircleImageViewManager.init(this);
 [![v2.1.2](https://img.shields.io/badge/flycotablayout-v2.1.2-green.svg)](http://jcenter.bintray.com/skin/support/flycotablayout/2.1.2/)
 
 ```xml
-compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
-compile 'skin.support:flycotablayout:2.1.2'
+implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+implementation 'skin.support:flycotablayout:2.1.2.2'
 ```
 
 ### 使用方法
@@ -87,8 +87,8 @@ SkinFlycoTabLayoutManager.init(this);
 [![v1.4.5](https://img.shields.io/badge/androidautolayout-v1.4.5-green.svg)](http://jcenter.bintray.com/skin/support/androidautolayout/1.4.5/)
 
 ```xml
-compile 'com.zhy:autolayout:1.4.5'
-compile 'skin.support:androidautolayout:1.4.5'
+implementation 'com.zhy:autolayout:1.4.5'
+implementation 'skin.support:androidautolayout:1.4.5.2'
 ```
 
 ### 使用方法

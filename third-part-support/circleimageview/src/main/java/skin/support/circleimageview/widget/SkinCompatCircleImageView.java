@@ -2,8 +2,6 @@ package skin.support.circleimageview.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -63,7 +61,7 @@ public class SkinCompatCircleImageView extends CircleImageView implements SkinCo
     }
 
     @Override
-    public void setImageResource(@DrawableRes int resId) {
+    public void setImageResource(int resId) {
         super.setImageResource(resId);
         if (mImageHelper != null) {
             mImageHelper.setImageResource(resId);
@@ -71,14 +69,14 @@ public class SkinCompatCircleImageView extends CircleImageView implements SkinCo
     }
 
     @Override
-    public void setBorderColorResource(@ColorRes int borderColorRes) {
+    public void setBorderColorResource(int borderColorRes) {
         super.setBorderColorResource(borderColorRes);
         mBorderColorResId = borderColorRes;
         applySkin();
     }
 
     @Override
-    public void setFillColorResource(@ColorRes int fillColorRes) {
+    public void setFillColorResource(int fillColorRes) {
         super.setFillColorResource(fillColorRes);
         mFillColorResId = fillColorRes;
         applySkin();

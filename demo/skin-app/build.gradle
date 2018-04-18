@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         applicationId "com.ximsfei.skindemo"
@@ -25,30 +24,30 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
-    compile project(':android-support:skin-support')
-//    compile 'skin.support:skin-support:2.1.10'
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
+    implementation project(':android-support:skin-support')
+//    implementation 'skin.support:skin-support:3.0.0'
 
-    compile "com.android.support:design:${rootProject.supportLibraryVersion}"
-    compile project(':android-support:skin-support-design')
-//    compile 'skin.support:skin-support-design:1.2.3'
+    implementation "com.android.support:design:${rootProject.supportLibraryVersion}"
+    implementation project(':android-support:skin-support-design')
+//    implementation 'skin.support:skin-support-design:3.0.0'
 
-    compile "com.android.support.constraint:constraint-layout:1.0.2"
-    compile project(':android-support:skin-support-constraint-layout')
-//    compile 'skin.support:skin-support-constraint-layout:1.0.2'
+    implementation "com.android.support.constraint:constraint-layout:1.0.2"
+    implementation project(':android-support:skin-support-constraint-layout')
+//    implementation 'skin.support:skin-support-constraint-layout:3.0.0'
 
-    compile "com.android.support:cardview-v7:${rootProject.supportLibraryVersion}"
-    compile project(':android-support:skin-support-cardview')
-//    compile 'skin.support:skin-support-cardview:1.2.0'
+    implementation "com.android.support:cardview-v7:${rootProject.supportLibraryVersion}"
+    implementation project(':android-support:skin-support-cardview')
+//    implementation 'skin.support:skin-support-cardview:3.0.0'
 
     // 第三方控件库换肤支持
-    compile 'de.hdodenhof:circleimageview:2.1.0'
-    compile project(':third-part-support:circleimageview')
-//    compile 'skin.support:circleimageview:2.1.0.1'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation project(':third-part-support:circleimageview')
+//    implementation 'skin.support:circleimageview:2.1.0.1'
 
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
-    compile project(':third-part-support:flycotablayout')
-//    compile 'skin.support:flycotablayout:2.1.2'
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation project(':third-part-support:flycotablayout')
+//    implementation 'skin.support:flycotablayout:2.1.2'
 }

@@ -8,6 +8,8 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.graphics.drawable.WrappedDrawable;
+import android.support.v7.graphics.drawable.DrawableWrapper;
 
 public class SkinCompatDrawableUtils {
 
@@ -33,7 +35,7 @@ public class SkinCompatDrawableUtils {
     public static boolean canSafelyMutateDrawable(@NonNull Drawable drawable) {
         if (Build.VERSION.SDK_INT < 15 && drawable instanceof InsetDrawable) {
             return false;
-        }  else if (Build.VERSION.SDK_INT < 15 && drawable instanceof GradientDrawable) {
+        } else if (Build.VERSION.SDK_INT < 15 && drawable instanceof GradientDrawable) {
             // GradientDrawable has a bug pre-ICS which results in mutate() resulting
             // in loss of color
             return false;
@@ -53,14 +55,10 @@ public class SkinCompatDrawableUtils {
                     }
                 }
             }
-        } else if (drawable instanceof android.support.v4.graphics.drawable.DrawableWrapper) {
-            return canSafelyMutateDrawable(
-                    ((android.support.v4.graphics.drawable.DrawableWrapper) drawable)
-                            .getWrappedDrawable());
-        } else if (drawable instanceof android.support.v7.graphics.drawable.DrawableWrapper) {
-            return canSafelyMutateDrawable(
-                    ((android.support.v7.graphics.drawable.DrawableWrapper) drawable)
-                            .getWrappedDrawable());
+        } else if (drawable instanceof WrappedDrawable) {
+            return canSafelyMutateDrawable(((WrappedDrawable) drawable).getWrappedDrawable());
+        } else if (drawable instanceof DrawableWrapper) {
+            return canSafelyMutateDrawable(((DrawableWrapper) drawable).getWrappedDrawable());
         } else if (drawable instanceof ScaleDrawable) {
             return canSafelyMutateDrawable(((ScaleDrawable) drawable).getDrawable());
         }

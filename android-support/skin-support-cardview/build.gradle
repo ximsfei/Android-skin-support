@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.minSdkVersion
@@ -20,9 +19,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:cardview-v7:${rootProject.supportLibraryVersion}"
-    compile project(':android-support:skin-support')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:cardview-v7:${rootProject.supportLibraryVersion}"
+    implementation project(':android-support:skin-support')
 }
 
 ext {

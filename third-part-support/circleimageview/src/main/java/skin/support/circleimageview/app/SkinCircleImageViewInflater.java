@@ -1,7 +1,6 @@
 package skin.support.circleimageview.app;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -14,7 +13,7 @@ import skin.support.circleimageview.widget.SkinCompatCircleImageView;
 
 public class SkinCircleImageViewInflater implements SkinLayoutInflater {
     @Override
-    public View createView(@NonNull Context context, final String name, @NonNull AttributeSet attrs) {
+    public View createView(Context context, final String name, AttributeSet attrs) {
         View view = null;
         switch (name) {
             case "de.hdodenhof.circleimageview.CircleImageView":

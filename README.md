@@ -2,7 +2,7 @@
 
 In English | [中文](docs/cn/README.md)
 
-[![skin-support](https://img.shields.io/badge/release-v2.2.3-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://img.shields.io/badge/release-v3.0.0-green.svg)](http://jcenter.bintray.com/skin/support)
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
@@ -40,10 +40,10 @@ The Gradle Dependency is available via [jCenter](https://bintray.com/pengfeng/sk
 Add dependencies directly, [For the latest version, please refer to change log](docs/ChangeLog.md)
 
 ```xml
-compile 'skin.support:skin-support:2.2.3'                   // skin-support basic widget
-compile 'skin.support:skin-support-design:2.2.3'            // skin-support-design material design support [selectable]
-compile 'skin.support:skin-support-cardview:2.2.3'          // skin-support-cardview CardView support [selectable]
-compile 'skin.support:skin-support-constraint-layout:2.2.3' // skin-support-constraint-layout ConstraintLayout support [selectable]
+implementation 'skin.support:skin-support:3.0.0'                   // skin-support basic widget
+implementation 'skin.support:skin-support-design:3.0.0'            // skin-support-design material design support [selectable]
+implementation 'skin.support:skin-support-cardview:3.0.0'          // skin-support-cardview CardView support [selectable]
+implementation 'skin.support:skin-support-constraint-layout:3.0.0' // skin-support-constraint-layout ConstraintLayout support [selectable]
 ```
 
 ## Integration
