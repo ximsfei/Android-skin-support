@@ -259,6 +259,8 @@ SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.
 
 ## 谁在使用
 
+如果你想提交作品，欢迎提出 [PR](https://github.com/ximsfei/Android-skin-support/tree/master/docs/who-use-it) 或联系[作者](#技术交流)。
+
 | icon | name | description |
 | :--: | :--- | :---------- |
 | [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/sohunews_explore-icon.png"/>](https://k.sohu.com/) | [搜狐新闻探索版](https://k.sohu.com/) | 
