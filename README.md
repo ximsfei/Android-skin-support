@@ -187,6 +187,8 @@ SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.
 
 ## Who use it
 
+If you want to list your apk here. Welcome to commit [pull request](docs/who-use-it) or Contact the [author](#about-author).
+
 | icon | name | description |
 | :--: | :--- | :---------- |
 | [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/sohunews_explore-icon.png"/>](https://k.sohu.com/) | [sohu newsclient lite](https://k.sohu.com/) | 
