@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/android-support/skin-support-cardview" />
             <option value="$PROJECT_DIR$/android-support/skin-support-constraint-layout" />
             <option value="$PROJECT_DIR$/android-support/skin-support-design" />
+            <option value="$PROJECT_DIR$/android-support/skin-support-recyclerview" />
             <option value="$PROJECT_DIR$/demo" />
             <option value="$PROJECT_DIR$/demo/skin-app" />
             <option value="$PROJECT_DIR$/demo/skin-autolayout-app" />

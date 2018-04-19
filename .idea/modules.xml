@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/android-support/skin-support-cardview/skin-support-cardview.iml" filepath="$PROJECT_DIR$/android-support/skin-support-cardview/skin-support-cardview.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-support/skin-support-constraint-layout/skin-support-constraint-layout.iml" filepath="$PROJECT_DIR$/android-support/skin-support-constraint-layout/skin-support-constraint-layout.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-support/skin-support-design/skin-support-design.iml" filepath="$PROJECT_DIR$/android-support/skin-support-design/skin-support-design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-support/skin-support-recyclerview/skin-support-recyclerview.iml" filepath="$PROJECT_DIR$/android-support/skin-support-recyclerview/skin-support-recyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/third-part-support/third-part-support.iml" filepath="$PROJECT_DIR$/third-part-support/third-part-support.iml" />
     </modules>
   </component>
