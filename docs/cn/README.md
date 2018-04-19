@@ -88,7 +88,9 @@ implementation 'skin.support:skin-support-cardview:3.0.0'          // skin-suppo
 implementation 'skin.support:skin-support-constraint-layout:3.0.0' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
 
-*注: skin-support:3.0.0，是为了适配appcompat-v7:27.+而升级的，如果项目中使用的appcompat-v7还是25.x.x，请继续使用skin-support:2.2.3*
+*注: skin-support:3.0.0，是为了适配appcompat-v7:27.+而升级的。*
+
+*如果项目中使用的appcompat-v7还是25.x.x，请继续使用skin-support:2.2.3*
 
 ### 使用:
 
