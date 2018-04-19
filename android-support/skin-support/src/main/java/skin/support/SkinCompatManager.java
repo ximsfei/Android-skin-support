@@ -42,6 +42,13 @@ public class SkinCompatManager extends SkinObservable {
     private boolean mSkinWindowBackgroundColorEnable = true;
 
     /**
+     * Status bar white list
+     * Activity in this list, it`s status bar won`t been changed
+     * @see #statusBarWhiteList
+     * */
+    private List<String> statusBarWhiteList = new ArrayList<>();
+
+    /**
      * 皮肤包加载监听.
      */
     public interface SkinLoaderListener {
@@ -189,6 +196,31 @@ public class SkinCompatManager extends SkinObservable {
 
     public List<SkinLayoutInflater> getHookInflaters() {
         return mHookInflaters;
+    }
+
+    /**
+     * Add Object to status bar white list,
+     * usually use for immersive ui
+     * @param clazz class
+     * */
+    public SkinCompatManager addStatusBarWhiteList(Class clazz){
+        statusBarWhiteList.add(clazz.getSimpleName());
+        return this;
+    }
+
+    /**
+     * Add Object`s name to status bar white list,
+     * usually use for immersive ui
+     * @param activityClassName class simple name
+     * @see Class#getSimpleName()
+     * */
+    public SkinCompatManager addStatusBarWhiteList(String activityClassName){
+        statusBarWhiteList.add(activityClassName);
+        return this;
+    }
+
+    public List<String> getStatusBarWhiteList(){
+        return statusBarWhiteList;
     }
 
     /**

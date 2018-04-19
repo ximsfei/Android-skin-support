@@ -96,7 +96,8 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     private void updateStatusBarColor(Activity activity) {
         if (SkinCompatManager.getInstance().isSkinStatusBarColorEnable()
-                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+                && !SkinCompatManager.getInstance().getStatusBarWhiteList().contains(activity.getClass().getSimpleName())) {
             int statusBarColorResId = SkinCompatThemeUtils.getStatusBarColorResId(activity);
             int colorPrimaryDarkResId = SkinCompatThemeUtils.getColorPrimaryDarkResId(activity);
             if (checkResourceId(statusBarColorResId) != INVALID_ID) {
