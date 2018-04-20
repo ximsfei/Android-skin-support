@@ -38,4 +38,4 @@
 
   问题解析:
   
-  该框架在运行时会替换所有需要换肤的组件 eg: TextView -> SkinCompatTextView，而SkinCompatTextView集成自appcompat-v7包里的AppCompatTextView。所以需要使用appcompat-v7包里的主题。
+  该框架在运行时会替换所有需要换肤的组件 eg: TextView -> SkinCompatTextView，而SkinCompatTextView继承自appcompat-v7包里的AppCompatTextView。所以需要使用appcompat-v7包里的主题。
