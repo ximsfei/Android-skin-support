@@ -4,7 +4,7 @@
 
 * ![v3.0.0](https://img.shields.io/badge/skin--support-v3.0.0-green.svg)
   * Android studio 3.1.1 & sdk version 27 适配。
-  * 依赖 supportLibraryVersion 27.1.1。
+  * 依赖 android support library version 27.1.1。
 
 * ![v2.2.3](https://img.shields.io/badge/skin--support-v2.2.3-green.svg)
   * bugfix:
