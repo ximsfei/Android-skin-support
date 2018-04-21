@@ -19,7 +19,7 @@
     * android:background
   * bugfix:
     * issue #91
-  * 5.0一下，临时解决矢量图崩溃问题，尚未解决5.0以下矢量图换肤问题
+  * 5.0以下，临时解决矢量图崩溃问题，尚未解决5.0以下矢量图换肤问题
 
 * [![v2.1.5](https://img.shields.io/badge/skin--support-v2.1.5-green.svg)](http://jcenter.bintray.com/skin/support/skin-support/2.1.5/) bugfix 新功能开发
   * fix: issue #87
