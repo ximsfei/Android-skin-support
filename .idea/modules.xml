@@ -8,7 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/third-part-support/circleimageview/circleimageview.iml" filepath="$PROJECT_DIR$/third-part-support/circleimageview/circleimageview.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/third-part-support/flycotablayout/flycotablayout.iml" filepath="$PROJECT_DIR$/third-part-support/flycotablayout/flycotablayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/demo/skin-app/skin-app.iml" filepath="$PROJECT_DIR$/demo/skin-app/skin-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/skin-autolayout-app/skin-autolayout-app.iml" filepath="$PROJECT_DIR$/demo/skin-autolayout-app/skin-autolayout-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/skin-demo/skin-demo.iml" filepath="$PROJECT_DIR$/demo/skin-demo/skin-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/skin-night/skin-night.iml" filepath="$PROJECT_DIR$/demo/skin-night/skin-night.iml" />

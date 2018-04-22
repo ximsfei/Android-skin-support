@@ -1,5 +1,6 @@
 package com.ximsfei.skindemo;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,9 @@ public class BaseActivity extends AppCompatActivity {
                         SkinCompatManager.getInstance().loadSkin("night.skin", CustomSDCardLoader.SKIN_LOADER_STRATEGY_SDCARD);
                         return true;
                     case R.id.menu_color_picker:
+                        Intent intent = new Intent();
+                        intent.setClass(BaseActivity.this, ColorPickerActivity.class);
+                        startActivity(intent);
                         return true;
                     default:
                         return false;

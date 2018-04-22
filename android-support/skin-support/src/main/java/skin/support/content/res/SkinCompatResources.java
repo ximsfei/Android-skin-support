@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.AnyRes;
 import android.support.v7.app.AppCompatDelegate;
@@ -21,6 +22,7 @@ public class SkinCompatResources {
     private String mSkinName = "";
     private SkinCompatManager.SkinLoaderStrategy mStrategy;
     private boolean isDefaultSkin = true;
+    private boolean isUsingCustomColors = false;
 
     private SkinCompatResources() {
     }
@@ -42,6 +44,8 @@ public class SkinCompatResources {
         mSkinName = "";
         mStrategy = null;
         isDefaultSkin = true;
+        isUsingCustomColors = SkinCompatManager.getInstance().isUsingCustomColors();
+        ColorManager.getInstance().clearCaches();
         SkinCompatDrawableManager.get().clearCaches();
     }
 
@@ -51,6 +55,8 @@ public class SkinCompatResources {
         mSkinName = skinName;
         mStrategy = strategy;
         isDefaultSkin = TextUtils.isEmpty(skinName) || TextUtils.isEmpty(pkgName) || resources == null;
+        isUsingCustomColors = SkinCompatManager.getInstance().isUsingCustomColors();
+        ColorManager.getInstance().clearCaches();
         SkinCompatDrawableManager.get().clearCaches();
     }
 
@@ -117,6 +123,12 @@ public class SkinCompatResources {
     }
 
     private int getSkinColor(Context context, int resId) {
+        if (isUsingCustomColors) {
+            ColorStateList colorStateList = ColorManager.getInstance().getColorStateList(resId);
+            if (colorStateList != null) {
+                return colorStateList.getDefaultColor();
+            }
+        }
         if (!isDefaultSkin) {
             int targetResId = getTargetResId(context, resId);
             if (targetResId != 0) {
@@ -127,6 +139,12 @@ public class SkinCompatResources {
     }
 
     private ColorStateList getSkinColorStateList(Context context, int resId) {
+        if (isUsingCustomColors) {
+            ColorStateList colorStateList = ColorManager.getInstance().getColorStateList(resId);
+            if (colorStateList != null) {
+                return colorStateList;
+            }
+        }
         if (!isDefaultSkin) {
             int targetResId = getTargetResId(context, resId);
             if (targetResId != 0) {
@@ -137,6 +155,12 @@ public class SkinCompatResources {
     }
 
     private Drawable getSkinDrawable(Context context, int resId) {
+        if (isUsingCustomColors) {
+            ColorStateList colorStateList = ColorManager.getInstance().getColorStateList(resId);
+            if (colorStateList != null) {
+                return new ColorDrawable(colorStateList.getDefaultColor());
+            }
+        }
         if (!isDefaultSkin) {
             int targetResId = getTargetResId(context, resId);
             if (targetResId != 0) {
