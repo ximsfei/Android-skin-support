@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_default"
+        android:icon="@drawable/ic_default_24dp"
+        android:title="默认" />
+    <item
+        android:id="@+id/menu_built_in"
+        android:icon="@drawable/ic_built_in_24dp"
+        android:title="应用内" />
+    <item
+        android:id="@+id/menu_plug_in"
+        android:icon="@drawable/ic_plug_in_24dp"
+        android:title="插件式" />
+    <item
+        android:id="@+id/menu_sdcard"
+        android:icon="@drawable/ic_sd_card_24dp"
+        android:title="sdcard" />
+    <item
+        android:id="@+id/menu_color_picker"
+        android:icon="@drawable/ic_color_picker_24dp"
+        android:title="自定义" />
+</menu>

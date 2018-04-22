@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.ximsfei.skindemo"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-night']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
+    implementation project(':android-support:skin-support')
+//    implementation 'skin.support:skin-support:3.0.0'
+
+    implementation "com.android.support:recyclerview-v7:${rootProject.supportLibraryVersion}"
+    implementation "com.android.support:design:${rootProject.supportLibraryVersion}"
+    implementation project(':android-support:skin-support-design')
+//    implementation 'skin.support:skin-support-design:3.0.0'
+
+    implementation "com.android.support.constraint:constraint-layout:1.1.0"
+    implementation project(':android-support:skin-support-constraint-layout')
+//    implementation 'skin.support:skin-support-constraint-layout:3.0.0'
+
+    implementation "com.android.support:cardview-v7:${rootProject.supportLibraryVersion}"
+    implementation project(':android-support:skin-support-cardview')
+//    implementation 'skin.support:skin-support-cardview:3.0.0'
+}
