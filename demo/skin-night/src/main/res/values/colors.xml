@@ -1,79 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff2e2e2e</color>
-    <color name="colorPrimaryDark">#aaa</color>
-    <color name="colorAccent">#dfffffff</color>
-    <color name="tabSelected">#dfce0f00</color>
-    <color name="circle_border_color">#dfce0f00</color>
-    <color name="title_text_color">#ddffffff</color>
-    <color name="subtitle_text_color">#aaffffff</color>
-    <color name="text_color_tip">#ffffff</color>
-    <color name="text_color">#ffffff</color>
-    <color name="text_color_hint">#ffb2b2b2</color>
-    <color name="text_background">#ff2e2e2e</color>
-    <color name="background">#ff202020</color>
-    <color name="divider">#44ffffff</color>
-    <color name="ripple_color">#44ffffff</color>
-    <color name="statusBarColor">#ce3d3a</color>
+    <color name="colorPrimary">#902b2b</color>
+    <color name="colorPrimaryDark">#902b2b</color>
+    <color name="colorAccent">#902b2b</color>
+    <color name="colorDefault">#adaeb3</color>
 
-    <!-- flyco tab layout -->
-    <color name="textColorPrimary">#ff333333</color>
-
-    <color name="t1_1_background">#aaaaaa</color>
-    <color name="t1_1_tl_underline_color">#1affffff</color>
-
-    <color name="t1_2_background">#222222</color>
-    <color name="t1_2_tl_divider_color">#aa000000</color>
-    <color name="t1_2_tl_indicator_color">#ffffff</color>
-    <color name="t1_2_tl_textSelectColor">#ffffff</color>
-    <color name="t1_2_tl_textUnselectColor">#66ffffff</color>
-    <color name="t1_2_tl_underline_color">#aa000000</color>
-
-    <color name="t1_3_background">#F3F90E</color>
-    <color name="t1_4_background">#889600</color>
-    <color name="t1_5_background">#6FEC95</color>
-    <color name="t1_6_background">#CE2736</color>
-    <color name="t1_7_background">#7583C5</color>
-    <color name="t1_8_background">#4E1517</color>
-    <color name="t1_8_tl_indicator_color">#111111</color>
-    <color name="t1_9_background">#D6F80B</color>
-    <color name="t1_10_background">#228213</color>
-    <color name="t1_10_tl_indicator_color">#93E364</color>
-
-    <color name="t2_1_background">#000000</color>
-    <color name="t2_1_tl_indicator_color">#C279ED</color>
-    <color name="t2_1_tl_textSelectColor">#C279ED</color>
-    <color name="t2_1_tl_textUnselectColor">#66ffffff</color>
-    <color name="t2_1_tl_underline_color">#333333</color>
-
-    <color name="t2_2_background">#000000</color>
-    <color name="t2_2_tl_indicator_color">#C279ED</color>
-    <color name="t2_2_tl_textSelectColor">#C279ED</color>
-    <color name="t2_2_tl_textUnselectColor">#66ffffff</color>
-    <color name="t2_2_tl_underline_color">#333333</color>
-
-    <color name="t2_3_background">#000000</color>
-    <color name="t2_3_tl_indicator_color">#C279ED</color>
-    <color name="t2_3_tl_textSelectColor">#C279ED</color>
-    <color name="t2_3_tl_textUnselectColor">#66ffffff</color>
-    <color name="t2_3_tl_underline_color">#333333</color>
-
-    <color name="t2_4_background">#6FEC95</color>
-    <color name="t2_5_background">#CE2736</color>
-    <color name="t2_6_background">#7583C5</color>
-    <color name="t2_7_background">#4E1517</color>
-    <color name="t2_7_tl_indicator_color">#111111</color>
-    <color name="t2_8_background">#D6F80B</color>
-    <color name="t3_1_tl_bar_color">#000000</color>
-    <color name="t3_1_tl_indicator_color">#C279ED</color>
-    <color name="t3_2_tl_indicator_color">#886900</color>
-    <color name="t3_3_tl_bar_color">#000000</color>
-    <color name="t3_3_tl_indicator_color">#6FEC95</color>
-    <color name="t3_4_tl_bar_color">#000000</color>
-    <color name="t3_4_tl_indicator_color">#CE2736</color>
-    <color name="t3_5_tl_textSelectColor">#ce2736</color>
-    <color name="t3_5_tl_textUnselectColor">#ffffff</color>
-
-    <color name="msg_background_color">#dcd3a3</color>
-    <color name="msg_stroke_color">#ce2736</color>
+    <color name="textColorPrimary">#adaeb3</color>
+    <color name="textColorPrimaryPressed">#6b6c74</color>
+    <color name="textColorSecondary">#75777e</color>
+    <color name="textColorSecondaryPressed">#5b5d63</color>
+    <color name="textColorTip">#2b6e90</color>
+    <color name="textColorTipPressed">#3f6f99</color>
+    <color name="textBackground">#111214</color>
+    <color name="background">#111214</color>
+    <color name="divider">#2cffffff</color>
 </resources>

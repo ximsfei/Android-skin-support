@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryDark">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:subtitleTextColor="@color/textColorSecondary"
+            app:titleTextColor="@color/textColorPrimary" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:itemIconTint="@color/navigation_item_tint"
+        app:itemTextColor="@color/navigation_item_tint"
+        app:menu="@menu/bottom_skin_menu" />
+
+</LinearLayout>
