@@ -18,6 +18,7 @@ import java.util.List;
 
 import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
+import skin.support.content.res.ColorManager;
 import skin.support.load.SkinAssetsLoader;
 import skin.support.load.SkinBuildInLoader;
 import skin.support.load.SkinPrefixBuildInLoader;
@@ -250,6 +251,15 @@ public class SkinCompatManager extends SkinObservable {
 
     public boolean isSkinWindowBackgroundEnable() {
         return mSkinWindowBackgroundColorEnable;
+    }
+
+    public SkinCompatManager setUsingCustomColors(boolean using) {
+        SkinPreference.getInstance().setUsingCustomColors(using);
+        return this;
+    }
+
+    public boolean isUsingCustomColors() {
+        return SkinPreference.getInstance().isUsingCustomColors();
     }
 
     /**
