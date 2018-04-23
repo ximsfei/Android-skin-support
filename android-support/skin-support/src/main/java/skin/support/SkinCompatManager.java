@@ -1,5 +1,6 @@
 package skin.support;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -18,9 +19,10 @@ import java.util.List;
 
 import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
-import skin.support.content.res.ColorManager;
+import skin.support.content.res.SkinCompatColorManager;
 import skin.support.load.SkinAssetsLoader;
 import skin.support.load.SkinBuildInLoader;
+import skin.support.load.SkinNoneLoader;
 import skin.support.load.SkinPrefixBuildInLoader;
 import skin.support.observe.SkinObservable;
 import skin.support.utils.SkinPreference;
@@ -137,6 +139,7 @@ public class SkinCompatManager extends SkinObservable {
     }
 
     private void initLoaderStrategy() {
+        mStrategyMap.put(SKIN_LOADER_STRATEGY_NONE, new SkinNoneLoader());
         mStrategyMap.put(SKIN_LOADER_STRATEGY_ASSETS, new SkinAssetsLoader());
         mStrategyMap.put(SKIN_LOADER_STRATEGY_BUILD_IN, new SkinBuildInLoader());
         mStrategyMap.put(SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN, new SkinPrefixBuildInLoader());
@@ -197,6 +200,7 @@ public class SkinCompatManager extends SkinObservable {
      *
      * @return
      */
+    @Deprecated
     public String getCurSkinName() {
         return SkinPreference.getInstance().getSkinName();
     }
@@ -205,7 +209,7 @@ public class SkinCompatManager extends SkinObservable {
      * 恢复默认主题，使用应用自带资源.
      */
     public void restoreDefaultTheme() {
-        loadSkin("");
+        loadSkin("", SKIN_LOADER_STRATEGY_NONE);
     }
 
     /**
@@ -253,13 +257,8 @@ public class SkinCompatManager extends SkinObservable {
         return mSkinWindowBackgroundColorEnable;
     }
 
-    public SkinCompatManager setUsingCustomColors(boolean using) {
-        SkinPreference.getInstance().setUsingCustomColors(using);
-        return this;
-    }
-
-    public boolean isUsingCustomColors() {
-        return SkinPreference.getInstance().isUsingCustomColors();
+    public void previewSkinInCurActivity(Activity activity) {
+        SkinActivityLifecycle.init(activity.getApplication()).refresh(activity);
     }
 
     /**

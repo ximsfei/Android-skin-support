@@ -5,6 +5,8 @@
     <color name="colorAccent">#902b2b</color>
     <color name="colorDefault">#adaeb3</color>
 
+    <color name="titleTextColo_night">#dddddd</color>
+    <color name="subtitleTextColor_night">#aaaaaa</color>
     <color name="textColorPrimary">#adaeb3</color>
     <color name="textColorPrimaryPressed">#6b6c74</color>
     <color name="textColorSecondary">#75777e</color>

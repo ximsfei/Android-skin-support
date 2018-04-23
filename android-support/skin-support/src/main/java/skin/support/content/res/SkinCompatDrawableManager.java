@@ -1,4 +1,4 @@
-package skin.support.widget;
+package skin.support.content.res;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -36,12 +36,10 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
 
-import skin.support.content.res.SkinCompatResources;
-
 import static android.support.v4.graphics.ColorUtils.compositeColors;
-import static skin.support.widget.SkinCompatThemeUtils.getDisabledThemeAttrColor;
-import static skin.support.widget.SkinCompatThemeUtils.getThemeAttrColor;
-import static skin.support.widget.SkinCompatThemeUtils.getThemeAttrColorStateList;
+import static skin.support.content.res.SkinCompatThemeUtils.getDisabledThemeAttrColor;
+import static skin.support.content.res.SkinCompatThemeUtils.getThemeAttrColor;
+import static skin.support.content.res.SkinCompatThemeUtils.getThemeAttrColorStateList;
 
 public final class SkinCompatDrawableManager {
     private interface InflateDelegate {
@@ -161,7 +159,7 @@ public final class SkinCompatDrawableManager {
 
     private boolean mHasCheckedVectorDrawableSetup;
 
-    public void clearCaches() {
+    void clearCaches() {
         mDrawableCaches.clear();
         if (mKnownDrawableIdTags != null) {
             mKnownDrawableIdTags.clear();
