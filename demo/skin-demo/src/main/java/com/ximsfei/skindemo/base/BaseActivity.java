@@ -1,19 +1,25 @@
-package com.ximsfei.skindemo;
+package com.ximsfei.skindemo.base;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.ximsfei.skindemo.activities.ColorPickerActivity;
+import com.ximsfei.skindemo.R;
 import com.ximsfei.skindemo.loader.CustomSDCardLoader;
 
 import skin.support.SkinCompatManager;
+import skin.support.utils.SkinPreference;
 
 public class BaseActivity extends AppCompatActivity {
+    private BottomNavigationView mBottomNavigationView;
+
     protected void initBottomMenu() {
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_menu);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        mBottomNavigationView = findViewById(R.id.bottom_menu);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -39,5 +45,27 @@ public class BaseActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mBottomNavigationView != null) {
+            int strategy = SkinPreference.getInstance().getSkinStrategy();
+            switch (strategy) {
+                case SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN:
+                    mBottomNavigationView.setSelectedItemId(R.id.menu_built_in);
+                    break;
+                case SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS:
+                    mBottomNavigationView.setSelectedItemId(R.id.menu_plug_in);
+                    break;
+                case CustomSDCardLoader.SKIN_LOADER_STRATEGY_SDCARD:
+                    mBottomNavigationView.setSelectedItemId(R.id.menu_sdcard);
+                    break;
+                default:
+                    mBottomNavigationView.setSelectedItemId(R.id.menu_default);
+                    break;
+            }
+        }
     }
 }

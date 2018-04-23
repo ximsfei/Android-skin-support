@@ -1,4 +1,4 @@
-package skin.support.widget;
+package skin.support.content.res;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -22,8 +22,14 @@ public class SkinCompatThemeUtils {
     private static final ThreadLocal<TypedValue> TL_TYPED_VALUE = new ThreadLocal<>();
 
     static final int[] DISABLED_STATE_SET = new int[]{-android.R.attr.state_enabled};
+    static final int[] ENABLED_STATE_SET = new int[]{android.R.attr.state_enabled};
+    static final int[] WINDOW_FOCUSED_STATE_SET = new int[]{android.R.attr.state_window_focused};
     static final int[] FOCUSED_STATE_SET = new int[]{android.R.attr.state_focused};
     static final int[] ACTIVATED_STATE_SET = new int[]{android.R.attr.state_activated};
+    static final int[] ACCELERATED_STATE_SET = new int[]{android.R.attr.state_accelerated};
+    static final int[] HOVERED_STATE_SET = new int[]{android.R.attr.state_hovered};
+    static final int[] DRAG_CAN_ACCEPT_STATE_SET = new int[]{android.R.attr.state_drag_can_accept};
+    static final int[] DRAG_HOVERED_STATE_SET = new int[]{android.R.attr.state_drag_hovered};
     static final int[] PRESSED_STATE_SET = new int[]{android.R.attr.state_pressed};
     static final int[] CHECKED_STATE_SET = new int[]{android.R.attr.state_checked};
     static final int[] SELECTED_STATE_SET = new int[]{android.R.attr.state_selected};

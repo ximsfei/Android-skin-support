@@ -1,4 +1,4 @@
-package skin.support.widget;
+package skin.support.content.res;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;

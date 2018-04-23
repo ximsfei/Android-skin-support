@@ -5,6 +5,8 @@
     <color name="colorAccent">#ce3d3a</color>
     <color name="colorDefault">#333333</color>
 
+    <color name="titleTextColor">#ffffff</color>
+    <color name="subtitleTextColor">#dddddd</color>
     <color name="textColorPrimary">#333333</color>
     <color name="textColorPrimaryPressed">#888888</color>
     <color name="textColorSecondary">#666666</color>

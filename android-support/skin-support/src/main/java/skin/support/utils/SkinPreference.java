@@ -14,8 +14,7 @@ public class SkinPreference {
 
     private static final String KEY_SKIN_NAME = "skin-name";
     private static final String KEY_SKIN_STRATEGY = "skin-strategy";
-    private static final String KEY_SKIN_USING_CUSTOM_COLORS = "skin-using-custom-colors";
-    private static final String KEY_SKIN_CUSTOM_COLORS = "skin-custom-colors";
+    private static final String KEY_SKIN_COLORS = "skin-colors";
     private static SkinPreference sInstance;
     private final Context mApp;
     private final SharedPreferences mPref;
@@ -59,13 +58,13 @@ public class SkinPreference {
         return mPref.getInt(KEY_SKIN_STRATEGY, SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS);
     }
 
-    public SkinPreference setUsingCustomColors(boolean using) {
-        mEditor.putBoolean(KEY_SKIN_USING_CUSTOM_COLORS, using);
+    public SkinPreference setColors(String colors) {
+        mEditor.putString(KEY_SKIN_COLORS, colors);
         return this;
     }
 
-    public boolean isUsingCustomColors() {
-        return mPref.getBoolean(KEY_SKIN_USING_CUSTOM_COLORS, false);
+    public String getColors() {
+        return mPref.getString(KEY_SKIN_COLORS, "");
     }
 
     public void commitEditor() {
