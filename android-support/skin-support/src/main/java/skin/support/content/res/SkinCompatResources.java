@@ -42,7 +42,7 @@ public class SkinCompatResources {
         mSkinName = "";
         mStrategy = null;
         isDefaultSkin = true;
-        SkinCompatColorManager.get().clearCaches();
+        SkinCompatUserColorManager.get().clearCaches();
         SkinCompatDrawableManager.get().clearCaches();
     }
 
@@ -52,7 +52,7 @@ public class SkinCompatResources {
         mSkinName = skinName;
         mStrategy = strategy;
         isDefaultSkin = TextUtils.isEmpty(skinName) || TextUtils.isEmpty(pkgName) || resources == null;
-        SkinCompatColorManager.get().clearCaches();
+        SkinCompatUserColorManager.get().clearCaches();
         SkinCompatDrawableManager.get().clearCaches();
     }
 
@@ -101,8 +101,8 @@ public class SkinCompatResources {
     }
 
     private int getSkinColor(Context context, int resId) {
-        if (!SkinCompatColorManager.get().isEmpty()) {
-            ColorStateList colorStateList = SkinCompatColorManager.get().getColorStateList(resId);
+        if (!SkinCompatUserColorManager.get().isEmpty()) {
+            ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
             if (colorStateList != null) {
                 return colorStateList.getDefaultColor();
             }
@@ -117,8 +117,8 @@ public class SkinCompatResources {
     }
 
     private ColorStateList getSkinColorStateList(Context context, int resId) {
-        if (!SkinCompatColorManager.get().isEmpty()) {
-            ColorStateList colorStateList = SkinCompatColorManager.get().getColorStateList(resId);
+        if (!SkinCompatUserColorManager.get().isEmpty()) {
+            ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
             if (colorStateList != null) {
                 return colorStateList;
             }
@@ -133,8 +133,8 @@ public class SkinCompatResources {
     }
 
     private Drawable getSkinDrawable(Context context, int resId) {
-        if (!SkinCompatColorManager.get().isEmpty()) {
-            ColorStateList colorStateList = SkinCompatColorManager.get().getColorStateList(resId);
+        if (!SkinCompatUserColorManager.get().isEmpty()) {
+            ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
             if (colorStateList != null) {
                 return new ColorDrawable(colorStateList.getDefaultColor());
             }
@@ -155,6 +155,12 @@ public class SkinCompatResources {
                     return SkinCompatDrawableManager.get().getDrawable(context, resId);
                 } catch (Exception e) {
                     e.printStackTrace();
+                }
+            }
+            if (!SkinCompatUserColorManager.get().isEmpty()) {
+                ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
+                if (colorStateList != null) {
+                    return new ColorDrawable(colorStateList.getDefaultColor());
                 }
             }
             return AppCompatResources.getDrawable(context, resId);

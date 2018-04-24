@@ -2,7 +2,6 @@ package skin.support.content.res;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.support.annotation.ColorRes;
 import android.text.TextUtils;
 
@@ -11,9 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.WeakHashMap;
 
 import skin.support.SkinCompatManager;
@@ -21,15 +18,15 @@ import skin.support.exception.SkinCompatException;
 import skin.support.utils.SkinPreference;
 import skin.support.utils.Slog;
 
-public class SkinCompatColorManager {
+public class SkinCompatUserColorManager {
     private static final String TAG = "SkinCompatColorManager";
-    private static SkinCompatColorManager INSTANCE = new SkinCompatColorManager();
+    private static SkinCompatUserColorManager INSTANCE = new SkinCompatUserColorManager();
     private final HashMap<String, ColorState> mColorNameStateMap = new HashMap<>();
     private final Object mColorCacheLock = new Object();
     private final WeakHashMap<Integer, WeakReference<ColorStateList>> mColorCaches = new WeakHashMap<>();
     private boolean mEmpty;
 
-    private SkinCompatColorManager() {
+    private SkinCompatUserColorManager() {
         loadColorNameStateMapFromSharedPreferences();
     }
 
@@ -57,7 +54,7 @@ public class SkinCompatColorManager {
         }
     }
 
-    public static SkinCompatColorManager get() {
+    public static SkinCompatUserColorManager get() {
         return INSTANCE;
     }
 
@@ -92,6 +89,25 @@ public class SkinCompatColorManager {
         }
     }
 
+    public void removeColorState(String colorName) {
+        if (!TextUtils.isEmpty(colorName)) {
+            mColorNameStateMap.remove(colorName);
+            mEmpty = mColorNameStateMap.isEmpty();
+        }
+    }
+
+    public ColorState getColorState(String colorName) {
+        return mColorNameStateMap.get(colorName);
+    }
+
+    public ColorState getColorState(@ColorRes int colorRes) {
+        String entry = getColorEntryName(colorRes);
+        if (!TextUtils.isEmpty(entry)) {
+            return mColorNameStateMap.get(entry);
+        }
+        return null;
+    }
+
     public ColorStateList getColorStateList(@ColorRes int colorRes) {
         ColorStateList colorStateList = getCachedColor(colorRes);
         if (colorStateList == null) {
@@ -100,23 +116,13 @@ public class SkinCompatColorManager {
                 ColorState state = mColorNameStateMap.get(entry);
                 if (state != null) {
                     colorStateList = state.parse();
-                    addColorToCache(colorRes, colorStateList);
+                    if (colorStateList != null) {
+                        addColorToCache(colorRes, colorStateList);
+                    }
                 }
             }
         }
         return colorStateList;
-    }
-
-    public boolean hasColorState(String colorName) {
-        return mColorNameStateMap.containsKey(colorName);
-    }
-
-    public boolean hasColorState(@ColorRes int colorRes) {
-        String entry = getColorEntryName(colorRes);
-        if (!TextUtils.isEmpty(entry)) {
-            return mColorNameStateMap.containsKey(entry);
-        }
-        return false;
     }
 
     public boolean isEmpty() {
@@ -128,6 +134,7 @@ public class SkinCompatColorManager {
         clearCaches();
         mEmpty = true;
         SkinPreference.getInstance().setColors("").commitEditor();
+        SkinCompatManager.getInstance().notifyUpdateSkin();
     }
 
     void clearCaches() {
@@ -188,174 +195,6 @@ public class SkinCompatColorManager {
             mColorCaches.remove(colorRes);
         }
     }
-
-    static class ColorState {
-        private boolean onlyDefaultColor;
-        private String colorName;
-        private String colorWindowFocused;
-        private String colorSelected;
-        private String colorFocused;
-        private String colorEnabled;
-        private String colorPressed;
-        private String colorChecked;
-        private String colorActivated;
-        private String colorAccelerated;
-        private String colorHovered;
-        private String colorDragCanAccept;
-        private String colorDragHovered;
-        private String colorDefault;
-
-        ColorState(String colorWindowFocused, String colorSelected, String colorFocused,
-                   String colorEnabled, String colorPressed, String colorChecked, String colorActivated,
-                   String colorAccelerated, String colorHovered, String colorDragCanAccept,
-                   String colorDragHovered, String colorDefault) {
-            this.colorWindowFocused = colorWindowFocused;
-            this.colorSelected = colorSelected;
-            this.colorFocused = colorFocused;
-            this.colorEnabled = colorEnabled;
-            this.colorPressed = colorPressed;
-            this.colorChecked = colorChecked;
-            this.colorActivated = colorActivated;
-            this.colorAccelerated = colorAccelerated;
-            this.colorHovered = colorHovered;
-            this.colorDragCanAccept = colorDragCanAccept;
-            this.colorDragHovered = colorDragHovered;
-            this.colorDefault = colorDefault;
-            this.onlyDefaultColor = false;
-        }
-
-        ColorState(String colorName, String colorDefault) {
-            this.colorName = colorName;
-            this.colorDefault = colorDefault;
-            this.onlyDefaultColor = true;
-        }
-
-        ColorStateList parse() {
-            if (onlyDefaultColor) {
-                int defaultColor = Color.parseColor("#" + colorDefault);
-                return ColorStateList.valueOf(defaultColor);
-            }
-            return parseAll();
-        }
-
-        private ColorStateList parseAll() {
-            int stateColorCount = 0;
-            List<int[]> stateSetList = new ArrayList<>();
-            List<Integer> stateColorList = new ArrayList<>();
-            if (!TextUtils.isEmpty(colorWindowFocused)) {
-                try {
-                    int windowFocusedColorInt = Color.parseColor("#" + colorWindowFocused);
-                    stateSetList.add(SkinCompatThemeUtils.WINDOW_FOCUSED_STATE_SET);
-                    stateColorList.add(windowFocusedColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorSelected)) {
-                try {
-                    int selectedColorInt = Color.parseColor("#" + colorSelected);
-                    stateSetList.add(SkinCompatThemeUtils.SELECTED_STATE_SET);
-                    stateColorList.add(selectedColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorFocused)) {
-                try {
-                    int focusedColorInt = Color.parseColor("#" + colorFocused);
-                    stateSetList.add(SkinCompatThemeUtils.FOCUSED_STATE_SET);
-                    stateColorList.add(focusedColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorEnabled)) {
-                try {
-                    int enabledColorInt = Color.parseColor("#" + colorEnabled);
-                    stateSetList.add(SkinCompatThemeUtils.ENABLED_STATE_SET);
-                    stateColorList.add(enabledColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorPressed)) {
-                try {
-                    int pressedColorInt = Color.parseColor("#" + colorPressed);
-                    stateSetList.add(SkinCompatThemeUtils.PRESSED_STATE_SET);
-                    stateColorList.add(pressedColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorChecked)) {
-                try {
-                    int checkeddColorInt = Color.parseColor("#" + colorChecked);
-                    stateSetList.add(SkinCompatThemeUtils.CHECKED_STATE_SET);
-                    stateColorList.add(checkeddColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorActivated)) {
-                try {
-                    int activatedColorInt = Color.parseColor("#" + colorActivated);
-                    stateSetList.add(SkinCompatThemeUtils.ACTIVATED_STATE_SET);
-                    stateColorList.add(activatedColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorAccelerated)) {
-                try {
-                    int acceleratedColorInt = Color.parseColor("#" + colorAccelerated);
-                    stateSetList.add(SkinCompatThemeUtils.ACCELERATED_STATE_SET);
-                    stateColorList.add(acceleratedColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorHovered)) {
-                try {
-                    int hoveredColorInt = Color.parseColor("#" + colorHovered);
-                    stateSetList.add(SkinCompatThemeUtils.HOVERED_STATE_SET);
-                    stateColorList.add(hoveredColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorDragCanAccept)) {
-                try {
-                    int dragCanAcceptColorInt = Color.parseColor("#" + colorDragCanAccept);
-                    stateSetList.add(SkinCompatThemeUtils.DRAG_CAN_ACCEPT_STATE_SET);
-                    stateColorList.add(dragCanAcceptColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            if (!TextUtils.isEmpty(colorDragHovered)) {
-                try {
-                    int dragHoveredColorInt = Color.parseColor("#" + colorDragHovered);
-                    stateSetList.add(SkinCompatThemeUtils.DRAG_HOVERED_STATE_SET);
-                    stateColorList.add(dragHoveredColorInt);
-                    stateColorCount++;
-                } catch (Exception e) {
-                }
-            }
-            int baseColor = Color.parseColor("#" + colorDefault);
-            stateSetList.add(SkinCompatThemeUtils.EMPTY_STATE_SET);
-            stateColorList.add(baseColor);
-            stateColorCount++;
-
-            final int[][] states = new int[stateColorCount][];
-            final int[] colors = new int[stateColorCount];
-            for (int index = 0; index < stateColorCount; index++) {
-                states[index] = stateSetList.get(index);
-                colors[index] = stateColorList.get(index);
-            }
-            return new ColorStateList(states, colors);
-        }
-    }
-
 
     private JSONObject toJSONObject(ColorState state) {
         JSONObject object = new JSONObject();
@@ -461,10 +300,34 @@ public class SkinCompatColorManager {
         String colorDragHovered;
         String colorDefault;
 
+        public ColorBuilder() {
+        }
+
+        public ColorBuilder(ColorState state) {
+            colorWindowFocused = state.colorWindowFocused;
+            colorSelected = state.colorSelected;
+            colorFocused = state.colorFocused;
+            colorEnabled = state.colorEnabled;
+            colorPressed = state.colorPressed;
+            colorChecked = state.colorChecked;
+            colorActivated = state.colorActivated;
+            colorAccelerated = state.colorAccelerated;
+            colorHovered = state.colorHovered;
+            colorDragCanAccept = state.colorDragCanAccept;
+            colorDragHovered = state.colorDragHovered;
+            colorDefault = state.colorDefault;
+        }
+
         public ColorBuilder setColorWindowFocused(String colorWindowFocused) {
             if (checkColorValid("colorWindowFocused", colorWindowFocused)) {
                 this.colorWindowFocused = colorWindowFocused;
             }
+            return this;
+
+        }
+
+        public ColorBuilder setColorWindowFocused(Context context, @ColorRes int colorRes) {
+            this.colorWindowFocused = context.getResources().getResourceEntryName(colorRes);
             return this;
         }
 
@@ -475,10 +338,20 @@ public class SkinCompatColorManager {
             return this;
         }
 
+        public ColorBuilder setColorSelected(Context context, @ColorRes int colorRes) {
+            this.colorSelected = context.getResources().getResourceEntryName(colorRes);
+            return this;
+        }
+
         public ColorBuilder setColorFocused(String colorFocused) {
             if (checkColorValid("colorFocused", colorFocused)) {
                 this.colorFocused = colorFocused;
             }
+            return this;
+        }
+
+        public ColorBuilder setColorFocused(Context context, @ColorRes int colorRes) {
+            this.colorFocused = context.getResources().getResourceEntryName(colorRes);
             return this;
         }
 
@@ -489,10 +362,20 @@ public class SkinCompatColorManager {
             return this;
         }
 
+        public ColorBuilder setColorEnabled(Context context, @ColorRes int colorRes) {
+            this.colorEnabled = context.getResources().getResourceEntryName(colorRes);
+            return this;
+        }
+
         public ColorBuilder setColorChecked(String colorChecked) {
             if (checkColorValid("colorChecked", colorChecked)) {
                 this.colorChecked = colorChecked;
             }
+            return this;
+        }
+
+        public ColorBuilder setColorChecked(Context context, @ColorRes int colorRes) {
+            this.colorChecked = context.getResources().getResourceEntryName(colorRes);
             return this;
         }
 
@@ -503,10 +386,20 @@ public class SkinCompatColorManager {
             return this;
         }
 
+        public ColorBuilder setColorPressed(Context context, @ColorRes int colorRes) {
+            this.colorPressed = context.getResources().getResourceEntryName(colorRes);
+            return this;
+        }
+
         public ColorBuilder setColorActivated(String colorActivated) {
             if (checkColorValid("colorActivated", colorActivated)) {
                 this.colorActivated = colorActivated;
             }
+            return this;
+        }
+
+        public ColorBuilder setColorActivated(Context context, @ColorRes int colorRes) {
+            this.colorActivated = context.getResources().getResourceEntryName(colorRes);
             return this;
         }
 
@@ -517,10 +410,20 @@ public class SkinCompatColorManager {
             return this;
         }
 
+        public ColorBuilder setColorAccelerated(Context context, @ColorRes int colorRes) {
+            this.colorAccelerated = context.getResources().getResourceEntryName(colorRes);
+            return this;
+        }
+
         public ColorBuilder setColorHovered(String colorHovered) {
             if (checkColorValid("colorHovered", colorHovered)) {
                 this.colorHovered = colorHovered;
             }
+            return this;
+        }
+
+        public ColorBuilder setColorHovered(Context context, @ColorRes int colorRes) {
+            this.colorHovered = context.getResources().getResourceEntryName(colorRes);
             return this;
         }
 
@@ -531,6 +434,11 @@ public class SkinCompatColorManager {
             return this;
         }
 
+        public ColorBuilder setColorDragCanAccept(Context context, @ColorRes int colorRes) {
+            this.colorDragCanAccept = context.getResources().getResourceEntryName(colorRes);
+            return this;
+        }
+
         public ColorBuilder setColorDragHovered(String colorDragHovered) {
             if (checkColorValid("colorDragHovered", colorDragHovered)) {
                 this.colorDragHovered = colorDragHovered;
@@ -538,10 +446,20 @@ public class SkinCompatColorManager {
             return this;
         }
 
+        public ColorBuilder setColorDragHovered(Context context, @ColorRes int colorRes) {
+            this.colorDragHovered = context.getResources().getResourceEntryName(colorRes);
+            return this;
+        }
+
         public ColorBuilder setColorDefault(String colorDefault) {
             if (checkColorValid("colorDefault", colorDefault)) {
                 this.colorDefault = colorDefault;
             }
+            return this;
+        }
+
+        public ColorBuilder setColorDefault(Context context, @ColorRes int colorRes) {
+            this.colorDefault = context.getResources().getResourceEntryName(colorRes);
             return this;
         }
 
@@ -556,7 +474,10 @@ public class SkinCompatColorManager {
     }
 
     private static boolean checkColorValid(String name, String color) {
-        boolean colorValid = !TextUtils.isEmpty(color) && (color.length() == 6 || color.length() == 8);
+        // 不为空
+        boolean colorValid = !TextUtils.isEmpty(color)
+                // 不以#开始，说明是引用其他颜色值 或者以#开始，则长度必须为7或9
+                && (!color.startsWith("#") || color.length() == 7 || color.length() == 9);
         if (Slog.DEBUG && !colorValid) {
             Slog.i(TAG, "Invalid color -> " + name + ": " + color);
         }
