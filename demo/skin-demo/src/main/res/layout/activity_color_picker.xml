@@ -19,26 +19,11 @@
             app:titleTextColor="@color/titleTextColor" />
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v7.widget.CardView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
-
-        <TextView
-            android:id="@+id/preview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="文字颜色"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="60sp" />
-    </android.support.v7.widget.CardView>
-
-    <SeekBar
-        android:id="@+id/textColorPrimarySeekBar"
-        style="@style/Widget.AppCompat.SeekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="clear"
+            android:textAllCaps="false"
             android:textColor="@color/textColorPrimary" />
 
         <Button
@@ -59,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="apply"
-            android:textColor="@color/textColorPrimary" />
+            android:textAllCaps="false"
+            android:textColor="@color/textColorTip" />
     </LinearLayout>
 </LinearLayout>

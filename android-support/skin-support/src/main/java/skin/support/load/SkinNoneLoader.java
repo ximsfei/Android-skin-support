@@ -4,7 +4,6 @@ import android.content.Context;
 
 import skin.support.SkinCompatManager;
 import skin.support.SkinCompatManager.SkinLoaderStrategy;
-import skin.support.content.res.SkinCompatResources;
 
 public class SkinNoneLoader implements SkinLoaderStrategy {
     @Override

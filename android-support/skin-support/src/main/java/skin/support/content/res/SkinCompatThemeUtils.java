@@ -9,8 +9,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.graphics.ColorUtils;
 import android.util.TypedValue;
 
-import skin.support.content.res.SkinCompatResources;
-
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
 /**

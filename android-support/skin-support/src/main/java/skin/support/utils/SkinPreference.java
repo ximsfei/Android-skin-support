@@ -55,7 +55,7 @@ public class SkinPreference {
     }
 
     public int getSkinStrategy() {
-        return mPref.getInt(KEY_SKIN_STRATEGY, SkinCompatManager.SKIN_LOADER_STRATEGY_ASSETS);
+        return mPref.getInt(KEY_SKIN_STRATEGY, SkinCompatManager.SKIN_LOADER_STRATEGY_NONE);
     }
 
     public SkinPreference setColors(String colors) {

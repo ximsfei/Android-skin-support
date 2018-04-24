@@ -41,7 +41,7 @@ import static skin.support.content.res.SkinCompatThemeUtils.getDisabledThemeAttr
 import static skin.support.content.res.SkinCompatThemeUtils.getThemeAttrColor;
 import static skin.support.content.res.SkinCompatThemeUtils.getThemeAttrColorStateList;
 
-public final class SkinCompatDrawableManager {
+final class SkinCompatDrawableManager {
     private interface InflateDelegate {
         Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser parser,
                                     @NonNull AttributeSet attrs, @Nullable Resources.Theme theme);

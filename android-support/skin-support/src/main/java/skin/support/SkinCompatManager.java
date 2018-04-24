@@ -19,7 +19,6 @@ import java.util.List;
 
 import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
-import skin.support.content.res.SkinCompatColorManager;
 import skin.support.load.SkinAssetsLoader;
 import skin.support.load.SkinBuildInLoader;
 import skin.support.load.SkinNoneLoader;
