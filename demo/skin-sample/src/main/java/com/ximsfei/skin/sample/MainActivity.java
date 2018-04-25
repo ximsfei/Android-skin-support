@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo;
+package com.ximsfei.skin.sample;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -6,10 +6,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
-import com.ximsfei.skindemo.base.BaseActivity;
-import com.ximsfei.skindemo.base.TabFragmentPagerAdapter;
-import com.ximsfei.skindemo.fragment.ChangeLogFragment;
-import com.ximsfei.skindemo.fragment.ComponentsFragment;
+import com.ximsfei.skin.sample.R;
+import com.ximsfei.skin.sample.base.BaseActivity;
+import com.ximsfei.skin.sample.base.TabFragmentPagerAdapter;
+import com.ximsfei.skin.sample.fragment.ChangeLogFragment;
+import com.ximsfei.skin.sample.fragment.ComponentsFragment;
 
 import java.util.ArrayList;
 import java.util.List;

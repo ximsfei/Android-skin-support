@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo.base;
+package com.ximsfei.skin.sample.base;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -6,9 +6,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.ximsfei.skindemo.activities.ColorPickerActivity;
-import com.ximsfei.skindemo.R;
-import com.ximsfei.skindemo.loader.CustomSDCardLoader;
+import com.ximsfei.skin.sample.activities.ColorPickerActivity;
+import com.ximsfei.skin.sample.R;
+import com.ximsfei.skin.sample.loader.CustomSDCardLoader;
 
 import skin.support.SkinCompatManager;
 import skin.support.utils.SkinPreference;
