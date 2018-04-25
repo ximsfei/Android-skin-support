@@ -1,4 +1,4 @@
-include ':demo:skin-demo'
+include ':demo:skin-sample'
 //include ':demo:skin-app'
 include ':demo:skin-night'
 include ':demo:skin-autolayout-app'

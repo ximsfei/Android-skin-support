@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo.base;
+package com.ximsfei.skin.sample.base;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -36,13 +36,6 @@ public abstract class BaseRecyclerAdapter<T, V extends BaseRecyclerAdapter.BaseV
                     itemHolder.getAdapterPosition(), itemHolder.getItemId());
         }
     }
-
-    @Override
-    public void onBindViewHolder(@NonNull V holder, int position) {
-        bindData(holder, position, mItems.get(position));
-    }
-
-    protected abstract void bindData(V holder, int position, T item);
 
     @Override
     public int getItemCount() {

@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo.loader;
+package com.ximsfei.skin.sample.loader;
 
 import android.content.Context;
 

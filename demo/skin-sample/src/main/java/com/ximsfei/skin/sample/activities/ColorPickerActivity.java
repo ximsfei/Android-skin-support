@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo.activities;
+package com.ximsfei.skin.sample.activities;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,8 +16,8 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.ximsfei.skindemo.R;
-import com.ximsfei.skindemo.base.BaseRecyclerAdapter;
+import com.ximsfei.skin.sample.R;
+import com.ximsfei.skin.sample.base.BaseRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -196,7 +196,8 @@ public class ColorPickerActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void bindData(ColorPickerViewHolder holder, int position, ColorPickerData item) {
+        public void onBindViewHolder(ColorPickerViewHolder holder, int position) {
+            ColorPickerData item = getItem(position);
             int color = 0;
             try {
                 color = Integer.valueOf(item.getValue(), 16);

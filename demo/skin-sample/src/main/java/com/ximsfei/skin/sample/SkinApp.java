@@ -1,9 +1,9 @@
-package com.ximsfei.skindemo;
+package com.ximsfei.skin.sample;
 
 import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
 
-import com.ximsfei.skindemo.loader.CustomSDCardLoader;
+import com.ximsfei.skin.sample.loader.CustomSDCardLoader;
 
 import skin.support.SkinCompatManager;
 import skin.support.app.SkinCardViewInflater;

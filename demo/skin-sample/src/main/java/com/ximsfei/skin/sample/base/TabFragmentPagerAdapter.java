@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo.base;
+package com.ximsfei.skin.sample.base;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
