@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ce3d3a</color>
+    <color name="colorPrimaryDark">#ce3d3a</color>
+    <color name="colorAccent">#ce3d3a</color>
+    <color name="colorDefault">#333333</color>
+
+    <color name="titleTextColor">#ffffff</color>
+    <color name="subtitleTextColor">#dddddd</color>
+    <color name="textColorPrimary">#333333</color>
+    <color name="textColorPrimaryPressed">#888888</color>
+    <color name="textColorSecondary">#666666</color>
+    <color name="textColorSecondaryPressed">#999999</color>
+    <color name="textColorTip">#477aac</color>
+    <color name="textColorTipPressed">#48899c</color>
+    <color name="textBackground">#f2f4f5</color>
+    <color name="background">#f2f4f5</color>
+    <color name="divider">#2c000000</color>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_night">#902b2b</color>
+    <color name="colorPrimaryDark_night">#902b2b</color>
+    <color name="colorAccent_night">#902b2b</color>
+    <color name="colorDefault_night">#adaeb3</color>
+
+    <color name="titleTextColor_night">#dddddd</color>
+    <color name="subtitleTextColor_night">#aaaaaa</color>
+    <color name="textColorPrimary_night">#adaeb3</color>
+    <color name="textColorPrimaryPressed_night">#6b6c74</color>
+    <color name="textColorSecondary_night">#75777e</color>
+    <color name="textColorSecondaryPressed_night">#5b5d63</color>
+    <color name="textColorTip_night">#2b6e90</color>
+    <color name="textColorTipPressed_night">#3f6f99</color>
+    <color name="textBackground_night">#111214</color>
+    <color name="background_night">#111214</color>
+    <color name="divider_night">#2cffffff</color>
+</resources>

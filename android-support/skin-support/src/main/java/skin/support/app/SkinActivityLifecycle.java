@@ -18,7 +18,7 @@ import skin.support.content.res.SkinCompatResources;
 import skin.support.observe.SkinObservable;
 import skin.support.observe.SkinObserver;
 import skin.support.widget.SkinCompatSupportable;
-import skin.support.widget.SkinCompatThemeUtils;
+import skin.support.content.res.SkinCompatThemeUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 import static skin.support.widget.SkinCompatHelper.checkResourceId;
@@ -68,6 +68,10 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
         }
         mSkinDelegateMap.put(context, mSkinDelegate);
         return mSkinDelegate;
+    }
+
+    public void refresh(final Context context) {
+        getObserver(context).updateSkin(SkinCompatManager.getInstance(), null);
     }
 
     private SkinObserver getObserver(final Context context) {
