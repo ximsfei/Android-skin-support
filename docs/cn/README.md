@@ -7,6 +7,9 @@
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
 * [介绍](#介绍)
+  * [功能](#功能)
+  * [TODO](#todo)
+  * [目录结构](#目录结构)
 * [Demo](#demo)
 * [框架用法](#用法)
   * [导入](#导入)
@@ -49,17 +52,32 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 就这么简单, 你的APK已经拥有了强大的换肤功能, 当然现在是拥有了换肤功能, 别忘了[制作皮肤包](#应用内换肤).
 
+### 功能
+
+* [x] xml中用到的color和drawable换肤实现。
+* [x] java代码中设置的资源换肤实现。
+* [x] 默认支持大部分基础控件，Material Design换肤。
+* [x] 支持多种加载策略(应用内/插件式/自定义sdcard路径等)。
+* [x] 支持定制化，选择需要的模块加载。
+
+### TODO
+
+* [x] 动态修改主题颜色值。
+  可以让用户设置任何属性的颜色值: `SkinCompatUserColorManager.get().addColorState(R.color.colorPrimary, #ffff0000)`
+* [ ] 兼容低版本support library
+* [ ] skin-sample 实现
+
 ### 目录结构
 
-> [demo](../../demo)                                       // 换肤demo 集合
+> [demo](../../demo)                                                        // 换肤demo 集合
 
->> [skin-app](../../demo/skin-app)                         // demo app
+>> [skin-sample](../../demo/skin-sample)([skin-app](../../demo/skin-app))   // demo app
 
->> [skin-night](../../demo/skin-night)                     // 夜间模式皮肤工程
+>> [skin-night](../../demo/skin-night)                                      // 夜间模式皮肤工程
 
->> [skin-autolayout-app](../../demo/skin-autolayout-app)   // autolayout demo app
+>> [skin-autolayout-app](../../demo/skin-autolayout-app)                    // autolayout demo app
 
-> [android-support](../../android-support)                 // Android 原生控件
+> [android-support](../../android-support)                                  // Android 原生控件
 
 >> [skin-support](../../android-support／skin-support)                      // 换肤框架, 基础控件支持
 
