@@ -69,14 +69,11 @@ SkinCompatManager.withoutActivity(this).loadSkin();
   可以让用户设置任何属性的颜色值(包括ColorStateList, [具体使用细节](../../demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)): `SkinCompatUserColorManager.get().addColorState(R.color.colorPrimary, #ffff0000)`
 * [ ] 兼容低版本support library
 * [ ] `AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);`开关使用错误问题修正
-
-*当前只有开启该开关才支持矢量图换肤，而在appcompat-v7中的实现，关闭该开关时，可以使用srcCompat进行矢量图的使用*
-
 * [ ] skin-sample 实现:
-* [x] 动态修改主题颜色值案例(../../demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)
-* [ ] 控件使用案例
-* [ ] 跟新日志tab
-* [ ] 关于页面
+  * [x] 动态修改主题颜色值[案例](../../demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)
+  * [ ] 控件使用案例
+  * [ ] 跟新日志tab
+  * [ ] 关于页面
 
 ### 目录结构
 
