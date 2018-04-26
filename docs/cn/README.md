@@ -59,13 +59,20 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 * [x] 默认支持大部分基础控件，Material Design换肤。
 * [x] 支持多种加载策略(应用内/插件式/自定义sdcard路径等)。
 * [x] 支持定制化，选择需要的模块加载。
+* [x] 支持矢量图(vector/svg)换肤。
+
+*[详细内容, 请查看更新日志](../ChangeLog.md)，那里有所有功能提交记录*
 
 ### TODO
 
 * [x] 动态修改主题颜色值。
-  可以让用户设置任何属性的颜色值: `SkinCompatUserColorManager.get().addColorState(R.color.colorPrimary, #ffff0000)`
+  可以让用户设置任何属性的颜色值(包括ColorStateList, [具体使用细节](../../demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)): `SkinCompatUserColorManager.get().addColorState(R.color.colorPrimary, #ffff0000)`
 * [ ] 兼容低版本support library
 * [ ] skin-sample 实现
+  * [x] 动态修改主题颜色值案例(../../demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)
+  * [ ] 控件使用案例
+  * [ ] 跟新日志tab
+  * [ ] 关于页面
 
 ### 目录结构
 
