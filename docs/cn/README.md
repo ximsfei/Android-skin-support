@@ -54,7 +54,7 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ### 功能
 
-* [x] xml中用到的color和drawable换肤实现。
+* [x] xml中用到的资源换肤实现。
 * [x] java代码中设置的资源换肤实现。
 * [x] 默认支持大部分基础控件，Material Design换肤。
 * [x] 支持多种加载策略(应用内/插件式/自定义sdcard路径等)。
