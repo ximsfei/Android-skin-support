@@ -72,7 +72,7 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 * [ ] skin-sample 实现:
   * [x] 动态修改主题颜色值[案例](../../demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)
   * [ ] 控件使用案例
-  * [ ] 更新日志tab
+  * [ ] 更新日志tab
   * [ ] 关于页面
 
 ### 目录结构
