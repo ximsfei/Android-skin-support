@@ -48,6 +48,13 @@
             android:name=".test.TestActivity"
             android:label="Test Activity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".actionbar.ActionbarTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActionbarTheme" />
+        <activity
+            android:name=".colorpicker.ColorPickerActivity"
+            android:screenOrientation="portrait" />
 
         <!-- flycotablayout -->
         <activity
@@ -66,10 +73,6 @@
         <activity
             android:name=".flycotablayout.ui.SegmentTabActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".actionbar.ActionbarTestActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActionbarTheme"/>
 
         <service android:name=".window.WindowService" />
     </application>
