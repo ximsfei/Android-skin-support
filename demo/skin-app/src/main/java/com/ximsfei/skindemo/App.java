@@ -2,8 +2,6 @@ package com.ximsfei.skindemo;
 
 import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.content.res.AppCompatResources;
-import android.support.v7.widget.AppCompatDrawableManager;
 
 import com.ximsfei.skindemo.loader.CustomSDCardLoader;
 
@@ -13,6 +11,7 @@ import skin.support.circleimageview.app.SkinCircleImageViewInflater;
 import skin.support.constraint.app.SkinConstraintViewInflater;
 import skin.support.design.app.SkinMaterialViewInflater;
 import skin.support.flycotablayout.app.SkinFlycoTabLayoutInflater;
+import skin.support.utils.Slog;
 
 /**
  * Created by ximsfei on 2017/1/10.
@@ -29,6 +28,8 @@ public class App extends Application {
 //        SkinFlycoTabLayoutManager.init(this);
 //        SkinCompatManager.init(this).loadSkin();
 //        SkinCompatManager.init(this)
+        // 框架换肤日志打印
+        Slog.DEBUG = true;
         SkinCompatManager.withoutActivity(this)
                 .addStrategy(new CustomSDCardLoader())          // 自定义加载策略，指定SDCard路径
                 .addInflater(new SkinMaterialViewInflater())    // material design

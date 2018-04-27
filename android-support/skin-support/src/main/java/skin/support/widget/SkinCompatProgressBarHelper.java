@@ -13,13 +13,13 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.drawable.shapes.Shape;
 import android.os.Build;
-import android.support.v4.graphics.drawable.WrappedDrawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.ProgressBar;
 
 import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.utils.SkinCompatVersionUtils;
 
 /**
  * Created by ximsfei on 2017/1/20.
@@ -58,11 +58,19 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
      * traverse layer and state list drawables.
      */
     private Drawable tileify(Drawable drawable, boolean clip) {
-        if (drawable instanceof WrappedDrawable) {
-            Drawable inner = ((WrappedDrawable) drawable).getWrappedDrawable();
+        if (SkinCompatVersionUtils.isV4WrappedDrawable(drawable)) {
+            Drawable inner = SkinCompatVersionUtils.getV4WrappedDrawableWrappedDrawable(drawable);
             if (inner != null) {
                 inner = tileify(inner, clip);
-                ((WrappedDrawable) drawable).setWrappedDrawable(inner);
+//                ((WrappedDrawable) drawable).setWrappedDrawable(inner);
+                SkinCompatVersionUtils.setV4WrappedDrawableWrappedDrawable(drawable, inner);
+            }
+        } else if (SkinCompatVersionUtils.isV4DrawableWrapper(drawable)) {
+            Drawable inner = SkinCompatVersionUtils.getV4DrawableWrapperWrappedDrawable(drawable);
+            if (inner != null) {
+                inner = tileify(inner, clip);
+//                ((DrawableWrapper) drawable).setWrappedDrawable(inner);
+                SkinCompatVersionUtils.setV4DrawableWrapperWrappedDrawable(drawable, inner);
             }
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable background = (LayerDrawable) drawable;

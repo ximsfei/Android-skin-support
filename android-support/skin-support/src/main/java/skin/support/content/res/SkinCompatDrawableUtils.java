@@ -8,8 +8,9 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.v4.graphics.drawable.WrappedDrawable;
 import android.support.v7.graphics.drawable.DrawableWrapper;
+
+import skin.support.utils.SkinCompatVersionUtils;
 
 public class SkinCompatDrawableUtils {
 
@@ -55,8 +56,10 @@ public class SkinCompatDrawableUtils {
                     }
                 }
             }
-        } else if (drawable instanceof WrappedDrawable) {
-            return canSafelyMutateDrawable(((WrappedDrawable) drawable).getWrappedDrawable());
+        } else if (SkinCompatVersionUtils.isV4DrawableWrapper(drawable)) {
+            return canSafelyMutateDrawable(SkinCompatVersionUtils.getV4DrawableWrapperWrappedDrawable(drawable));
+        } else if (SkinCompatVersionUtils.isV4WrappedDrawable(drawable)) {
+            return canSafelyMutateDrawable(SkinCompatVersionUtils.getV4WrappedDrawableWrappedDrawable(drawable));
         } else if (drawable instanceof DrawableWrapper) {
             return canSafelyMutateDrawable(((DrawableWrapper) drawable).getWrappedDrawable());
         } else if (drawable instanceof ScaleDrawable) {

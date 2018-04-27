@@ -36,7 +36,8 @@ ext {
     minSdkVersion = 14
     targetSdkVersion = 27
 
-    supportLibraryVersion = "27.1.1"
+    supportLibraryVersion = "25.1.0"
+    supportLibraryVersionInHost = "27.1.1"
 
     skinSupportVersion = "3.0.0"
 }
