@@ -62,7 +62,7 @@ public class ColorPickerActivity extends AppCompatActivity {
                     // 如果navigation_item_tint 依赖的颜色用户未设置，则删除。
                     SkinCompatUserColorManager.get().removeColorState(R.color.navigation_item_tint);
                 }
-                SkinCompatManager.getInstance().previewSkinInCurActivity(ColorPickerActivity.this);
+                SkinCompatManager.getInstance().notifyUpdateSkin();
             }
         });
         recyclerView.setAdapter(mAdapter);

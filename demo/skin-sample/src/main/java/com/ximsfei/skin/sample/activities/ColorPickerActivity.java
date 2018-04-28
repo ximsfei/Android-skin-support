@@ -97,7 +97,7 @@ public class ColorPickerActivity extends AppCompatActivity {
                     default:
                         break;
                 }
-                SkinCompatManager.getInstance().previewSkinInCurActivity(ColorPickerActivity.this);
+                SkinCompatManager.getInstance().notifyUpdateSkin();
             }
         });
         recyclerView.setAdapter(mAdapter);

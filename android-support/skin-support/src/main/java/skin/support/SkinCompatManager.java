@@ -1,6 +1,5 @@
 package skin.support;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -287,10 +286,6 @@ public class SkinCompatManager extends SkinObservable {
 
     public boolean isSkinWindowBackgroundEnable() {
         return mSkinWindowBackgroundColorEnable;
-    }
-
-    public void previewSkinInCurActivity(Activity activity) {
-        SkinActivityLifecycle.init(activity.getApplication()).refresh(activity);
     }
 
     /**
