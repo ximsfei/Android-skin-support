@@ -4,6 +4,7 @@ import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
 
 import com.ximsfei.skindemo.loader.CustomSDCardLoader;
+import com.ximsfei.skindemo.loader.ZipSDCardLoader;
 
 import skin.support.SkinCompatManager;
 import skin.support.app.SkinCardViewInflater;
@@ -32,6 +33,7 @@ public class App extends Application {
         Slog.DEBUG = true;
         SkinCompatManager.withoutActivity(this)
                 .addStrategy(new CustomSDCardLoader())          // 自定义加载策略，指定SDCard路径
+                .addStrategy(new ZipSDCardLoader())             // 自定义加载策略，获取zip包中的资源
                 .addInflater(new SkinMaterialViewInflater())    // material design
                 .addInflater(new SkinConstraintViewInflater())  // ConstraintLayout
                 .addInflater(new SkinCardViewInflater())        // CardView v7

@@ -68,8 +68,8 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 * [x] 动态修改主题颜色值。
   可以让用户设置任何属性的颜色值(包括ColorStateList, [具体使用细节](demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)): `SkinCompatUserColorManager.get().addColorState(R.color.colorPrimary, #ffff0000)`
 * [x] 兼容低版本support library。已向下兼容到support library 25.1.0
+* [x] 加载策略功能扩展: 增加对Zip包中资源获取的逻辑。资源加载优先级，用户自定义颜色值-加载策略中的资源-皮肤包资源-应用资源
 * [ ] 换肤框架性能优化。[#141](https://github.com/ximsfei/Android-skin-support/issues/141)
-* [ ] 加载策略功能扩展: 增加对Zip包中资源获取的逻辑。
 * [ ] `AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);`开关使用错误问题修正
 * [ ] skin-sample 实现:
   * [x] 动态修改主题颜色值[案例](demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)

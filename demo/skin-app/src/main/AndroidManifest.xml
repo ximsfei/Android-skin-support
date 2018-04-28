@@ -55,6 +55,9 @@
         <activity
             android:name=".colorpicker.ColorPickerActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".zip.ZipActivity"
+            android:screenOrientation="portrait" />
 
         <!-- flycotablayout -->
         <activity

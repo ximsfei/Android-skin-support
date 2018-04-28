@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -87,6 +89,36 @@ public class SkinCompatManager extends SkinObservable {
          * @return 皮肤包中相应的资源名.
          */
         String getTargetResourceEntryName(Context context, String skinName, int resId);
+
+        /**
+         * 开发者可以拦截应用中的资源ID，返回对应color值。
+         *
+         * @param context  {@link Context}
+         * @param skinName 皮肤包名称.
+         * @param resId    应用中需要换肤的资源ID.
+         * @return 获得拦截后的颜色值，添加到ColorStateList的defaultColor中。不需要拦截，则返回空
+         */
+        ColorStateList getColor(Context context, String skinName, int resId);
+
+        /**
+         * 开发者可以拦截应用中的资源ID，返回对应ColorStateList。
+         *
+         * @param context  {@link Context}
+         * @param skinName 皮肤包名称.
+         * @param resId    应用中需要换肤的资源ID.
+         * @return 返回对应ColorStateList。不需要拦截，则返回空
+         */
+        ColorStateList getColorStateList(Context context, String skinName, int resId);
+
+        /**
+         * 开发者可以拦截应用中的资源ID，返回对应Drawable。
+         *
+         * @param context  {@link Context}
+         * @param skinName 皮肤包名称.
+         * @param resId    应用中需要换肤的资源ID.
+         * @return 返回对应Drawable。不需要拦截，则返回空
+         */
+        Drawable getDrawable(Context context, String skinName, int resId);
 
         /**
          * {@link #SKIN_LOADER_STRATEGY_ASSETS}
@@ -319,7 +351,11 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public AsyncTask loadSkin(String skinName, SkinLoaderListener listener, int strategy) {
-        return new SkinLoadTask(listener, mStrategyMap.get(strategy)).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, skinName);
+        SkinLoaderStrategy loaderStrategy = mStrategyMap.get(strategy);
+        if (loaderStrategy == null) {
+            return null;
+        }
+        return new SkinLoadTask(listener, loaderStrategy).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, skinName);
     }
 
     private class SkinLoadTask extends AsyncTask<String, Void, String> {
@@ -351,14 +387,11 @@ public class SkinCompatManager extends SkinObservable {
             }
             try {
                 if (params.length == 1) {
-                    if (TextUtils.isEmpty(params[0])) {
-                        SkinCompatResources.getInstance().reset();
-                        return params[0];
+                    String skinName = mStrategy.loadSkinInBackground(mAppContext, params[0]);
+                    if (TextUtils.isEmpty(skinName)) {
+                        SkinCompatResources.getInstance().reset(mStrategy);
                     }
-                    if (!TextUtils.isEmpty(
-                            mStrategy.loadSkinInBackground(mAppContext, params[0]))) {
-                        return params[0];
-                    }
+                    return params[0];
                 }
             } catch (Exception e) {
                 e.printStackTrace();

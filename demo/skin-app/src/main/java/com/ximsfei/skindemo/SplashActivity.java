@@ -26,6 +26,7 @@ import com.ximsfei.skindemo.mdtab.MaterialDesignActivity;
 import com.ximsfei.skindemo.tab.MainActivity;
 import com.ximsfei.skindemo.test.TestActivity;
 import com.ximsfei.skindemo.window.WindowManagerActivity;
+import com.ximsfei.skindemo.zip.ZipActivity;
 
 /**
  * Created by ximsf on 2017/3/8.
@@ -43,7 +44,8 @@ public class SplashActivity extends BaseActivity {
             "WindowManager",
             "Test",
             "Actionbar",
-            "Color Picker"
+            "Color Picker",
+            "Zip包资源加载"
     };
     private final Class<?>[] mClasses = {
             MainActivity.class,
@@ -54,7 +56,8 @@ public class SplashActivity extends BaseActivity {
             WindowManagerActivity.class,
             TestActivity.class,
             ActionbarTestActivity.class,
-            ColorPickerActivity.class
+            ColorPickerActivity.class,
+            ZipActivity.class
     };
 
     @Override

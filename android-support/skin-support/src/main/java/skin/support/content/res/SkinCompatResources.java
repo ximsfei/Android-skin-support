@@ -37,21 +37,29 @@ public class SkinCompatResources {
     }
 
     public void reset() {
-        mResources = null;
+        reset(SkinCompatManager.getInstance().getStrategies().get(SkinCompatManager.SKIN_LOADER_STRATEGY_NONE));
+    }
+
+    public void reset(SkinCompatManager.SkinLoaderStrategy strategy) {
+        mResources = SkinCompatManager.getInstance().getContext().getResources();
         mSkinPkgName = "";
         mSkinName = "";
-        mStrategy = null;
+        mStrategy = strategy;
         isDefaultSkin = true;
         SkinCompatUserColorManager.get().clearCaches();
         SkinCompatDrawableManager.get().clearCaches();
     }
 
     public void setupSkin(Resources resources, String pkgName, String skinName, SkinCompatManager.SkinLoaderStrategy strategy) {
+        if (resources == null || TextUtils.isEmpty(pkgName) || TextUtils.isEmpty(skinName)) {
+            reset(strategy);
+            return;
+        }
         mResources = resources;
         mSkinPkgName = pkgName;
         mSkinName = skinName;
         mStrategy = strategy;
-        isDefaultSkin = TextUtils.isEmpty(skinName) || TextUtils.isEmpty(pkgName) || resources == null;
+        isDefaultSkin = false;
         SkinCompatUserColorManager.get().clearCaches();
         SkinCompatDrawableManager.get().clearCaches();
     }
@@ -107,6 +115,12 @@ public class SkinCompatResources {
                 return colorStateList.getDefaultColor();
             }
         }
+        if (mStrategy != null) {
+            ColorStateList colorStateList = mStrategy.getColor(context, mSkinName, resId);
+            if (colorStateList != null) {
+                return colorStateList.getDefaultColor();
+            }
+        }
         if (!isDefaultSkin) {
             int targetResId = getTargetResId(context, resId);
             if (targetResId != 0) {
@@ -119,6 +133,12 @@ public class SkinCompatResources {
     private ColorStateList getSkinColorStateList(Context context, int resId) {
         if (!SkinCompatUserColorManager.get().isEmpty()) {
             ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
+            if (colorStateList != null) {
+                return colorStateList;
+            }
+        }
+        if (mStrategy != null) {
+            ColorStateList colorStateList = mStrategy.getColorStateList(context, mSkinName, resId);
             if (colorStateList != null) {
                 return colorStateList;
             }
@@ -139,6 +159,12 @@ public class SkinCompatResources {
                 return new ColorDrawable(colorStateList.getDefaultColor());
             }
         }
+        if (mStrategy != null) {
+            Drawable drawable = mStrategy.getDrawable(context, mSkinName, resId);
+            if (drawable != null) {
+                return drawable;
+            }
+        }
         if (!isDefaultSkin) {
             int targetResId = getTargetResId(context, resId);
             if (targetResId != 0) {
@@ -157,10 +183,18 @@ public class SkinCompatResources {
                     e.printStackTrace();
                 }
             }
+            // SkinCompatDrawableManager.get().getDrawable(context, resId) 中会调用getSkinDrawable等方法。
+            // 这里只需要拦截使用默认皮肤的情况。
             if (!SkinCompatUserColorManager.get().isEmpty()) {
                 ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
                 if (colorStateList != null) {
                     return new ColorDrawable(colorStateList.getDefaultColor());
+                }
+            }
+            if (mStrategy != null) {
+                Drawable drawable = mStrategy.getDrawable(context, mSkinName, resId);
+                if (drawable != null) {
+                    return drawable;
                 }
             }
             return AppCompatResources.getDrawable(context, resId);
