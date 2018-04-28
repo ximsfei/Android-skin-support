@@ -40,6 +40,7 @@ public class SkinCompatCardView extends CardView implements SkinCompatSupportabl
             mThemeColorBackgroundResId = aa.getResourceId(0, INVALID_ID);
             aa.recycle();
         }
+        a.recycle();
         applyBackgroundColorResource();
     }
 
