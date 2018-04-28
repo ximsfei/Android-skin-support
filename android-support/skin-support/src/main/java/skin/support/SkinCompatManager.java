@@ -42,7 +42,7 @@ public class SkinCompatManager extends SkinObservable {
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
     private SparseArray<SkinLoaderStrategy> mStrategyMap = new SparseArray<>();
     private boolean mSkinAllActivityEnable = true;
-    private boolean mSkinStatusBarColorEnable = true;
+    private boolean mSkinStatusBarColorEnable = false;
     private boolean mSkinWindowBackgroundColorEnable = true;
 
     /**
@@ -121,6 +121,7 @@ public class SkinCompatManager extends SkinObservable {
         Drawable getDrawable(Context context, String skinName, int resId);
 
         /**
+         * {@link #SKIN_LOADER_STRATEGY_NONE}
          * {@link #SKIN_LOADER_STRATEGY_ASSETS}
          * {@link #SKIN_LOADER_STRATEGY_BUILD_IN}
          * {@link #SKIN_LOADER_STRATEGY_PREFIX_BUILD_IN}
