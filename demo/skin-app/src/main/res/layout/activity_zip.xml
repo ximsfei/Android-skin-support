@@ -44,5 +44,5 @@
         android:id="@+id/zip_theme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="加载zip" />
+        android:text="自定义sdcard路径换肤，同时加载zip" />
 </LinearLayout>
