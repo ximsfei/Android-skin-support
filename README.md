@@ -66,12 +66,17 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 ### TODO
 
 * [x] 动态修改主题颜色值。
-  可以让用户设置任何属性的颜色值(包括ColorStateList, [具体使用细节](demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)): `SkinCompatUserColorManager.get().addColorState(R.color.colorPrimary, #ffff0000)`
+  可以让用户设置任何color属性的颜色值(包括ColorStateList, [具体使用细节](demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)): `SkinCompatUserColorManager.get().addColorState(R.color.colorPrimary, #ffff0000)`
+* [ ] 动态修改Drawable。
+  可以让用户设置任何drawable属性的图片。
 * [x] 兼容低版本support library。已向下兼容到support library 25.1.0
 * [x] 更灵活的资源加载策略，开发者可配置任意资源获取方式(Zip/Apk/Json...)。 
   资源加载优先级: 用户自定义颜色值-加载策略中的资源-皮肤包资源-应用资源。
 * [x] 换肤框架性能优化。[#141](https://github.com/ximsfei/Android-skin-support/issues/141)
 * [ ] `AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);`开关使用错误问题修正
+* [ ] 支持多语言。
+* [ ] 支持多字体。
+* [ ] 支持Preference。
 * [ ] skin-sample 实现:
   * [x] 动态修改主题颜色值[案例](demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)
   * [ ] 控件使用案例
