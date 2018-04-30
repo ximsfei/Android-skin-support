@@ -12,7 +12,7 @@ import android.support.v7.graphics.drawable.DrawableWrapper;
 
 import skin.support.utils.SkinCompatVersionUtils;
 
-public class SkinCompatDrawableUtils {
+class SkinCompatDrawableUtils {
 
     private static final String VECTOR_DRAWABLE_CLAZZ_NAME
             = "android.graphics.drawable.VectorDrawable";

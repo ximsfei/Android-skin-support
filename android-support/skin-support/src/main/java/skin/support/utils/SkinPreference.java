@@ -14,7 +14,7 @@ public class SkinPreference {
 
     private static final String KEY_SKIN_NAME = "skin-name";
     private static final String KEY_SKIN_STRATEGY = "skin-strategy";
-    private static final String KEY_SKIN_COLORS = "skin-colors";
+    private static final String KEY_SKIN_USER_THEME = "skin-user-theme-json";
     private static SkinPreference sInstance;
     private final Context mApp;
     private final SharedPreferences mPref;
@@ -58,13 +58,13 @@ public class SkinPreference {
         return mPref.getInt(KEY_SKIN_STRATEGY, SkinCompatManager.SKIN_LOADER_STRATEGY_NONE);
     }
 
-    public SkinPreference setColors(String colors) {
-        mEditor.putString(KEY_SKIN_COLORS, colors);
+    public SkinPreference setUserTheme(String themeJson) {
+        mEditor.putString(KEY_SKIN_USER_THEME, themeJson);
         return this;
     }
 
-    public String getColors() {
-        return mPref.getString(KEY_SKIN_COLORS, "");
+    public String getUserTheme() {
+        return mPref.getString(KEY_SKIN_USER_THEME, "");
     }
 
     public void commitEditor() {

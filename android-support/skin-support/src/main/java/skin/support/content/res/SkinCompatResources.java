@@ -46,7 +46,7 @@ public class SkinCompatResources {
         mSkinName = "";
         mStrategy = strategy;
         isDefaultSkin = true;
-        SkinCompatUserColorManager.get().clearCaches();
+        SkinCompatUserThemeManager.get().clearCaches();
         SkinCompatDrawableManager.get().clearCaches();
     }
 
@@ -60,7 +60,7 @@ public class SkinCompatResources {
         mSkinName = skinName;
         mStrategy = strategy;
         isDefaultSkin = false;
-        SkinCompatUserColorManager.get().clearCaches();
+        SkinCompatUserThemeManager.get().clearCaches();
         SkinCompatDrawableManager.get().clearCaches();
     }
 
@@ -109,8 +109,8 @@ public class SkinCompatResources {
     }
 
     private int getSkinColor(Context context, int resId) {
-        if (!SkinCompatUserColorManager.get().isEmpty()) {
-            ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
+        if (!SkinCompatUserThemeManager.get().isColorEmpty()) {
+            ColorStateList colorStateList = SkinCompatUserThemeManager.get().getColorStateList(resId);
             if (colorStateList != null) {
                 return colorStateList.getDefaultColor();
             }
@@ -131,8 +131,8 @@ public class SkinCompatResources {
     }
 
     private ColorStateList getSkinColorStateList(Context context, int resId) {
-        if (!SkinCompatUserColorManager.get().isEmpty()) {
-            ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
+        if (!SkinCompatUserThemeManager.get().isColorEmpty()) {
+            ColorStateList colorStateList = SkinCompatUserThemeManager.get().getColorStateList(resId);
             if (colorStateList != null) {
                 return colorStateList;
             }
@@ -153,10 +153,16 @@ public class SkinCompatResources {
     }
 
     private Drawable getSkinDrawable(Context context, int resId) {
-        if (!SkinCompatUserColorManager.get().isEmpty()) {
-            ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
+        if (!SkinCompatUserThemeManager.get().isColorEmpty()) {
+            ColorStateList colorStateList = SkinCompatUserThemeManager.get().getColorStateList(resId);
             if (colorStateList != null) {
                 return new ColorDrawable(colorStateList.getDefaultColor());
+            }
+        }
+        if (!SkinCompatUserThemeManager.get().isDrawableEmpty()) {
+            Drawable drawable = SkinCompatUserThemeManager.get().getDrawable(resId);
+            if (drawable != null) {
+                return drawable;
             }
         }
         if (mStrategy != null) {
@@ -185,10 +191,16 @@ public class SkinCompatResources {
             }
             // SkinCompatDrawableManager.get().getDrawable(context, resId) 中会调用getSkinDrawable等方法。
             // 这里只需要拦截使用默认皮肤的情况。
-            if (!SkinCompatUserColorManager.get().isEmpty()) {
-                ColorStateList colorStateList = SkinCompatUserColorManager.get().getColorStateList(resId);
+            if (!SkinCompatUserThemeManager.get().isColorEmpty()) {
+                ColorStateList colorStateList = SkinCompatUserThemeManager.get().getColorStateList(resId);
                 if (colorStateList != null) {
                     return new ColorDrawable(colorStateList.getDefaultColor());
+                }
+            }
+            if (!SkinCompatUserThemeManager.get().isDrawableEmpty()) {
+                Drawable drawable = SkinCompatUserThemeManager.get().getDrawable(resId);
+                if (drawable != null) {
+                    return drawable;
                 }
             }
             if (mStrategy != null) {
