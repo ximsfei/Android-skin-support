@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowBackground">@drawable/windowBackground</item>
     </style>
 
     <style name="ActionbarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -16,7 +16,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowBackground">@drawable/windowBackground</item>
         <item name="android:actionBarSize">46dp</item>
         <item name="actionBarSize">46dp</item>
     </style>

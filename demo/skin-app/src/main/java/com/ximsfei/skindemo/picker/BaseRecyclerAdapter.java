@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo.colorpicker;
+package com.ximsfei.skindemo.picker;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

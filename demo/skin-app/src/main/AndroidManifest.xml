@@ -2,6 +2,7 @@
     package="com.ximsfei.skindemo">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.ximsfei.skindemo.App"
@@ -53,7 +54,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/ActionbarTheme" />
         <activity
-            android:name=".colorpicker.ColorPickerActivity"
+            android:name=".picker.ColorPickerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".picker.DrawablePickerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".zip.ZipActivity"

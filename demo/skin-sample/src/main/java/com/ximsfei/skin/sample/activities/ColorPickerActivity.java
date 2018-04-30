@@ -24,7 +24,7 @@ import java.util.List;
 
 import skin.support.SkinCompatManager;
 import skin.support.content.res.ColorState;
-import skin.support.content.res.SkinCompatUserColorManager;
+import skin.support.content.res.SkinCompatUserThemeManager;
 import skin.support.utils.Slog;
 
 public class ColorPickerActivity extends AppCompatActivity {
@@ -48,20 +48,20 @@ public class ColorPickerActivity extends AppCompatActivity {
             public void onColorChanged(ColorPickerData data) {
                 hasChanged = true;
                 String color = data.getColor();
-                SkinCompatUserColorManager.get().addColorState(data.colorRes, color);
+                SkinCompatUserThemeManager.get().addColorState(data.colorRes, color);
                 // 如果用户已经修改了colorAccent 和 colorDefault，那么把navigation也修改掉。
-                if (SkinCompatUserColorManager.get().getColorState(R.color.colorAccent) != null
-                        && SkinCompatUserColorManager.get().getColorState(R.color.colorDefault) != null) {
-                    SkinCompatUserColorManager.get().addColorState(
-                            R.color.navigation_item_tint, new SkinCompatUserColorManager.ColorBuilder()
+                if (SkinCompatUserThemeManager.get().getColorState(R.color.colorAccent) != null
+                        && SkinCompatUserThemeManager.get().getColorState(R.color.colorDefault) != null) {
+                    SkinCompatUserThemeManager.get().addColorState(
+                            R.color.navigation_item_tint, new ColorState.ColorBuilder()
                                     .setColorSelected(ColorPickerActivity.this, R.color.colorAccent)
                                     .setColorPressed(ColorPickerActivity.this, R.color.colorAccent)
                                     .setColorChecked(ColorPickerActivity.this, R.color.colorAccent)
                                     .setColorDefault(ColorPickerActivity.this, R.color.colorDefault)
                                     .build());
-                } else if (SkinCompatUserColorManager.get().getColorState(R.color.navigation_item_tint) != null) {
+                } else if (SkinCompatUserThemeManager.get().getColorState(R.color.navigation_item_tint) != null) {
                     // 如果navigation_item_tint 依赖的颜色用户未设置，则删除。
-                    SkinCompatUserColorManager.get().removeColorState(R.color.navigation_item_tint);
+                    SkinCompatUserThemeManager.get().removeColorState(R.color.navigation_item_tint);
                 }
                 switch (data.colorRes) {
                     case R.color.colorPrimary:
@@ -107,7 +107,7 @@ public class ColorPickerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hasChanged = false;
-                SkinCompatUserColorManager.get().clearColors();
+                SkinCompatUserThemeManager.get().clearColors();
                 mAdapter.setItems(prepareData());
             }
         });
@@ -116,7 +116,7 @@ public class ColorPickerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hasChanged = false;
-                SkinCompatUserColorManager.get().applyColors();
+                SkinCompatUserThemeManager.get().apply();
             }
         });
     }
@@ -157,7 +157,7 @@ public class ColorPickerActivity extends AppCompatActivity {
     }
 
     private ColorPickerData generateData(@ColorRes int colorRes) {
-        ColorState state = SkinCompatUserColorManager.get().getColorState(colorRes);
+        ColorState state = SkinCompatUserThemeManager.get().getColorState(colorRes);
         ColorPickerData data = new ColorPickerData();
         data.colorRes = colorRes;
         if (state == null) {

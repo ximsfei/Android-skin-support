@@ -1,4 +1,4 @@
-package com.ximsfei.skindemo.colorpicker;
+package com.ximsfei.skindemo.picker;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,7 +23,7 @@ import java.util.List;
 
 import skin.support.SkinCompatManager;
 import skin.support.content.res.ColorState;
-import skin.support.content.res.SkinCompatUserColorManager;
+import skin.support.content.res.SkinCompatUserThemeManager;
 import skin.support.utils.Slog;
 
 public class ColorPickerActivity extends AppCompatActivity {
@@ -47,20 +47,20 @@ public class ColorPickerActivity extends AppCompatActivity {
             public void onColorChanged(ColorPickerData data) {
                 hasChanged = true;
                 String color = data.getColor();
-                SkinCompatUserColorManager.get().addColorState(data.colorRes, color);
+                SkinCompatUserThemeManager.get().addColorState(data.colorRes, color);
                 // 如果用户已经修改了colorPrimary 和 text_color，那么把navigation也修改掉。
-                if (SkinCompatUserColorManager.get().getColorState(R.color.colorPrimary) != null
-                        && SkinCompatUserColorManager.get().getColorState(R.color.text_color) != null) {
-                    SkinCompatUserColorManager.get().addColorState(
-                            R.color.navigation_item_tint, new SkinCompatUserColorManager.ColorBuilder()
+                if (SkinCompatUserThemeManager.get().getColorState(R.color.colorPrimary) != null
+                        && SkinCompatUserThemeManager.get().getColorState(R.color.text_color) != null) {
+                    SkinCompatUserThemeManager.get().addColorState(
+                            R.color.navigation_item_tint, new ColorState.ColorBuilder()
                                     .setColorSelected(ColorPickerActivity.this, R.color.colorPrimary)
                                     .setColorPressed(ColorPickerActivity.this, R.color.colorPrimary)
                                     .setColorChecked(ColorPickerActivity.this, R.color.colorPrimary)
                                     .setColorDefault(ColorPickerActivity.this, R.color.text_color)
                                     .build());
-                } else if (SkinCompatUserColorManager.get().getColorState(R.color.navigation_item_tint) != null) {
+                } else if (SkinCompatUserThemeManager.get().getColorState(R.color.navigation_item_tint) != null) {
                     // 如果navigation_item_tint 依赖的颜色用户未设置，则删除。
-                    SkinCompatUserColorManager.get().removeColorState(R.color.navigation_item_tint);
+                    SkinCompatUserThemeManager.get().removeColorState(R.color.navigation_item_tint);
                 }
                 SkinCompatManager.getInstance().notifyUpdateSkin();
             }
@@ -72,7 +72,7 @@ public class ColorPickerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hasChanged = false;
-                SkinCompatUserColorManager.get().clearColors();
+                SkinCompatUserThemeManager.get().clearColors();
                 mAdapter.setItems(prepareData());
             }
         });
@@ -81,7 +81,7 @@ public class ColorPickerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hasChanged = false;
-                SkinCompatUserColorManager.get().applyColors();
+                SkinCompatUserThemeManager.get().apply();
             }
         });
     }
@@ -120,7 +120,7 @@ public class ColorPickerActivity extends AppCompatActivity {
     }
 
     private ColorPickerData generateData(@ColorRes int colorRes) {
-        ColorState state = SkinCompatUserColorManager.get().getColorState(colorRes);
+        ColorState state = SkinCompatUserThemeManager.get().getColorState(colorRes);
         ColorPickerData data = new ColorPickerData();
         data.colorRes = colorRes;
         if (state == null) {

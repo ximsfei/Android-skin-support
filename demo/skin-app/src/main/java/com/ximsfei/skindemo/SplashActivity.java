@@ -19,10 +19,11 @@ import android.widget.TextView;
 
 import com.ximsfei.skindemo.actionbar.ActionbarTestActivity;
 import com.ximsfei.skindemo.alert.AlertDialogActivity;
-import com.ximsfei.skindemo.colorpicker.ColorPickerActivity;
+import com.ximsfei.skindemo.picker.ColorPickerActivity;
 import com.ximsfei.skindemo.constraint.ConstraintLayoutActivity;
 import com.ximsfei.skindemo.flycotablayout.ui.SimpleHomeActivity;
 import com.ximsfei.skindemo.mdtab.MaterialDesignActivity;
+import com.ximsfei.skindemo.picker.DrawablePickerActivity;
 import com.ximsfei.skindemo.tab.MainActivity;
 import com.ximsfei.skindemo.test.TestActivity;
 import com.ximsfei.skindemo.window.WindowManagerActivity;
@@ -45,6 +46,7 @@ public class SplashActivity extends BaseActivity {
             "Test",
             "Actionbar",
             "Color Picker",
+            "Drawable Picker",
             "Zip包资源加载"
     };
     private final Class<?>[] mClasses = {
@@ -57,6 +59,7 @@ public class SplashActivity extends BaseActivity {
             TestActivity.class,
             ActionbarTestActivity.class,
             ColorPickerActivity.class,
+            DrawablePickerActivity.class,
             ZipActivity.class
     };
 
