@@ -6,7 +6,7 @@
 
   问题解析:
 
-  该框架是基于Resource Id来进行换肤的。控件初始化时，会解析布局文件中设置的资源(或者有业务代码直接设置`setImageResource(R.drawable.default)`)，例如本例中的`R.drawable.default`，在切换皮肤时，根据资源名default，去查找需要换肤的资源。所以当获取到服务端数据后，更新了drawable，但是框架所知道的需要换肤的资源还是`R.drawable.default`，在切换皮肤的时候，找不到对应的皮肤资源，就是用了默认的资源。
+  该框架是基于Resource Id来进行换肤的。控件初始化时，框架会解析布局文件中设置的资源(或者有业务代码直接设置`setImageResource(R.drawable.default)`)，例如本例中的`R.drawable.default`，在切换皮肤时，根据资源名default，去查找需要换肤的资源。所以当获取到服务端数据后，更新了drawable，但是框架所知道的需要换肤的资源还是`R.drawable.default`，在切换皮肤的时候，找不到对应的皮肤资源，就是用了默认的资源。
   
 ## 代码内实例化的view对象，不能更新皮肤?
 
@@ -30,7 +30,7 @@
 
   问题解析:
 
-  该框架是基于Resource Id来进行换肤的。框架初始化时，会解析布局文件中设置的资源(或者有业务代码直接设置`setTextAppearance(R.style.CustomTextAppearance)`，会从该style中解析出textColorResId)。
+  该框架是基于Resource Id来进行换肤的。控件初始化时，框架会解析布局文件中设置的资源(或者有业务代码直接设置`setTextAppearance(R.style.CustomTextAppearance)`，会从该style中解析出textColorResId)。
   
 ## 用了换肤框架后，为什么项目里的Button，CheckBox等等都无法点击了？很多UI显示不正常了？
 
@@ -39,3 +39,11 @@
   问题解析:
   
   该框架在运行时会替换所有需要换肤的组件 eg: TextView -> SkinCompatTextView，而SkinCompatTextView继承自appcompat-v7包里的AppCompatTextView。所以需要使用appcompat-v7包里的主题。
+
+## 在drawable目录下shape，selector不支持换肤吗？
+
+  框架是支持的，需要把drawable下的xml文件也放到皮肤包里。
+
+  问题解析:
+
+  该框架在运行时会根据资源的resources entry name寻找皮肤包中的资源进行换肤，出于性能考虑，未对drawable/color目录下的xml文件进行解析，而是采用最简单的方法，将需要换肤的xml资源在皮肤包里放一份。
