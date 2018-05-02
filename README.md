@@ -25,6 +25,11 @@
     * [生成皮肤插件](#打包生成apk-即为皮肤包)
     * [加载皮肤插件](#加载皮肤插件)
   * [自定义加载策略](#自定义加载策略)
+    * [自定义sdcard路径](#自定义sdcard路径)
+    * [zip包中加载资源](#zip包中加载资源)
+  * [动态设置资源](#动态设置资源)
+    * [动态修改颜色](#动态修改颜色)
+    * [动态修改图片](#动态修改图片)
 * [AlertDialog换肤](docs/AlertDialog.md)
 * [更新日志](docs/ChangeLog.md)
   * [skin-support 更新日志](docs/ChangeLog.md#skin-support-基础控件-支持)
@@ -250,7 +255,7 @@ SkinCompatManager.getInstance().loadSkin("night.skin", SkinCompatManager.SKIN_LO
 
 ### 自定义加载策略:
 
-以自定义SDCard加载路径为例:
+#### 自定义sdcard路径
 
 继承自`SkinSDCardLoader`，通过`getSkinPath`方法指定皮肤加载路径，通过`getType`方法指定加载器type。
 
@@ -286,6 +291,81 @@ SkinCompatManager.withoutActivity(this)
 ```java
 SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.SKIN_LOADER_STRATEGY_SDCARD);
 ```
+
+#### zip包中加载资源
+
+继承自`SkinSDCardLoader`，在`loadSkinInBackground`方法中解压资源，在`getDrawable`等方法中返回加压后的资源。
+
+```java
+public class ZipSDCardLoader extends SkinSDCardLoader {
+    public static final int SKIN_LOADER_STRATEGY_ZIP = Integer.MAX_VALUE - 1;
+
+    @Override
+    public String loadSkinInBackground(Context context, String skinName) {
+        // TODO 解压zip包中的资源，同时可以根据skinName安装皮肤包(.skin)。
+        return super.loadSkinInBackground(context, skinName);
+    }
+
+    @Override
+    protected String getSkinPath(Context context, String skinName) {
+        // TODO 返回皮肤包路径，如果自需要使用zip包，则返回""
+        return new File(SkinFileUtils.getSkinDir(context), skinName).getAbsolutePath();
+    }
+
+    @Override
+    public Drawable getDrawable(Context context, String skinName, int resId) {
+        // TODO 根据resId来判断是否使用zip包中的资源。
+        return super.getDrawable(context, skinName, resId);
+    }
+
+    @Override
+    public int getType() {
+        return SKIN_LOADER_STRATEGY_ZIP;
+    }
+}
+```
+
+*资源加载策略更灵活，不仅仅只有皮肤包，开发者可配置任意资源获取方式(Zip/Apk/Json...)。*
+
+在Application中，添加自定义加载策略:
+
+```java
+SkinCompatManager.withoutActivity(this)
+        .addStrategy(new ZipSDCardLoader());          // 自定义加载策略，加载zip包中的资源
+```
+
+### 动态设置资源
+
+#### [动态设置颜色](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/ColorPickerActivity.java)
+
+```java
+SkinCompatUserThemeManager.get().addColorState(R.color.colorPrimary, #ffffffff);
+
+SkinCompatUserThemeManager.get().addColorState(R.color.colorPrimary, new ColorState.ColorBuilder().addXxx().build());
+
+// 清除所有已有颜色值。
+SkinCompatUserThemeManager.get().clearColors();
+```
+
+#### [动态设置图片](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/DrawablePickerActivity.java)
+
+```java
+SkinCompatUserThemeManager.get().addDrawablePath(R.drawable.windowBackground, "／sdcard/DCIM/Camera/xxx.jpg");
+
+// 要换肤的资源id，图片路径，图片旋转角度(默认为0)
+SkinCompatUserThemeManager.get().addDrawablePath(R.drawable.windowBackground, "／sdcard/DCIM/Camera/xxx.jpg", 90);
+
+// 清除所有已有图片路径。
+SkinCompatUserThemeManager.get().clearDrawables();
+```
+
+在设置完颜色及图片后，需要调用`apply()`方法来保存设置。
+
+```java
+SkinCompatUserThemeManager.get().apply();
+```
+
+*资源加载优先级: 用户自定义颜色值-加载策略中的资源-皮肤包资源-应用资源。*
 
 ## 谁在使用
 
