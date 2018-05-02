@@ -54,8 +54,8 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ### 功能
 
-* [x] 布局中用到的资源换肤实现。
-* [x] 代码中设置的资源换肤实现。
+* [x] 支持布局中用到的资源换肤。
+* [x] 支持代码中设置的资源换肤。
 * [x] 默认支持大部分基础控件，Material Design换肤。
 * [x] 支持动态设置主题[颜色值](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/ColorPickerActivity.java)，支持选择sdcard上的图片作为[drawable](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/DrawablePickerActivity.java)换肤资源。
 * [x] 支持多种加载策略([应用内](#应用内换肤)/[插件式](#插件式换肤)/[自定义sdcard路径](#自定义加载策略)/[zip等资源](demo/skin-app/src/main/java/com/ximsfei/skindemo/loader/ZipSDCardLoader.java)等)。
@@ -67,7 +67,8 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ### TODO
 
-* [ ] `AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);`开关使用错误问题修正
+* [ ] 解耦skin-support对appcompat-v7的依赖。
+* [ ] `AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);`开关使用错误问题修正。
 * [ ] 支持多语言。
 * [ ] 支持多字体。
 * [ ] 支持Preference。
