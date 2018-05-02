@@ -2,7 +2,7 @@
 
 中文 | [In English](docs/README.md) 
 
-[![skin-support](https://img.shields.io/badge/release-v3.0.0-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://img.shields.io/badge/release-v3.1.0-beta-green.svg)](http://jcenter.bintray.com/skin/support)
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
@@ -57,7 +57,9 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 * [x] 布局中用到的资源换肤实现。
 * [x] 代码中设置的资源换肤实现。
 * [x] 默认支持大部分基础控件，Material Design换肤。
-* [x] 支持多种加载策略(应用内/插件式/自定义sdcard路径等)。
+* [x] 支持动态设置主题[颜色值](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/ColorPickerActivity.java)，支持选择sdcard上的图片作为[drawable](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/DrawablePickerActivity.java)换肤资源。
+* [x] 支持多种加载策略([应用内](#应用内换肤)/[插件式](#插件式换肤)/[自定义sdcard路径](#自定义加载策略)/[zip等资源](demo/skin-app/src/main/java/com/ximsfei/skindemo/loader/ZipSDCardLoader.java)等)。
+* [x] 资源加载优先级: 动态设置资源-加载策略中的资源-插件式换肤/应用内换肤-应用资源。
 * [x] 支持定制化，选择需要的模块加载。
 * [x] 支持矢量图(vector/svg)换肤。
 
@@ -65,14 +67,6 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ### TODO
 
-* [x] 动态修改主题颜色值。
-  可以让用户设置任何color属性的颜色值(包括ColorStateList, [具体使用细节](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/ColorPickerActivity.java)): `SkinCompatUserThemeManager.get().addColorState(R.color.colorPrimary, #ffff0000)`。
-* [x] 动态修改Drawable。
-  可以让用户设置任何drawable属性的图片([具体使用细节](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/DrawablePickerActivity.java)): `SkinCompatUserThemeManager.get().addDrawablePath(R.drawable.windowBackground, path, angle)`。
-* [x] 兼容低版本support library。已向下兼容到support library 25.1.0
-* [x] 更灵活的资源加载策略，开发者可配置任意资源获取方式(Zip/Apk/Json...)。 
-  资源加载优先级: 用户自定义颜色值-加载策略中的资源-皮肤包资源-应用资源。
-* [x] 换肤框架性能优化。[#141](https://github.com/ximsfei/Android-skin-support/issues/141)
 * [ ] `AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);`开关使用错误问题修正
 * [ ] 支持多语言。
 * [ ] 支持多字体。
@@ -88,7 +82,7 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 > [demo](demo)                                                        // 换肤demo 集合
 
->> [skin-sample](demo/skin-sample)([skin-app](demo/skin-app))   // demo app
+>> [skin-sample](demo/skin-sample)([skin-app](demo/skin-app))         // demo app
 
 >> [skin-night](demo/skin-night)                                      // 夜间模式皮肤工程
 
@@ -117,15 +111,11 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 ### 导入:
 直接添加依赖, [最新版本选择, 请查看更新日志](docs/ChangeLog.md)
 ```xml
-implementation 'skin.support:skin-support:3.0.0'                   // skin-support 基础控件支持
-implementation 'skin.support:skin-support-design:3.0.0'            // skin-support-design material design 控件支持[可选]
-implementation 'skin.support:skin-support-cardview:3.0.0'          // skin-support-cardview CardView 控件支持[可选]
-implementation 'skin.support:skin-support-constraint-layout:3.0.0' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+implementation 'skin.support:skin-support:3.1.0-beta'                   // skin-support 基础控件支持
+implementation 'skin.support:skin-support-design:3.1.0-beta'            // skin-support-design material design 控件支持[可选]
+implementation 'skin.support:skin-support-cardview:3.1.0-beta'          // skin-support-cardview CardView 控件支持[可选]
+implementation 'skin.support:skin-support-constraint-layout:3.1.0-beta' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
-
-*注: skin-support:3.0.0，是为了适配appcompat-v7:27.+而升级的。*
-
-*如果项目中使用的appcompat-v7还是25.x.x，请继续使用skin-support:2.2.3*
 
 ### 使用:
 
