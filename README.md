@@ -371,13 +371,20 @@ SkinCompatUserThemeManager.get().apply();
 
 如果你想提交作品，欢迎提出 [PR](https://github.com/ximsfei/Android-skin-support/tree/master/docs/who-use-it) 或联系[作者](#技术交流)。
 
-| icon | name | description |
-| :--: | :--- | :---------- |
-| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/sohunews_explore-icon.png"/>](https://k.sohu.com/) | [搜狐新闻探索版](https://k.sohu.com/) | 
-| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/vflynote-icon.png"/>](http://www.iyuji.cn/iyuji/home) | [讯飞语记](http://www.iyuji.cn/iyuji/home) |
-| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/qoo-app.png"/>](https://news.qoo-app.com/) | [qoo app](https://news.qoo-app.com/) |
-| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/dwnews.png"/>](http://www.dwnews.com/) | [多维新闻](http://www.dwnews.com/)| 需要翻墙 |
-
+<table align="center">
+    <tr align="center">
+        <td><img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/sohunews_explore-icon.png"/></td>
+        <td><img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/vflynote-icon.png"/></td>
+        <td><img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/qoo-app.png"/></td>
+        <td><img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/dwnews.png"/></td>
+    </tr>
+    <tr align="center">
+        <td><b><a href="https://k.sohu.com/">搜狐新闻探索版</a></b></td>
+        <td><b><a href="http://www.iyuji.cn/iyuji/home">讯飞语记</a></b></td>
+        <td><b><a href="https://news.qoo-app.com/">qoo app</a></b></td>
+        <td><b><a href="http://www.dwnews.com/">多维新闻</a></b></td>
+    </tr>
+</table>
 
 ## 技术交流
 
