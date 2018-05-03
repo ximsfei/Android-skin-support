@@ -189,12 +189,20 @@ SkinCompatManager.getInstance().loadSkin("night.skin", null, CustomSDCardLoader.
 
 If you want to list your apk here. Welcome to commit [pull request](who-use-it) or Contact the [author](#about-author).
 
-| icon | name | description |
-| :--: | :--- | :---------- |
-| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/sohunews_explore-icon.png"/>](https://k.sohu.com/) | [sohu newsclient lite](https://k.sohu.com/) | 
-| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/vflynote-icon.png"/>](http://www.iyuji.cn/iyuji/home) | [voice note](http://www.iyuji.cn/iyuji/home) |
-| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/qoo-app.png"/>](https://news.qoo-app.com/) | [qoo app](https://news.qoo-app.com/) |
-| [<img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/dwnews.png"/>](http://www.dwnews.com/) | [dwnews](http://www.dwnews.com/)|
+<table align="center">
+    <tr align="center">
+        <td><img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/sohunews_explore-icon.png"/></td>
+        <td><img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/vflynote-icon.png"/></td>
+        <td><img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/qoo-app.png"/></td>
+        <td><img width="96" height="96" src="https://github.com/ximsfei/Android-skin-support/blob/master/docs/who-use-it/dwnews.png"/></td>
+    </tr>
+    <tr align="center">
+        <td><b><a href="https://k.sohu.com/">sohu newsclient lite</a></b></td>
+        <td><b><a href="http://www.iyuji.cn/iyuji/home">voice note</a></b></td>
+        <td><b><a href="https://news.qoo-app.com/">qoo app</a></b></td>
+        <td><b><a href="http://www.dwnews.com/">dwnews</a></b></td>
+    </tr>
+</table>
 
 ## About Author
 
