@@ -44,6 +44,7 @@ public class SkinCompatTextHelperV17 extends SkinCompatTextHelper {
         super.loadFromAttributes(attrs, defStyleAttr);
     }
 
+    @Override
     public void onSetCompoundDrawablesRelativeWithIntrinsicBounds(
             @DrawableRes int start, @DrawableRes int top, @DrawableRes int end, @DrawableRes int bottom) {
         mDrawableStartResId = start;

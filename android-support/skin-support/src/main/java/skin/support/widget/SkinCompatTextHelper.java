@@ -183,6 +183,7 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         return mTextColorResId;
     }
 
+    @Override
     public void applySkin() {
         applyCompoundDrawablesRelativeResource();
         applyTextColorResource();

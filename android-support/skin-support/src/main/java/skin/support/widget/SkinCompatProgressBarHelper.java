@@ -62,14 +62,12 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
             Drawable inner = SkinCompatVersionUtils.getV4WrappedDrawableWrappedDrawable(drawable);
             if (inner != null) {
                 inner = tileify(inner, clip);
-//                ((WrappedDrawable) drawable).setWrappedDrawable(inner);
                 SkinCompatVersionUtils.setV4WrappedDrawableWrappedDrawable(drawable, inner);
             }
         } else if (SkinCompatVersionUtils.isV4DrawableWrapper(drawable)) {
             Drawable inner = SkinCompatVersionUtils.getV4DrawableWrapperWrappedDrawable(drawable);
             if (inner != null) {
                 inner = tileify(inner, clip);
-//                ((DrawableWrapper) drawable).setWrappedDrawable(inner);
                 SkinCompatVersionUtils.setV4DrawableWrapperWrappedDrawable(drawable, inner);
             }
         } else if (drawable instanceof LayerDrawable) {

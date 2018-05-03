@@ -14,8 +14,9 @@ public class SkinObservable {
     }
 
     public synchronized void addObserver(SkinObserver o) {
-        if (o == null)
+        if (o == null) {
             throw new NullPointerException();
+        }
         if (!observers.contains(o)) {
             observers.add(o);
         }
@@ -36,8 +37,9 @@ public class SkinObservable {
             arrLocal = observers.toArray(new SkinObserver[observers.size()]);
         }
 
-        for (int i = arrLocal.length-1; i>=0; i--)
+        for (int i = arrLocal.length-1; i>=0; i--) {
             arrLocal[i].updateSkin(this, arg);
+        }
     }
 
     public synchronized void deleteObservers() {

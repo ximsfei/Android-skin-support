@@ -54,6 +54,8 @@ public class SkinMaterialViewInflater implements SkinLayoutInflater {
             case "android.support.design.widget.CollapsingToolbarLayout":
                 view = new SkinMaterialCollapsingToolbarLayout(context, attrs);
                 break;
+            default:
+                break;
         }
         return view;
     }

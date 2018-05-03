@@ -41,6 +41,7 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
         applySkin();
     }
 
+    @Override
     public void applySkin() {
         mBackgroundResId = checkResourceId(mBackgroundResId);
         if (mBackgroundResId == INVALID_ID) {

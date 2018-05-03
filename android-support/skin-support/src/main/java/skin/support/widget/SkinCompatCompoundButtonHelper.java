@@ -28,20 +28,10 @@ public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
                 mButtonResourceId = a.getResourceId(
                         R.styleable.CompoundButton_android_button, INVALID_ID);
             }
-//                if (resourceId != 0) {
-//                    mView.setButtonDrawable(
-//                            AppCompatResources.getDrawable(mView.getContext(), resourceId));
-//                }
-//            }
+
             if (a.hasValue(R.styleable.CompoundButton_buttonTint)) {
                 mButtonTintResId = a.getResourceId(R.styleable.CompoundButton_buttonTint, INVALID_ID);
             }
-//            if (a.hasValue(R.styleable.CompoundButton_buttonTintMode)) {
-//                CompoundButtonCompat.setButtonTintMode(mView,
-//                        DrawableUtils.parseTintMode(
-//                                a.getInt(R.styleable.CompoundButton_buttonTintMode, -1),
-//                                null));
-//            }
         } finally {
             a.recycle();
         }

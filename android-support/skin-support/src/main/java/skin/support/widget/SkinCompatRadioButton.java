@@ -72,6 +72,8 @@ public class SkinCompatRadioButton extends AppCompatRadioButton implements SkinC
             mTextHelper.onSetCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
         }
     }
+
+    @Override
     public void setBackgroundResource(int resId) {
         super.setBackgroundResource(resId);
         if (mBackgroundTintHelper != null) {

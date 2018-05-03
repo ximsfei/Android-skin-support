@@ -19,6 +19,8 @@ public class SkinCardViewInflater implements SkinLayoutInflater {
             case "android.support.v7.widget.CardView":
                 view = new SkinCompatCardView(context, attrs);
                 break;
+            default:
+                break;
         }
         return view;
     }

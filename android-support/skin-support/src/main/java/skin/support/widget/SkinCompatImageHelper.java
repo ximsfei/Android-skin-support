@@ -40,6 +40,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
         applySkin();
     }
 
+    @Override
     public void applySkin() {
         mSrcCompatResId = checkResourceId(mSrcCompatResId);
         if (mSrcCompatResId != INVALID_ID) {

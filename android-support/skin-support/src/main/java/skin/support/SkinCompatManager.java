@@ -363,6 +363,7 @@ public class SkinCompatManager extends SkinObservable {
             mStrategy = strategy;
         }
 
+        @Override
         protected void onPreExecute() {
             if (mListener != null) {
                 mListener.onStart();
@@ -396,16 +397,21 @@ public class SkinCompatManager extends SkinObservable {
             return null;
         }
 
+        @Override
         protected void onPostExecute(String skinName) {
             synchronized (mLock) {
                 // skinName 为""时，恢复默认皮肤
                 if (skinName != null) {
                     SkinPreference.getInstance().setSkinName(skinName).setSkinStrategy(mStrategy.getType()).commitEditor();
                     notifyUpdateSkin();
-                    if (mListener != null) mListener.onSuccess();
+                    if (mListener != null) {
+                        mListener.onSuccess();
+                    }
                 } else {
                     SkinPreference.getInstance().setSkinName("").setSkinStrategy(SKIN_LOADER_STRATEGY_NONE).commitEditor();
-                    if (mListener != null) mListener.onFailed("皮肤资源获取失败");
+                    if (mListener != null) {
+                        mListener.onFailed("皮肤资源获取失败");
+                    }
                 }
                 mLoading = false;
                 mLock.notifyAll();

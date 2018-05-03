@@ -190,6 +190,8 @@ public class SkinCompatViewInflater {
             case "ScrollView":
                 view = new SkinCompatScrollView(context, attrs);
                 break;
+            default:
+                break;
         }
         return view;
     }
@@ -199,6 +201,8 @@ public class SkinCompatViewInflater {
         switch (name) {
             case "android.support.v7.widget.Toolbar":
                 view = new SkinCompatToolbar(context, attrs);
+                break;
+            default:
                 break;
         }
         return view;
@@ -218,7 +222,7 @@ public class SkinCompatViewInflater {
     }
 
     public View createViewFromTag(Context context, String name, AttributeSet attrs) {
-        if (name.equals("view")) {
+        if ("view".equals(name)) {
             name = attrs.getAttributeValue(null, "class");
         }
 

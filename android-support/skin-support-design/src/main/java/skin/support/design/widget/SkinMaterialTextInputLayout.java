@@ -84,7 +84,6 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
         if (mCounterTextColorResId != INVALID_ID) {
             TextView counterView = getCounterView();
             if (counterView != null) {
-//                SkinLog.e(TAG, "mCounterTextColor = " +Integer.toHexString(SkinCompatResources.getInstance().getColor(mCounterTextColorResId)));
                 counterView.setTextColor(SkinCompatResources.getColor(getContext(), mCounterTextColorResId));
                 updateEditTextBackground();
             }

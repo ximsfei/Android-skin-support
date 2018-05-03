@@ -15,6 +15,8 @@ public class SkinConstraintViewInflater implements SkinLayoutInflater {
             case "android.support.constraint.ConstraintLayout":
                 view = new SkinCompatConstraintLayout(context, attrs);
                 break;
+            default:
+                break;
         }
         return view;
     }
