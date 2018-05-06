@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import skin.support.R;
-import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 
 /**
  * Created by ximsfei on 2017/1/12.
@@ -44,7 +44,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
     public void applySkin() {
         mSrcCompatResId = checkResourceId(mSrcCompatResId);
         if (mSrcCompatResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getDrawableCompat(mView.getContext(), mSrcCompatResId);
+            Drawable drawable = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mSrcCompatResId);
             if (drawable != null) {
                 mView.setImageDrawable(drawable);
             }
@@ -53,7 +53,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
             if (mSrcResId == INVALID_ID) {
                 return;
             }
-            Drawable drawable = SkinCompatResources.getDrawableCompat(mView.getContext(), mSrcResId);
+            Drawable drawable = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mSrcResId);
             if (drawable != null) {
                 mView.setImageDrawable(drawable);
             }

@@ -5,8 +5,9 @@ import android.support.v4.widget.CompoundButtonCompat;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
 
-import skin.support.R;
+import skin.support.appcompat.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 
 /**
  * Created by ximsfei on 17-1-14.
@@ -47,7 +48,7 @@ public class SkinCompatCompoundButtonHelper extends SkinCompatHelper {
     public void applySkin() {
         mButtonResourceId = SkinCompatHelper.checkResourceId(mButtonResourceId);
         if (mButtonResourceId != INVALID_ID) {
-            mView.setButtonDrawable(SkinCompatResources.getDrawableCompat(mView.getContext(), mButtonResourceId));
+            mView.setButtonDrawable(SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mButtonResourceId));
         }
         mButtonTintResId = SkinCompatHelper.checkResourceId(mButtonTintResId);
         if (mButtonTintResId != INVALID_ID) {

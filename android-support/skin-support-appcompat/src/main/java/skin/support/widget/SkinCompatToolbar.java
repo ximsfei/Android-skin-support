@@ -7,8 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 
-import skin.support.R;
+import skin.support.appcompat.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -81,7 +82,7 @@ public class SkinCompatToolbar extends Toolbar implements SkinCompatSupportable 
     private void applyNavigationIcon() {
         mNavigationIconResId = SkinCompatHelper.checkResourceId(mNavigationIconResId);
         if (mNavigationIconResId != INVALID_ID) {
-            setNavigationIcon(SkinCompatResources.getDrawableCompat(getContext(), mNavigationIconResId));
+            setNavigationIcon(SkinCompatVectorResources.getDrawableCompat(getContext(), mNavigationIconResId));
         }
     }
 

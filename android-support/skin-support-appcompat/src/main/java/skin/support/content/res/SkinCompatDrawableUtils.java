@@ -8,7 +8,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.v7.graphics.drawable.DrawableWrapper;
 
 import skin.support.utils.SkinCompatVersionUtils;
 
@@ -60,10 +59,13 @@ class SkinCompatDrawableUtils {
             return canSafelyMutateDrawable(SkinCompatVersionUtils.getV4DrawableWrapperWrappedDrawable(drawable));
         } else if (SkinCompatVersionUtils.isV4WrappedDrawable(drawable)) {
             return canSafelyMutateDrawable(SkinCompatVersionUtils.getV4WrappedDrawableWrappedDrawable(drawable));
-        } else if (drawable instanceof DrawableWrapper) {
-            return canSafelyMutateDrawable(((DrawableWrapper) drawable).getWrappedDrawable());
+        } else if (SkinCompatVersionUtils.isV7DrawableWrapper(drawable)) {
+            return canSafelyMutateDrawable(SkinCompatVersionUtils.getV7DrawableWrapperWrappedDrawable(drawable));
         } else if (drawable instanceof ScaleDrawable) {
-            return canSafelyMutateDrawable(((ScaleDrawable) drawable).getDrawable());
+            Drawable scaleDrawable = ((ScaleDrawable) drawable).getDrawable();
+            if (scaleDrawable != null) {
+                return canSafelyMutateDrawable(scaleDrawable);
+            }
         }
 
         return true;

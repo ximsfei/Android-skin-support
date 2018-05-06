@@ -7,13 +7,15 @@ import android.support.annotation.DrawableRes;
 import android.support.v7.widget.AppCompatMultiAutoCompleteTextView;
 import android.util.AttributeSet;
 
-import skin.support.R;
+import skin.support.appcompat.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
 /**
- * Created by ximsfei on 17-1-14.
+ * @author ximsfei
+ * @date 17-1-14
  */
 
 public class SkinCompatMultiAutoCompleteTextView extends AppCompatMultiAutoCompleteTextView implements SkinCompatSupportable {
@@ -56,7 +58,7 @@ public class SkinCompatMultiAutoCompleteTextView extends AppCompatMultiAutoCompl
     private void applyDropDownBackgroundResource() {
         mDropDownBackgroundResId = SkinCompatHelper.checkResourceId(mDropDownBackgroundResId);
         if (mDropDownBackgroundResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getDrawableCompat(getContext(), mDropDownBackgroundResId);
+            Drawable drawable = SkinCompatVectorResources.getDrawableCompat(getContext(), mDropDownBackgroundResId);
             if (drawable != null) {
                 setDropDownBackgroundDrawable(drawable);
             }

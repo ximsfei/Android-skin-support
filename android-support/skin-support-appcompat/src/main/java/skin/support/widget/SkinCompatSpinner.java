@@ -9,8 +9,9 @@ import android.support.v7.widget.AppCompatSpinner;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import skin.support.R;
+import skin.support.appcompat.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 import static skin.support.widget.SkinCompatHelper.checkResourceId;
@@ -101,7 +102,7 @@ public class SkinCompatSpinner extends AppCompatSpinner implements SkinCompatSup
     private void applyPopupBackground() {
         mPopupBackgroundResId = checkResourceId(mPopupBackgroundResId);
         if (mPopupBackgroundResId != INVALID_ID) {
-            setPopupBackgroundDrawable(SkinCompatResources.getDrawableCompat(getContext(), mPopupBackgroundResId));
+            setPopupBackgroundDrawable(SkinCompatVectorResources.getDrawableCompat(getContext(), mPopupBackgroundResId));
         }
     }
 

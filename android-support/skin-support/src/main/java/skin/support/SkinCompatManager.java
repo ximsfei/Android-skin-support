@@ -20,6 +20,7 @@ import java.util.List;
 
 import skin.support.app.SkinActivityLifecycle;
 import skin.support.app.SkinLayoutInflater;
+import skin.support.app.SkinWrapper;
 import skin.support.load.SkinAssetsLoader;
 import skin.support.load.SkinBuildInLoader;
 import skin.support.load.SkinNoneLoader;
@@ -37,6 +38,7 @@ public class SkinCompatManager extends SkinObservable {
     private final Object mLock = new Object();
     private final Context mAppContext;
     private boolean mLoading = false;
+    private List<SkinWrapper> mWrappers = new ArrayList<>();
     private List<SkinLayoutInflater> mInflaters = new ArrayList<>();
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
     private SparseArray<SkinLoaderStrategy> mStrategyMap = new SparseArray<>();
@@ -202,8 +204,15 @@ public class SkinCompatManager extends SkinObservable {
      * @return
      */
     public SkinCompatManager addInflater(SkinLayoutInflater inflater) {
+        if (inflater instanceof SkinWrapper) {
+            mWrappers.add((SkinWrapper) inflater);
+        }
         mInflaters.add(inflater);
         return this;
+    }
+
+    public List<SkinWrapper> getWrappers() {
+        return mWrappers;
     }
 
     public List<SkinLayoutInflater> getInflaters() {

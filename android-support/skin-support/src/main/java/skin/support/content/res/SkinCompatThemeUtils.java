@@ -37,28 +37,6 @@ public class SkinCompatThemeUtils {
 
     private static final int[] TEMP_ARRAY = new int[1];
 
-    private static final int[] APPCOMPAT_COLOR_PRIMARY_ATTRS = {
-            android.support.v7.appcompat.R.attr.colorPrimary
-    };
-    private static final int[] APPCOMPAT_COLOR_PRIMARY_DARK_ATTRS = {
-            android.support.v7.appcompat.R.attr.colorPrimaryDark
-    };
-    private static final int[] APPCOMPAT_COLOR_ACCENT_ATTRS = {
-            android.support.v7.appcompat.R.attr.colorAccent
-    };
-
-    public static int getColorPrimaryResId(Context context) {
-        return getResId(context, APPCOMPAT_COLOR_PRIMARY_ATTRS);
-    }
-
-    public static int getColorPrimaryDarkResId(Context context) {
-        return getResId(context, APPCOMPAT_COLOR_PRIMARY_DARK_ATTRS);
-    }
-
-    public static int getColorAccentResId(Context context) {
-        return getResId(context, APPCOMPAT_COLOR_ACCENT_ATTRS);
-    }
-
     public static int getTextColorPrimaryResId(Context context) {
         return getResId(context, new int[]{android.R.attr.textColorPrimary});
     }
@@ -72,7 +50,7 @@ public class SkinCompatThemeUtils {
         return getResId(context, new int[]{android.R.attr.windowBackground});
     }
 
-    private static int getResId(Context context, int[] attrs) {
+    static int getResId(Context context, int[] attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs);
         final int resId = a.getResourceId(0, INVALID_ID);
         a.recycle();

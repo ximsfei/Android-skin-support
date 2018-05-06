@@ -1,45 +1,56 @@
 package skin.support.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.DrawableRes;
-import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.AppCompatCheckedTextView;
 import android.util.AttributeSet;
 
-import skin.support.R;
+import skin.support.appcompat.R;
+import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
+
+import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
 /**
  * Created by ximsfei on 17-1-14.
  */
 
-public class SkinCompatCheckBox extends AppCompatCheckBox implements SkinCompatSupportable {
-    private SkinCompatCompoundButtonHelper mCompoundButtonHelper;
+public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implements SkinCompatSupportable {
+
+    private static final int[] TINT_ATTRS = {
+            android.R.attr.checkMark
+    };
+    private int mCheckMarkResId = INVALID_ID;
+
     private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
-    public SkinCompatCheckBox(Context context) {
+    public SkinCompatCheckedTextView(Context context) {
         this(context, null);
     }
 
-    public SkinCompatCheckBox(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.checkboxStyle);
+    public SkinCompatCheckedTextView(Context context, AttributeSet attrs) {
+        this(context, attrs, R.attr.checkedTextViewStyle);
     }
 
-    public SkinCompatCheckBox(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinCompatCheckedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mCompoundButtonHelper = new SkinCompatCompoundButtonHelper(this);
-        mCompoundButtonHelper.loadFromAttributes(attrs, defStyleAttr);
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);
         mTextHelper.loadFromAttributes(attrs, defStyleAttr);
+
+        TypedArray a = context.obtainStyledAttributes(attrs, TINT_ATTRS, defStyleAttr, 0);
+        mCheckMarkResId = a.getResourceId(0, INVALID_ID);
+        a.recycle();
+        applyCheckMark();
     }
 
     @Override
-    public void setButtonDrawable(@DrawableRes int resId) {
-        super.setButtonDrawable(resId);
-        if (mCompoundButtonHelper != null) {
-            mCompoundButtonHelper.setButtonDrawable(resId);
-        }
+    public void setCheckMarkDrawable(@DrawableRes int resId) {
+        mCheckMarkResId = resId;
+        applyCheckMark();
     }
 
     @Override
@@ -83,15 +94,19 @@ public class SkinCompatCheckBox extends AppCompatCheckBox implements SkinCompatS
 
     @Override
     public void applySkin() {
-        if (mCompoundButtonHelper != null) {
-            mCompoundButtonHelper.applySkin();
-        }
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();
         }
         if (mTextHelper != null) {
             mTextHelper.applySkin();
         }
+        applyCheckMark();
     }
 
+    private void applyCheckMark() {
+        mCheckMarkResId = SkinCompatHelper.checkResourceId(mCheckMarkResId);
+        if (mCheckMarkResId != INVALID_ID) {
+            setCheckMarkDrawable(SkinCompatVectorResources.getDrawableCompat(getContext(), mCheckMarkResId));
+        }
+    }
 }

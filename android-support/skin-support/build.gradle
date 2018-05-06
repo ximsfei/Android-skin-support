@@ -15,16 +15,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets {
-        main {
-            res.srcDirs = ['src/main/res', 'src/main/res-alertdialog']
-        }
-    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
+    implementation "com.android.support:support-v4:${rootProject.supportLibraryVersion}"
 }
 
 tasks.withType(Javadoc) {
@@ -36,7 +31,7 @@ tasks.withType(Javadoc) {
 ext {
     publishVersion = rootProject.skinSupportVersion
     moduleName = 'skin-support'
-    descContent = 'skin-support 基础控件换肤支持包'
+    descContent = 'skin-support core'
 }
 
 apply from: '../../publishing_maven.gradle'

@@ -4,8 +4,9 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
 
-import skin.support.R;
+import skin.support.appcompat.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 
 /**
  * Created by ximsfei on 17-1-21.
@@ -36,7 +37,7 @@ public class SkinCompatSeekBarHelper extends SkinCompatProgressBarHelper {
         super.applySkin();
         mThumbResId = checkResourceId(mThumbResId);
         if (mThumbResId != INVALID_ID) {
-            mView.setThumb(SkinCompatResources.getDrawableCompat(mView.getContext(), mThumbResId));
+            mView.setThumb(SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mThumbResId));
         }
     }
 }

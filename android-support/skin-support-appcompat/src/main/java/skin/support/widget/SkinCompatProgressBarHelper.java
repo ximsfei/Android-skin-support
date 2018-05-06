@@ -17,8 +17,9 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.ProgressBar;
 
-import skin.support.R;
+import skin.support.appcompat.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 import skin.support.utils.SkinCompatVersionUtils;
 
 /**
@@ -139,14 +140,14 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
     public void applySkin() {
         mIndeterminateDrawableResId = checkResourceId(mIndeterminateDrawableResId);
         if (mIndeterminateDrawableResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getDrawableCompat(mView.getContext(), mIndeterminateDrawableResId);
+            Drawable drawable = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mIndeterminateDrawableResId);
             drawable.setBounds(mView.getIndeterminateDrawable().getBounds());
             mView.setIndeterminateDrawable(tileifyIndeterminate(drawable));
         }
 
         mProgressDrawableResId = checkProgressDrawableResId(mProgressDrawableResId);
         if (mProgressDrawableResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getDrawableCompat(mView.getContext(), mProgressDrawableResId);
+            Drawable drawable = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mProgressDrawableResId);
             mView.setProgressDrawable(tileify(drawable, false));
         }
         if (Build.VERSION.SDK_INT > 21) {
@@ -158,9 +159,6 @@ public class SkinCompatProgressBarHelper extends SkinCompatHelper {
     }
 
     private int checkProgressDrawableResId(int mProgressDrawableResId) {
-        if (mProgressDrawableResId == R.drawable.abc_ratingbar_material) {
-            return INVALID_ID;
-        }
         return checkResourceId(mProgressDrawableResId);
     }
 }

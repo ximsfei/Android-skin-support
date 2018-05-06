@@ -29,6 +29,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersionInHost}"
     implementation project(':android-support:skin-support')
 //    implementation 'skin.support:skin-support:3.0.0'
+    implementation project(':android-support:skin-support-appcompat')
 
     implementation "com.android.support:recyclerview-v7:${rootProject.supportLibraryVersionInHost}"
     implementation "com.android.support:design:${rootProject.supportLibraryVersionInHost}"

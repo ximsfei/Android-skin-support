@@ -15,19 +15,30 @@ public final class SkinCompatVersionUtils {
     private static Method sV4WrappedDrawableGetM;
     private static Method sV4WrappedDrawableSetM;
 
+    private static Class<?> sV7DrawableWrapperClass;
+    private static Method sV7DrawableWrapperGetM;
+    private static Method sV7DrawableWrapperSetM;
+
     static {
         try {
             sV4WrappedDrawableClass = Class.forName("android.support.v4.graphics.drawable.WrappedDrawable");
         } catch (ClassNotFoundException e) {
             if (Slog.DEBUG) {
-                Slog.i(TAG, "hasWrappedDrawable = false");
+                Slog.i(TAG, "hasV4WrappedDrawable = false");
             }
         }
         try {
             sV4DrawableWrapperClass = Class.forName("android.support.v4.graphics.drawable.DrawableWrapper");
         } catch (ClassNotFoundException e) {
             if (Slog.DEBUG) {
-                Slog.i(TAG, "hasDrawableWrapper = false");
+                Slog.i(TAG, "hasV4DrawableWrapper = false");
+            }
+        }
+        try {
+            sV7DrawableWrapperClass = Class.forName("android.support.v7.graphics.drawable.DrawableWrapper");
+        } catch (ClassNotFoundException e) {
+            if (Slog.DEBUG) {
+                Slog.i(TAG, "hasV7DrawableWrapper = false");
             }
         }
     }
@@ -142,6 +153,64 @@ public final class SkinCompatVersionUtils {
                 } catch (Exception e) {
                     if (Slog.DEBUG) {
                         Slog.i(TAG, "setV4DrawableWrapperWrappedDrawable invoke error: " + e);
+                    }
+                }
+            }
+        }
+    }
+
+    public static boolean hasV7DrawableWrapper() {
+        return sV7DrawableWrapperClass != null;
+    }
+
+    public static boolean isV7DrawableWrapper(Drawable drawable) {
+        return sV7DrawableWrapperClass != null
+                && sV7DrawableWrapperClass.isAssignableFrom(drawable.getClass());
+    }
+
+    public static Drawable getV7DrawableWrapperWrappedDrawable(Drawable drawable) {
+        if (sV7DrawableWrapperClass != null) {
+            if (sV7DrawableWrapperGetM == null) {
+                try {
+                    sV7DrawableWrapperGetM = sV7DrawableWrapperClass.getDeclaredMethod("getWrappedDrawable");
+                    sV7DrawableWrapperGetM.setAccessible(true);
+                } catch (Exception e) {
+                    if (Slog.DEBUG) {
+                        Slog.i(TAG, "getV7DrawableWrapperWrappedDrawable No Such Method");
+                    }
+                }
+            }
+            if (sV7DrawableWrapperGetM != null) {
+                try {
+                    return (Drawable) sV7DrawableWrapperGetM.invoke(drawable);
+                } catch (Exception e) {
+                    if (Slog.DEBUG) {
+                        Slog.i(TAG, "getV7DrawableWrapperWrappedDrawable invoke error: " + e);
+                    }
+                }
+            }
+        }
+        return drawable;
+    }
+
+    public static void setV7DrawableWrapperWrappedDrawable(Drawable drawable, Drawable inner) {
+        if (sV7DrawableWrapperClass != null) {
+            if (sV7DrawableWrapperSetM == null) {
+                try {
+                    sV7DrawableWrapperSetM = sV7DrawableWrapperClass.getDeclaredMethod("setWrappedDrawable", Drawable.class);
+                    sV7DrawableWrapperSetM.setAccessible(true);
+                } catch (Exception e) {
+                    if (Slog.DEBUG) {
+                        Slog.i(TAG, "setV7DrawableWrapperWrappedDrawable No Such Method");
+                    }
+                }
+            }
+            if (sV7DrawableWrapperSetM != null) {
+                try {
+                    sV7DrawableWrapperSetM.invoke(drawable, inner);
+                } catch (Exception e) {
+                    if (Slog.DEBUG) {
+                        Slog.i(TAG, "setV7DrawableWrapperWrappedDrawable invoke error: " + e);
                     }
                 }
             }

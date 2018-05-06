@@ -15,19 +15,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-alertdialog']
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
     implementation project(':android-support:skin-support')
-    implementation project(':android-support:skin-support-appcompat')
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
 }
 
 ext {
     publishVersion = rootProject.skinSupportVersion
-    moduleName = 'skin-support-constraint-layout'
-    descContent = 'ConstraintLayout控件换肤支持包'
+    moduleName = 'skin-support-appcompat'
+    descContent = 'skin-support 基础控件换肤支持包'
 }
 
 apply from: '../../publishing_maven.gradle'

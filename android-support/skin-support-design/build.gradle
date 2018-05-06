@@ -22,6 +22,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
     implementation "com.android.support:design:${rootProject.supportLibraryVersion}"
     implementation project(':android-support:skin-support')
+    implementation project(':android-support:skin-support-appcompat')
 }
 
 ext {

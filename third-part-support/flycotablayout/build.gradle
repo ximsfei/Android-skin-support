@@ -23,6 +23,7 @@ dependencies {
 
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     implementation project(':android-support:skin-support')
+    implementation project(':android-support:skin-support-appcompat')
 }
 
 ext {

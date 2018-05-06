@@ -2,36 +2,36 @@ package skin.support.widget;
 
 import android.content.Context;
 import android.support.annotation.DrawableRes;
-import android.support.v7.widget.AppCompatRadioButton;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.util.AttributeSet;
 
-import skin.support.R;
+import skin.support.appcompat.R;
 
 /**
  * Created by ximsfei on 17-1-14.
  */
 
-public class SkinCompatRadioButton extends AppCompatRadioButton implements SkinCompatSupportable {
-    private SkinCompatTextHelper mTextHelper;
+public class SkinCompatCheckBox extends AppCompatCheckBox implements SkinCompatSupportable {
     private SkinCompatCompoundButtonHelper mCompoundButtonHelper;
+    private SkinCompatTextHelper mTextHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
-    public SkinCompatRadioButton(Context context) {
+    public SkinCompatCheckBox(Context context) {
         this(context, null);
     }
 
-    public SkinCompatRadioButton(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.radioButtonStyle);
+    public SkinCompatCheckBox(Context context, AttributeSet attrs) {
+        this(context, attrs, R.attr.checkboxStyle);
     }
 
-    public SkinCompatRadioButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinCompatCheckBox(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mCompoundButtonHelper = new SkinCompatCompoundButtonHelper(this);
         mCompoundButtonHelper.loadFromAttributes(attrs, defStyleAttr);
-        mTextHelper = SkinCompatTextHelper.create(this);
-        mTextHelper.loadFromAttributes(attrs, defStyleAttr);
         mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
         mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
+        mTextHelper = SkinCompatTextHelper.create(this);
+        mTextHelper.loadFromAttributes(attrs, defStyleAttr);
     }
 
     @Override
@@ -39,6 +39,14 @@ public class SkinCompatRadioButton extends AppCompatRadioButton implements SkinC
         super.setButtonDrawable(resId);
         if (mCompoundButtonHelper != null) {
             mCompoundButtonHelper.setButtonDrawable(resId);
+        }
+    }
+
+    @Override
+    public void setBackgroundResource(@DrawableRes int resId) {
+        super.setBackgroundResource(resId);
+        if (mBackgroundTintHelper != null) {
+            mBackgroundTintHelper.onSetBackgroundResource(resId);
         }
     }
 
@@ -74,20 +82,12 @@ public class SkinCompatRadioButton extends AppCompatRadioButton implements SkinC
     }
 
     @Override
-    public void setBackgroundResource(int resId) {
-        super.setBackgroundResource(resId);
-        if (mBackgroundTintHelper != null) {
-            mBackgroundTintHelper.onSetBackgroundResource(resId);
-        }
-    }
-
-    @Override
     public void applySkin() {
-        if (mBackgroundTintHelper != null) {
-            mBackgroundTintHelper.applySkin();
-        }
         if (mCompoundButtonHelper != null) {
             mCompoundButtonHelper.applySkin();
+        }
+        if (mBackgroundTintHelper != null) {
+            mBackgroundTintHelper.applySkin();
         }
         if (mTextHelper != null) {
             mTextHelper.applySkin();

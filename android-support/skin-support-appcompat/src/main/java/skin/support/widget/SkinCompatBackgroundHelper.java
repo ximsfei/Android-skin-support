@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import skin.support.R;
-import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 
 /**
  * Created by ximsfei on 2017/1/10.
@@ -47,7 +47,7 @@ public class SkinCompatBackgroundHelper extends SkinCompatHelper {
         if (mBackgroundResId == INVALID_ID) {
             return;
         }
-        Drawable drawable = SkinCompatResources.getDrawableCompat(mView.getContext(), mBackgroundResId);
+        Drawable drawable = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mBackgroundResId);
         if (drawable != null) {
             int paddingLeft = mView.getPaddingLeft();
             int paddingTop = mView.getPaddingTop();

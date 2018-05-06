@@ -7,10 +7,11 @@ import android.content.res.XmlResourceParser;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.AnyRes;
-import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.content.res.AppCompatResources;
 import android.text.TextUtils;
 import android.util.TypedValue;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import skin.support.SkinCompatManager;
 
@@ -21,6 +22,7 @@ public class SkinCompatResources {
     private String mSkinName = "";
     private SkinCompatManager.SkinLoaderStrategy mStrategy;
     private boolean isDefaultSkin = true;
+    private List<SkinResources> mSkinResources = new ArrayList<>();
 
     private SkinCompatResources() {
     }
@@ -36,6 +38,10 @@ public class SkinCompatResources {
         return sInstance;
     }
 
+    void addSkinResources(SkinResources resources) {
+        mSkinResources.add(resources);
+    }
+
     public void reset() {
         reset(SkinCompatManager.getInstance().getStrategies().get(SkinCompatManager.SKIN_LOADER_STRATEGY_NONE));
     }
@@ -47,7 +53,9 @@ public class SkinCompatResources {
         mStrategy = strategy;
         isDefaultSkin = true;
         SkinCompatUserThemeManager.get().clearCaches();
-        SkinCompatDrawableManager.get().clearCaches();
+        for (SkinResources skinResources : mSkinResources) {
+            skinResources.clear();
+        }
     }
 
     public void setupSkin(Resources resources, String pkgName, String skinName, SkinCompatManager.SkinLoaderStrategy strategy) {
@@ -61,7 +69,9 @@ public class SkinCompatResources {
         mStrategy = strategy;
         isDefaultSkin = false;
         SkinCompatUserThemeManager.get().clearCaches();
-        SkinCompatDrawableManager.get().clearCaches();
+        for (SkinResources skinResources : mSkinResources) {
+            skinResources.clear();
+        }
     }
 
     public Resources getSkinResources() {
@@ -70,6 +80,10 @@ public class SkinCompatResources {
 
     public String getSkinPkgName() {
         return mSkinPkgName;
+    }
+
+    public SkinCompatManager.SkinLoaderStrategy getStrategy() {
+        return mStrategy;
     }
 
     public boolean isDefaultSkin() {
@@ -180,39 +194,11 @@ public class SkinCompatResources {
         return context.getResources().getDrawable(resId);
     }
 
-    private Drawable getSkinDrawableCompat(Context context, int resId) {
-        if (AppCompatDelegate.isCompatVectorFromResourcesEnabled()) {
-            if (!isDefaultSkin) {
-                try {
-                    return SkinCompatDrawableManager.get().getDrawable(context, resId);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            // SkinCompatDrawableManager.get().getDrawable(context, resId) 中会调用getSkinDrawable等方法。
-            // 这里只需要拦截使用默认皮肤的情况。
-            if (!SkinCompatUserThemeManager.get().isColorEmpty()) {
-                ColorStateList colorStateList = SkinCompatUserThemeManager.get().getColorStateList(resId);
-                if (colorStateList != null) {
-                    return new ColorDrawable(colorStateList.getDefaultColor());
-                }
-            }
-            if (!SkinCompatUserThemeManager.get().isDrawableEmpty()) {
-                Drawable drawable = SkinCompatUserThemeManager.get().getDrawable(resId);
-                if (drawable != null) {
-                    return drawable;
-                }
-            }
-            if (mStrategy != null) {
-                Drawable drawable = mStrategy.getDrawable(context, mSkinName, resId);
-                if (drawable != null) {
-                    return drawable;
-                }
-            }
-            return AppCompatResources.getDrawable(context, resId);
-        } else {
-            return getSkinDrawable(context, resId);
+    Drawable getStrategyDrawable(Context context, int resId) {
+        if (mStrategy != null) {
+            return mStrategy.getDrawable(context, mSkinName, resId);
         }
+        return null;
     }
 
     private XmlResourceParser getSkinXml(Context context, int resId) {
@@ -246,10 +232,6 @@ public class SkinCompatResources {
 
     public static Drawable getDrawable(Context context, int resId) {
         return getInstance().getSkinDrawable(context, resId);
-    }
-
-    public static Drawable getDrawableCompat(Context context, int resId) {
-        return getInstance().getSkinDrawableCompat(context, resId);
     }
 
     public static XmlResourceParser getXml(Context context, int resId) {

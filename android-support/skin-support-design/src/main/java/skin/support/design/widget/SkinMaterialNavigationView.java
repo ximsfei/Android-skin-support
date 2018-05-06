@@ -11,6 +11,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 
 import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatV7ThemeUtils;
+import skin.support.content.res.SkinCompatVectorResources;
 import skin.support.design.R;
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatHelper;
@@ -50,7 +52,7 @@ public class SkinMaterialNavigationView extends NavigationView implements SkinCo
         if (a.hasValue(R.styleable.NavigationView_itemIconTint)) {
             mIconTintResId = a.getResourceId(R.styleable.NavigationView_itemIconTint, INVALID_ID);
         } else {
-            mDefaultTintResId = SkinCompatThemeUtils.getColorPrimaryResId(context);
+            mDefaultTintResId = SkinCompatV7ThemeUtils.getColorPrimaryResId(context);
         }
         if (a.hasValue(R.styleable.NavigationView_itemTextAppearance)) {
             int textAppearance = a.getResourceId(R.styleable.NavigationView_itemTextAppearance, INVALID_ID);
@@ -65,7 +67,7 @@ public class SkinMaterialNavigationView extends NavigationView implements SkinCo
         if (a.hasValue(R.styleable.NavigationView_itemTextColor)) {
             mTextColorResId = a.getResourceId(R.styleable.NavigationView_itemTextColor, INVALID_ID);
         } else {
-            mDefaultTintResId = SkinCompatThemeUtils.getColorPrimaryResId(context);
+            mDefaultTintResId = SkinCompatV7ThemeUtils.getColorPrimaryResId(context);
         }
         if (mTextColorResId == INVALID_ID) {
             mTextColorResId = SkinCompatThemeUtils.getTextColorPrimaryResId(context);
@@ -89,7 +91,7 @@ public class SkinMaterialNavigationView extends NavigationView implements SkinCo
         if (mItemBackgroundResId == INVALID_ID) {
             return;
         }
-        Drawable drawable = SkinCompatResources.getDrawableCompat(getContext(), mItemBackgroundResId);
+        Drawable drawable = SkinCompatVectorResources.getDrawableCompat(getContext(), mItemBackgroundResId);
         if (drawable != null) {
             setItemBackground(drawable);
         }

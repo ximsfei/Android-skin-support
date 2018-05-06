@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 import skin.support.R;
-import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 
 /**
  * Created by pengfengwang on 2017/3/8.
@@ -60,28 +60,28 @@ public class SkinCompatTextHelperV17 extends SkinCompatTextHelper {
                 drawableStart = null, drawableEnd = null;
         mDrawableLeftResId = checkResourceId(mDrawableLeftResId);
         if (mDrawableLeftResId != INVALID_ID) {
-            drawableLeft = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableLeftResId);
+            drawableLeft = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableLeftResId);
         }
         mDrawableTopResId = checkResourceId(mDrawableTopResId);
         if (mDrawableTopResId != INVALID_ID) {
-            drawableTop = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableTopResId);
+            drawableTop = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableTopResId);
         }
         mDrawableRightResId = checkResourceId(mDrawableRightResId);
         if (mDrawableRightResId != INVALID_ID) {
-            drawableRight = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableRightResId);
+            drawableRight = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableRightResId);
         }
         mDrawableBottomResId = checkResourceId(mDrawableBottomResId);
         if (mDrawableBottomResId != INVALID_ID) {
-            drawableBottom = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableBottomResId);
+            drawableBottom = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableBottomResId);
         }
         if (mDrawableStartResId != INVALID_ID) {
-            drawableStart = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableStartResId);
+            drawableStart = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableStartResId);
         }
         if (drawableStart == null) {
             drawableStart = drawableLeft;
         }
         if (mDrawableEndResId != INVALID_ID) {
-            drawableEnd = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableEndResId);
+            drawableEnd = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableEndResId);
         }
         if (drawableEnd == null) {
             drawableEnd = drawableRight;

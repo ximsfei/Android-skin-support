@@ -1,62 +1,44 @@
 package skin.support.widget;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.support.annotation.DrawableRes;
-import android.support.v7.widget.AppCompatCheckedTextView;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.util.AttributeSet;
 
-import skin.support.R;
-import skin.support.content.res.SkinCompatResources;
-
-import static skin.support.widget.SkinCompatHelper.INVALID_ID;
+import skin.support.appcompat.R;
 
 /**
  * Created by ximsfei on 17-1-14.
  */
 
-public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implements SkinCompatSupportable {
-
-    private static final int[] TINT_ATTRS = {
-            android.R.attr.checkMark
-    };
-    private int mCheckMarkResId = INVALID_ID;
-
+public class SkinCompatRadioButton extends AppCompatRadioButton implements SkinCompatSupportable {
     private SkinCompatTextHelper mTextHelper;
+    private SkinCompatCompoundButtonHelper mCompoundButtonHelper;
     private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
-    public SkinCompatCheckedTextView(Context context) {
+    public SkinCompatRadioButton(Context context) {
         this(context, null);
     }
 
-    public SkinCompatCheckedTextView(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.checkedTextViewStyle);
+    public SkinCompatRadioButton(Context context, AttributeSet attrs) {
+        this(context, attrs, R.attr.radioButtonStyle);
     }
 
-    public SkinCompatCheckedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SkinCompatRadioButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
-        mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
+        mCompoundButtonHelper = new SkinCompatCompoundButtonHelper(this);
+        mCompoundButtonHelper.loadFromAttributes(attrs, defStyleAttr);
         mTextHelper = SkinCompatTextHelper.create(this);
         mTextHelper.loadFromAttributes(attrs, defStyleAttr);
-
-        TypedArray a = context.obtainStyledAttributes(attrs, TINT_ATTRS, defStyleAttr, 0);
-        mCheckMarkResId = a.getResourceId(0, INVALID_ID);
-        a.recycle();
-        applyCheckMark();
+        mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
+        mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
     }
 
     @Override
-    public void setCheckMarkDrawable(@DrawableRes int resId) {
-        mCheckMarkResId = resId;
-        applyCheckMark();
-    }
-
-    @Override
-    public void setBackgroundResource(@DrawableRes int resId) {
-        super.setBackgroundResource(resId);
-        if (mBackgroundTintHelper != null) {
-            mBackgroundTintHelper.onSetBackgroundResource(resId);
+    public void setButtonDrawable(@DrawableRes int resId) {
+        super.setButtonDrawable(resId);
+        if (mCompoundButtonHelper != null) {
+            mCompoundButtonHelper.setButtonDrawable(resId);
         }
     }
 
@@ -92,20 +74,24 @@ public class SkinCompatCheckedTextView extends AppCompatCheckedTextView implemen
     }
 
     @Override
+    public void setBackgroundResource(int resId) {
+        super.setBackgroundResource(resId);
+        if (mBackgroundTintHelper != null) {
+            mBackgroundTintHelper.onSetBackgroundResource(resId);
+        }
+    }
+
+    @Override
     public void applySkin() {
         if (mBackgroundTintHelper != null) {
             mBackgroundTintHelper.applySkin();
         }
+        if (mCompoundButtonHelper != null) {
+            mCompoundButtonHelper.applySkin();
+        }
         if (mTextHelper != null) {
             mTextHelper.applySkin();
         }
-        applyCheckMark();
     }
 
-    private void applyCheckMark() {
-        mCheckMarkResId = SkinCompatHelper.checkResourceId(mCheckMarkResId);
-        if (mCheckMarkResId != INVALID_ID) {
-            setCheckMarkDrawable(SkinCompatResources.getDrawableCompat(getContext(), mCheckMarkResId));
-        }
-    }
 }

@@ -7,6 +7,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.util.AttributeSet;
 
 import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 import skin.support.design.R;
 import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatHelper;
@@ -49,7 +50,7 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
     private void applyStatusBarScrimResource() {
         mStatusBarScrimResId = SkinCompatHelper.checkResourceId(mStatusBarScrimResId);
         if (mStatusBarScrimResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getDrawableCompat(getContext(), mStatusBarScrimResId);
+            Drawable drawable = SkinCompatVectorResources.getDrawableCompat(getContext(), mStatusBarScrimResId);
             if (drawable != null) {
                 setStatusBarScrim(drawable);
             }
@@ -59,7 +60,7 @@ public class SkinMaterialCollapsingToolbarLayout extends CollapsingToolbarLayout
     private void applyContentScrimResource() {
         mContentScrimResId = SkinCompatHelper.checkResourceId(mContentScrimResId);
         if (mContentScrimResId != INVALID_ID) {
-            Drawable drawable = SkinCompatResources.getDrawableCompat(getContext(), mContentScrimResId);
+            Drawable drawable = SkinCompatVectorResources.getDrawableCompat(getContext(), mContentScrimResId);
             if (drawable != null) {
                 setContentScrim(drawable);
             }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import skin.support.R;
 import skin.support.content.res.SkinCompatResources;
+import skin.support.content.res.SkinCompatVectorResources;
 
 /**
  * Created by ximsfei on 2017/1/10.
@@ -100,9 +101,6 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
 
     private void applyTextColorHintResource() {
         mTextColorHintResId = checkResourceId(mTextColorHintResId);
-        if (mTextColorHintResId == R.color.abc_hint_foreground_material_light) {
-            return;
-        }
         if (mTextColorHintResId != INVALID_ID) {
             // TODO: HTC_U-3u OS:8.0上调用framework的getColorStateList方法，有可能抛出异常，暂时没有找到更好的解决办法.
             // issue: https://github.com/ximsfei/Android-skin-support/issues/110
@@ -116,10 +114,6 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
 
     private void applyTextColorResource() {
         mTextColorResId = checkResourceId(mTextColorResId);
-        if (mTextColorResId == R.color.abc_primary_text_disable_only_material_light
-                || mTextColorResId == R.color.abc_secondary_text_material_light) {
-            return;
-        }
         if (mTextColorResId != INVALID_ID) {
             // TODO: HTC_U-3u OS:8.0上调用framework的getColorStateList方法，有可能抛出异常，暂时没有找到更好的解决办法.
             // issue: https://github.com/ximsfei/Android-skin-support/issues/110
@@ -157,19 +151,19 @@ public class SkinCompatTextHelper extends SkinCompatHelper {
         Drawable drawableLeft = null, drawableTop = null, drawableRight = null, drawableBottom = null;
         mDrawableLeftResId = checkResourceId(mDrawableLeftResId);
         if (mDrawableLeftResId != INVALID_ID) {
-            drawableLeft = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableLeftResId);
+            drawableLeft = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableLeftResId);
         }
         mDrawableTopResId = checkResourceId(mDrawableTopResId);
         if (mDrawableTopResId != INVALID_ID) {
-            drawableTop = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableTopResId);
+            drawableTop = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableTopResId);
         }
         mDrawableRightResId = checkResourceId(mDrawableRightResId);
         if (mDrawableRightResId != INVALID_ID) {
-            drawableRight = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableRightResId);
+            drawableRight = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableRightResId);
         }
         mDrawableBottomResId = checkResourceId(mDrawableBottomResId);
         if (mDrawableBottomResId != INVALID_ID) {
-            drawableBottom = SkinCompatResources.getDrawableCompat(mView.getContext(), mDrawableBottomResId);
+            drawableBottom = SkinCompatVectorResources.getDrawableCompat(mView.getContext(), mDrawableBottomResId);
         }
         if (mDrawableLeftResId != INVALID_ID
                 || mDrawableTopResId != INVALID_ID
