@@ -2,7 +2,6 @@
 
 * [hdodenhof/CircleImageView](#hdodenhofcircleimageview)
 * [H07000223/FlycoTabLayout](#h07000223flycotablayout)
-* [hongyangAndroid/AndroidAutoLayout](#hongyangandroidandroidautolayout)
 
 ## hdodenhof/CircleImageView
 
@@ -78,29 +77,4 @@ SkinCompatManager.init(this)
 或者
 ```java
 SkinFlycoTabLayoutManager.init(this);
-```
-
-## hongyangAndroid/AndroidAutoLayout
-
-[项目原地址](https://github.com/hongyangAndroid/AndroidAutoLayout)
-
-[![v1.4.5](https://img.shields.io/badge/androidautolayout-v1.4.5-green.svg)](http://jcenter.bintray.com/skin/support/androidautolayout/1.4.5/)
-
-```xml
-implementation 'com.zhy:autolayout:1.4.5'
-implementation 'skin.support:androidautolayout:1.4.5.2'
-```
-
-### 使用方法
-
-* application onCreate中初始化
-
-```java
-SkinCompatManager.init(this)
-        .addHookInflater(new SkinHookAutoLayoutViewInflater()) // hongyangAndroid/AndroidAutoLayout
-        .loadSkin();
-```
-或者
-```java
-SkinHookAutoLayoutManager.init(this);
 ```
