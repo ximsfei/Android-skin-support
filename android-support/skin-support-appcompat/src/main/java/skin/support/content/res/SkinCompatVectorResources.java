@@ -7,8 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.content.res.AppCompatResources;
 
-import skin.support.SkinCompatManager;
-
 public class SkinCompatVectorResources implements SkinResources {
     private static SkinCompatVectorResources sInstance;
 
@@ -30,21 +28,6 @@ public class SkinCompatVectorResources implements SkinResources {
     @Override
     public void clear() {
         SkinCompatDrawableManager.get().clearCaches();
-    }
-
-    @Override
-    public ColorStateList getColor(Context context, int resId) {
-        return null;
-    }
-
-    @Override
-    public ColorStateList getColorStateList(Context context, int resId) {
-        return null;
-    }
-
-    @Override
-    public Drawable getDrawable(Context context, int resId) {
-        return null;
     }
 
     private Drawable getSkinDrawableCompat(Context context, int resId) {
