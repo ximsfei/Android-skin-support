@@ -71,7 +71,7 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ### TODO
 
-* [ ] 解耦skin-support对appcompat-v7的依赖。
+* [x] 解耦skin-support对appcompat-v7的依赖。
 * [ ] `AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);`开关使用错误问题修正。
 * [ ] 支持多语言。
 * [ ] 支持多字体。
