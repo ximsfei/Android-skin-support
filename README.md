@@ -2,7 +2,7 @@
 
 中文 | [In English](docs/README.md) 
 
-[![skin-support](https://img.shields.io/badge/release-v3.1.0--beta-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://img.shields.io/badge/release-v3.1.0--beta1-green.svg)](http://jcenter.bintray.com/skin/support)
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
@@ -116,10 +116,10 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 ### 导入:
 直接添加依赖, [最新版本选择, 请查看更新日志](docs/ChangeLog.md)
 ```xml
-implementation 'skin.support:skin-support:3.1.0-beta'                   // skin-support 基础控件支持
-implementation 'skin.support:skin-support-design:3.1.0-beta'            // skin-support-design material design 控件支持[可选]
-implementation 'skin.support:skin-support-cardview:3.1.0-beta'          // skin-support-cardview CardView 控件支持[可选]
-implementation 'skin.support:skin-support-constraint-layout:3.1.0-beta' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+implementation 'skin.support:skin-support:3.1.0-beta1'                   // skin-support 基础控件支持
+implementation 'skin.support:skin-support-design:3.1.0-beta1'            // skin-support-design material design 控件支持[可选]
+implementation 'skin.support:skin-support-cardview:3.1.0-beta1'          // skin-support-cardview CardView 控件支持[可选]
+implementation 'skin.support:skin-support-constraint-layout:3.1.0-beta1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
 
 ### 使用:

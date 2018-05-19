@@ -2,6 +2,10 @@
 
 ## skin-support
 
+* ![v3.1.0-beta1](https://img.shields.io/badge/skin--support-v3.1.0--beta1-green.svg)
+  * bugfix:
+    * issue #151
+
 * ![v3.1.0-beta](https://img.shields.io/badge/skin--support-v3.1.0--beta-green.svg)
   * 动态修改主题颜色值。
     可以让用户设置任何color属性的颜色值(包括ColorStateList, [具体使用细节](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/ColorPickerActivity.java)): `SkinCompatUserThemeManager.get().addColorState(R.color.colorPrimary, #ffff0000)`。

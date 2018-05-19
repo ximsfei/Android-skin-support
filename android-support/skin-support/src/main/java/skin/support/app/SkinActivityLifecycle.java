@@ -167,7 +167,8 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
         @Override
         public void updateSkin(SkinObservable observable, Object o) {
             // 当前Activity，或者非Activity，立即刷新，否则延迟到下次onResume方法中刷新。
-            if (mContext == mCurActivityRef.get()
+            if (mCurActivityRef == null
+                    || mContext == mCurActivityRef.get()
                     || !(mContext instanceof Activity)) {
                 updateSkinForce();
             } else {
@@ -184,6 +185,9 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
         void updateSkinForce() {
             if (Slog.DEBUG) {
                 Slog.i(TAG, "Context: " + mContext + " updateSkinForce");
+            }
+            if (mContext == null) {
+                return;
             }
             if (mContext instanceof Activity && isContextSkinEnable(mContext)) {
                 updateWindowBackground((Activity) mContext);
