@@ -104,8 +104,10 @@ public class DrawablePickerActivity extends BaseActivity {
                 }
             });
             List<String> list = new ArrayList<>();
-            for (File file : files) {
-                list.add(file.getAbsolutePath());
+            if (files != null && files.length > 0) {
+                for (File file : files) {
+                    list.add(file.getAbsolutePath());
+                }
             }
             return list;
         }
