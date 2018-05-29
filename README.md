@@ -91,8 +91,6 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 >> [skin-night](demo/skin-night)                                      // 夜间模式皮肤工程
 
->> [skin-autolayout-app](demo/skin-autolayout-app)                    // autolayout demo app
-
 > [android-support](android-support)                                  // Android 原生控件
 
 >> [skin-support](android-support／skin-support)                      // 换肤框架, 基础控件支持
