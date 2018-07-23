@@ -1,0 +1,103 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/be95ffab58081b7243389adbc87f33c4/AndroidManifest.xml:17:1-22:12
+MERGED from [skin.support:skin-support:3.1.0-beta1] /Users/mac/.gradle/caches/transforms-1/files-1.1/skin-support-3.1.0-beta1.aar/8a0e675fdb331aa491091313f41d8baf/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/5787757bb3b28104035cb75fa5803e62/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/a06f502d0b89ac651861df1f5a801474/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/7e61eab05052be3f7c329c654f3c68fb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/6da1bb44d2e60285666e65259edd4fd8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/a64a8b56d631b39a3a909adb3a6c0891/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0929bea628db3bbbff9d4e1238b2f2ed/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/ca4d9df4ca04901c3b00553b35dcd58c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/2f728d01dcf3485306086383bc8feda3/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/ec6db841ce599375433ca95baa5fdccf/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/dd08c49925e86350a884f21329a85c1e/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:1-22:12
+	package
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:3:5-40
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:5:5-20:19
+	android:supportsRtl
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:11:9-35
+	android:label
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:9:9-41
+	android:roundIcon
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:10:9-54
+	android:icon
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:12:9-40
+	android:name
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:8:9-48
+activity#com.afei.skinzipdemo.MainActivity
+ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:13:9-19:20
+	android:name
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:13:19-67
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:14:13-18:29
+action#android.intent.action.MAIN
+ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml:17:27-74
+uses-sdk
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/be95ffab58081b7243389adbc87f33c4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/be95ffab58081b7243389adbc87f33c4/AndroidManifest.xml:20:5-44
+MERGED from [skin.support:skin-support:3.1.0-beta1] /Users/mac/.gradle/caches/transforms-1/files-1.1/skin-support-3.1.0-beta1.aar/8a0e675fdb331aa491091313f41d8baf/AndroidManifest.xml:7:5-9:41
+MERGED from [skin.support:skin-support:3.1.0-beta1] /Users/mac/.gradle/caches/transforms-1/files-1.1/skin-support-3.1.0-beta1.aar/8a0e675fdb331aa491091313f41d8baf/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/5787757bb3b28104035cb75fa5803e62/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/5787757bb3b28104035cb75fa5803e62/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/a06f502d0b89ac651861df1f5a801474/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/a06f502d0b89ac651861df1f5a801474/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/7e61eab05052be3f7c329c654f3c68fb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/7e61eab05052be3f7c329c654f3c68fb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/6da1bb44d2e60285666e65259edd4fd8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/6da1bb44d2e60285666e65259edd4fd8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/a64a8b56d631b39a3a909adb3a6c0891/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/a64a8b56d631b39a3a909adb3a6c0891/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0929bea628db3bbbff9d4e1238b2f2ed/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /Users/mac/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/0929bea628db3bbbff9d4e1238b2f2ed/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/ca4d9df4ca04901c3b00553b35dcd58c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/ca4d9df4ca04901c3b00553b35dcd58c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/2f728d01dcf3485306086383bc8feda3/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/2f728d01dcf3485306086383bc8feda3/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/ec6db841ce599375433ca95baa5fdccf/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/ec6db841ce599375433ca95baa5fdccf/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/dd08c49925e86350a884f21329a85c1e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /Users/mac/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/dd08c49925e86350a884f21329a85c1e/AndroidManifest.xml:20:5-44
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+		ADDED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml
+		INJECTED from /Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/AndroidManifest.xml

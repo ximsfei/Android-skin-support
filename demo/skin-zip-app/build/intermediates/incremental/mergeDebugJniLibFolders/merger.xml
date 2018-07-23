@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/src/debug/jniLibs"/></dataSet></merger>

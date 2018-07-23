@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.afei.skinzipdemo.test">
+
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="27" />
+
+    <application android:debuggable="true" >
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+    <instrumentation android:name="android.support.test.runner.AndroidJUnitRunner"
+                     android:targetPackage="com.afei.skinzipdemo"
+                     android:handleProfiling="false"
+                     android:functionalTest="false"
+                     android:label="Tests for com.afei.skinzipdemo"/>
+</manifest>

@@ -17,10 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ColorPickerActivity" />
+        <activity android:name="com.ximsfei.skin.sample.activities.ColorPickerActivity" />
 
         <!-- components activity -->
-        <activity android:name=".activities.components.TextViewActivity" />
+        <activity android:name="com.ximsfei.skin.sample.activities.components.TextViewActivity" />
     </application>
 
 </manifest>
