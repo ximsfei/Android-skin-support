@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
-import com.ximsfei.skin.sample.R;
 import com.ximsfei.skin.sample.base.BaseActivity;
 import com.ximsfei.skin.sample.base.TabFragmentPagerAdapter;
 import com.ximsfei.skin.sample.fragment.ChangeLogFragment;
