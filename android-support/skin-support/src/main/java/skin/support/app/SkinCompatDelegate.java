@@ -32,7 +32,12 @@ public class SkinCompatDelegate implements LayoutInflaterFactory {
 
     @Override
     public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
-        View view = createView(parent, name, context, attrs);
+        View view = null;
+        try {
+            view = createView(parent, name, context, attrs);
+        } catch (Exception e) {
+
+        }
 
         if (view == null) {
             return null;
