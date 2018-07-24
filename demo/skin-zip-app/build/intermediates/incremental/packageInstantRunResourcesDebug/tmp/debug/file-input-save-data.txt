@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Mon Jul 23 22:46:06 CST 2018
-0.baseType=DIRECTORY
-0.base=/Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/build/intermediates/assets/debug
-0.path=default.zip
-0.set=ASSET
-count=1

@@ -1,4 +1,0 @@
-#Mon Jul 23 22:46:19 CST 2018
-base.0=/Users/mac/AndroidStudioProjects/work/Android-skin-support/demo/skin-zip-app/build/intermediates/transforms/dexMerger/debug/6
-path.0=classes.dex
-renamed.0=classes.dex
