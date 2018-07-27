@@ -40,6 +40,7 @@ public class SkinTool {
 
     /**
      * 动态获取目前的主题图片
+     *
      * @param context
      * @param rId
      * @return
@@ -56,21 +57,21 @@ public class SkinTool {
             }
             File zipBackgroundPNG = new File(folder, resName + ".png");
             if (zipBackgroundPNG.exists()) {
-                nowDrawable = ZipSDCardLoader.loadMultiple(context, rId, Drawable.createFromPath(zipBackgroundPNG.getAbsolutePath()));
+                nowDrawable = ZipSDCardLoader.readFileImage(context, zipBackgroundPNG.getAbsolutePath());
                 ZipSDCardLoader.add(rId, nowDrawable);
             }
             File zipBackgroundJPG = new File(folder, resName + ".jpg");
             if (zipBackgroundJPG.exists()) {
-                nowDrawable = ZipSDCardLoader.loadMultiple(context, rId, Drawable.createFromPath(zipBackgroundJPG.getAbsolutePath()));
+                nowDrawable = ZipSDCardLoader.readFileImage(context, zipBackgroundJPG.getAbsolutePath());
                 ZipSDCardLoader.add(rId, nowDrawable);
             }
 //            File zipBackgroundGIF = new File(dir, resName + ".gif");
 //            if (zipBackgroundGIF.exists()) {
 //                try {
-//                    nowDrawable = new GifDrawable(zipBackgroundGIF.getAbsolutePath());
+//                    nowDrawable = new GifDrawable(context,zipBackgroundGIF.getAbsolutePath());
 //                    ZipSDCardLoader.add(rId, nowDrawable);
 //                } catch (Exception e) {
-//                    nowDrawable = ZipSDCardLoader.loadMultiple(context, rId, Drawable.createFromPath(zipBackgroundGIF.getAbsolutePath()));
+//                    nowDrawable = ZipSDCardLoader.readFileImage(context,zipBackgroundGIF.getAbsolutePath());
 //                    ZipSDCardLoader.add(rId, nowDrawable);
 //                }
 //            }
@@ -81,6 +82,7 @@ public class SkinTool {
 
     /**
      * 判断该主题图片 是否存在
+     *
      * @param context
      * @param rId
      * @return
@@ -104,43 +106,6 @@ public class SkinTool {
             }
         }
         return false;
-    }
-
-    public Drawable zoomDrawable(Drawable drawable, int w, int h) {
-        int width = drawable.getIntrinsicWidth();
-        int height = drawable.getIntrinsicHeight();
-        // drawable转换成bitmap
-        Bitmap oldbmp = drawableToBitmap(drawable);
-        // 创建操作图片用的Matrix对象
-        Matrix matrix = new Matrix();
-        // 计算缩放比例
-        float sx = ((float) w / width);
-        float sy = ((float) h / height);
-        // 设置缩放比例
-        matrix.postScale(sx, sy);
-        // 建立新的bitmap，其内容是对原bitmap的缩放后的图
-        Bitmap newbmp = Bitmap.createBitmap(oldbmp, 0, 0, width, height,
-                matrix, true);
-        return new BitmapDrawable(newbmp);
-    }
-
-
-    public Bitmap drawableToBitmap(Drawable drawable) {
-        // 取 drawable 的长宽
-        int w = drawable.getIntrinsicWidth();
-        int h = drawable.getIntrinsicHeight();
-        // 取 drawable 的颜色格式
-        Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-                : Bitmap.Config.RGB_565;
-        // 建立对应 bitmap
-        Bitmap bitmap = Bitmap.createBitmap(w, h, config);
-        // 建立对应 bitmap 的画布
-        Canvas canvas = new Canvas(bitmap);
-        drawable.setBounds(0, 0, w, h);
-        // 把 drawable 内容画到画布中
-        drawable.draw(canvas);
-        return bitmap;
-
     }
 
     /**

@@ -2,7 +2,10 @@ package com.afei.skinzipdemo.skin;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
@@ -24,7 +27,6 @@ public class ZipSDCardLoader extends SkinSDCardLoader {
     public static final boolean DEBUG = false;
     public static final String DEBUG_TAG = "ZipSDCardLoader";
     public static final int SKIN_LOADER_STRATEGY_ZIP = Integer.MAX_VALUE - 1;
-    public static float wMultiple, hMultiple;
 
     //简单的缓存每次读到的图片
     public static Map<Integer, Drawable> imgs = new HashMap<>();
@@ -54,16 +56,11 @@ public class ZipSDCardLoader extends SkinSDCardLoader {
             }
             File zipBackgroundPNG = new File(folder, resName + ".png");
             if (zipBackgroundPNG.exists()) {
-                drawable = loadMultiple(context,
-                        resId,
-                        Drawable.createFromPath(zipBackgroundPNG.getAbsolutePath()));
+                drawable = readFileImage(context, zipBackgroundPNG.getAbsolutePath());
             }
             File zipBackgroundJPG = new File(folder, resName + ".jpg");
             if (zipBackgroundJPG.exists()) {
-                drawable = loadMultiple(context,
-                        resId,
-                        Drawable.createFromPath(zipBackgroundJPG.getAbsolutePath()));
-
+                drawable = readFileImage(context, zipBackgroundJPG.getAbsolutePath());
             }
             /**
              * 这里是为了解决引用了一个gif的库
@@ -71,12 +68,10 @@ public class ZipSDCardLoader extends SkinSDCardLoader {
 //            File zipBackgroundGIF = new File(dir, resName + ".gif");
 //            if (zipBackgroundGIF.exists()) {
 //                try {
-//                    drawable = new GifDrawable(zipBackgroundGIF.getAbsolutePath());
+//                    drawable = new GifDrawable(context,zipBackgroundGIF.getAbsolutePath());
 //                } catch (Exception e) {
 //                    e.printStackTrace();
-//                    drawable = loadMultiple(context,
-//                            resId,
-//                            Drawable.createFromPath(zipBackgroundGIF.getAbsolutePath()));
+//                    drawable = readFileImage(context,zipBackgroundGIF.getAbsolutePath());
 //                }
 //            }
             add(resId, drawable);
@@ -156,37 +151,13 @@ public class ZipSDCardLoader extends SkinSDCardLoader {
     }
 
     /**
-     * 解决系统缩小图片
-     * 如果你之前的图片是存放在xxhpai文件下的话  那么你文件读到的图片 会比自带的图片 小2-3倍（根据系统而定）
-     * 建议APP自带的图片都存在xxhpai下  可以直接使用本函数解决  如果有更好的办法就不要用该函数
-     * @param context
-     * @param resId
-     * @param zipDrawable
+     * 读取图片
+     *
      * @return
      */
-    public static Drawable loadMultiple(Context context, int resId, Drawable zipDrawable) {
-        Drawable nowDrawable = null;
-        if (wMultiple == 0 || hMultiple == 0) {
-            Drawable oldDrawable = context.getResources().getDrawable(resId);
-            wMultiple = oldDrawable.getIntrinsicWidth() / zipDrawable.getIntrinsicWidth();
-            hMultiple = oldDrawable.getIntrinsicHeight() / zipDrawable.getIntrinsicHeight();
-
-        }
-        int newWMultiple, newHMultiple;
-        newWMultiple = wMultiple == 2 ? 8 : 2;
-        newWMultiple = wMultiple == 3 ? 9 : newWMultiple;
-
-        newHMultiple = hMultiple == 2 ? 8 : 3;
-        newHMultiple = hMultiple == 3 ? 9 : newHMultiple;
-
-        int w = zipDrawable.getIntrinsicWidth();
-        int h = zipDrawable.getIntrinsicHeight();
-
-        nowDrawable = SkinTool
-                .init()
-                .zoomDrawable(zipDrawable,
-                        (int) Math.ceil(w * (newWMultiple)),
-                        (int) Math.ceil(h * (newHMultiple)));
+    public static Drawable readFileImage(Context context, String zipUrl) {
+        Bitmap bitmap = BitmapFactory.decodeFile(zipUrl);
+        Drawable nowDrawable = new BitmapDrawable(context.getResources(), bitmap);
         return nowDrawable;
     }
 
