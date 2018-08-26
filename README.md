@@ -185,7 +185,7 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
   // 需要换肤AutoCompleteTextView的R.attr.popupBackground属性
 
-  eg: [SkinCompatAutoCompleteTextView](android-support/skin-support/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
+  eg: [SkinCompatAutoCompleteTextView](android-support/skin-support-appcompat/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
 
 * 需要使用第三方库控件怎么办
 
