@@ -30,6 +30,7 @@
   * [动态设置资源](#动态设置资源)
     * [动态设置颜色](#动态设置颜色)
     * [动态设置图片](#动态设置图片)
+  * [获取当前使用皮肤](#获取当前使用皮肤)
 * [AlertDialog换肤](docs/AlertDialog.md)
 * [更新日志](docs/ChangeLog.md)
   * [skin-support 更新日志](docs/ChangeLog.md#skin-support-基础控件-支持)
@@ -363,6 +364,12 @@ SkinCompatUserThemeManager.get().apply();
 ```
 
 *资源加载优先级: 用户自定义颜色值-加载策略中的资源-皮肤包资源-应用资源。*
+
+### 获取当前使用皮肤
+
+```
+https://github.com/ximsfei/Android-skin-support/blob/master/android-support/skin-support/src/main/java/skin/support/utils/SkinPreference.java
+```
 
 ## 谁在使用
 
