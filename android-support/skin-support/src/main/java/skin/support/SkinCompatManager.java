@@ -449,12 +449,12 @@ public class SkinCompatManager extends SkinObservable {
     @Nullable
     public Resources getSkinResources(String skinPkgPath) {
         try {
-            AssetManager assetManager = AssetManager.class.newInstance();
-            Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
-            addAssetPath.invoke(assetManager, skinPkgPath);
-
+            PackageInfo packageInfo = mAppContext.getPackageManager().getPackageArchiveInfo(skinPkgPath, 0);
+            packageInfo.applicationInfo.sourceDir = skinPkgPath;
+            packageInfo.applicationInfo.publicSourceDir = skinPkgPath;
+            Resources res = mAppContext.getPackageManager().getResourcesForApplication(packageInfo.applicationInfo);
             Resources superRes = mAppContext.getResources();
-            return new Resources(assetManager, superRes.getDisplayMetrics(), superRes.getConfiguration());
+            return new Resources(res.getAssets(), superRes.getDisplayMetrics(), superRes.getConfiguration());
         } catch (Exception e) {
             e.printStackTrace();
         }
