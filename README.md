@@ -2,7 +2,7 @@
 
 中文 | [In English](docs/README.md) 
 
-[![skin-support](https://img.shields.io/badge/release-v3.1.0--beta1-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://img.shields.io/badge/release-v4.0.0-green.svg)](http://jcenter.bintray.com/skin/support)
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
@@ -67,12 +67,12 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 * [x] 资源加载优先级: 动态设置资源-加载策略中的资源-插件式换肤/应用内换肤-应用资源。
 * [x] 支持定制化，选择需要的模块加载。
 * [x] 支持矢量图(vector/svg)换肤。
+* [x] skin-support 4.0.0以上支持AndroidX，4.0.0以下支持support库
 
 *[详细内容, 请查看更新日志](docs/ChangeLog.md)，那里有所有功能提交记录*
 
 ### TODO
 
-* [x] 解耦skin-support对appcompat-v7的依赖。
 * [ ] `AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);`开关使用错误问题修正。
 * [ ] 支持多语言。
 * [ ] 支持多字体。
@@ -94,7 +94,9 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 > [android-support](android-support)                                  // Android 原生控件
 
->> [skin-support](android-support／skin-support)                      // 换肤框架, 基础控件支持
+>> [skin-support](android-support／skin-support)                      // 换肤框架
+
+>> [skin-support-appcompat](android-support／skin-support-appcompat)  // 换肤框架, 基础控件支持
 
 >> [skin-support-cardview](android-support／skin-support-cardview)    // 换肤框架, CardView 支持
 
@@ -113,13 +115,24 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 ## 用法
 
 ### 导入:
-直接添加依赖, [最新版本选择, 请查看更新日志](docs/ChangeLog.md)
+如果项目中使用了[AndroidX](https://developer.android.google.cn/topic/libraries/support-library/androidx-overview), 添加以下依赖
+```xml
+implementation 'skin.support:skin-support:4.0.0'                   // skin-support
+implementation 'skin.support:skin-support-appcompat:4.0.0'         // skin-support 基础控件支持
+implementation 'skin.support:skin-support-design:4.0.0'            // skin-support-design material design 控件支持[可选]
+implementation 'skin.support:skin-support-cardview:4.0.0'          // skin-support-cardview CardView 控件支持[可选]
+implementation 'skin.support:skin-support-constraint-layout:4.0.0' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+```
+
+如果项目中还在使用support库，添加以下依赖
 ```xml
 implementation 'skin.support:skin-support:3.1.0-beta1'                   // skin-support 基础控件支持
 implementation 'skin.support:skin-support-design:3.1.0-beta1'            // skin-support-design material design 控件支持[可选]
 implementation 'skin.support:skin-support-cardview:3.1.0-beta1'          // skin-support-cardview CardView 控件支持[可选]
 implementation 'skin.support:skin-support-constraint-layout:3.1.0-beta1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
+
+[最新版本选择, 请查看更新日志](docs/ChangeLog.md)
 
 ### 使用:
 

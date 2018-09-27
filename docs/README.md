@@ -2,7 +2,7 @@
 
 [中文](../README.md) | In English 
 
-[![skin-support](https://img.shields.io/badge/release-v3.1.0--beta1-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://img.shields.io/badge/release-v4.0.0-green.svg)](http://jcenter.bintray.com/skin/support)
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
@@ -37,7 +37,19 @@ Now, you have a strong skinning feature. What you need to do is [make a skin](#m
 
 The Gradle Dependency is available via [jCenter](https://bintray.com/pengfeng/skin-support),
 
-Add dependencies directly, [For the latest version, please refer to change log](ChangeLog.md)
+[For the latest version, please refer to change log](ChangeLog.md)
+
+Add dependencies for [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview)
+
+```xml
+implementation 'skin.support:skin-support:4.0.0'                   // skin-support
+implementation 'skin.support:skin-support-appcompat:4.0.0'         // skin-support basic widget
+implementation 'skin.support:skin-support-design:4.0.0'            // skin-support-design material design support [selectable]
+implementation 'skin.support:skin-support-cardview:4.0.0'          // skin-support-cardview CardView support [selectable]
+implementation 'skin.support:skin-support-constraint-layout:4.0.0' // skin-support-constraint-layout ConstraintLayout support [selectable]
+```
+
+Add dependencies for support libraries
 
 ```xml
 implementation 'skin.support:skin-support:3.1.0-beta1'                   // skin-support basic widget

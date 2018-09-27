@@ -41,5 +41,5 @@ ext {
 
     glideVersion = "4.7.1"
 
-    skinSupportVersion = "3.1.0-beta1"
+    skinSupportVersion = "4.0.0"
 }
