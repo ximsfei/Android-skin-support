@@ -23,7 +23,7 @@
             android:background="?attr/skinAlertDialogControlHighlightColor"
             android:visibility="gone" />
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <android.support.v4.widget.Space
+                <androidx.legacy.widget.Space
                     android:id="@+id/textSpacerNoTitle"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/abc_dialog_padding_top_material"
@@ -49,13 +49,13 @@
                     android:paddingRight="?attr/dialogPreferredPadding"
                     android:textColor="?attr/skinAlertDialogMessageTextColor" />
 
-                <android.support.v4.widget.Space
+                <androidx.legacy.widget.Space
                     android:id="@+id/textSpacerNoButtons"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/skin_dialog_padding_top"
                     android:visibility="gone" />
             </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <View
             android:id="@+id/scrollIndicatorDown"

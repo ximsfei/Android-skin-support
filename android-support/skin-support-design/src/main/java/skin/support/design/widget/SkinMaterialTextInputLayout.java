@@ -3,8 +3,8 @@ package skin.support.design.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.support.annotation.StyleRes;
-import android.support.design.widget.TextInputLayout;
+import androidx.annotation.StyleRes;
+import com.google.android.material.textfield.TextInputLayout;
 import android.util.AttributeSet;
 import android.widget.TextView;
 

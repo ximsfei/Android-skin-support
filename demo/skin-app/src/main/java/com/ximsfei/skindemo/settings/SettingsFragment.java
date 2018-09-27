@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.ximsfei.skindemo.R;
 import com.ximsfei.skindemo.loader.CustomSDCardLoader;

@@ -6,7 +6,7 @@ import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.AnyRes;
+import androidx.annotation.AnyRes;
 import android.text.TextUtils;
 import android.util.TypedValue;
 

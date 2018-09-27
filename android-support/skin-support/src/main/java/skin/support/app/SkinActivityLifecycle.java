@@ -4,15 +4,14 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.LayoutInflaterCompat;
 import android.view.LayoutInflater;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.WeakHashMap;
 
+import androidx.core.view.LayoutInflaterCompat;
 import skin.support.SkinCompatManager;
 import skin.support.annotation.Skinable;
 import skin.support.content.res.SkinCompatResources;

@@ -1,7 +1,7 @@
 package skin.support.design.app;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -27,31 +27,31 @@ public class SkinMaterialViewInflater implements SkinLayoutInflater {
             return null;
         }
         switch (name) {
-            case "android.support.design.widget.AppBarLayout":
+            case "com.google.android.material.appbar.AppBarLayout":
                 view = new SkinMaterialAppBarLayout(context, attrs);
                 break;
-            case "android.support.design.widget.TabLayout":
+            case "com.google.android.material.tabs.TabLayout":
                 view = new SkinMaterialTabLayout(context, attrs);
                 break;
-            case "android.support.design.widget.TextInputLayout":
+            case "com.google.android.material.textfield.TextInputLayout":
                 view = new SkinMaterialTextInputLayout(context, attrs);
                 break;
-            case "android.support.design.widget.TextInputEditText":
+            case "com.google.android.material.textfield.TextInputEditText":
                 view = new SkinMaterialTextInputEditText(context, attrs);
                 break;
-            case "android.support.design.widget.NavigationView":
+            case "com.google.android.material.navigation.NavigationView":
                 view = new SkinMaterialNavigationView(context, attrs);
                 break;
-            case "android.support.design.widget.FloatingActionButton":
+            case "com.google.android.material.floatingactionbutton.FloatingActionButton":
                 view = new SkinMaterialFloatingActionButton(context, attrs);
                 break;
-            case "android.support.design.widget.BottomNavigationView":
+            case "com.google.android.material.bottomnavigation.BottomNavigationView":
                 view = new SkinMaterialBottomNavigationView(context, attrs);
                 break;
-            case "android.support.design.widget.CoordinatorLayout":
+            case "androidx.coordinatorlayout.widget.CoordinatorLayout":
                 view = new SkinMaterialCoordinatorLayout(context, attrs);
                 break;
-            case "android.support.design.widget.CollapsingToolbarLayout":
+            case "com.google.android.material.appbar.CollapsingToolbarLayout":
                 view = new SkinMaterialCollapsingToolbarLayout(context, attrs);
                 break;
             default:

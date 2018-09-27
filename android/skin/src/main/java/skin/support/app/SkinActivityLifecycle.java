@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.view.LayoutInflaterCompat;
+import androidx.core.view.LayoutInflaterCompat;
 import android.view.LayoutInflater;
 
 import java.lang.reflect.Field;

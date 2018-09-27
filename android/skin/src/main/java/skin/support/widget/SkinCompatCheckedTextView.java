@@ -2,7 +2,7 @@ package skin.support.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.CheckedTextView;
 

@@ -2,7 +2,7 @@ package skin.support.design.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.design.widget.TabLayout;
+import com.google.android.material.tabs.TabLayout;
 import android.util.AttributeSet;
 
 import skin.support.content.res.SkinCompatResources;

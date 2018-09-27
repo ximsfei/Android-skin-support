@@ -5,8 +5,8 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v4.graphics.ColorUtils;
+import androidx.annotation.RequiresApi;
+import androidx.core.graphics.ColorUtils;
 import android.util.TypedValue;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;

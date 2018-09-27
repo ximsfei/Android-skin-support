@@ -6,7 +6,7 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.annotation.StyleRes;
+import androidx.annotation.StyleRes;
 import android.view.LayoutInflater;
 
 public class ContextThemeWrapper extends ContextWrapper {

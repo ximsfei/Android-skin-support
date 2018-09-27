@@ -13,7 +13,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.drawable.shapes.Shape;
 import android.os.Build;
-import android.support.v4.graphics.drawable.DrawableWrapper;
+import androidx.core.graphics.drawable.DrawableWrapper;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.ProgressBar;

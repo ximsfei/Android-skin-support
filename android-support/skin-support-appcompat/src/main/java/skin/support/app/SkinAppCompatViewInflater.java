@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.view.ContextThemeWrapper;
-import android.support.v7.widget.TintContextWrapper;
-import android.support.v7.widget.VectorEnabledTintResources;
+
+import androidx.core.view.ViewCompat;
+import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.appcompat.widget.TintContextWrapper;
+import androidx.appcompat.widget.VectorEnabledTintResources;
+
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewParent;
@@ -129,7 +131,7 @@ public class SkinAppCompatViewInflater implements SkinLayoutInflater, SkinWrappe
     private View createViewFromV7(Context context, String name, AttributeSet attrs) {
         View view = null;
         switch (name) {
-            case "android.support.v7.widget.Toolbar":
+            case "androidx.appcompat.widget.Toolbar":
                 view = new SkinCompatToolbar(context, attrs);
                 break;
             default:

@@ -4,8 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.widget.TextView;
 

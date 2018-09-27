@@ -2,7 +2,7 @@ package com.ximsfei.skindemo.test;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.webkit.WebView;
 

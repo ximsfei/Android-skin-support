@@ -1,7 +1,7 @@
 package com.ximsfei.skin.sample.activities.components;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.ximsfei.skin.sample.R;
 

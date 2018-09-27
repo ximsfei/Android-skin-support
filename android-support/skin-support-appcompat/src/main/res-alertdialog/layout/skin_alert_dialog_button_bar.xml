@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:fillViewport="true">
 
-    <android.support.v7.widget.ButtonBarLayout
+    <androidx.appcompat.widget.ButtonBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textColor="?attr/skinAlertDialogNeutralButtonTextColor" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:id="@+id/spacer"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -44,6 +44,6 @@
             android:layout_height="wrap_content"
             android:textColor="?attr/skinAlertDialogPositiveButtonTextColor" />
 
-    </android.support.v7.widget.ButtonBarLayout>
+    </androidx.appcompat.widget.ButtonBarLayout>
 
 </ScrollView>

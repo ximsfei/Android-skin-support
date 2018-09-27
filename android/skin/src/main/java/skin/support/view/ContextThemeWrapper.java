@@ -3,7 +3,7 @@ package skin.support.view;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Resources;
-import android.support.annotation.StyleRes;
+import androidx.annotation.StyleRes;
 import android.view.LayoutInflater;
 
 public class ContextThemeWrapper extends ContextWrapper {

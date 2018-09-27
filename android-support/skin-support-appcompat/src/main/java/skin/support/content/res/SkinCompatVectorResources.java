@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.content.res.AppCompatResources;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.content.res.AppCompatResources;
 
 public class SkinCompatVectorResources implements SkinResources {
     private static SkinCompatVectorResources sInstance;

@@ -37,7 +37,7 @@
 
     </LinearLayout>
 
-    <android.support.v4.widget.Space
+    <androidx.legacy.widget.Space
         android:id="@+id/titleDividerNoCustom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/skin_dialog_title_divider"

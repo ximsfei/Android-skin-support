@@ -12,7 +12,7 @@ public class SkinConstraintViewInflater implements SkinLayoutInflater {
     public View createView(Context context, final String name, AttributeSet attrs) {
         View view = null;
         switch (name) {
-            case "android.support.constraint.ConstraintLayout":
+            case "androidx.constraintlayout.widget.ConstraintLayout":
                 view = new SkinCompatConstraintLayout(context, attrs);
                 break;
             default:
