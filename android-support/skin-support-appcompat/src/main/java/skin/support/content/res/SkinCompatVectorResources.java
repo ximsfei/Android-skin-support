@@ -59,7 +59,29 @@ public class SkinCompatVectorResources implements SkinResources {
             }
             return AppCompatResources.getDrawable(context, resId);
         } else {
-            return SkinCompatVectorResources.getDrawableCompat(context, resId);
+            if (!SkinCompatUserThemeManager.get().isColorEmpty()) {
+                ColorStateList colorStateList = SkinCompatUserThemeManager.get().getColorStateList(resId);
+                if (colorStateList != null) {
+                    return new ColorDrawable(colorStateList.getDefaultColor());
+                }
+            }
+            if (!SkinCompatUserThemeManager.get().isDrawableEmpty()) {
+                Drawable drawable = SkinCompatUserThemeManager.get().getDrawable(resId);
+                if (drawable != null) {
+                    return drawable;
+                }
+            }
+            Drawable drawable = SkinCompatResources.getInstance().getStrategyDrawable(context, resId);
+            if (drawable != null) {
+                return drawable;
+            }
+            if (!SkinCompatResources.getInstance().isDefaultSkin()) {
+                int targetResId = SkinCompatResources.getInstance().getTargetResId(context, resId);
+                if (targetResId != 0) {
+                    return SkinCompatResources.getInstance().getSkinResources().getDrawable(targetResId);
+                }
+            }
+            return AppCompatResources.getDrawable(context, resId);
         }
     }
 
