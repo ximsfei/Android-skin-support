@@ -124,6 +124,16 @@ implementation 'skin.support:skin-support-cardview:4.0.1'          // skin-suppo
 implementation 'skin.support:skin-support-constraint-layout:4.0.1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
 
+*⚠️ 从3.x.x迁移至4.0.1+, 解耦了换肤库对appcompat包的依赖，需要新增以下代码*
+```gradle
+implementation 'skin.support:skin-support-appcompat:4.0.1'         // skin-support 基础控件支持
+```
+
+```java
+SkinCompatManager.withoutActivity(this).addInflater(new SkinAppCompatViewInflater()); // 基础控件换肤初始化
+```
+
+
 如果项目中还在使用support库，添加以下依赖
 ```xml
 implementation 'skin.support:skin-support:3.1.0-beta1'                   // skin-support 基础控件支持
@@ -142,7 +152,8 @@ implementation 'skin.support:skin-support-constraint-layout:3.1.0-beta1' // skin
 @Override
 public void onCreate() {
     super.onCreate();
-    SkinCompatManager.withoutActivity(this)                         // 基础控件换肤初始化
+    SkinCompatManager.withoutActivity(this)
+            .addInflater(new SkinAppCompatViewInflater())           // 基础控件换肤初始化
             .addInflater(new SkinMaterialViewInflater())            // material design 控件换肤初始化[可选]
             .addInflater(new SkinConstraintViewInflater())          // ConstraintLayout 控件换肤初始化[可选]
             .addInflater(new SkinCardViewInflater())                // CardView v7 控件换肤初始化[可选]
