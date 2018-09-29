@@ -267,17 +267,13 @@ public class SkinCompatManager extends SkinObservable {
         return mSkinAllActivityEnable;
     }
 
-    /**
-     * 设置状态栏换肤，使用Theme中的{@link android.R.attr#statusBarColor}属性. 5.0以上有效.
-     *
-     * @param enable true: 打开; false: 关闭.
-     * @return
-     */
+    @Deprecated
     public SkinCompatManager setSkinStatusBarColorEnable(boolean enable) {
         mSkinStatusBarColorEnable = enable;
         return this;
     }
 
+    @Deprecated
     public boolean isSkinStatusBarColorEnable() {
         return mSkinStatusBarColorEnable;
     }
