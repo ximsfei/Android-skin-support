@@ -2,7 +2,7 @@
 
 中文 | [In English](docs/README.md) 
 
-[![skin-support](https://img.shields.io/badge/release-v4.0.0-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://img.shields.io/badge/release-v4.0.1-green.svg)](http://jcenter.bintray.com/skin/support)
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
@@ -117,11 +117,11 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 ### 导入:
 如果项目中使用了[AndroidX](https://developer.android.google.cn/topic/libraries/support-library/androidx-overview), 添加以下依赖
 ```xml
-implementation 'skin.support:skin-support:4.0.0'                   // skin-support
-implementation 'skin.support:skin-support-appcompat:4.0.0'         // skin-support 基础控件支持
-implementation 'skin.support:skin-support-design:4.0.0'            // skin-support-design material design 控件支持[可选]
-implementation 'skin.support:skin-support-cardview:4.0.0'          // skin-support-cardview CardView 控件支持[可选]
-implementation 'skin.support:skin-support-constraint-layout:4.0.0' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+implementation 'skin.support:skin-support:4.0.1'                   // skin-support
+implementation 'skin.support:skin-support-appcompat:4.0.1'         // skin-support 基础控件支持
+implementation 'skin.support:skin-support-design:4.0.1'            // skin-support-design material design 控件支持[可选]
+implementation 'skin.support:skin-support-cardview:4.0.1'          // skin-support-cardview CardView 控件支持[可选]
+implementation 'skin.support:skin-support-constraint-layout:4.0.1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
 
 如果项目中还在使用support库，添加以下依赖
