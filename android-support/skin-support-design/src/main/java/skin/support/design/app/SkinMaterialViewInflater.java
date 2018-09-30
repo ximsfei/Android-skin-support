@@ -22,10 +22,13 @@ import skin.support.design.widget.SkinMaterialTextInputLayout;
 public class SkinMaterialViewInflater implements SkinLayoutInflater {
     @Override
     public View createView(@NonNull Context context, final String name, @NonNull AttributeSet attrs) {
-        View view = null;
-        if (!name.startsWith("android.support.design.widget.")) {
+        if ("androidx.coordinatorlayout.widget.CoordinatorLayout".equals(name)) {
+            return new SkinMaterialCoordinatorLayout(context, attrs);
+        }
+        if (!name.startsWith("com.google.android.material.")) {
             return null;
         }
+        View view = null;
         switch (name) {
             case "com.google.android.material.appbar.AppBarLayout":
                 view = new SkinMaterialAppBarLayout(context, attrs);
@@ -47,9 +50,6 @@ public class SkinMaterialViewInflater implements SkinLayoutInflater {
                 break;
             case "com.google.android.material.bottomnavigation.BottomNavigationView":
                 view = new SkinMaterialBottomNavigationView(context, attrs);
-                break;
-            case "androidx.coordinatorlayout.widget.CoordinatorLayout":
-                view = new SkinMaterialCoordinatorLayout(context, attrs);
                 break;
             case "com.google.android.material.appbar.CollapsingToolbarLayout":
                 view = new SkinMaterialCollapsingToolbarLayout(context, attrs);
