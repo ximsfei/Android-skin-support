@@ -114,7 +114,38 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ## 用法
 
+[最新版本选择, 请查看更新日志](docs/ChangeLog.md)
+
 ### 导入:
+
+#### support library
+
+如果项目中还在使用support库，添加以下依赖
+```xml
+implementation 'skin.support:skin-support:3.1.0-beta1'                   // skin-support 基础控件支持
+implementation 'skin.support:skin-support-design:3.1.0-beta1'            // skin-support-design material design 控件支持[可选]
+implementation 'skin.support:skin-support-cardview:3.1.0-beta1'          // skin-support-cardview CardView 控件支持[可选]
+implementation 'skin.support:skin-support-constraint-layout:3.1.0-beta1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+```
+
+在Application的onCreate中初始化
+    
+```java
+@Override
+public void onCreate() {
+    super.onCreate();
+    SkinCompatManager.withoutActivity(this)                         // 基础控件换肤初始化
+            .addInflater(new SkinMaterialViewInflater())            // material design 控件换肤初始化[可选]
+            .addInflater(new SkinConstraintViewInflater())          // ConstraintLayout 控件换肤初始化[可选]
+            .addInflater(new SkinCardViewInflater())                // CardView v7 控件换肤初始化[可选]
+            .setSkinStatusBarColorEnable(false)                     // 关闭状态栏换肤，默认打开[可选]
+            .setSkinWindowBackgroundEnable(false)                   // 关闭windowBackground换肤，默认打开[可选]
+            .loadSkin();
+}
+```
+
+#### AndroidX support:
+
 如果项目中使用了[AndroidX](https://developer.android.google.cn/topic/libraries/support-library/androidx-overview), 添加以下依赖
 ```xml
 implementation 'skin.support:skin-support:4.0.1'                   // skin-support
@@ -129,24 +160,7 @@ implementation 'skin.support:skin-support-constraint-layout:4.0.1' // skin-suppo
 implementation 'skin.support:skin-support-appcompat:4.0.1'         // skin-support 基础控件支持
 ```
 
-```java
-SkinCompatManager.withoutActivity(this).addInflater(new SkinAppCompatViewInflater()); // 基础控件换肤初始化
-```
-
-
-如果项目中还在使用support库，添加以下依赖
-```xml
-implementation 'skin.support:skin-support:3.1.0-beta1'                   // skin-support 基础控件支持
-implementation 'skin.support:skin-support-design:3.1.0-beta1'            // skin-support-design material design 控件支持[可选]
-implementation 'skin.support:skin-support-cardview:3.1.0-beta1'          // skin-support-cardview CardView 控件支持[可选]
-implementation 'skin.support:skin-support-constraint-layout:3.1.0-beta1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
-```
-
-[最新版本选择, 请查看更新日志](docs/ChangeLog.md)
-
-### 使用:
-
-#### 在Application的onCreate中初始化
+在Application的onCreate中初始化
     
 ```java
 @Override
@@ -162,6 +176,8 @@ public void onCreate() {
             .loadSkin();
 }
 ```
+
+### 使用:
 
 #### 皮肤开关
 
