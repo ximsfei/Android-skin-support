@@ -108,8 +108,12 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
             Field field = LayoutInflater.class.getDeclaredField("mFactorySet");
             field.setAccessible(true);
             field.setBoolean(layoutInflater, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
             LayoutInflaterCompat.setFactory(layoutInflater, getSkinDelegate(context));
-        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

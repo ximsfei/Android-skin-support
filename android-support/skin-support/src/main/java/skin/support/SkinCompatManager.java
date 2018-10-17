@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -14,7 +13,6 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.SparseArray;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -434,12 +432,12 @@ public class SkinCompatManager extends SkinObservable {
     @Nullable
     public Resources getSkinResources(String skinPkgPath) {
         try {
-            AssetManager assetManager = AssetManager.class.newInstance();
-            Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
-            addAssetPath.invoke(assetManager, skinPkgPath);
-
+            PackageInfo packageInfo = mAppContext.getPackageManager().getPackageArchiveInfo(skinPkgPath, 0);
+            packageInfo.applicationInfo.sourceDir = skinPkgPath;
+            packageInfo.applicationInfo.publicSourceDir = skinPkgPath;
+            Resources res = mAppContext.getPackageManager().getResourcesForApplication(packageInfo.applicationInfo);
             Resources superRes = mAppContext.getResources();
-            return new Resources(assetManager, superRes.getDisplayMetrics(), superRes.getConfiguration());
+            return new Resources(res.getAssets(), superRes.getDisplayMetrics(), superRes.getConfiguration());
         } catch (Exception e) {
             e.printStackTrace();
         }
