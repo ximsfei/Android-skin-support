@@ -2,6 +2,9 @@
 
 ## skin-support
 
+* ![v3.1.1](https://img.shields.io/badge/skin--support-v3.1.1-green.svg)
+  * Add Android P Support
+
 * ![v3.1.0-beta1](https://img.shields.io/badge/skin--support-v3.1.0--beta1-green.svg)
   * bugfix:
     * issue #151
