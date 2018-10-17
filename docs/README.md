@@ -52,10 +52,10 @@ implementation 'skin.support:skin-support-constraint-layout:4.0.1' // skin-suppo
 Add dependencies for support libraries
 
 ```xml
-implementation 'skin.support:skin-support:3.1.0-beta1'                   // skin-support basic widget
-implementation 'skin.support:skin-support-design:3.1.0-beta1'            // skin-support-design material design support [selectable]
-implementation 'skin.support:skin-support-cardview:3.1.0-beta1'          // skin-support-cardview CardView support [selectable]
-implementation 'skin.support:skin-support-constraint-layout:3.1.0-beta1' // skin-support-constraint-layout ConstraintLayout support [selectable]
+implementation 'skin.support:skin-support:3.1.1'                   // skin-support basic widget
+implementation 'skin.support:skin-support-design:3.1.1'            // skin-support-design material design support [selectable]
+implementation 'skin.support:skin-support-cardview:3.1.1'          // skin-support-cardview CardView support [selectable]
+implementation 'skin.support:skin-support-constraint-layout:3.1.1' // skin-support-constraint-layout ConstraintLayout support [selectable]
 ```
 
 ## Integration
