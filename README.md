@@ -236,7 +236,7 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
 ### 应用内换肤:
 
-应用内换肤，皮肤名为: night; 新增需要换肤的资源添加后缀 _night或者前缀 night_。
+应用内换肤，皮肤名为: night; 新增需要换肤的资源添加后缀或者前缀。
 
 需要换肤的资源为R.color.windowBackgroundColor, 添加对应资源R.color.windowBackgroundColor_night。
 
