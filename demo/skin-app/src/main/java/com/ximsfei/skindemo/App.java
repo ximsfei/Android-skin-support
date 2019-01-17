@@ -1,6 +1,7 @@
 package com.ximsfei.skindemo;
 
 import android.app.Application;
+
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.ximsfei.skindemo.loader.CustomSDCardLoader;
@@ -42,8 +43,9 @@ public class App extends Application {
                 .addInflater(new SkinCircleImageViewInflater()) // hdodenhof/CircleImageView
                 .addInflater(new SkinFlycoTabLayoutInflater())  // H07000223/FlycoTabLayout
                 .setSkinStatusBarColorEnable(true)              // 关闭状态栏换肤
-//                .setSkinWindowBackgroundEnable(false)           // 关闭windowBackground换肤
-//                .setSkinAllActivityEnable(false)                // true: 默认所有的Activity都换肤; false: 只有实现SkinCompatSupportable接口的Activity换肤
+//               .setSkinWindowBackgroundEnable(false)           // 关闭windowBackground换肤
+//               .setSkinAllActivityEnable(false)                // true: 默认所有的Activity都换肤; false: 只有实现SkinCompatSupportable接口的Activity换肤
+                .setSkinSomeActivityDisable(true)                //true:实现{@link skin.support.annotation.Skindisable}的activity不换肤；false:不再检查{@link skin.support.annotation.Skindisable}；def:false
                 .loadSkin();
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }

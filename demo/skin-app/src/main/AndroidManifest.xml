@@ -50,6 +50,10 @@
             android:label="Test Activity"
             android:theme="@style/AppTheme" />
         <activity
+            android:name="com.ximsfei.skindemo.test.SkindisableTestActivity"
+            android:label="Skindisable Activity"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name="com.ximsfei.skindemo.actionbar.ActionbarTestActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ActionbarTheme" />

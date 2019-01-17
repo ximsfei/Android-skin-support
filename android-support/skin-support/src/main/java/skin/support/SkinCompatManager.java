@@ -9,8 +9,10 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import android.text.TextUtils;
 import android.util.SparseArray;
 
@@ -43,6 +45,7 @@ public class SkinCompatManager extends SkinObservable {
     private List<SkinLayoutInflater> mHookInflaters = new ArrayList<>();
     private SparseArray<SkinLoaderStrategy> mStrategyMap = new SparseArray<>();
     private boolean mSkinAllActivityEnable = true;
+    private boolean mSkinSomeActivityDisable = false;
     private boolean mSkinStatusBarColorEnable = false;
     private boolean mSkinWindowBackgroundColorEnable = true;
 
@@ -267,6 +270,23 @@ public class SkinCompatManager extends SkinObservable {
 
     public boolean isSkinAllActivityEnable() {
         return mSkinAllActivityEnable;
+    }
+
+    public boolean isSkinSomeActivityDisable() {
+        return mSkinSomeActivityDisable;
+    }
+
+    /**
+     * 设置是否部分Activity不换肤
+     *
+     * @param enable true:实现{@link skin.support.annotation.Skindisable}的activity不换肤；
+     *               false:不再检查{@link skin.support.annotation.Skindisable}
+     *               def:false
+     * @return
+     */
+    public SkinCompatManager setSkinSomeActivityDisable(boolean enable) {
+        this.mSkinSomeActivityDisable = enable;
+        return this;
     }
 
     @Deprecated

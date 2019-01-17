@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
+
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -25,6 +27,7 @@ import com.ximsfei.skindemo.flycotablayout.ui.SimpleHomeActivity;
 import com.ximsfei.skindemo.mdtab.MaterialDesignActivity;
 import com.ximsfei.skindemo.picker.DrawablePickerActivity;
 import com.ximsfei.skindemo.tab.MainActivity;
+import com.ximsfei.skindemo.test.SkindisableTestActivity;
 import com.ximsfei.skindemo.test.TestActivity;
 import com.ximsfei.skindemo.window.WindowManagerActivity;
 import com.ximsfei.skindemo.zip.ZipActivity;
@@ -44,6 +47,7 @@ public class SplashActivity extends BaseActivity {
             "AlertDialog",
             "WindowManager",
             "Test",
+            "SkindisableTest",
             "Actionbar",
             "Color Picker",
             "Drawable Picker",
@@ -57,6 +61,7 @@ public class SplashActivity extends BaseActivity {
             AlertDialogActivity.class,
             WindowManagerActivity.class,
             TestActivity.class,
+            SkindisableTestActivity.class,
             ActionbarTestActivity.class,
             ColorPickerActivity.class,
             DrawablePickerActivity.class,

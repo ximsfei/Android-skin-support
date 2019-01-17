@@ -14,6 +14,7 @@ import java.util.WeakHashMap;
 import androidx.core.view.LayoutInflaterCompat;
 import skin.support.SkinCompatManager;
 import skin.support.annotation.Skinable;
+import skin.support.annotation.Skindisable;
 import skin.support.content.res.SkinCompatResources;
 import skin.support.observe.SkinObservable;
 import skin.support.observe.SkinObserver;
@@ -150,6 +151,12 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
     }
 
     private boolean isContextSkinEnable(Context context) {
+        if (SkinCompatManager.getInstance().isSkinSomeActivityDisable()) {
+            if (context.getClass().getAnnotation(Skindisable.class) != null) {
+                return false;
+            }
+        }
+
         return SkinCompatManager.getInstance().isSkinAllActivityEnable()
                 || context.getClass().getAnnotation(Skinable.class) != null
                 || context instanceof SkinCompatSupportable;
