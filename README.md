@@ -2,7 +2,7 @@
 
 中文 | [In English](docs/README.md) 
 
-[![skin-support](https://img.shields.io/badge/release-v4.0.1-green.svg)](http://jcenter.bintray.com/skin/support)
+[![skin-support](https://img.shields.io/badge/release-v4.0.2-green.svg)](http://jcenter.bintray.com/skin/support)
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
@@ -148,16 +148,16 @@ public void onCreate() {
 
 如果项目中使用了[AndroidX](https://developer.android.google.cn/topic/libraries/support-library/androidx-overview), 添加以下依赖
 ```xml
-implementation 'skin.support:skin-support:4.0.1'                   // skin-support
-implementation 'skin.support:skin-support-appcompat:4.0.1'         // skin-support 基础控件支持
-implementation 'skin.support:skin-support-design:4.0.1'            // skin-support-design material design 控件支持[可选]
-implementation 'skin.support:skin-support-cardview:4.0.1'          // skin-support-cardview CardView 控件支持[可选]
-implementation 'skin.support:skin-support-constraint-layout:4.0.1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+implementation 'skin.support:skin-support:4.0.2'                   // skin-support
+implementation 'skin.support:skin-support-appcompat:4.0.2'         // skin-support 基础控件支持
+implementation 'skin.support:skin-support-design:4.0.2'            // skin-support-design material design 控件支持[可选]
+implementation 'skin.support:skin-support-cardview:4.0.2'          // skin-support-cardview CardView 控件支持[可选]
+implementation 'skin.support:skin-support-constraint-layout:4.0.2' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
 
-*⚠️ 从3.x.x迁移至4.0.1+, 解耦了换肤库对appcompat包的依赖，需要新增以下代码*
+*⚠️ 从3.x.x迁移至4.0.2+, 解耦了换肤库对appcompat包的依赖，需要新增以下代码*
 ```gradle
-implementation 'skin.support:skin-support-appcompat:4.0.1'         // skin-support 基础控件支持
+implementation 'skin.support:skin-support-appcompat:4.0.2'         // skin-support 基础控件支持
 ```
 
 在Application的onCreate中初始化
@@ -174,6 +174,16 @@ public void onCreate() {
             .setSkinStatusBarColorEnable(false)                     // 关闭状态栏换肤，默认打开[可选]
             .setSkinWindowBackgroundEnable(false)                   // 关闭windowBackground换肤，默认打开[可选]
             .loadSkin();
+}
+```
+
+> 如果项目中使用的Activity继承自AppCompatActivity，需要重载getDelegate()方法
+
+```java
+@NonNull
+@Override
+public AppCompatDelegate getDelegate() {
+    return SkinAppCompatDelegateImpl.get(this, this);
 }
 ```
 
