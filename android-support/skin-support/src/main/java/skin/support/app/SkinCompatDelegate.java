@@ -2,8 +2,8 @@ package skin.support.app;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.core.view.LayoutInflaterFactory;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import java.lang.ref.WeakReference;
@@ -17,7 +17,7 @@ import skin.support.widget.SkinCompatSupportable;
  * Created by ximsfei on 2017/1/9.
  */
 
-public class SkinCompatDelegate implements LayoutInflaterFactory {
+public class SkinCompatDelegate implements LayoutInflater.Factory2 {
     private final Context mContext;
     private SkinCompatViewInflater mSkinCompatViewInflater;
     private List<WeakReference<SkinCompatSupportable>> mSkinHelpers = new ArrayList<>();
@@ -29,6 +29,20 @@ public class SkinCompatDelegate implements LayoutInflaterFactory {
     @Override
     public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
         View view = createView(parent, name, context, attrs);
+
+        if (view == null) {
+            return null;
+        }
+        if (view instanceof SkinCompatSupportable) {
+            mSkinHelpers.add(new WeakReference<>((SkinCompatSupportable) view));
+        }
+
+        return view;
+    }
+
+    @Override
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
+        View view = createView(null, name, context, attrs);
 
         if (view == null) {
             return null;

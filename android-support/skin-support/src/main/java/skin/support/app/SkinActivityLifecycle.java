@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Field;
 import java.util.WeakHashMap;
 
 import androidx.core.view.LayoutInflaterCompat;
@@ -101,14 +100,11 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
     }
 
     private void installLayoutFactory(Context context) {
-        LayoutInflater layoutInflater = LayoutInflater.from(context);
         try {
-            Field field = LayoutInflater.class.getDeclaredField("mFactorySet");
-            field.setAccessible(true);
-            field.setBoolean(layoutInflater, false);
-            LayoutInflaterCompat.setFactory(layoutInflater, getSkinDelegate(context));
-        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
-            e.printStackTrace();
+            LayoutInflater layoutInflater = LayoutInflater.from(context);
+            LayoutInflaterCompat.setFactory2(layoutInflater, getSkinDelegate(context));
+        } catch (Throwable e) {
+            Slog.i("SkinActivity", "A factory has already been set on this LayoutInflater");
         }
     }
 

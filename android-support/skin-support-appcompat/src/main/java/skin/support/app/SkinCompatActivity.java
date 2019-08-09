@@ -26,7 +26,7 @@ public class SkinCompatActivity extends AppCompatActivity implements SkinObserve
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        LayoutInflaterCompat.setFactory(getLayoutInflater(), getSkinDelegate());
+        LayoutInflaterCompat.setFactory2(getLayoutInflater(), getSkinDelegate());
         super.onCreate(savedInstanceState);
         updateStatusBarColor();
         updateWindowBackground();
