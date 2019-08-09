@@ -394,6 +394,7 @@ public class SkinCompatManager extends SkinObservable {
                     String skinName = mStrategy.loadSkinInBackground(mAppContext, params[0]);
                     if (TextUtils.isEmpty(skinName)) {
                         SkinCompatResources.getInstance().reset(mStrategy);
+                        return null;
                     }
                     return params[0];
                 }
