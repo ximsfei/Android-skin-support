@@ -1,7 +1,10 @@
 package com.ximsfei.skindemo;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.app.SkinAppCompatDelegateImpl;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -28,5 +31,11 @@ public class BaseActivity extends AppCompatActivity {
             }
         });
         toolbar.setOverflowIcon(getResources().getDrawable(R.drawable.ic_camera_24dp));
+    }
+
+    @NonNull
+    @Override
+    public AppCompatDelegate getDelegate() {
+        return SkinAppCompatDelegateImpl.get(this, this);
     }
 }
