@@ -122,10 +122,10 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 如果项目中还在使用support库，添加以下依赖
 ```xml
-implementation 'skin.support:skin-support:3.1.1'                   // skin-support 基础控件支持
-implementation 'skin.support:skin-support-design:3.1.1'            // skin-support-design material design 控件支持[可选]
-implementation 'skin.support:skin-support-cardview:3.1.1'          // skin-support-cardview CardView 控件支持[可选]
-implementation 'skin.support:skin-support-constraint-layout:3.1.1' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+implementation 'skin.support:skin-support:3.1.2'                   // skin-support 基础控件支持
+implementation 'skin.support:skin-support-design:3.1.2'            // skin-support-design material design 控件支持[可选]
+implementation 'skin.support:skin-support-cardview:3.1.2'          // skin-support-cardview CardView 控件支持[可选]
+implementation 'skin.support:skin-support-constraint-layout:3.1.2' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
 
 在Application的onCreate中初始化
@@ -141,6 +141,16 @@ public void onCreate() {
             .setSkinStatusBarColorEnable(false)                     // 关闭状态栏换肤，默认打开[可选]
             .setSkinWindowBackgroundEnable(false)                   // 关闭windowBackground换肤，默认打开[可选]
             .loadSkin();
+}
+```
+
+> 如果项目中使用的Activity继承自AppCompatActivity，需要重载getDelegate()方法
+
+```java
+@NonNull
+@Override
+public AppCompatDelegate getDelegate() {
+    return SkinAppCompatDelegateImpl.get(this, this);
 }
 ```
 
