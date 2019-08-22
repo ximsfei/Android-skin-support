@@ -15,20 +15,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-alertdialog']
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation project(':android-support:skin-support')
-    implementation project(':android-support:skin-support-appcompat')
+    implementation project(':androidx:skin-support')
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
 }
 
 ext {
     publishVersion = rootProject.skinSupportVersion
-    moduleName = 'skin-support-design'
-    descContent = 'material design控件换肤支持包'
+    moduleName = 'skin-support-appcompat'
+    descContent = 'skin-support 基础控件换肤支持包'
 }
 
 apply from: '../../publishing_maven.gradle'

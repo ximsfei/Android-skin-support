@@ -92,17 +92,17 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 >> [skin-night](demo/skin-night)                                      // 夜间模式皮肤工程
 
-> [android-support](android-support)                                  // Android 原生控件
+> [androidx](androidx)                                  // Android 原生控件
 
->> [skin-support](android-support／skin-support)                      // 换肤框架
+>> [skin-support](androidx／skin-support)                      // 换肤框架
 
->> [skin-support-appcompat](android-support／skin-support-appcompat)  // 换肤框架, 基础控件支持
+>> [skin-support-appcompat](androidx／skin-support-appcompat)  // 换肤框架, 基础控件支持
 
->> [skin-support-cardview](android-support／skin-support-cardview)    // 换肤框架, CardView 支持
+>> [skin-support-cardview](androidx／skin-support-cardview)    // 换肤框架, CardView 支持
 
->> [skin-support-design](android-support／skin-support-design)        // 换肤框架, Material Design 支持
+>> [skin-support-design](androidx／skin-support-design)        // 换肤框架, Material Design 支持
 
->> [skin-support-constraint-layout](android-support／skin-support-constraint-layout)  // 换肤框架, ConstraintLayout 支持
+>> [skin-support-constraint-layout](androidx／skin-support-constraint-layout)  // 换肤框架, ConstraintLayout 支持
 
 > [third-part-support](third-part-support)           // 第三方控件换肤支持
 
@@ -246,7 +246,7 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
   // 需要换肤AutoCompleteTextView的R.attr.popupBackground属性
 
-  eg: [SkinCompatAutoCompleteTextView](android-support/skin-support-appcompat/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
+  eg: [SkinCompatAutoCompleteTextView](androidx/skin-support-appcompat/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
 
 * 需要使用第三方库控件怎么办
 
@@ -428,7 +428,7 @@ SkinCompatUserThemeManager.get().apply();
 ### 获取当前使用皮肤
 
 ```
-https://github.com/ximsfei/Android-skin-support/blob/master/android-support/skin-support/src/main/java/skin/support/utils/SkinPreference.java
+https://github.com/ximsfei/Android-skin-support/blob/master/androidx/skin-support/src/main/java/skin/support/utils/SkinPreference.java
 ```
 
 ## 谁在使用

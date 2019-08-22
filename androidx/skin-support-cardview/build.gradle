@@ -8,6 +8,7 @@ android {
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
     }
     buildTypes {
         release {
@@ -19,15 +20,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
-    implementation project(':android-support:skin-support')
-    implementation project(':android-support:skin-support-appcompat')
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation project(':androidx:skin-support')
 }
 
 ext {
     publishVersion = rootProject.skinSupportVersion
-    moduleName = 'skin-support-constraint-layout'
-    descContent = 'ConstraintLayout控件换肤支持包'
+    moduleName = "skin-support-cardview"
+    descContent = "CardView-v7 换肤支持包"
 }
 
 apply from: '../../publishing_maven.gradle'

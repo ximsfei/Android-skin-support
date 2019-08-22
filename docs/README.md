@@ -118,7 +118,7 @@ SkinCompatManager.getInstance().restoreDefaultTheme();
 
   // such as AutoCompleteTextView's R.attr.popupBackground attribute
 
-  eg: [SkinCompatAutoCompleteTextView](../android-support/skin-support/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
+  eg: [SkinCompatAutoCompleteTextView](../androidx/skin-support/src/main/java/skin/support/widget/SkinCompatAutoCompleteTextView.java)
 
 * If you need to use third-party library.
 
