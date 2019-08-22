@@ -15,7 +15,7 @@
             <option value="$PROJECT_DIR$/androidx/skin-support-constraint-layout" />
             <option value="$PROJECT_DIR$/androidx/skin-support-design" />
             <option value="$PROJECT_DIR$/demo" />
-            <option value="$PROJECT_DIR$/demo/skin-app" />
+            <option value="$PROJECT_DIR$/demo/skin-androidx-app" />
             <option value="$PROJECT_DIR$/demo/skin-night" />
             <option value="$PROJECT_DIR$/third-part-support" />
             <option value="$PROJECT_DIR$/third-part-support/circleimageview" />
