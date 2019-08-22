@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/t1_3_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/image_button"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:background="@drawable/picture"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/text_background"
+                android:gravity="center_vertical"
+                android:text="textView"
+                android:textColor="@color/text_color"
+                android:textSize="18sp" />
+
+            <TextView
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:text="style=@style/TextStyle"
+                android:textSize="18sp" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/auto"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:focusable="false"
+                android:popupBackground="@color/background"
+                android:text="MultiAutoCompleteTextView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:text="点击可变文本颜色 @drawable/color_selector"
+                android:textColor="@drawable/color_selector"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/image_background" />
+
+            <Button
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:text="Button @style/TextStyle"
+                android:textAllCaps="false"
+                android:textSize="18sp" />
+
+            <EditText
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:hint="@color/text_color_hint"
+                android:text="EditText focusable=false @color/"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:button="@drawable/button_checked" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/t2_7_background"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:button="@drawable/button_radio" />
+
+                    <RadioButton
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:button="@drawable/button_radio" />
+
+                    <RadioButton
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/colorPrimary" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <CheckedTextView
+                android:id="@+id/checked_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/text_background"
+                android:checkMark="@drawable/button_checked"
+                android:filterTouchesWhenObscured="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:text="CheckedTextView"
+                android:textColor="@color/text_color"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/divider" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

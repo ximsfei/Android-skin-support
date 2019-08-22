@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:summary="选择想要切换的皮肤"
+        android:title="皮肤切换">
+
+        <SwitchPreference
+            android:key="BuildInNightMode"
+            android:summary="应用内换肤"
+            android:title="夜间模式" />
+
+        <SwitchPreference
+            android:key="AssetsNightMode"
+            android:summary="插件式换肤"
+            android:title="夜间模式" />
+
+        <SwitchPreference
+            android:key="SDCardNightMode"
+            android:summary="指定sdcard路径"
+            android:title="夜间模式" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

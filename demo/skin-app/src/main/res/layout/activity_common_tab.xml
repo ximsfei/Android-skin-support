@@ -1,0 +1,134 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:text="点击换肤" />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/t2_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/t2_1_background"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            tl:tl_indicator_color="@color/t2_1_tl_indicator_color"
+            tl:tl_textSelectColor="@color/t2_1_tl_textSelectColor"
+            tl:tl_textUnselectColor="@color/t2_1_tl_textUnselectColor"
+            tl:tl_underline_color="@color/t2_1_tl_underline_color"
+            tl:tl_underline_height="1dp" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_2"
+            android:layout_width="match_parent"
+            android:layout_height="84dp" />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/t2_2"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@color/t2_2_background"
+            tl:tl_iconHeight="23dp"
+            tl:tl_iconWidth="23dp"
+            tl:tl_indicator_color="@color/t2_2_tl_indicator_color"
+            tl:tl_indicator_height="0dp"
+            tl:tl_textSelectColor="@color/t2_2_tl_textSelectColor"
+            tl:tl_textUnselectColor="@color/t2_2_tl_textUnselectColor"
+            tl:tl_textsize="12sp"
+            tl:tl_underline_color="@color/t2_2_tl_underline_color"
+            tl:tl_underline_height="1dp" />
+
+        <FrameLayout
+            android:id="@+id/fl_change"
+            android:layout_width="match_parent"
+            android:layout_height="84dp"></FrameLayout>
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/t2_3"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/t2_3_background"
+            tl:tl_iconGravity="LEFT"
+            tl:tl_iconHeight="18dp"
+            tl:tl_iconMargin="5dp"
+            tl:tl_iconWidth="18dp"
+            tl:tl_indicator_bounce_enable="false"
+            tl:tl_indicator_color="@color/t2_3_tl_indicator_color"
+            tl:tl_indicator_gravity="TOP"
+            tl:tl_textSelectColor="@color/t2_3_tl_textSelectColor"
+            tl:tl_textUnselectColor="@color/t2_3_tl_textUnselectColor"
+            tl:tl_textsize="15sp"
+            tl:tl_underline_color="@color/t2_3_tl_underline_color"
+            tl:tl_underline_gravity="TOP"
+            tl:tl_underline_height="1dp" />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/t2_4"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/t2_4_background"
+            tl:tl_iconVisible="false"
+            tl:tl_indicator_width="10dp"
+            tl:tl_textBold="SELECT"
+            tl:tl_textsize="14sp" />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/t2_5"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/t2_5_background"
+            tl:tl_iconVisible="false"
+            tl:tl_indicator_corner_radius="2dp"
+            tl:tl_indicator_height="4dp"
+            tl:tl_indicator_width="4dp"
+            tl:tl_textBold="BOTH"
+            tl:tl_textsize="14sp" />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/t2_6"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/t2_6_background"
+            tl:tl_iconVisible="false"
+            tl:tl_indicator_corner_radius="1.5dp"
+            tl:tl_indicator_height="3dp"
+            tl:tl_indicator_width="10dp"
+            tl:tl_textsize="14sp" />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/t2_7"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/t2_7_background"
+            tl:tl_iconVisible="false"
+            tl:tl_indicator_color="@color/t2_7_tl_indicator_color"
+            tl:tl_indicator_corner_radius="1.5dp"
+            tl:tl_indicator_height="3dp"
+            tl:tl_indicator_style="TRIANGLE"
+            tl:tl_indicator_width="10dp"
+            tl:tl_textsize="14sp" />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/t2_8"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/t2_8_background"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            tl:tl_iconVisible="false"
+            tl:tl_indicator_margin_left="5dp"
+            tl:tl_indicator_margin_right="5dp"
+            tl:tl_indicator_style="BLOCK"
+            tl:tl_textsize="14sp" />
+    </LinearLayout>
+</ScrollView>

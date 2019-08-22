@@ -1,0 +1,87 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ximsfei.skindemo">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.ximsfei.skindemo.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="com.ximsfei.skindemo.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.ximsfei.skindemo.tab.MainActivity" />
+
+        <activity android:name="com.ximsfei.skindemo.window.WindowManagerActivity" />
+
+        <activity
+            android:name="com.ximsfei.skindemo.settings.SettingsActivity"
+            android:label="SettingsActivity" />
+
+        <activity
+            android:name="com.ximsfei.skindemo.mdtab.CollapsingToolbarLayoutActivity"
+            android:label="CollapsingToolbarLayoutActivity" />
+
+        <activity
+            android:name="com.ximsfei.skindemo.constraint.ConstraintLayoutActivity"
+            android:label="ConstraintLayoutActivity" />
+
+        <activity
+            android:name="com.ximsfei.skindemo.alert.AlertDialogActivity"
+            android:label="AlertDialogActivity"
+            android:theme="@style/AlertDialogTheme" />
+
+        <activity
+            android:name="com.ximsfei.skindemo.mdtab.MaterialDesignActivity"
+            android:label="Material Design"
+            android:theme="@style/MaterialDesignTheme" />
+        <activity
+            android:name=".test.TestActivity"
+            android:label="Test Activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".actionbar.ActionbarTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActionbarTheme" />
+        <activity
+            android:name=".picker.ColorPickerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".picker.DrawablePickerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zip.ZipActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- flycotablayout -->
+        <activity
+            android:name=".flycotablayout.ui.SimpleHomeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".flycotablayout.ui.CommonTabActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".flycotablayout.ui.SlidingTabActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".flycotablayout.ui.SegmentTabActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".window.WindowService" />
+    </application>
+
+</manifest>

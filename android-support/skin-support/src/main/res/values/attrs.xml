@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SkinBackgroundHelper">
+        <attr name="android:background" />
+    </declare-styleable>
+
+    <declare-styleable name="SkinCompatImageView">
+        <attr name="android:src" />
+        <attr name="srcCompat" />
+    </declare-styleable>
+
+    <declare-styleable name="SkinCompatTextHelper">
+        <attr name="android:drawableLeft" />
+        <attr name="android:drawableTop" />
+        <attr name="android:drawableRight" />
+        <attr name="android:drawableBottom" />
+        <attr name="android:drawableStart" />
+        <attr name="android:drawableEnd" />
+        <attr name="android:textAppearance" />
+    </declare-styleable>
+
+    <declare-styleable name="SkinTextAppearance">
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="android:textColorHint" />
+        <attr name="android:textStyle" />
+        <attr name="android:typeface" />
+        <attr name="textAllCaps" />
+        <attr name="android:shadowColor" />
+        <attr name="android:shadowDy" />
+        <attr name="android:shadowDx" />
+        <attr name="android:shadowRadius" />
+    </declare-styleable>
+    <declare-styleable name="SkinCompatProgressBar">
+        <attr name="android:indeterminateDrawable" />
+        <attr name="android:progressDrawable" />
+    </declare-styleable>
+</resources>

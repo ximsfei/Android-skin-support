@@ -8,18 +8,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/androidx" />
-            <option value="$PROJECT_DIR$/androidx/skin-support" />
-            <option value="$PROJECT_DIR$/androidx/skin-support-appcompat" />
-            <option value="$PROJECT_DIR$/androidx/skin-support-cardview" />
-            <option value="$PROJECT_DIR$/androidx/skin-support-constraint-layout" />
-            <option value="$PROJECT_DIR$/androidx/skin-support-design" />
+            <option value="$PROJECT_DIR$/android-support" />
+            <option value="$PROJECT_DIR$/android-support/skin-support" />
+            <option value="$PROJECT_DIR$/android-support/skin-support-cardview" />
+            <option value="$PROJECT_DIR$/android-support/skin-support-constraint-layout" />
+            <option value="$PROJECT_DIR$/android-support/skin-support-design" />
             <option value="$PROJECT_DIR$/demo" />
-            <option value="$PROJECT_DIR$/demo/skin-androidx-app" />
+            <option value="$PROJECT_DIR$/demo/skin-app" />
             <option value="$PROJECT_DIR$/demo/skin-night" />
-            <option value="$PROJECT_DIR$/third-part-support" />
-            <option value="$PROJECT_DIR$/third-part-support/circleimageview" />
-            <option value="$PROJECT_DIR$/third-part-support/flycotablayout" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

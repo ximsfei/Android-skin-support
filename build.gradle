@@ -9,7 +9,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.android.tools.build:gradle:3.1.1'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         // NOTE: Do not place your application dependencies here; they belong
@@ -36,10 +36,11 @@ ext {
     minSdkVersion = 14
     targetSdkVersion = 28
 
-    supportLibraryVersion = "27.1.1"
+    supportLibraryVersion = "25.1.1"
     supportLibraryVersionInHost = "27.1.1"
 
     glideVersion = "4.7.1"
 
+    skinAndroidSupportVersion = "3.1.2"
     skinAndroidXVersion = "4.0.2"
 }

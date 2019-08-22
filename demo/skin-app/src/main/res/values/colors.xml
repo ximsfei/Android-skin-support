@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ce3d3a</color>
+    <color name="colorPrimaryDark">#ce3d3a</color>
+    <color name="colorAccent">#ce3d3a</color>
+    <color name="tabSelected">#ce3d3a</color>
+    <color name="circle_border_color">#477aac</color>
+    <color name="title_text_color">#ddffffff</color>
+    <color name="subtitle_text_color">#aaffffff</color>
+    <color name="text_color_tip">#ce3d3a</color>
+    <color name="text_color">#ff333333</color>
+    <color name="text_color_hint">#ffb2b2b2</color>
+    <color name="text_background">#ffffffff</color>
+    <color name="background">#f2f4f5</color>
+    <color name="divider">#44000000</color>
+    <color name="ripple_color">#44000000</color>
+    <color name="statusBarColor">#44000000</color>
+    <drawable name="windowBackground">#f2f4f5</drawable>
+
+    <!-- flyco tab layout -->
+    <color name="textColorPrimary">#ff333333</color>
+
+    <color name="t1_1_background">#666666</color>
+    <color name="t1_1_tl_underline_color">#1A000000</color>
+
+    <color name="t1_2_background">#EEEEEE</color>
+    <color name="t1_2_tl_divider_color">#1A000000</color>
+    <color name="t1_2_tl_indicator_color">#000000</color>
+    <color name="t1_2_tl_textSelectColor">#000000</color>
+    <color name="t1_2_tl_textUnselectColor">#66000000</color>
+    <color name="t1_2_tl_underline_color">#1A000000</color>
+
+    <color name="t1_3_background">#3F9FE0</color>
+    <color name="t1_4_background">#009688</color>
+    <color name="t1_5_background">#F6CE59</color>
+    <color name="t1_6_background">#EC7263</color>
+    <color name="t1_7_background">#57385C</color>
+    <color name="t1_8_background">#E45171</color>
+    <color name="t1_8_tl_indicator_color">#eeeeee</color>
+    <color name="t1_9_background">#6D8FB0</color>
+    <color name="t1_10_background">#222831</color>
+    <color name="t1_10_tl_indicator_color">#393E46</color>
+
+    <color name="t2_1_background">#ffffff</color>
+    <color name="t2_1_tl_indicator_color">#2C97DE</color>
+    <color name="t2_1_tl_textSelectColor">#2C97DE</color>
+    <color name="t2_1_tl_textUnselectColor">#66000000</color>
+    <color name="t2_1_tl_underline_color">#DDDDDD</color>
+
+    <color name="t2_2_background">#ffffff</color>
+    <color name="t2_2_tl_indicator_color">#2C97DE</color>
+    <color name="t2_2_tl_textSelectColor">#2C97DE</color>
+    <color name="t2_2_tl_textUnselectColor">#66000000</color>
+    <color name="t2_2_tl_underline_color">#DDDDDD</color>
+
+    <color name="t2_3_background">#ffffff</color>
+    <color name="t2_3_tl_indicator_color">#2C97DE</color>
+    <color name="t2_3_tl_textSelectColor">#2C97DE</color>
+    <color name="t2_3_tl_textUnselectColor">#66000000</color>
+    <color name="t2_3_tl_underline_color">#DDDDDD</color>
+
+    <color name="t2_4_background">#F6CE59</color>
+    <color name="t2_5_background">#EC7263</color>
+    <color name="t2_6_background">#57385C</color>
+    <color name="t2_7_background">#E45171</color>
+    <color name="t2_7_tl_indicator_color">#eeeeee</color>
+    <color name="t2_8_background">#6D8FB0</color>
+    <color name="t3_1_tl_bar_color">#ffffff</color>
+    <color name="t3_1_tl_indicator_color">#2C97DE</color>
+    <color name="t3_2_tl_indicator_color">#009688</color>
+    <color name="t3_3_tl_bar_color">#ffffff</color>
+    <color name="t3_3_tl_indicator_color">#F6CE59</color>
+    <color name="t3_4_tl_bar_color">#ffffff</color>
+    <color name="t3_4_tl_indicator_color">#EC7263</color>
+    <color name="t3_5_tl_textSelectColor">#ffffff</color>
+    <color name="t3_5_tl_textUnselectColor">#000000</color>
+
+    <color name="msg_background_color">#cd3d3a</color>
+    <color name="msg_stroke_color">#f6ce59</color>
+</resources>

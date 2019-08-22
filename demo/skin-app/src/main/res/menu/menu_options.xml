@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/account_balance"
+        android:icon="@drawable/ic_account_balance_24dp"
+        android:title="call" />
+    <item
+        android:id="@+id/account_circle"
+        android:icon="@drawable/ic_account_circle_24dp"
+        android:title="message" />
+    <item
+        android:id="@+id/bug_report"
+        android:icon="@drawable/ic_bug_report_24dp"
+        android:title="setting" />
+</menu>

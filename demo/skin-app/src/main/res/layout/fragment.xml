@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/picture"
+        app:civ_border_color="@color/circle_border_color"
+        app:civ_border_width="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/text_background"
+        android:clickable="true"
+        android:drawableBottom="@drawable/drawable_bottom_selector"
+        android:drawableLeft="@drawable/drawable_left_selector"
+        android:drawableRight="@drawable/drawable_right_selector"
+        android:drawableTop="@drawable/drawable_top_selector"
+        android:gravity="center"
+        android:text="left right top bottom"
+        android:textColor="@drawable/color_selector"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="v17 java start end top bottom" />
+
+    <EditText
+        android:id="@+id/edit1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="java left right top bottom" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="java left right top bottom drawable" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/drawable_left_selector"
+            android:gravity="center_horizontal"
+            android:text="一"
+            android:textColor="@drawable/color_selector" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/drawable_top_selector"
+            android:gravity="center_horizontal"
+            android:text="二"
+            android:textColor="@drawable/color_selector" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/drawable_right_selector"
+            android:gravity="center_horizontal"
+            android:text="三"
+            android:textColor="@drawable/color_selector" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/drawable_bottom_selector"
+            android:gravity="center_horizontal"
+            android:text="四"
+            android:textColor="@drawable/color_selector" />
+    </LinearLayout>
+
+    <View
+        android:background="@drawable/graident_shape"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
+</LinearLayout>

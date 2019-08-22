@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/background"
+        android:popupBackground="@color/text_background" />
+
+    <com.ximsfei.skindemo.widget.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/text_background"
+        android:text="custom text view" />
+
+    <com.ximsfei.skindemo.widget.CustomTextView2
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/text_background"
+        android:text="custom text view 2"
+        android:textColor="@drawable/color_selector" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:indeterminateDrawable="@drawable/progress_bar" />
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加进度"
+            android:textColor="@drawable/color_selector" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_horizontal"
+        style="@style/progress_horizontal_style"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:progress="15" />
+
+    <ProgressBar
+        style="@style/indeterminate_tint_style"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        android:progress="75" />
+
+    <SeekBar
+        android:id="@+id/seekbar_self"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:max="100"
+        android:progress="20"
+        android:progressDrawable="@drawable/bg_bar"
+        android:thumb="@drawable/thumb_bar" />
+
+    <RatingBar
+        style="@style/RatingBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="3"
+        android:stepSize="0.5" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="3"
+        android:stepSize="0.5" />
+</LinearLayout>

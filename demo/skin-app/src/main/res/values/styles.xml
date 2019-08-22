@@ -1,0 +1,73 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:windowBackground">@drawable/windowBackground</item>
+    </style>
+
+    <style name="ActionbarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:windowBackground">@drawable/windowBackground</item>
+        <item name="android:actionBarSize">46dp</item>
+        <item name="actionBarSize">46dp</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme" />
+
+    <style name="AlertDialogTheme" parent="BaseAppTheme">
+        <item name="alertDialogStyle">@style/AlertDialog.SkinCompat</item>
+        <item name="skinAlertDialogBackground">@color/background</item>
+        <item name="skinAlertDialogTitleTextColor">@color/text_color</item>
+        <item name="skinAlertDialogMessageTextColor">@color/text_color</item>
+        <item name="skinAlertDialogNeutralButtonTextColor">@color/text_color</item>
+        <item name="skinAlertDialogNegativeButtonTextColor">@color/text_color</item>
+        <item name="skinAlertDialogPositiveButtonTextColor">@color/text_color_tip</item>
+        <item name="skinAlertDialogControlHighlightColor">@color/colorAccent</item>
+        <item name="skinAlertDialogListDivider">@null</item>
+        <item name="skinAlertDialogListItemTextColor">@color/text_color</item>
+        <item name="skinListChoiceIndicatorMultiple">@drawable/skin_btn_check</item>
+        <item name="skinListChoiceIndicatorSingle">@drawable/skin_btn_radio</item>
+    </style>
+
+    <style name="MaterialDesignTheme" parent="BaseAppTheme">
+        <item name="android:windowBackground">@drawable/background</item>
+    </style>
+
+    <style name="TextStyle">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:background">@color/text_background</item>
+    </style>
+
+    <style name="SkinCompatTextAppearance" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="progress_horizontal_style" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal</item>
+    </style>
+
+    <style name="indeterminate_tint_style" parent="Widget.AppCompat.ProgressBar"></style>
+
+    <style name="RatingBarStyle" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">48dp</item>
+    </style>
+
+    <style name="designErrorTextAppearance" parent="TextAppearance.Design.Error">
+        <item name="android:textColor">@color/text_color_tip</item>
+    </style>
+
+    <style name="counterTextAppearance" parent="TextAppearance.Design.Counter">
+        <item name="android:textColor">@color/text_color_tip</item>
+    </style>
+</resources>

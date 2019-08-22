@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="BaseAppTheme">
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+    <style name="indeterminate_tint_style" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">@color/circle_border_color</item>
+    </style>
+    <style name="MaterialDesignTheme" parent="BaseAppTheme">
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+</resources>

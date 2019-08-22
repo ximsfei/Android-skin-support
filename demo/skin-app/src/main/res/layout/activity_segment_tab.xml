@@ -1,0 +1,103 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:text="点击换肤" />
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/t3_1"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            tl:tl_bar_color="@color/t3_1_tl_bar_color"
+            tl:tl_indicator_color="@color/t3_1_tl_indicator_color"
+            tl:tl_indicator_corner_radius="8dp"
+            tl:tl_tab_padding="20dp" />
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/t3_2"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            tl:tl_indicator_anim_enable="true"
+            tl:tl_indicator_bounce_enable="false"
+            tl:tl_indicator_color="@color/t3_2_tl_indicator_color"
+            tl:tl_tab_padding="20dp" />
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/t3_3"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            tl:tl_bar_color="@color/t3_3_tl_bar_color"
+            tl:tl_indicator_anim_enable="true"
+            tl:tl_indicator_color="@color/t3_3_tl_indicator_color"
+            tl:tl_indicator_margin_bottom="2dp"
+            tl:tl_indicator_margin_left="2dp"
+            tl:tl_indicator_margin_right="2dp"
+            tl:tl_indicator_margin_top="2dp"
+            tl:tl_textBold="SELECT" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_2"
+            android:layout_width="match_parent"
+            android:layout_height="84dp" />
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/t3_4"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            tl:tl_bar_color="@color/t3_4_tl_bar_color"
+            tl:tl_indicator_color="@color/t3_4_tl_indicator_color"
+            tl:tl_indicator_margin_bottom="2dp"
+            tl:tl_indicator_margin_left="2dp"
+            tl:tl_indicator_margin_right="2dp"
+            tl:tl_indicator_margin_top="2dp"
+            tl:tl_tab_width="80dp"
+            tl:tl_textBold="BOTH" />
+
+        <FrameLayout
+            android:id="@+id/fl_change"
+            android:layout_width="match_parent"
+            android:layout_height="84dp" />
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/t3_5"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            tl:tl_textSelectColor="@color/t3_5_tl_textSelectColor"
+            tl:tl_textUnselectColor="@color/t3_5_tl_textUnselectColor"
+            tl:tl_bar_stroke_color="@color/t3_5_tl_textUnselectColor"
+            tl:tl_indicator_anim_enable="true"
+            tl:tl_indicator_bounce_enable="false"
+            tl:tl_indicator_margin_bottom="2dp"
+            tl:tl_indicator_margin_left="2dp"
+            tl:tl_indicator_margin_right="2dp"
+            tl:tl_indicator_margin_top="2dp"
+            tl:tl_tab_space_equal="true" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.ximsfei.skindemo"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-night']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersionInHost}"
+    implementation project(':android-support:skin-support')
+//    implementation 'skin.support:skin-support:3.0.0'
+
+    implementation "com.android.support:design:${rootProject.supportLibraryVersionInHost}"
+    implementation project(':android-support:skin-support-design')
+//    implementation 'skin.support:skin-support-design:3.0.0'
+
+    implementation "com.android.support.constraint:constraint-layout:1.0.2"
+    implementation project(':android-support:skin-support-constraint-layout')
+//    implementation 'skin.support:skin-support-constraint-layout:3.0.0'
+
+    implementation "com.android.support:cardview-v7:${rootProject.supportLibraryVersionInHost}"
+    implementation project(':android-support:skin-support-cardview')
+//    implementation 'skin.support:skin-support-cardview:3.0.0'
+
+    // 第三方控件库换肤支持
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+//    implementation project(':third-part-support:circleimageview')
+    implementation 'skin.support:circleimageview:2.1.0.1'
+
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+//    implementation project(':third-part-support:flycotablayout')
+    implementation 'skin.support:flycotablayout:2.1.2'
+
+    implementation "com.github.bumptech.glide:glide:${rootProject.glideVersion}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.glideVersion}"
+}
