@@ -26,7 +26,7 @@ dependencies {
 }
 
 ext {
-    publishVersion = rootProject.skinSupportVersion
+    publishVersion = rootProject.skinAndroidXVersion
     moduleName = 'skin-support-design'
     descContent = 'material design控件换肤支持包'
 }

@@ -25,7 +25,7 @@ dependencies {
 }
 
 ext {
-    publishVersion = rootProject.skinSupportVersion
+    publishVersion = rootProject.skinAndroidXVersion
     moduleName = "skin-support-cardview"
     descContent = "CardView-v7 换肤支持包"
 }

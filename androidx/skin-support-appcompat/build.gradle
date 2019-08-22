@@ -35,7 +35,7 @@ tasks.withType(Javadoc) {
 }
 
 ext {
-    publishVersion = rootProject.skinSupportVersion
+    publishVersion = rootProject.skinAndroidXVersion
     moduleName = 'skin-support-appcompat'
     descContent = 'skin-support 基础控件换肤支持包'
 }
