@@ -122,10 +122,10 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 如果项目中还在使用support库，添加以下依赖
 ```xml
-implementation 'skin.support:skin-support:3.1.2'                   // skin-support 基础控件支持
-implementation 'skin.support:skin-support-design:3.1.2'            // skin-support-design material design 控件支持[可选]
-implementation 'skin.support:skin-support-cardview:3.1.2'          // skin-support-cardview CardView 控件支持[可选]
-implementation 'skin.support:skin-support-constraint-layout:3.1.2' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+implementation 'skin.support:skin-support:3.1.3'                   // skin-support 基础控件支持
+implementation 'skin.support:skin-support-design:3.1.3'            // skin-support-design material design 控件支持[可选]
+implementation 'skin.support:skin-support-cardview:3.1.3'          // skin-support-cardview CardView 控件支持[可选]
+implementation 'skin.support:skin-support-constraint-layout:3.1.3' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
 ```
 
 在Application的onCreate中初始化
