@@ -1,6 +1,12 @@
 # 更新日志
 
 ## skin-support
+* ![v3.1.3](https://img.shields.io/badge/skin--support-v3.1.1-green.svg)
+  * Add Android Q support
+  * android support library 28.0.0 适配
+
+* ![v4.0.1](https://img.shields.io/badge/skin--support-v4.0.1-green.svg)
+  * Add Android Q support
 
 * ![v3.1.1](https://img.shields.io/badge/skin--support-v3.1.1-green.svg)
   * Add Android P support
