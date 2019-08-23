@@ -2,7 +2,6 @@
 
 buildscript {
     repositories {
-        google()
         jcenter()
         maven {
             url 'https://maven.google.com/'
@@ -10,7 +9,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.1'
+        classpath 'com.android.tools.build:gradle:3.2.0'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         // NOTE: Do not place your application dependencies here; they belong
@@ -20,7 +19,6 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
         jcenter()
         maven {
             url 'https://maven.google.com/'
@@ -44,5 +42,5 @@ ext {
     glideVersion = "4.7.1"
 
     skinAndroidSupportVersion = "3.1.3"
-    skinAndroidXVersion = "4.0.2"
+    skinAndroidXVersion = "4.0.3"
 }
