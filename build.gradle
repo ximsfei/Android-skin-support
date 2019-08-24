@@ -37,7 +37,7 @@ ext {
     targetSdkVersion = 28
 
     supportLibraryVersion = "25.1.1"
-    supportLibraryVersionInHost = "27.1.1"
+    supportLibraryVersionInHost = "28.0.0"
 
     glideVersion = "4.7.1"
 
