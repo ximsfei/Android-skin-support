@@ -26,6 +26,7 @@ dependencies {
 
 ext {
     publishVersion = rootProject.skinAndroidXVersion
+    publishGroup = rootProject.skinAndroidXSkinGroup
     moduleName = 'skin-support-constraint-layout'
     descContent = 'ConstraintLayout控件换肤支持包'
 }

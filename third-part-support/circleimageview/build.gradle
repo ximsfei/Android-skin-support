@@ -26,6 +26,7 @@ dependencies {
 
 ext {
     publishVersion = '2.1.0.4'
+    publishGroup = rootProject.skinAndroidXSkinGroup
     moduleName = 'circleimageview'
     descContent = 'hdodenhof/CircleImageView 控件换肤支持包'
 }

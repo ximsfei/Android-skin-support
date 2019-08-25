@@ -28,6 +28,7 @@ dependencies {
 
 ext {
     publishVersion = '2.1.2.2'
+    publishGroup = rootProject.skinAndroidXSkinGroup
     moduleName = 'flycotablayout'
     descContent = 'H07000223/FlycoTabLayout 控件换肤支持包'
 }
