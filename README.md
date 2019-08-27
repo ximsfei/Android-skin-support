@@ -40,6 +40,7 @@
 * [第三方控件适配库](docs/ThirdPartSupport.md)
   * [hdodenhof/CircleImageView](docs/ThirdPartSupport.md#hdodenhofcircleimageview)
   * [H07000223/FlycoTabLayout](docs/ThirdPartSupport.md#h07000223flycotablayout)
+* [缺点](#缺点)
 * [谁在使用](#谁在使用)
 * [FAQ](docs/FAQ.md)
 * [技术交流](#技术交流)
@@ -430,6 +431,10 @@ SkinCompatUserThemeManager.get().apply();
 ```
 https://github.com/ximsfei/Android-skin-support/blob/master/androidx/skin-support/src/main/java/skin/support/utils/SkinPreference.java
 ```
+
+## 缺点
+
+* 同一个LayoutInflater只能设置一次Factory，容易和同类库产生冲突
 
 ## 谁在使用
 
