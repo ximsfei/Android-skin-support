@@ -5,7 +5,7 @@
   * Add Android Q support
   * android support library 28.0.0 适配
 
-* ![v4.0.1](https://img.shields.io/badge/skin--support-v4.0.1-green.svg)
+* ![v4.0.2](https://img.shields.io/badge/skin--support-v4.0.2-green.svg)
   * Add Android Q support
 
 * ![v3.1.1](https://img.shields.io/badge/skin--support-v3.1.1-green.svg)
