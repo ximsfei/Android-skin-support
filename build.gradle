@@ -43,6 +43,6 @@ ext {
 
     skinAndroidSupportVersion = "3.1.3"
     skinAndroidSupportSkinGroup = "skin.support"
-    skinAndroidXVersion = "4.1.0"
-    skinAndroidXSkinGroup = "skin.androidx"
+    skinAndroidXVersion = "4.0.4"
+    skinAndroidXSkinGroup = "skin.support"
 }
