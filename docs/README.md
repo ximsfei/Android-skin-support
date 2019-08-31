@@ -6,7 +6,7 @@
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![license](https://img.shields.io/badge/license-mit-blue.svg)
 
-Android-skin-support is an easy to use skin framework for Android. The best case, Only one line of code to integrate the framework.
+Android-skin-support is an easy skin framework to use for Android. The best case, Only one line of code to integrate the framework.
 
 ```java
 SkinCompatManager.withoutActivity(this).loadSkin();
