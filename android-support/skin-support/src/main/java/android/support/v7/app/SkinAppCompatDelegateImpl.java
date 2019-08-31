@@ -3,25 +3,24 @@ package android.support.v7.app;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.WeakHashMap;
 
 public class SkinAppCompatDelegateImpl extends AppCompatDelegate {
-    private static Map<Activity, AppCompatDelegate> sDelegateMap = new WeakHashMap<>();
+    private static Map<Activity, AppCompatDelegate> sDelegateMap = new HashMap<>();
+
     private final AppCompatDelegate mDelegate;
+    private final Activity mActivity;
 
     public static AppCompatDelegate get(Activity activity, AppCompatCallback callback) {
         AppCompatDelegate delegate = sDelegateMap.get(activity);
@@ -33,6 +32,7 @@ public class SkinAppCompatDelegateImpl extends AppCompatDelegate {
     }
 
     private SkinAppCompatDelegateImpl(Activity activity, AppCompatCallback callback) {
+        mActivity = activity;
         mDelegate = AppCompatDelegate.create(activity, callback);
     }
 
@@ -121,6 +121,7 @@ public class SkinAppCompatDelegateImpl extends AppCompatDelegate {
     @Override
     public void onDestroy() {
         mDelegate.onDestroy();
+        sDelegateMap.remove(mActivity);
     }
 
     @Nullable
