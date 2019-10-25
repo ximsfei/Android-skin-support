@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.content.res.AppCompatResources;
 import android.text.TextUtils;
 import android.util.TypedValue;
+import android.os.Build;
 
 import skin.support.SkinCompatManager;
 
@@ -146,10 +147,18 @@ public class SkinCompatResources {
         if (!isDefaultSkin) {
             int targetResId = getTargetResId(context, resId);
             if (targetResId != 0) {
-                return mResources.getColorStateList(targetResId);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    return mResources.getColorStateList(targetResId, context.getTheme());
+                } else {
+                    return mResources.getColorStateList(targetResId);
+                }
             }
         }
-        return context.getResources().getColorStateList(resId);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return context.getResources().getColorStateList(resId, context.getTheme());
+        } else {
+            return context.getResources().getColorStateList(resId);
+        }
     }
 
     private Drawable getSkinDrawable(Context context, int resId) {
