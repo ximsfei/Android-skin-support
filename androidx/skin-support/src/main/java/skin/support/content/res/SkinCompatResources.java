@@ -163,11 +163,7 @@ public class SkinCompatResources {
         if (!isDefaultSkin) {
             int targetResId = getTargetResId(context, resId);
             if (targetResId != 0) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    return mResources.getColorStateList(targetResId, context.getTheme());
-                } else {
-                    return mResources.getColorStateList(targetResId);
-                }
+                return mResources.getColorStateList(targetResId);
             }
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
