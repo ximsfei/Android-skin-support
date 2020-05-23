@@ -86,7 +86,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
             if (counterView != null) {
 //                SkinLog.e(TAG, "mCounterTextColor = " +Integer.toHexString(SkinCompatResources.getInstance().getColor(mCounterTextColorResId)));
                 counterView.setTextColor(SkinCompatResources.getColor(getContext(), mCounterTextColorResId));
-                updateEditTextBackground();
+                updateEditTextBackgroundInternal();
             }
         }
     }
@@ -133,7 +133,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
             TextView errorView = getErrorView();
             if (errorView != null) {
                 errorView.setTextColor(SkinCompatResources.getColor(getContext(), mErrorTextColorResId));
-                updateEditTextBackground();
+                updateEditTextBackgroundInternal();
             }
         }
     }
@@ -149,7 +149,7 @@ public class SkinMaterialTextInputLayout extends TextInputLayout implements Skin
         return null;
     }
 
-    private void updateEditTextBackground() {
+    private void updateEditTextBackgroundInternal() {
         try {
             Method updateEditTextBackground = TextInputLayout.class.getDeclaredMethod("updateEditTextBackground");
             updateEditTextBackground.setAccessible(true);
