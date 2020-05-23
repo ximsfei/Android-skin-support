@@ -108,7 +108,7 @@ public class SkinCompatResources {
         return getColorStateList(SkinCompatManager.getInstance().getContext(), resId);
     }
 
-    int getTargetResId(Context context, int resId) {
+    public int getTargetResId(Context context, int resId) {
         try {
             String resName = null;
             if (mStrategy != null) {
