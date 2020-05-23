@@ -37,6 +37,7 @@ public class SkinCompatImageHelper extends SkinCompatHelper {
 
     public void setImageResource(int resId) {
         mSrcResId = resId;
+        mSrcCompatResId = INVALID_ID;
         applySkin();
     }
 
