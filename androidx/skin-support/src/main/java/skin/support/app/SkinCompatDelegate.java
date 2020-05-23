@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import skin.support.SkinCompatManager;
 import skin.support.widget.SkinCompatSupportable;
@@ -20,7 +20,7 @@ import skin.support.widget.SkinCompatSupportable;
 public class SkinCompatDelegate implements LayoutInflater.Factory2 {
     private final Context mContext;
     private SkinCompatViewInflater mSkinCompatViewInflater;
-    private List<WeakReference<SkinCompatSupportable>> mSkinHelpers = new ArrayList<>();
+    private List<WeakReference<SkinCompatSupportable>> mSkinHelpers = new CopyOnWriteArrayList<>();
 
     private SkinCompatDelegate(Context context) {
         mContext = context;
