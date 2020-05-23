@@ -1,6 +1,9 @@
 # 更新日志
 
 ## skin-support
+* ![v4.0.5](https://img.shields.io/badge/skin--support-v4.0.5-green.svg)
+  * Fix issues
+
 * ![v3.1.4](https://img.shields.io/badge/skin--support-v3.1.4-green.svg)
   * Fix memory leak
 
