@@ -48,7 +48,7 @@
 
 ## 介绍
 
-Android-skin-support: 一款用心去做的Android 换肤框架, 极低的学习成本, 极好的用户体验.
+Android-skin-support: 一款 Android 换肤框架, 极低的学习成本, 极好的用户体验.
 
 只需要一行代码, 就可以实现换肤, 你值得拥有!!!
 
