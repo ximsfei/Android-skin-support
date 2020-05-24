@@ -63,8 +63,8 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 * [x] 支持布局中用到的资源换肤。
 * [x] 支持代码中设置的资源换肤。
 * [x] 默认支持大部分基础控件，Material Design换肤。
-* [x] 支持动态设置主题[颜色值](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/ColorPickerActivity.java)，支持选择sdcard上的图片作为[drawable](demo/skin-app/src/main/java/com/ximsfei/skindemo/picker/DrawablePickerActivity.java)换肤资源。
-* [x] 支持多种加载策略([应用内](#应用内换肤)/[插件式](#插件式换肤)/[自定义sdcard路径](#自定义加载策略)/[zip等资源](demo/skin-app/src/main/java/com/ximsfei/skindemo/loader/ZipSDCardLoader.java)等)。
+* [x] 支持动态设置主题[颜色值](demo/skin-androidx-app/src/main/java/com/ximsfei/skindemo/picker/ColorPickerActivity.java)，支持选择sdcard上的图片作为[drawable](demo/skin-androidx-app/src/main/java/com/ximsfei/skindemo/picker/DrawablePickerActivity.java)换肤资源。
+* [x] 支持多种加载策略([应用内](#应用内换肤)/[插件式](#插件式换肤)/[自定义sdcard路径](#自定义加载策略)/[zip等资源](demo/skin-androidx-app/src/main/java/com/ximsfei/skindemo/loader/ZipSDCardLoader.java)等)。
 * [x] 资源加载优先级: 动态设置资源-加载策略中的资源-插件式换肤/应用内换肤-应用资源。
 * [x] 支持定制化，选择需要的模块加载。
 * [x] 支持矢量图(vector/svg)换肤。
@@ -79,7 +79,7 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 * [ ] 支持多字体。
 * [ ] 支持Preference。
 * [ ] skin-sample 实现:
-  * [x] 动态修改主题颜色值[案例](demo/skin-sample/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)
+  * [x] 动态修改主题颜色值[案例](demo/skin-androidx-app/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)
   * [ ] 控件使用案例
   * [ ] 更新日志tab
   * [ ] 关于页面
