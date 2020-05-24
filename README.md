@@ -74,12 +74,12 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ### TODO
 
-* [ ] `AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);`开关使用错误问题修正。
+* [ ] 解耦androidx，支持原生组件换肤
 * [ ] 支持多语言。
 * [ ] 支持多字体。
 * [ ] 支持Preference。
 * [ ] skin-sample 实现:
-  * [x] 动态修改主题颜色值[案例](demo/skin-androidx-app/src/main/java/com/ximsfei/skin/sample/activities/ColorPickerActivity.java)
+  * [ ] 动态修改主题颜色值
   * [ ] 控件使用案例
   * [ ] 更新日志tab
   * [ ] 关于页面
