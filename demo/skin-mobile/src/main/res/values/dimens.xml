@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">32dp</dimen>
+    <dimen name="activity_vertical_margin">32dp</dimen>
+
+    <dimen name="skin_large_text_size">24sp</dimen>
+    <dimen name="skin_main_text_size">18sp</dimen>
+    <dimen name="skin_sub_text_size">13sp</dimen>
+    <dimen name="skin_third_text_size">11sp</dimen>
+</resources>
