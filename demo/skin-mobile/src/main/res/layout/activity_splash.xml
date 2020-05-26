@@ -5,8 +5,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/civ_skin_logo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="150dp"
