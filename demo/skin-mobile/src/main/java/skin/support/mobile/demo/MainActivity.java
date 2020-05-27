@@ -13,6 +13,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
+import skin.support.mobile.demo.fragment.DiscoveryFragment;
+import skin.support.mobile.demo.fragment.HomeFragment;
+import skin.support.mobile.demo.fragment.MineFragment;
 import skin.support.mobile.demo.fragment.base.BaseFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         mFragments = new ArrayList<>();
-        mFragments.add(new BaseFragment());
-        mFragments.add(new BaseFragment());
-        mFragments.add(new BaseFragment());
+        mFragments.add(new HomeFragment());
+        mFragments.add(new DiscoveryFragment());
+        mFragments.add(new MineFragment());
         mContainerVp.setAdapter(new FragmentStateAdapter(this) {
             @NonNull
             @Override
