@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WidgetListItem">
+        <attr name="logo" />
+        <attr name="title" />
+        <attr name="desc" />
+    </declare-styleable>
+</resources>
