@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:paddingLeft="12dp"
-    android:paddingRight="12dp">
+    android:layout_height="48dp">
 
     <ImageView
         android:id="@+id/iv_logo"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
         android:src="@drawable/icon_widget_text" />
 
+    <ImageView
+        android:id="@+id/iv_arrow"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/icon_right" />
+
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
-        android:layout_weight="1"
+        android:layout_toLeftOf="@id/iv_arrow"
+        android:layout_toRightOf="@id/iv_logo"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -35,8 +45,9 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="12dp"
-        android:layout_height="12dp"
-        android:src="@drawable/icon_right" />
-</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/list_divider_color" />
+</RelativeLayout>

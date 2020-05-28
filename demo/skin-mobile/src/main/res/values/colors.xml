@@ -6,4 +6,6 @@
 
     <color name="splash_color_primary">#ffffff</color>
     <color name="splash_color_hint">#eeeeee</color>
+
+    <color name="list_divider_color">#eeeeee</color>
 </resources>
