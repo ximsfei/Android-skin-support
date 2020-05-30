@@ -23,9 +23,4 @@
         <item name="android:textColor">@color/sub_text_color</item>
         <item name="android:textSize">@dimen/sub_text_size</item>
     </style>
-
-    <style name="ThirdTextAppearance">
-        <item name="android:textColor">@color/third_text_color</item>
-        <item name="android:textSize">@dimen/third_text_size</item>
-    </style>
 </resources>

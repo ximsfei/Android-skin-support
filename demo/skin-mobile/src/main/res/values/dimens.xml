@@ -6,5 +6,4 @@
     <dimen name="large_text_size">24sp</dimen>
     <dimen name="main_text_size">18sp</dimen>
     <dimen name="sub_text_size">13sp</dimen>
-    <dimen name="third_text_size">11sp</dimen>
 </resources>

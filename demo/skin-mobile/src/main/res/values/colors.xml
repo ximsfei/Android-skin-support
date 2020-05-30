@@ -11,8 +11,7 @@
 
     <color name="main_text_color">#333333</color>
     <color name="sub_text_color">#999999</color>
-    <color name="third_text_color">#aaaaaa</color>
 
-    <color name="wli_logo_tint">#333333</color>
-    <color name="wli_arrow_tint">#999999</color>
+    <color name="wli_logo_tint">@color/main_text_color</color>
+    <color name="wli_arrow_tint">@color/sub_text_color</color>
 </resources>
