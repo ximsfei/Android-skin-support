@@ -144,6 +144,9 @@ public class SkinCompatResources {
                 return mResources.getColor(targetResId);
             }
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return context.getResources().getColor(resId, context.getTheme());
+        }
         return context.getResources().getColor(resId);
     }
 
@@ -168,9 +171,8 @@ public class SkinCompatResources {
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return context.getResources().getColorStateList(resId, context.getTheme());
-        } else {
-            return context.getResources().getColorStateList(resId);
         }
+        return context.getResources().getColorStateList(resId);
     }
 
     private Drawable getSkinDrawable(Context context, int resId) {
@@ -197,6 +199,9 @@ public class SkinCompatResources {
             if (targetResId != 0) {
                 return mResources.getDrawable(targetResId);
             }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return context.getResources().getDrawable(resId, context.getTheme());
         }
         return context.getResources().getDrawable(resId);
     }

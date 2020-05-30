@@ -86,9 +86,9 @@ public class SkinCompatUserThemeManager {
                     }
                 }
             }
-            mColorEmpty = mColorNameStateMap.isEmpty();
-            mDrawableEmpty = mDrawablePathAndAngleMap.isEmpty();
         }
+        mColorEmpty = mColorNameStateMap.isEmpty();
+        mDrawableEmpty = mDrawablePathAndAngleMap.isEmpty();
     }
 
     public void apply() {
