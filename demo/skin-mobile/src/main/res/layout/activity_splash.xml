@@ -23,7 +23,7 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/splash_title"
         android:textColor="@color/splash_color_primary"
-        android:textSize="@dimen/skin_large_text_size" />
+        android:textSize="@dimen/large_text_size" />
 
     <TextView
         android:id="@+id/tv_skin_desc"
@@ -37,7 +37,7 @@
         android:gravity="center"
         android:text="@string/splash_desc"
         android:textColor="@color/splash_color_hint"
-        android:textSize="@dimen/skin_sub_text_size" />
+        android:textSize="@dimen/sub_text_size" />
 
     <TextView
         android:id="@+id/tv_build_time"
@@ -47,5 +47,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:textColor="@color/splash_color_hint"
-        android:textSize="@dimen/skin_third_text_size" />
+        android:textSize="@dimen/third_text_size" />
 </RelativeLayout>

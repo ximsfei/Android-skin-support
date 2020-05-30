@@ -14,4 +14,18 @@
         <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
 
+    <style name="MainTextAppearance">
+        <item name="android:textColor">@color/main_text_color</item>
+        <item name="android:textSize">@dimen/main_text_size</item>
+    </style>
+
+    <style name="SubTextAppearance">
+        <item name="android:textColor">@color/sub_text_color</item>
+        <item name="android:textSize">@dimen/sub_text_size</item>
+    </style>
+
+    <style name="ThirdTextAppearance">
+        <item name="android:textColor">@color/third_text_color</item>
+        <item name="android:textSize">@dimen/third_text_size</item>
+    </style>
 </resources>

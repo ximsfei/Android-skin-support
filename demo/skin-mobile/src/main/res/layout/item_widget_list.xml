@@ -10,7 +10,8 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="12dp"
-        android:src="@drawable/icon_widget_text" />
+        android:src="@drawable/icon_widget_text"
+        android:tint="@color/wli_logo_tint" />
 
     <ImageView
         android:id="@+id/iv_arrow"
@@ -19,7 +20,8 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="12dp"
-        android:src="@drawable/icon_right" />
+        android:src="@drawable/icon_right"
+        android:tint="@color/wli_arrow_tint" />
 
     <TextView
         android:id="@+id/tv_action"
@@ -28,6 +30,7 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="6dp"
         android:layout_toLeftOf="@id/iv_arrow"
+        android:textAppearance="@style/SubTextAppearance"
         android:visibility="gone" />
 
     <LinearLayout
@@ -45,12 +48,14 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@style/MainTextAppearance"
             android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@style/SubTextAppearance"
             android:visibility="gone" />
     </LinearLayout>
 

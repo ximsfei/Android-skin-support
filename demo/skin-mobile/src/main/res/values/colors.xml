@@ -8,4 +8,11 @@
     <color name="splash_color_hint">#eeeeee</color>
 
     <color name="list_divider_color">#eeeeee</color>
+
+    <color name="main_text_color">#333333</color>
+    <color name="sub_text_color">#999999</color>
+    <color name="third_text_color">#aaaaaa</color>
+
+    <color name="wli_logo_tint">#333333</color>
+    <color name="wli_arrow_tint">#999999</color>
 </resources>
