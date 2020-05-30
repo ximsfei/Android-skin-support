@@ -15,7 +15,8 @@ import skin.support.mobile.demo.R;
 public class WidgetListItem extends LinearLayout {
     private ImageView mLogoIv;
     private TextView mTitleTv;
-    private TextView mDescTv;
+    private TextView mSubtitleTv;
+    private TextView mActionTv;
 
     public WidgetListItem(Context context) {
         super(context);
@@ -36,7 +37,8 @@ public class WidgetListItem extends LinearLayout {
         inflate(getContext(), R.layout.item_widget_list, this);
         mLogoIv = findViewById(R.id.iv_logo);
         mTitleTv = findViewById(R.id.tv_title);
-        mDescTv = findViewById(R.id.tv_desc);
+        mSubtitleTv = findViewById(R.id.tv_subtitle);
+        mActionTv = findViewById(R.id.tv_action);
 
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.WidgetListItem, defStyleAttr, 0);
@@ -53,14 +55,36 @@ public class WidgetListItem extends LinearLayout {
                     mTitleTv.setVisibility(VISIBLE);
                 }
             }
-            if (a.hasValue(R.styleable.WidgetListItem_desc)) {
-                String desc = a.getString(R.styleable.WidgetListItem_desc);
-                if (!TextUtils.isEmpty(desc)) {
-                    mDescTv.setText(desc);
-                    mDescTv.setVisibility(VISIBLE);
+            if (a.hasValue(R.styleable.WidgetListItem_subtitle)) {
+                String subtitle = a.getString(R.styleable.WidgetListItem_subtitle);
+                if (!TextUtils.isEmpty(subtitle)) {
+                    mSubtitleTv.setText(subtitle);
+                    mSubtitleTv.setVisibility(VISIBLE);
+                }
+            }
+            if (a.hasValue(R.styleable.WidgetListItem_action)) {
+                String action = a.getString(R.styleable.WidgetListItem_action);
+                if (!TextUtils.isEmpty(action)) {
+                    mActionTv.setText(action);
+                    mActionTv.setVisibility(VISIBLE);
                 }
             }
             a.recycle();
         }
+    }
+
+    public void setTitle(String title) {
+        mTitleTv.setText(title);
+        mTitleTv.setVisibility(VISIBLE);
+    }
+
+    public void setSubtitle(String subtitle) {
+        mSubtitleTv.setText(subtitle);
+        mSubtitleTv.setVisibility(VISIBLE);
+    }
+
+    public void setAction(String action) {
+        mActionTv.setText(action);
+        mActionTv.setVisibility(VISIBLE);
     }
 }

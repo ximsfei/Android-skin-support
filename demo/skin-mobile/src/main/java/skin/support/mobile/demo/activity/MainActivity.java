@@ -1,7 +1,6 @@
-package skin.support.mobile.demo;
+package skin.support.mobile.demo.activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
@@ -13,12 +12,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
+import skin.support.mobile.demo.R;
+import skin.support.mobile.demo.activity.base.BaseActivity;
 import skin.support.mobile.demo.fragment.DiscoveryFragment;
 import skin.support.mobile.demo.fragment.HomeFragment;
 import skin.support.mobile.demo.fragment.MineFragment;
-import skin.support.mobile.demo.fragment.base.BaseFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private BottomNavigationView mMenuBnv;
     private ViewPager2 mContainerVp;

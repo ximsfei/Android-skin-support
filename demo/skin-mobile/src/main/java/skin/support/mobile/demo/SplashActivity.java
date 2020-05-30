@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import skin.support.mobile.demo.activity.MainActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override

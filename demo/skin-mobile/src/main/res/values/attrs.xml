@@ -3,6 +3,7 @@
     <declare-styleable name="WidgetListItem">
         <attr name="logo" />
         <attr name="title" />
-        <attr name="desc" />
+        <attr name="subtitle" />
+        <attr name="action" />
     </declare-styleable>
 </resources>
