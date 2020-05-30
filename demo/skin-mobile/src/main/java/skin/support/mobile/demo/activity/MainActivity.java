@@ -29,6 +29,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initToolbar(false);
         mMenuBnv = findViewById(R.id.bnv_menu);
         mContainerVp = findViewById(R.id.vp_container);
         initViews();
@@ -55,6 +56,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 mMenuBnv.getMenu().getItem(position).setChecked(true);
+                setTitle(mMenuBnv.getMenu().getItem(position).getTitle());
             }
         });
         mMenuBnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

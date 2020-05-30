@@ -3,13 +3,13 @@
     <item
         android:id="@+id/bnv_home"
         android:icon="@drawable/icon_workset"
-        android:title="首页" />
+        android:title="@string/tab_name_home" />
     <item
         android:id="@+id/bnv_discovery"
         android:icon="@drawable/icon_discovery"
-        android:title="发现" />
+        android:title="@string/tab_name_discovery" />
     <item
         android:id="@+id/bnv_mine"
         android:icon="@drawable/icon_signal"
-        android:title="我的" />
+        android:title="@string/tab_name_mine" />
 </menu>

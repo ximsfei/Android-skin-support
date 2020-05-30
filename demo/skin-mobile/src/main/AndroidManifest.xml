@@ -3,6 +3,7 @@
     package="skin.support.mobile.demo">
 
     <application
+        android:name=".SkinApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,6 +21,9 @@
         <activity
             android:name=".activity.AboutActivity"
             android:label="@string/about" />
+        <activity
+            android:name=".activity.ColorPickerActivity"
+            android:label="@string/skin_name_color_picker" />
     </application>
 
 </manifest>

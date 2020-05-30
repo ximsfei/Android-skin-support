@@ -4,6 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:subtitleTextColor="@color/colorPrimaryDarkReverse"
+        app:titleTextColor="@color/colorPrimaryReverse" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv_menu"
         android:layout_width="match_parent"
@@ -16,5 +24,6 @@
         android:id="@+id/vp_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bnv_menu" />
+        android:layout_above="@id/bnv_menu"
+        android:layout_below="@id/toolbar" />
 </RelativeLayout>

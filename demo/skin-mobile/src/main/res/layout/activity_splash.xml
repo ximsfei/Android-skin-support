@@ -4,13 +4,13 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:tint="@color/splash_color_primary"
         android:id="@+id/iv_skin_logo"
         android:layout_width="88dp"
         android:layout_height="88dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher"
+        android:tint="@color/colorPrimaryReverse" />
 
     <TextView
         android:id="@+id/tv_skin_name"
@@ -22,7 +22,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/splash_title"
-        android:textColor="@color/splash_color_primary"
+        android:textColor="@color/colorPrimaryReverse"
         android:textSize="@dimen/large_text_size" />
 
     <TextView
@@ -36,7 +36,7 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:gravity="center"
         android:text="@string/splash_desc"
-        android:textColor="@color/splash_color_hint"
+        android:textColor="@color/colorPrimaryDarkReverse"
         android:textSize="@dimen/sub_text_size" />
 
     <TextView
@@ -46,6 +46,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:textColor="@color/splash_color_hint"
+        android:textColor="@color/colorPrimaryDarkReverse"
         android:textSize="@dimen/sub_text_size" />
 </RelativeLayout>

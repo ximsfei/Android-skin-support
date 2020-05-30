@@ -17,6 +17,7 @@ public class AboutActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        initToolbar(true);
         mVersionNameTv = findViewById(R.id.tv_version_name);
         String versionName = AppTools.getVersionName(this);
         if (!TextUtils.isEmpty(versionName)) {

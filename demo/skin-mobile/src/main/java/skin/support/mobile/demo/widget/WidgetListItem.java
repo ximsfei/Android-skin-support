@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ public class WidgetListItem extends LinearLayout {
     private TextView mTitleTv;
     private TextView mSubtitleTv;
     private TextView mActionTv;
+    private ImageView mArrowIv;
+    private View mDividerV;
 
     public WidgetListItem(Context context) {
         super(context);
@@ -39,6 +42,8 @@ public class WidgetListItem extends LinearLayout {
         mTitleTv = findViewById(R.id.tv_title);
         mSubtitleTv = findViewById(R.id.tv_subtitle);
         mActionTv = findViewById(R.id.tv_action);
+        mArrowIv = findViewById(R.id.iv_arrow);
+        mDividerV = findViewById(R.id.v_divider);
 
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.WidgetListItem, defStyleAttr, 0);
@@ -46,6 +51,7 @@ public class WidgetListItem extends LinearLayout {
                 int resId = a.getResourceId(R.styleable.WidgetListItem_logo, -1);
                 if (resId != -1) {
                     mLogoIv.setImageResource(resId);
+                    mLogoIv.setVisibility(VISIBLE);
                 }
             }
             if (a.hasValue(R.styleable.WidgetListItem_title)) {
@@ -68,6 +74,14 @@ public class WidgetListItem extends LinearLayout {
                     mActionTv.setText(action);
                     mActionTv.setVisibility(VISIBLE);
                 }
+            }
+            if (a.hasValue(R.styleable.WidgetListItem_clickable)) {
+                boolean clickable = a.getBoolean(R.styleable.WidgetListItem_clickable, true);
+                mArrowIv.setVisibility(clickable ? VISIBLE : GONE);
+            }
+            if (a.hasValue(R.styleable.WidgetListItem_has_divider)) {
+                boolean hasDivider = a.getBoolean(R.styleable.WidgetListItem_has_divider, true);
+                mDividerV.setVisibility(hasDivider ? VISIBLE : GONE);
             }
             a.recycle();
         }

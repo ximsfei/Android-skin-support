@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_white">#FFFFFF</color>
+    <color name="colorPrimaryDark_white">#FFFFFF</color>
+    <color name="colorAccent_white">#ce3d3a</color>
+
+    <color name="colorPrimaryReverse_white">#ce3d3a</color>
+    <color name="colorPrimaryDarkReverse_white">#ce3d3a</color>
+
+    <color name="splash_color_primary_white">#333333</color>
+    <color name="splash_color_hint_white">#999999</color>
+
+    <color name="list_divider_color_white">#666666</color>
+
+    <color name="main_text_color_white">#333333</color>
+    <color name="sub_text_color_white">#999999</color>
+
+    <color name="bnv_background_white">#ffffff</color>
+</resources>

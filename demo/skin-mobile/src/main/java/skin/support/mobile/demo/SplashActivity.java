@@ -1,6 +1,9 @@
 package skin.support.mobile.demo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.app.SkinAppCompatDelegateImpl;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,5 +27,11 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, 2000);
+    }
+
+    @NonNull
+    @Override
+    public AppCompatDelegate getDelegate() {
+        return SkinAppCompatDelegateImpl.get(this, this);
     }
 }

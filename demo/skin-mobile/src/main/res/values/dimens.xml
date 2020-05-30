@@ -3,6 +3,8 @@
     <dimen name="activity_horizontal_margin">32dp</dimen>
     <dimen name="activity_vertical_margin">32dp</dimen>
 
+    <dimen name="list_item_height">48dp</dimen>
+
     <dimen name="large_text_size">24sp</dimen>
     <dimen name="main_text_size">18sp</dimen>
     <dimen name="sub_text_size">13sp</dimen>

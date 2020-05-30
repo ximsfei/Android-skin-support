@@ -6,15 +6,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        app:cardElevation="1dp">
+    <androidx.cardview.widget.CardView style="@style/CardStyle.Top">
 
         <skin.support.mobile.demo.widget.WidgetListItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:has_divider="false"
             app:logo="@drawable/icon_widget_text"
             app:title="TextView" />
 

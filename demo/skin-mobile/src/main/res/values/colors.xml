@@ -4,14 +4,16 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
-    <color name="splash_color_primary">#ffffff</color>
-    <color name="splash_color_hint">#eeeeee</color>
+    <color name="colorPrimaryReverse">#ffffff</color>
+    <color name="colorPrimaryDarkReverse">#eeeeee</color>
 
-    <color name="list_divider_color">#eeeeee</color>
+    <color name="list_divider_color">#666666</color>
 
     <color name="main_text_color">#333333</color>
     <color name="sub_text_color">#999999</color>
 
     <color name="wli_logo_tint">@color/main_text_color</color>
     <color name="wli_arrow_tint">@color/sub_text_color</color>
+
+    <color name="bnv_background">#ffffff</color>
 </resources>

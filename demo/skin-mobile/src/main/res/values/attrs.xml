@@ -5,5 +5,7 @@
         <attr name="title" />
         <attr name="subtitle" />
         <attr name="action" />
+        <attr name="clickable" format="boolean" />
+        <attr name="has_divider" format="boolean" />
     </declare-styleable>
 </resources>

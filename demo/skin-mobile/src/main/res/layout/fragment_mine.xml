@@ -6,17 +6,89 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        app:cardElevation="1dp">
+    <androidx.cardview.widget.CardView style="@style/CardStyle.Top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <skin.support.mobile.demo.widget.WidgetListItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:clickable="false"
+                app:logo="@mipmap/ic_launcher"
+                app:title="@string/skin" />
+
+            <RadioGroup
+                android:id="@+id/rg_skin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
+
+                <RadioButton
+                    android:id="@+id/rb_skin_default"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_item_height"
+                    android:text="@string/skin_name_default" />
+
+                <RadioButton
+                    android:id="@+id/rb_skin_yellow"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_item_height"
+                    android:text="@string/skin_name_yellow" />
+
+                <RadioButton
+                    android:id="@+id/rb_skin_red"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_item_height"
+                    android:text="@string/skin_name_red" />
+
+                <RadioButton
+                    android:id="@+id/rb_skin_pink"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_item_height"
+                    android:text="@string/skin_name_pink" />
+
+                <RadioButton
+                    android:id="@+id/rb_skin_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_item_height"
+                    android:text="@string/skin_name_black" />
+
+                <RadioButton
+                    android:id="@+id/rb_skin_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_item_height"
+                    android:text="@string/skin_name_white" />
+
+                <RadioButton
+                    android:id="@+id/rb_skin_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_item_height"
+                    android:text="@string/skin_name_blue" />
+            </RadioGroup>
+
+            <skin.support.mobile.demo.widget.WidgetListItem
+                android:id="@+id/wli_color_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:has_divider="false"
+                app:logo="@drawable/icon_color_picker"
+                app:title="@string/skin_name_color_picker" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView style="@style/CardStyle">
 
         <skin.support.mobile.demo.widget.WidgetListItem
             android:id="@+id/wli_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:logo="@drawable/ic_about"
+            app:has_divider="false"
+            app:logo="@drawable/icon_details"
             app:title="@string/about" />
 
     </androidx.cardview.widget.CardView>
