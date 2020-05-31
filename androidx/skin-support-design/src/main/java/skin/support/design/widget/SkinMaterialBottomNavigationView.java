@@ -3,6 +3,8 @@ package skin.support.design.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.util.AttributeSet;
@@ -10,6 +12,7 @@ import android.util.TypedValue;
 
 import skin.support.content.res.SkinCompatResources;
 import skin.support.design.R;
+import skin.support.widget.SkinCompatBackgroundHelper;
 import skin.support.widget.SkinCompatHelper;
 import skin.support.widget.SkinCompatSupportable;
 
@@ -20,9 +23,10 @@ import static skin.support.widget.SkinCompatHelper.INVALID_ID;
  */
 
 public class SkinMaterialBottomNavigationView extends BottomNavigationView implements SkinCompatSupportable {
-
+    private static final int[] DISABLED_STATE_SET = new int[]{-android.R.attr.state_enabled};
     private static final int[] CHECKED_STATE_SET = {android.R.attr.state_checked};
-    private static final int[] DISABLED_STATE_SET = {-android.R.attr.state_enabled};
+
+    private SkinCompatBackgroundHelper mBackgroundTintHelper;
 
     private int mTextColorResId = INVALID_ID;
     private int mIconTintResId = INVALID_ID;
@@ -38,6 +42,9 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
 
     public SkinMaterialBottomNavigationView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mBackgroundTintHelper = new SkinCompatBackgroundHelper(this);
+        mBackgroundTintHelper.loadFromAttributes(attrs, defStyleAttr);
+
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.BottomNavigationView, defStyleAttr,
                 R.style.Widget_Design_BottomNavigationView);
 
@@ -54,6 +61,14 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
         a.recycle();
         applyItemIconTintResource();
         applyItemTextColorResource();
+    }
+
+    @Override
+    public void setBackgroundResource(@DrawableRes int resId) {
+        super.setBackgroundResource(resId);
+        if (mBackgroundTintHelper != null) {
+            mBackgroundTintHelper.onSetBackgroundResource(resId);
+        }
     }
 
     private void applyItemTextColorResource() {
@@ -111,6 +126,9 @@ public class SkinMaterialBottomNavigationView extends BottomNavigationView imple
 
     @Override
     public void applySkin() {
+        if (mBackgroundTintHelper != null) {
+            mBackgroundTintHelper.applySkin();
+        }
         applyItemIconTintResource();
         applyItemTextColorResource();
     }
