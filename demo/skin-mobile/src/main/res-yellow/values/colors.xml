@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark_yellow">#FFeeaa</color>
     <color name="colorAccent_yellow">#ffee00</color>
 
-    <color name="colorPrimaryReverse_yellow">#ff99cc00</color>
-    <color name="colorPrimaryDarkReverse_yellow">#ff66cc00</color>
+    <color name="colorPrimaryReverse_yellow">#ff333333</color>
+    <color name="colorPrimaryDarkReverse_yellow">#ff2e2e2e</color>
 
     <color name="list_divider_color_yellow">#666666</color>
 
