@@ -15,7 +15,9 @@ import skin.support.mobile.demo.activity.AboutActivity;
 import skin.support.mobile.demo.activity.ColorPickerActivity;
 import skin.support.mobile.demo.fragment.base.BaseFragment;
 import skin.support.mobile.demo.util.AppTools;
+import skin.support.mobile.demo.util.Constants;
 import skin.support.mobile.demo.widget.WidgetListItem;
+import skin.support.utils.SkinPreference;
 import skin.support.utils.Slog;
 
 public class MineFragment extends BaseFragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
@@ -34,6 +36,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
         // 换肤
         mSkinRg = view.findViewById(R.id.rg_skin);
         mSkinRg.setOnCheckedChangeListener(this);
+        initRg();
+
         // 自选颜色
         mColorPickerWli = view.findViewById(R.id.wli_color_picker);
         mColorPickerWli.setOnClickListener(this);
@@ -44,6 +48,40 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
         if (!TextUtils.isEmpty(versionName)) {
             mAboutWli.setAction(String.format(getString(R.string.about_version_name), versionName));
         }
+    }
+
+    private void initRg() {
+        String skinName = SkinPreference.getInstance().getSkinName();
+        int checkedId = R.id.rb_skin_default;
+        if (!TextUtils.isEmpty(skinName)) {
+            switch (skinName) {
+                case Constants.SKIN_NAME.BLACK:
+                    checkedId = R.id.rb_skin_black;
+                    break;
+                case Constants.SKIN_NAME.BLUE:
+                    checkedId = R.id.rb_skin_blue;
+                    break;
+                case Constants.SKIN_NAME.GREEN:
+                    checkedId = R.id.rb_skin_green;
+                    break;
+                case Constants.SKIN_NAME.ORANGE:
+                    checkedId = R.id.rb_skin_orange;
+                    break;
+                case Constants.SKIN_NAME.PINK:
+                    checkedId = R.id.rb_skin_pink;
+                    break;
+                case Constants.SKIN_NAME.RED:
+                    checkedId = R.id.rb_skin_red;
+                    break;
+                case Constants.SKIN_NAME.WHITE:
+                    checkedId = R.id.rb_skin_white;
+                    break;
+                case Constants.SKIN_NAME.YELLOW:
+                    checkedId = R.id.rb_skin_yellow;
+                    break;
+            }
+        }
+        mSkinRg.check(checkedId);
     }
 
     @Override
@@ -67,35 +105,35 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
                 break;
             case R.id.rb_skin_yellow:
                 SkinCompatManager.getInstance()
-                        .loadSkin("yellow", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                        .loadSkin(Constants.SKIN_NAME.YELLOW, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
                 break;
             case R.id.rb_skin_red:
                 SkinCompatManager.getInstance()
-                        .loadSkin("red", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                        .loadSkin(Constants.SKIN_NAME.RED, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
                 break;
             case R.id.rb_skin_pink:
                 SkinCompatManager.getInstance()
-                        .loadSkin("pink", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                        .loadSkin(Constants.SKIN_NAME.PINK, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
                 break;
             case R.id.rb_skin_black:
                 SkinCompatManager.getInstance()
-                        .loadSkin("black", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                        .loadSkin(Constants.SKIN_NAME.BLACK, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
                 break;
             case R.id.rb_skin_white:
                 SkinCompatManager.getInstance()
-                        .loadSkin("white", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                        .loadSkin(Constants.SKIN_NAME.WHITE, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
                 break;
             case R.id.rb_skin_blue:
                 SkinCompatManager.getInstance()
-                        .loadSkin("blue", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                        .loadSkin(Constants.SKIN_NAME.BLUE, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
                 break;
             case R.id.rb_skin_green:
                 SkinCompatManager.getInstance()
-                        .loadSkin("green", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                        .loadSkin(Constants.SKIN_NAME.GREEN, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
                 break;
             case R.id.rb_skin_orange:
                 SkinCompatManager.getInstance()
-                        .loadSkin("orange", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                        .loadSkin(Constants.SKIN_NAME.ORANGE, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
                 break;
         }
     }
