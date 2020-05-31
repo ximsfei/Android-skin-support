@@ -1,17 +1,13 @@
 package skin.support.mobile.demo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.app.SkinAppCompatDelegateImpl;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import skin.support.mobile.demo.activity.MainActivity;
+import skin.support.mobile.demo.activity.base.BaseActivity;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +23,5 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, 2000);
-    }
-
-    @NonNull
-    @Override
-    public AppCompatDelegate getDelegate() {
-        return SkinAppCompatDelegateImpl.get(this, this);
     }
 }
