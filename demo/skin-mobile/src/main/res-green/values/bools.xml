@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <bool name="use_dark_status_green">false</bool>
+    <bool name="use_dark_status_green">true</bool>
 </resources>

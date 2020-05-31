@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark_pink">#DDC0CB</color>
     <color name="colorAccent_pink">#DDC0CB</color>
 
-    <color name="colorPrimaryReverse_pink">#ffffff</color>
-    <color name="colorPrimaryDarkReverse_pink">#aaaaaa</color>
+    <color name="colorPrimaryReverse_pink">#ff333333</color>
+    <color name="colorPrimaryDarkReverse_pink">#ff2e2e2e</color>
 
     <color name="list_divider_color_pink">#666666</color>
 

@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark_orange">#ffff8800</color>
     <color name="colorAccent_orange">#ffff6600</color>
 
-    <color name="colorPrimaryReverse_orange">#ffffff</color>
-    <color name="colorPrimaryDarkReverse_orange">#eeeeee</color>
+    <color name="colorPrimaryReverse_orange">#ff333333</color>
+    <color name="colorPrimaryDarkReverse_orange">#ff2e2e2e</color>
 
     <color name="list_divider_color_orange">#666666</color>
 
