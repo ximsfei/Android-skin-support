@@ -7,6 +7,8 @@
     <declare-styleable name="SkinCompatImageView">
         <attr name="android:src" />
         <attr name="srcCompat" />
+        <attr name="android:tint" format="color" />
+        <attr name="tint" format="color" />
     </declare-styleable>
 
     <declare-styleable name="SkinCompatTextHelper">
