@@ -78,11 +78,10 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 * [ ] 支持多语言。
 * [ ] 支持多字体。
 * [ ] 支持Preference。
-* [ ] skin-sample 实现:
+* [ ] skin-mobile 实现:
   * [ ] 动态修改主题颜色值
   * [ ] 控件使用案例
-  * [ ] 更新日志tab
-  * [ ] 关于页面
+  * [x] 关于页面
 * [ ] Wiki
 
 ### 目录结构
