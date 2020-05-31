@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
                     android:text="@string/skin_name_default"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/radio_button_tint"
                     app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
@@ -40,7 +40,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
                     android:text="@string/skin_name_yellow"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/radio_button_tint"
                     app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
@@ -48,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
                     android:text="@string/skin_name_red"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/radio_button_tint"
                     app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
                     android:text="@string/skin_name_pink"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/radio_button_tint"
                     app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
                     android:text="@string/skin_name_black"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/radio_button_tint"
                     app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
@@ -72,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
                     android:text="@string/skin_name_white"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/radio_button_tint"
                     app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
@@ -80,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
                     android:text="@string/skin_name_blue"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/radio_button_tint"
                     app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
                     android:text="@string/skin_name_green"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/radio_button_tint"
                     app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
@@ -96,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
                     android:text="@string/skin_name_orange"
-                    android:textColor="@color/main_text_color"
+                    android:textColor="@color/radio_button_tint"
                     app:buttonTint="@color/radio_button_tint" />
             </RadioGroup>
 
