@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_black">#ff2e2e2e</color>
+    <color name="colorPrimaryDark_black">#aaaaaa</color>
+    <color name="colorAccent_black">#dfffffff</color>
+
+    <color name="colorPrimaryReverse_black">#ffffff</color>
+    <color name="colorPrimaryDarkReverse_black">#aaaaaa</color>
+
+    <color name="windowBackground_black">#ff202020</color>
+
+    <color name="list_divider_color_black">#666666</color>
+
+    <color name="main_text_color_black">#adadad</color>
+    <color name="sub_text_color_black">#7d7d7d</color>
+
+    <color name="color_background_black">#ff202020</color>
+</resources>

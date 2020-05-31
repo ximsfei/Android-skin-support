@@ -19,5 +19,7 @@
     <string name="skin_name_black">神秘黑</string>
     <string name="skin_name_white">纯洁白</string>
     <string name="skin_name_blue">梦幻蓝</string>
+    <string name="skin_name_green">青葱绿</string>
+    <string name="skin_name_orange">活力橙</string>
     <string name="skin_name_color_picker">自选颜色</string>
 </resources>

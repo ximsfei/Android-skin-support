@@ -24,7 +24,15 @@ android {
 
     sourceSets {
         main {
-            res.srcDirs = ['src/main/res', 'src/main/res-white']
+            res.srcDirs = ['src/main/res',
+                           'src/main/res-black',
+                           'src/main/res-blue',
+                           'src/main/res-green',
+                           'src/main/res-orange',
+                           'src/main/res-pink',
+                           'src/main/res-red',
+                           'src/main/res-white',
+                           'src/main/res-yellow']
         }
     }
 }
@@ -38,9 +46,13 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.1.0'
 
-    implementation 'skin.support:skin-support:4.0.5'                   // skin-support
-    implementation 'skin.support:skin-support-appcompat:4.0.5'         // skin-support 基础控件支持
-    implementation 'skin.support:skin-support-design:4.0.5'            // skin-support-design material design 控件支持[可选]
+//    implementation 'skin.support:skin-support:4.0.5'                   // skin-support
+//    implementation 'skin.support:skin-support-appcompat:4.0.5'         // skin-support 基础控件支持
+//    implementation 'skin.support:skin-support-design:4.0.5'            // skin-support-design material design 控件支持[可选]
     implementation 'skin.support:skin-support-cardview:4.0.5'          // skin-support-cardview CardView 控件支持[可选]
     implementation 'skin.support:skin-support-constraint-layout:4.0.5' // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+
+    implementation project(':androidx:skin-support')
+    implementation project(':androidx:skin-support-appcompat')
+    implementation project(':androidx:skin-support-design')
 }

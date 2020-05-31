@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_yellow">#FFFF00</color>
+    <color name="colorPrimaryDark_yellow">#FFeeaa</color>
+    <color name="colorAccent_yellow">#ffee00</color>
+
+    <color name="colorPrimaryReverse_yellow">#ff99cc00</color>
+    <color name="colorPrimaryDarkReverse_yellow">#ff66cc00</color>
+
+    <color name="list_divider_color_yellow">#666666</color>
+
+    <color name="main_text_color_yellow">#333333</color>
+    <color name="sub_text_color_yellow">#999999</color>
+
+    <color name="color_background_yellow">#ffffff</color>
+</resources>

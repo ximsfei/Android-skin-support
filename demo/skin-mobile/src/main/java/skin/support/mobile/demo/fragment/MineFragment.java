@@ -89,6 +89,14 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
                 SkinCompatManager.getInstance()
                         .loadSkin("blue", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
                 break;
+            case R.id.rb_skin_green:
+                SkinCompatManager.getInstance()
+                        .loadSkin("green", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                break;
+            case R.id.rb_skin_orange:
+                SkinCompatManager.getInstance()
+                        .loadSkin("orange", SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+                break;
         }
     }
 }

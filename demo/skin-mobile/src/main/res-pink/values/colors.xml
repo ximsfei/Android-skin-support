@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_pink">#FFC0CB</color>
+    <color name="colorPrimaryDark_pink">#DDC0CB</color>
+    <color name="colorAccent_pink">#DDC0CB</color>
+
+    <color name="colorPrimaryReverse_pink">#ffffff</color>
+    <color name="colorPrimaryDarkReverse_pink">#aaaaaa</color>
+
+    <color name="list_divider_color_pink">#666666</color>
+
+    <color name="main_text_color_pink">#333333</color>
+    <color name="sub_text_color_pink">#999999</color>
+
+    <color name="color_background_pink">#ffffff</color>
+</resources>

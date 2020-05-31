@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_blue">#ff33b5e5</color>
+    <color name="colorPrimaryDark_blue">#ff33b5e5</color>
+    <color name="colorAccent_blue">#ff33b5e5</color>
+
+    <color name="colorPrimaryReverse_blue">#ffffff</color>
+    <color name="colorPrimaryDarkReverse_blue">#eeeeee</color>
+
+    <color name="list_divider_color_blue">#666666</color>
+
+    <color name="main_text_color_blue">#333333</color>
+    <color name="sub_text_color_blue">#999999</color>
+
+    <color name="color_background_blue">#ffffff</color>
+</resources>

@@ -31,43 +31,73 @@
                     android:id="@+id/rb_skin_default"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
-                    android:text="@string/skin_name_default" />
+                    android:text="@string/skin_name_default"
+                    android:textColor="@color/main_text_color"
+                    app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
                     android:id="@+id/rb_skin_yellow"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
-                    android:text="@string/skin_name_yellow" />
+                    android:text="@string/skin_name_yellow"
+                    android:textColor="@color/main_text_color"
+                    app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
                     android:id="@+id/rb_skin_red"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
-                    android:text="@string/skin_name_red" />
+                    android:text="@string/skin_name_red"
+                    android:textColor="@color/main_text_color"
+                    app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
                     android:id="@+id/rb_skin_pink"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
-                    android:text="@string/skin_name_pink" />
+                    android:text="@string/skin_name_pink"
+                    android:textColor="@color/main_text_color"
+                    app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
                     android:id="@+id/rb_skin_black"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
-                    android:text="@string/skin_name_black" />
+                    android:text="@string/skin_name_black"
+                    android:textColor="@color/main_text_color"
+                    app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
                     android:id="@+id/rb_skin_white"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
-                    android:text="@string/skin_name_white" />
+                    android:text="@string/skin_name_white"
+                    android:textColor="@color/main_text_color"
+                    app:buttonTint="@color/radio_button_tint" />
 
                 <RadioButton
                     android:id="@+id/rb_skin_blue"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/list_item_height"
-                    android:text="@string/skin_name_blue" />
+                    android:text="@string/skin_name_blue"
+                    android:textColor="@color/main_text_color"
+                    app:buttonTint="@color/radio_button_tint" />
+
+                <RadioButton
+                    android:id="@+id/rb_skin_green"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_item_height"
+                    android:text="@string/skin_name_green"
+                    android:textColor="@color/main_text_color"
+                    app:buttonTint="@color/radio_button_tint" />
+
+                <RadioButton
+                    android:id="@+id/rb_skin_orange"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/list_item_height"
+                    android:text="@string/skin_name_orange"
+                    android:textColor="@color/main_text_color"
+                    app:buttonTint="@color/radio_button_tint" />
             </RadioGroup>
 
             <skin.support.mobile.demo.widget.WidgetListItem

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_red">#ffce3d3a</color>
+    <color name="colorPrimaryDark_red">#fffaebeb</color>
+    <color name="colorAccent_red">#ffce3d3a</color>
+
+    <color name="colorPrimaryReverse_red">#ffffff</color>
+    <color name="colorPrimaryDarkReverse_red">#eeeeee</color>
+
+    <color name="list_divider_color_red">#666666</color>
+
+    <color name="main_text_color_red">#333333</color>
+    <color name="sub_text_color_red">#999999</color>
+
+    <color name="color_background_red">#ffffff</color>
+</resources>

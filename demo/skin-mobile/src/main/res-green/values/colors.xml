@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_green">#ff99cc00</color>
+    <color name="colorPrimaryDark_green">#ff669900</color>
+    <color name="colorAccent_green">#ff339900</color>
+
+    <color name="colorPrimaryReverse_green">#ffffff</color>
+    <color name="colorPrimaryDarkReverse_green">#eeeeee</color>
+
+    <color name="list_divider_color_green">#666666</color>
+
+    <color name="main_text_color_green">#333333</color>
+    <color name="sub_text_color_green">#999999</color>
+
+    <color name="color_background_green">#ffffff</color>
+</resources>

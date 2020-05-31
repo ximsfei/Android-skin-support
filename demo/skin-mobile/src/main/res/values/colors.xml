@@ -2,10 +2,12 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#6200EE</color>
 
     <color name="colorPrimaryReverse">#ffffff</color>
     <color name="colorPrimaryDarkReverse">#eeeeee</color>
+
+    <color name="windowBackground">#f5f5f5</color>
 
     <color name="list_divider_color">#666666</color>
 
@@ -15,5 +17,5 @@
     <color name="wli_logo_tint">@color/main_text_color</color>
     <color name="wli_arrow_tint">@color/sub_text_color</color>
 
-    <color name="bnv_background">#ffffff</color>
+    <color name="color_background">#ffffff</color>
 </resources>
