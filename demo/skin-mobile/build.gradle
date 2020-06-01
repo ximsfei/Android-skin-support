@@ -9,7 +9,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
 
         buildConfigField("String", "BUILD_TIME", "\"" + new Date().format("yyyy-MM-dd") + "\"")

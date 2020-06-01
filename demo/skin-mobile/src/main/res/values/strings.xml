@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">skin</string>
+    <string name="app_name">换肤</string>
     <string name="splash_title">Android Skin Support</string>
     <string name="splash_desc">一款用心去做的 Android 换肤框架，极低的学习成本\n极好的用户体验</string>
     <string name="splash_build_time">构建于 %s</string>
@@ -7,7 +7,7 @@
     <string name="tab_name_home">首页</string>
     <string name="tab_name_discovery">发现</string>
     <string name="tab_name_mine">我的</string>
-
+,
     <string name="skin">换肤</string>
     <string name="about">关于</string>
     <string name="about_version_name">版本号：%s</string>
@@ -22,4 +22,9 @@
     <string name="skin_name_green">青葱绿</string>
     <string name="skin_name_orange">活力橙</string>
     <string name="skin_name_color_picker">自选颜色</string>
+
+    <string name="about_feature">功能介绍</string>
+    <string name="about_update_version">更新记录</string>
+    <string name="about_license">License</string>
+    <string name="about_copyright">Copyright © 2017–2020 PengFeng Wang.\nAll Rights Reserved.</string>
 </resources>

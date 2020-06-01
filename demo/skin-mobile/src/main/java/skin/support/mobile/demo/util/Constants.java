@@ -12,4 +12,10 @@ public interface Constants {
         String WHITE = "white";
         String YELLOW = "yellow";
     }
+
+    interface URL {
+        String FEATURE_URL = "https://github.com/ximsfei/Android-skin-support";
+        String LICENSE_URL = "https://github.com/ximsfei/Android-skin-support/blob/master/LICENSE";
+        String UPDATE_VERSION_URL = "https://github.com/ximsfei/Android-skin-support/blob/master/docs/ChangeLog.md";
+    }
 }

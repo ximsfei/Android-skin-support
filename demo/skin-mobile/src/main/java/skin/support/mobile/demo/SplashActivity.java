@@ -13,7 +13,7 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        TextView buildTimeTv = findViewById(R.id.tv_build_time);
+        TextView buildTimeTv = findViewById(R.id.tv_copyright);
         buildTimeTv.setText(String.format(getString(R.string.splash_build_time), BuildConfig.BUILD_TIME));
         buildTimeTv.postDelayed(new Runnable() {
             @Override

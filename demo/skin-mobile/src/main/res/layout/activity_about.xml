@@ -2,34 +2,105 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:subtitleTextColor="@color/colorPrimaryDarkReverse"
-        app:titleTextColor="@color/colorPrimaryReverse" />
-
-    <ImageView
-        android:id="@+id/iv_skin_logo"
-        android:layout_width="88dp"
-        android:layout_height="88dp"
-        android:layout_below="@id/toolbar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:src="@mipmap/ic_launcher"
-        android:tint="@color/colorPrimary" />
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
     <TextView
-        android:id="@+id/tv_version_name"
+        android:id="@+id/tv_copyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_skin_logo"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="12dp"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:textAppearance="@style/SubTextAppearance" />
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:gravity="center_horizontal"
+        android:text="@string/about_copyright"
+        android:textColor="@color/colorPrimaryDarkReverse"
+        android:textSize="@dimen/sub_text_size" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/tv_copyright">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:subtitleTextColor="@color/colorPrimaryDarkReverse"
+                app:titleTextColor="@color/colorPrimaryReverse" />
+
+            <ImageView
+                android:id="@+id/iv_skin_logo"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_below="@id/toolbar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="42dp"
+                android:src="@mipmap/ic_launcher"
+                android:tint="@color/colorPrimaryReverse" />
+
+            <TextView
+                android:id="@+id/tv_skin_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_skin_logo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:text="@string/splash_title"
+                android:textColor="@color/colorPrimaryReverse"
+                android:textSize="@dimen/large_text_size" />
+
+            <TextView
+                android:id="@+id/tv_version_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_skin_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="28dp"
+                android:gravity="center"
+                android:text="@string/splash_desc"
+                android:textColor="@color/colorPrimaryDarkReverse"
+                android:textSize="@dimen/main_text_size" />
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardStyle.Top"
+                android:layout_below="@id/tv_version_name">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <skin.support.mobile.demo.widget.WidgetListItem
+                        android:id="@+id/wli_feature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:title="@string/about_feature" />
+
+                    <skin.support.mobile.demo.widget.WidgetListItem
+                        android:id="@+id/wli_update_version"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:title="@string/about_update_version" />
+
+                    <skin.support.mobile.demo.widget.WidgetListItem
+                        android:id="@+id/wli_license"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:has_divider="false"
+                        app:title="@string/about_license" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
