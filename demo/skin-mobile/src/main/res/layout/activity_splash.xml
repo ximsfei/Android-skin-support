@@ -40,7 +40,7 @@
         android:textSize="@dimen/sub_text_size" />
 
     <TextView
-        android:id="@+id/tv_copyright"
+        android:id="@+id/tv_build_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
