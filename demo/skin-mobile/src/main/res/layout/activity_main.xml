@@ -12,6 +12,12 @@
         app:subtitleTextColor="@color/colorPrimaryDarkReverse"
         app:titleTextColor="@color/colorPrimaryReverse" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/toolbar"
+        android:background="@drawable/main_gradient_bg" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv_menu"
         android:layout_width="match_parent"
