@@ -7,8 +7,6 @@ import android.content.res.XmlResourceParser;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 
-import androidx.annotation.AnyRes;
-
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -17,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import skin.support.SkinCompatManager;
+import skin.support.annotation.AnyRes;
 
 public class SkinCompatResources {
     private static volatile SkinCompatResources sInstance;

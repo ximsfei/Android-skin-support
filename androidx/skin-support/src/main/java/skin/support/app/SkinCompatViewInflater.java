@@ -4,10 +4,6 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.TypedArray;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
-import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.InflateException;
 import android.view.View;
@@ -18,6 +14,10 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 import skin.support.SkinCompatManager;
+import skin.support.annotation.NonNull;
+import skin.support.annotation.Nullable;
+import skin.support.collection.ArrayMap;
+import skin.support.view.ViewCompat;
 
 /**
  * Created by ximsfei on 17-1-9.

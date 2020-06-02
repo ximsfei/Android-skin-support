@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-import androidx.annotation.NonNull;
+import skin.support.annotation.NonNull;
 
 /**
  * Created by ximsfei on 2017/1/13.

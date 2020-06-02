@@ -10,13 +10,13 @@ import android.view.LayoutInflater;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
 
-import androidx.core.view.LayoutInflaterCompat;
 import skin.support.SkinCompatManager;
 import skin.support.annotation.Skinable;
 import skin.support.content.res.SkinCompatResources;
 import skin.support.observe.SkinObservable;
 import skin.support.observe.SkinObserver;
 import skin.support.utils.Slog;
+import skin.support.view.LayoutInflaterCompat;
 import skin.support.widget.SkinCompatSupportable;
 import skin.support.content.res.SkinCompatThemeUtils;
 

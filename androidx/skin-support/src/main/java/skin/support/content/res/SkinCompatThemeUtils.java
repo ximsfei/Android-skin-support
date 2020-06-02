@@ -4,10 +4,9 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.os.Build;
-import androidx.annotation.RequiresApi;
-import androidx.core.graphics.ColorUtils;
 import android.util.TypedValue;
+
+import skin.support.graphics.ColorUtils;
 
 import static skin.support.widget.SkinCompatHelper.INVALID_ID;
 
@@ -39,11 +38,6 @@ public class SkinCompatThemeUtils {
 
     public static int getTextColorPrimaryResId(Context context) {
         return getResId(context, new int[]{android.R.attr.textColorPrimary});
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public static int getStatusBarColorResId(Context context) {
-        return getResId(context, new int[]{android.R.attr.statusBarColor});
     }
 
     public static int getWindowBackgroundResId(Context context) {

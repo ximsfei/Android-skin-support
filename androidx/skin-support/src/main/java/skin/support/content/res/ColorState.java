@@ -3,7 +3,6 @@ package skin.support.content.res;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import androidx.annotation.ColorRes;
 import android.text.TextUtils;
 
 import org.json.JSONException;
@@ -12,6 +11,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import skin.support.annotation.ColorRes;
 import skin.support.exception.SkinCompatException;
 import skin.support.utils.Slog;
 

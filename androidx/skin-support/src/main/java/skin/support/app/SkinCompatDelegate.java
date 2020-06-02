@@ -1,7 +1,6 @@
 package skin.support.app;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +10,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import skin.support.SkinCompatManager;
+import skin.support.annotation.NonNull;
 import skin.support.widget.SkinCompatSupportable;
 
 /**

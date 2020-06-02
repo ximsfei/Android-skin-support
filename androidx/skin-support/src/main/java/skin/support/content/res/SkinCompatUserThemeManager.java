@@ -7,8 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
 import android.text.TextUtils;
 
 import org.json.JSONArray;
@@ -21,6 +19,8 @@ import java.util.HashMap;
 import java.util.WeakHashMap;
 
 import skin.support.SkinCompatManager;
+import skin.support.annotation.ColorRes;
+import skin.support.annotation.DrawableRes;
 import skin.support.utils.ImageUtils;
 import skin.support.utils.SkinPreference;
 import skin.support.utils.Slog;
