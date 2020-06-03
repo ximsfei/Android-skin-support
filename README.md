@@ -74,7 +74,8 @@ SkinCompatManager.withoutActivity(this).loadSkin();
 
 ### TODO
 
-* [ ] 解耦androidx，支持原生组件换肤
+* [x] 解耦androidx
+* [ ] 支持原生组件换肤
 * [ ] 支持多语言。
 * [ ] 支持多字体。
 * [ ] 支持Preference。
