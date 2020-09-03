@@ -77,4 +77,6 @@
 
     <color name="msg_background_color">#cd3d3a</color>
     <color name="msg_stroke_color">#f6ce59</color>
+
+    <color name="tint_color">#f00</color>
 </resources>

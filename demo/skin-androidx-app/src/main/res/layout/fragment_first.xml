@@ -3,6 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -16,14 +17,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/image_button"
                 android:layout_width="match_parent"
                 android:layout_height="112dp"
                 android:background="@drawable/picture"
                 android:scaleType="fitXY" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
@@ -32,7 +33,7 @@
                 android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 style="@style/TextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -40,7 +41,7 @@
                 android:text="style=@style/TextStyle"
                 android:textSize="18sp" />
 
-            <MultiAutoCompleteTextView
+            <androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
                 android:id="@+id/auto"
                 style="@style/TextStyle"
                 android:layout_width="match_parent"
@@ -49,7 +50,7 @@
                 android:popupBackground="@color/background"
                 android:text="MultiAutoCompleteTextView" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:clickable="true"
@@ -58,12 +59,14 @@
                 android:textColor="@drawable/color_selector"
                 android:textSize="18sp" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                app:srcCompat="@color/colorPrimary"
+                app:tint="@color/tint_color"
                 android:background="@drawable/image_background" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 style="@style/TextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -72,7 +75,7 @@
                 android:textAllCaps="false"
                 android:textSize="18sp" />
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 style="@style/TextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -87,7 +90,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:orientation="horizontal">
 
-                <CheckBox
+                <androidx.appcompat.widget.AppCompatCheckBox
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
                     android:button="@drawable/button_checked" />
@@ -98,24 +101,24 @@
                     android:background="@color/t2_7_background"
                     android:orientation="horizontal">
 
-                    <RadioButton
+                    <androidx.appcompat.widget.AppCompatRadioButton
                         android:layout_width="?attr/actionBarSize"
                         android:layout_height="?attr/actionBarSize"
                         android:button="@drawable/button_radio" />
 
-                    <RadioButton
+                    <androidx.appcompat.widget.AppCompatRadioButton
                         android:layout_width="?attr/actionBarSize"
                         android:layout_height="?attr/actionBarSize"
                         android:button="@drawable/button_radio" />
 
-                    <RadioButton
+                    <androidx.appcompat.widget.AppCompatRadioButton
                         android:layout_width="?attr/actionBarSize"
                         android:layout_height="?attr/actionBarSize"
                         android:background="@color/colorPrimary" />
                 </RadioGroup>
             </LinearLayout>
 
-            <CheckedTextView
+            <androidx.appcompat.widget.AppCompatCheckedTextView
                 android:id="@+id/checked_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"

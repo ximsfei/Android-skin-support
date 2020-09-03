@@ -5,12 +5,14 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 
+import androidx.appcompat.widget.AppCompatCheckedTextView;
 import androidx.core.view.ViewCompat;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.appcompat.widget.TintContextWrapper;
 import androidx.appcompat.widget.VectorEnabledTintResources;
 
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewParent;
 
@@ -57,10 +59,11 @@ public class SkinAppCompatViewInflater implements SkinLayoutInflater, SkinWrappe
     }
 
     private View createViewFromFV(Context context, String name, AttributeSet attrs) {
+
         View view = null;
-        if (name.contains(".")) {
-            return null;
-        }
+//        if (name.contains(".")) {
+//            return null;
+//        }
         switch (name) {
             case "View":
                 view = new SkinCompatView(context, attrs);
@@ -75,45 +78,58 @@ public class SkinAppCompatViewInflater implements SkinLayoutInflater, SkinWrappe
                 view = new SkinCompatFrameLayout(context, attrs);
                 break;
             case "TextView":
+            case "androidx.appcompat.widget.AppCompatTextView":
                 view = new SkinCompatTextView(context, attrs);
                 break;
             case "ImageView":
+            case "androidx.appcompat.widget.AppCompatImageView":
                 view = new SkinCompatImageView(context, attrs);
                 break;
             case "Button":
+            case "androidx.appcompat.widget.AppCompatButton":
                 view = new SkinCompatButton(context, attrs);
                 break;
             case "EditText":
+            case "androidx.appcompat.widget.AppCompatEditText":
                 view = new SkinCompatEditText(context, attrs);
                 break;
             case "Spinner":
+            case "androidx.appcompat.widget.AppCompatSpinner":
                 view = new SkinCompatSpinner(context, attrs);
                 break;
             case "ImageButton":
+            case "androidx.appcompat.widget.AppCompatImageButton":
                 view = new SkinCompatImageButton(context, attrs);
                 break;
             case "CheckBox":
+            case "androidx.appcompat.widget.AppCompatCheckBox":
                 view = new SkinCompatCheckBox(context, attrs);
                 break;
             case "RadioButton":
+            case "androidx.appcompat.widget.AppCompatRadioButton":
                 view = new SkinCompatRadioButton(context, attrs);
                 break;
             case "RadioGroup":
                 view = new SkinCompatRadioGroup(context, attrs);
                 break;
             case "CheckedTextView":
+            case "androidx.appcompat.widget.AppCompatCheckedTextView":
                 view = new SkinCompatCheckedTextView(context, attrs);
                 break;
             case "AutoCompleteTextView":
+            case "androidx.appcompat.widget.AppCompatAutoCompleteTextView":
                 view = new SkinCompatAutoCompleteTextView(context, attrs);
                 break;
             case "MultiAutoCompleteTextView":
+            case "androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView":
                 view = new SkinCompatMultiAutoCompleteTextView(context, attrs);
                 break;
             case "RatingBar":
+            case "androidx.appcompat.widget.AppCompatRatingBar":
                 view = new SkinCompatRatingBar(context, attrs);
                 break;
             case "SeekBar":
+            case "androidx.appcompat.widget.AppCompatSeekBar":
                 view = new SkinCompatSeekBar(context, attrs);
                 break;
             case "ProgressBar":

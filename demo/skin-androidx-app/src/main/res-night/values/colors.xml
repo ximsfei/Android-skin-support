@@ -76,4 +76,6 @@
 
     <color name="msg_background_color_night">#dcd3a3</color>
     <color name="msg_stroke_color_night">#ce2736</color>
+
+    <color name="tint_color_night">#0f0</color>
 </resources>
